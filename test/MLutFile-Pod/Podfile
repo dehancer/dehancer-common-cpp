@@ -1,0 +1,21 @@
+# source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+inhibit_all_warnings!
+platform :osx, '10.13'
+
+target 'MLutFile-Pod' do
+    inherit! :search_paths
+    
+    #
+    # develop mode
+    #
+    pod 'IMProcessingXMP', :path => '../../../IMProcessingXMP' #:git => 'https://github.com/dehancer/IMProcessingXMP'
+    pod 'IMProcessing', :path => '../../../IMProcessing' #:git => 'https://github.com/dehancer/IMProcessing'
+    pod 'Surge', :path => '../../../Surge' #:git => 'https://github.com/dehancer/Surge'
+    pod 'DehancerMLutFile', :path => '../../'
+    
+end
+
+target 'MLutFile-PodTests' do
+    inherit! :search_paths
+end
