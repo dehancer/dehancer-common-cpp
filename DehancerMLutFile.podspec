@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.osx.pod_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/IMProcessingXMP/lib-macos/release' }
+    #s.osx.pod_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/IMProcessingXMP/lib-macos/release  $(PODS_TARGET_SRCROOT)/../${POD_NAME}/lib-macos/release' }
 end

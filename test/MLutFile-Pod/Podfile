@@ -19,3 +19,15 @@ end
 target 'MLutFile-PodTests' do
     inherit! :search_paths
 end
+
+develop_targets = ['DehancerMLutFile']
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|  
+    target.build_configurations.each do |config|
+      if develop_targets.include?target.name
+        config.build_settings['LIBRARY_SEARCH_PATHS'] = '$(LIBRARY_SEARCH_PATHS) $(PODS_TARGET_SRCROOT)/../IMProcessingXMP/lib-macos/release'
+      end
+    end
+  end
+end
