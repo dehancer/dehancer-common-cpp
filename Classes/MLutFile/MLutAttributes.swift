@@ -28,6 +28,8 @@ public struct MLutAttributes {
     public var expandImpact:Float = 0
     public var expandMode:IMPBlendingMode = .normal
 
+    public init(){}
+    
     @discardableResult public func store(url: URL, extension ext: String = "xmp") throws -> ImageMeta {
         let meta = ImageMeta(path: url.path, extension: ext, history:1)
         
@@ -75,5 +77,11 @@ public struct MLutAttributes {
         expandMode = try IMPBlendingMode(meta: meta) ?? .normal
 
         return meta
+    }
+}
+
+extension MLutAttributes: CustomStringConvertible {
+    public var description: String {
+        return "\(type.caption, lutSize.caption, filmType.caption, colorType.caption, isPrinted.state)"
     }
 }

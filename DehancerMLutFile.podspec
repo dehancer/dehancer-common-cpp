@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = 'DehancerMLutFile'
-    s.version      = '0.1.0'
+    s.version      = '0.1.1'
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
     s.author       = { 'Denn Nevera' => 'https://imagemetalling.wordpress.com/' }
     s.homepage     = 'http://www.dehancer.com/'
@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
 
     s.requires_arc = true
 
-    s.osx.pod_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/IMProcessingXMP/lib-macos/release' }
+    #s.osx.pod_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/IMProcessingXMP/lib-macos/release  $(PODS_TARGET_SRCROOT)/../${POD_NAME}/lib-macos/release' }
 end

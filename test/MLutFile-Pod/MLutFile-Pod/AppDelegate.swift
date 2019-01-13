@@ -7,12 +7,15 @@
 //
 
 import Cocoa
+import DehancerMLutFile
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
+    let luTypeList = MLutFilmType.availableList
+    let cap = MLutColorType.color.caption
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application

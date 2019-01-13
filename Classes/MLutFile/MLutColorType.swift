@@ -27,6 +27,8 @@ public extension MLutColorType {
             return NSLocalizedString("Color", comment: "")
         case .bw:
             return NSLocalizedString("BW", comment: "")
+        default:
+            return ""
         }
     }
     

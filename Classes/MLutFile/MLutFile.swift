@@ -10,27 +10,21 @@ import Foundation
 import IMProcessing
 import CryptoSwift
 import Darwin
-
-
-extension MLutFile.Attributes: CustomStringConvertible {
-    public var description: String {
-        return "\(type.caption, lutSize.caption, filmType.caption, colorType.caption, isPrinted.state)"
-    }
-}
+import IMProcessingXMP
 
 public class MLutFile {
     
-    static var key:[UInt8] = []
+    static public var key:[UInt8] = []
     
     public typealias Attributes = MLutAttributes
         
-    public var attributes = Attributes()
+    public var attributes = MLutAttributes()
     
     public var cLuts:[MLutExposureMode:IMPCLut] = [MLutExposureMode.under:cLutIdentity(),
                                                MLutExposureMode.normal:cLutIdentity(),
                                                MLutExposureMode.over:cLutIdentity()]
     
-    static func restore(url:URL) throws -> MLutFile? {
+    static public func restore(url:URL) throws -> MLutFile? {
         let manager = FileManager()
         if manager.fileExists(atPath: url.path) {
             if url.pathExtension == MLutType.mlut.extention {
@@ -59,15 +53,15 @@ public class MLutFile {
             ])
     }
     
-    static func restore(path:String) throws -> MLutFile? {
+    static public func restore(path:String) throws -> MLutFile? {
         return try restore(url: URL(fileURLWithPath: path))
     }
     
-    static func new(url:URL, type:MLutType = .mlut) -> MLutFile {
+    static public func new(url:URL, type:MLutType = .mlut) -> MLutFile {
         return MLutFile(url: url, type: type)
     }
     
-    static func new(path:String) -> MLutFile {
+    static public func new(path:String) -> MLutFile {
         return new(url: URL(fileURLWithPath: path))
     }
     
