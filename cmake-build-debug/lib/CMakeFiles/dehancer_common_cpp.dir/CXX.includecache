@@ -74,6 +74,16 @@ chrono
 Common.h
 ../include/dehancer/Common.h
 
+/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/Common.cpp
+dehancer/Common.h
+/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/dehancer/Common.h
+string
+-
+cstdarg
+-
+iostream
+-
+
 /Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/License.cpp
 dehancer/License.h
 /Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/dehancer/License.h
@@ -83,6 +93,30 @@ dehancer/Utils.h
 /Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/dehancer/Utils.h
 ed25519.hpp
 -
+
+/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/Utils.cpp
+stdarg.h
+-
+fstream
+-
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+string.h
+-
+cctype
+-
+iomanip
+-
+sstream
+-
+string
+-
+dehancer/Utils.h
+/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/src/dehancer/Utils.h
 
 /usr/local/include/base64cpp.hpp
 string
