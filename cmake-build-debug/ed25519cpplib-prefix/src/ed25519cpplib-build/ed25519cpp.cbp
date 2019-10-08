@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ed25519cpp"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\lib\;CMake Files\lib\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/strip">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ed25519cpp">
+				<Option output="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/libed25519cpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../include"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../external/ed25519/include"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/.."/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../src"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../src/external"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 ed25519cpp"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ed25519cpp/fast">
+				<Option output="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/libed25519cpp.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../include"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../external/ed25519/include"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/.."/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../src"/>
+					<Add directory="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/../src/external"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 ed25519cpp/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/add_scalar.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/fe.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/ge.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/key_exchange.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/keypair.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/sc.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/seed.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/sha512.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/sign.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/external/ed25519/src/verify.c">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/base58.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/digest.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/ed25519.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/btc_base58.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/btc_base58.hpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/ed25519_ext.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/ed25519_ext.hpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/sha3.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/external/sha3.hpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/src/utils.cpp">
+			<Option target="ed25519cpp"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib/lib/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

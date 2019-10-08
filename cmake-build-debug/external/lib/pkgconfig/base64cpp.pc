@@ -1,0 +1,13 @@
+prefix=/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: base64cpp
+Description: Base64 CPP Lib
+Version: 1.0.1
+URL: https://github.com/dnevera/base64cpp
+Requires.private: 
+Libs: -L${libdir} -lbase64cpp
+Libs.private: 
+CFlags: -I${includedir}
