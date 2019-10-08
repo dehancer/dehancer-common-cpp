@@ -1,3 +1,0 @@
-repository='https://github.com/dnevera/ed25519cpp'
-module=''
-tag=''
