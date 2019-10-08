@@ -1,0 +1,532 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		311338F2234D1346009C208F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 311338F1234D1346009C208F /* AppDelegate.m */; };
+		311338F5234D1346009C208F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 311338F4234D1346009C208F /* ViewController.m */; };
+		311338F7234D1347009C208F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311338F6234D1347009C208F /* Assets.xcassets */; };
+		311338FA234D1347009C208F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311338F8234D1347009C208F /* Main.storyboard */; };
+		311338FD234D1347009C208F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 311338FC234D1347009C208F /* main.m */; };
+		31133908234D1347009C208F /* DehancerCommonTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31133907234D1347009C208F /* DehancerCommonTestTests.m */; };
+		68CD9A4B71778F94E536140F /* Pods_DehancerCommonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CA346897EB7AA4D85744FD /* Pods_DehancerCommonTest.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31133904234D1347009C208F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 311338E5234D1346009C208F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 311338EC234D1346009C208F;
+			remoteInfo = DehancerCommonTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		06CA346897EB7AA4D85744FD /* Pods_DehancerCommonTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DehancerCommonTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EF1C755A61639D343E12769 /* Pods-DehancerCommonTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehancerCommonTest.debug.xcconfig"; path = "Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest.debug.xcconfig"; sourceTree = "<group>"; };
+		311338ED234D1346009C208F /* DehancerCommonTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DehancerCommonTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		311338F0234D1346009C208F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		311338F1234D1346009C208F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		311338F3234D1346009C208F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		311338F4234D1346009C208F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		311338F6234D1347009C208F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		311338F9234D1347009C208F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		311338FB234D1347009C208F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		311338FC234D1347009C208F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		311338FE234D1347009C208F /* DehancerCommonTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DehancerCommonTest.entitlements; sourceTree = "<group>"; };
+		31133903234D1347009C208F /* DehancerCommonTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DehancerCommonTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31133907234D1347009C208F /* DehancerCommonTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DehancerCommonTestTests.m; sourceTree = "<group>"; };
+		31133909234D1347009C208F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77FCF2A89EC36950B211D6DC /* Pods-DehancerCommonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehancerCommonTest.release.xcconfig"; path = "Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		311338EA234D1346009C208F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				68CD9A4B71778F94E536140F /* Pods_DehancerCommonTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31133900234D1347009C208F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		311338E4234D1346009C208F = {
+			isa = PBXGroup;
+			children = (
+				311338EF234D1346009C208F /* DehancerCommonTest */,
+				31133906234D1347009C208F /* DehancerCommonTestTests */,
+				311338EE234D1346009C208F /* Products */,
+				91F19557CBF1BADDFA96935C /* Pods */,
+				4A721FAEDCB8F78435A37F99 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		311338EE234D1346009C208F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				311338ED234D1346009C208F /* DehancerCommonTest.app */,
+				31133903234D1347009C208F /* DehancerCommonTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		311338EF234D1346009C208F /* DehancerCommonTest */ = {
+			isa = PBXGroup;
+			children = (
+				311338F0234D1346009C208F /* AppDelegate.h */,
+				311338F1234D1346009C208F /* AppDelegate.m */,
+				311338F3234D1346009C208F /* ViewController.h */,
+				311338F4234D1346009C208F /* ViewController.m */,
+				311338F6234D1347009C208F /* Assets.xcassets */,
+				311338F8234D1347009C208F /* Main.storyboard */,
+				311338FB234D1347009C208F /* Info.plist */,
+				311338FC234D1347009C208F /* main.m */,
+				311338FE234D1347009C208F /* DehancerCommonTest.entitlements */,
+			);
+			path = DehancerCommonTest;
+			sourceTree = "<group>";
+		};
+		31133906234D1347009C208F /* DehancerCommonTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				31133907234D1347009C208F /* DehancerCommonTestTests.m */,
+				31133909234D1347009C208F /* Info.plist */,
+			);
+			path = DehancerCommonTestTests;
+			sourceTree = "<group>";
+		};
+		4A721FAEDCB8F78435A37F99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				06CA346897EB7AA4D85744FD /* Pods_DehancerCommonTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91F19557CBF1BADDFA96935C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2EF1C755A61639D343E12769 /* Pods-DehancerCommonTest.debug.xcconfig */,
+				77FCF2A89EC36950B211D6DC /* Pods-DehancerCommonTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		311338EC234D1346009C208F /* DehancerCommonTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3113390C234D1347009C208F /* Build configuration list for PBXNativeTarget "DehancerCommonTest" */;
+			buildPhases = (
+				29AB318441F3595EEE2407F4 /* [CP] Check Pods Manifest.lock */,
+				311338E9234D1346009C208F /* Sources */,
+				311338EA234D1346009C208F /* Frameworks */,
+				311338EB234D1346009C208F /* Resources */,
+				DEA2D92CF71ECD9CD08CDD49 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DehancerCommonTest;
+			productName = DehancerCommonTest;
+			productReference = 311338ED234D1346009C208F /* DehancerCommonTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31133902234D1347009C208F /* DehancerCommonTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3113390F234D1347009C208F /* Build configuration list for PBXNativeTarget "DehancerCommonTestTests" */;
+			buildPhases = (
+				311338FF234D1347009C208F /* Sources */,
+				31133900234D1347009C208F /* Frameworks */,
+				31133901234D1347009C208F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31133905234D1347009C208F /* PBXTargetDependency */,
+			);
+			name = DehancerCommonTestTests;
+			productName = DehancerCommonTestTests;
+			productReference = 31133903234D1347009C208F /* DehancerCommonTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		311338E5234D1346009C208F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = Dehancer;
+				TargetAttributes = {
+					311338EC234D1346009C208F = {
+						CreatedOnToolsVersion = 11.1;
+					};
+					31133902234D1347009C208F = {
+						CreatedOnToolsVersion = 11.1;
+						TestTargetID = 311338EC234D1346009C208F;
+					};
+				};
+			};
+			buildConfigurationList = 311338E8234D1346009C208F /* Build configuration list for PBXProject "DehancerCommonTest" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 311338E4234D1346009C208F;
+			productRefGroup = 311338EE234D1346009C208F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				311338EC234D1346009C208F /* DehancerCommonTest */,
+				31133902234D1347009C208F /* DehancerCommonTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		311338EB234D1346009C208F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				311338F7234D1347009C208F /* Assets.xcassets in Resources */,
+				311338FA234D1347009C208F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31133901234D1347009C208F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29AB318441F3595EEE2407F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DehancerCommonTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DEA2D92CF71ECD9CD08CDD49 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		311338E9234D1346009C208F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				311338F5234D1346009C208F /* ViewController.m in Sources */,
+				311338FD234D1347009C208F /* main.m in Sources */,
+				311338F2234D1346009C208F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		311338FF234D1347009C208F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31133908234D1347009C208F /* DehancerCommonTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31133905234D1347009C208F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 311338EC234D1346009C208F /* DehancerCommonTest */;
+			targetProxy = 31133904234D1347009C208F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		311338F8234D1347009C208F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				311338F9234D1347009C208F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3113390A234D1347009C208F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3113390B234D1347009C208F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3113390D234D1347009C208F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2EF1C755A61639D343E12769 /* Pods-DehancerCommonTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DehancerCommonTest/DehancerCommonTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DehancerCommonTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3113390E234D1347009C208F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77FCF2A89EC36950B211D6DC /* Pods-DehancerCommonTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DehancerCommonTest/DehancerCommonTest.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DehancerCommonTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		31133910234D1347009C208F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				INFOPLIST_FILE = DehancerCommonTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.DehancerCommonTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DehancerCommonTest.app/Contents/MacOS/DehancerCommonTest";
+			};
+			name = Debug;
+		};
+		31133911234D1347009C208F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				INFOPLIST_FILE = DehancerCommonTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.DehancerCommonTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DehancerCommonTest.app/Contents/MacOS/DehancerCommonTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		311338E8234D1346009C208F /* Build configuration list for PBXProject "DehancerCommonTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3113390A234D1347009C208F /* Debug */,
+				3113390B234D1347009C208F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3113390C234D1347009C208F /* Build configuration list for PBXNativeTarget "DehancerCommonTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3113390D234D1347009C208F /* Debug */,
+				3113390E234D1347009C208F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3113390F234D1347009C208F /* Build configuration list for PBXNativeTarget "DehancerCommonTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31133910234D1347009C208F /* Debug */,
+				31133911234D1347009C208F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 311338E5234D1346009C208F /* Project object */;
+}

@@ -59,4 +59,8 @@ build
 *-build-*
 *.user
 .DS_Store
+DerivedData
+Build
+xcuserdata
+*.xcworkspacedata
 

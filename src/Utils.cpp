@@ -23,7 +23,7 @@ namespace dehancer {
         static bool first = true;
         if (first)
         {
-            srand( std::time(0) );
+            srand((unsigned int)std::time(0) );
             first = false;
         }
         return min + rand() % (( max + 1 ) - min);
