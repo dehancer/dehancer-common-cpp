@@ -15,7 +15,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DehancerCommon.podspec" beforeDir="false" afterPath="$PROJECT_DIR$/DehancerCommon.podspec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/platforms/ios/test/DehancerCommonTest/DehancerCommonTest/AppDelegate.m" beforeDir="false" afterPath="$PROJECT_DIR$/platforms/ios/test/DehancerCommonTest/DehancerCommonTest/AppDelegate.m" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/DehancerCommon.podspec">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="663">
-              <caret line="39" column="118" selection-start-line="39" selection-start-column="118" selection-end-line="39" selection-end-column="118" />
+              <caret line="41" column="80" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
             </state>
           </provider>
         </entry>
@@ -208,7 +209,7 @@
       <option name="presentableId" value="Default" />
       <updated>1570548624093</updated>
       <workItem from="1570548625263" duration="4632000" />
-      <workItem from="1570558820627" duration="3123000" />
+      <workItem from="1570558820627" duration="3725000" />
     </task>
     <servers />
   </component>
@@ -233,7 +234,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7755000" />
+    <option name="totallyTimeSpent" value="8357000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -378,7 +379,7 @@
     <entry file="file://$PROJECT_DIR$/DehancerCommon.podspec">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
-          <caret line="39" column="118" selection-start-line="39" selection-start-column="118" selection-end-line="39" selection-end-column="118" />
+          <caret line="41" column="80" selection-start-line="41" selection-start-column="80" selection-end-line="41" selection-end-column="80" />
         </state>
       </provider>
     </entry>
