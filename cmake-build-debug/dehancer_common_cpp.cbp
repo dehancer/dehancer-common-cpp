@@ -5,7 +5,7 @@
 		<Option title="dehancer_common_cpp"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\include\;CMake Files\include\dehancer\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\ed25519cpplib-prefix\;CMake Files\cmake-build-debug\ed25519cpplib-prefix\tmp\;CMake Files\cmake-build-debug\base64cpplib-prefix\;CMake Files\cmake-build-debug\base64cpplib-prefix\tmp\;CMake Files\lib\;CMake Files\tests\;CMake Files\tests\license\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\include\;CMake Files\include\dehancer\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\ed25519cpplib-prefix\;CMake Files\cmake-build-debug\ed25519cpplib-prefix\tmp\;CMake Files\cmake-build-debug\base64cpplib-prefix\;CMake Files\cmake-build-debug\base64cpplib-prefix\tmp\;CMake Files\lib\;CMake Files\lib\cmake\;CMake Files\tests\;CMake Files\tests\license\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug"/>
@@ -231,6 +231,9 @@
 		</Unit>
 		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/lib/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\lib\"/>
+		</Unit>
+		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/lib/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\lib\cmake\"/>
 		</Unit>
 		<Unit filename="/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/tests/CMakeCommon.in">
 			<Option virtualFolder="CMake Files\tests\"/>

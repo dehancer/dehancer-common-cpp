@@ -1,4 +1,4 @@
-"/Users/denn/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.7479.33/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -G "CodeBlocks - Unix Makefiles" /Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp
+"/Users/denn/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/191.7479.33/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DBUILD_TESTING=ON -DCMAKE_INSTALL_PREFIX=/tmp/dehancer -G "CodeBlocks - Unix Makefiles" /Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp
 -- A library with LAPACK API found.
 -- CMAKE_CXX_COMPILER_ID: AppleClang
 -- Using Clang

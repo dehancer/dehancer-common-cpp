@@ -10,227 +10,28 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DBUILD_TESTING=ON" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DBUILD_TESTING=ON -DCMAKE_INSTALL_PREFIX=/tmp/dehancer" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dehancer-common-cpp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.14.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib-complete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/Labels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/Labels.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/base64cpplib.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib-complete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/Labels.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/Labels.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/ed25519cpplib.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.cxx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CTestTestfile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/3.14.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/3.14.3/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/3.14.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/Makefile2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/feature_tests.cxx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/base64cpp.cbp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/base64cpp.pc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/install_manifest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/CXX.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/flags.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/link.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/base64cpp.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/generated/base64cppConfig.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-build/lib/generated/base64cppConfigVersion.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-build" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-configure" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-done" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-download" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-gitclone-lastrun.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-gitinfo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-install" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-mkdir" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib-stamp/base64cpplib-patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/tmp/base64cpplib-cfgcmd.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/tmp/base64cpplib-cfgcmd.txt.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/tmp/base64cpplib-gitclone.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/tmp/base64cpplib-gitupdate.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/dehancer-common-cpp.pc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/dehancer_common_cpp.cbp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CMakeSystem.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/3.14.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/Makefile2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/feature_tests.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/feature_tests.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/feature_tests.cxx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/ed25519cpp.cbp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/install_manifest.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/C.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/CXX.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/flags.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/link.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/ed25519cpp.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/generated/ed25519cppConfig.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-build/lib/generated/ed25519cppConfigVersion.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-build" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-configure" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-done" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-download" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-gitclone-lastrun.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-gitinfo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-install" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-mkdir" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib-stamp/ed25519cpplib-patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/tmp/ed25519cpplib-cfgcmd.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/tmp/ed25519cpplib-cfgcmd.txt.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/tmp/ed25519cpplib-gitclone.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/tmp/ed25519cpplib-gitupdate.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/include/base64cpp.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/include/ed25519.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/include/ed25519/c++17/variant.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/base64cpp/base64cpp.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/base64cpp/base64cppConfig.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/base64cpp/base64cppConfigVersion.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/ed25519cpp/ed25519cpp.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/ed25519cpp/ed25519cppConfig.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/cmake/ed25519cpp/ed25519cppConfigVersion.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/external/lib/pkgconfig/base64cpp.pc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/generated/version.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/CXX.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/cmake_clean_target.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/flags.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/link.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/lib/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/CXX.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/flags.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/link.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/check-license-test.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/CTestTestfile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/check-license-test" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dehancer-common-cpp.pc.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/external/nlohmann/json.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/Base64.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/Common.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/Expected.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/License.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/Utils.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/dehancer/version.h.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/cmake/Config.cmake.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/cmake/dehancer_common_cpp.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Common.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/License.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Utils.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CMakeCommon.in" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/license/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/license/license.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/version.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeError.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/dehancer-common-cpp.pc" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/dehancer-common-cpp.pc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/dehancer_common_cpp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/dehancer_common_cpp.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/CMakeFiles/dehancer_common_cpp.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/tests/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/tests/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/tests/license/check-license-test" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/check-license-test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/tests/license/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/tests/license/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -277,19 +78,19 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
+            <state relative-caret-position="382">
               <caret line="61" selection-start-line="61" selection-end-line="61" />
             </state>
           </provider>
@@ -298,8 +99,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+            <state relative-caret-position="-264">
+              <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -362,11 +163,11 @@
         <option value="$PROJECT_DIR$/include/dehancer/Common.h" />
         <option value="$PROJECT_DIR$/include/dehancer/License.h" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/lib/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/license/license.cpp" />
         <option value="$PROJECT_DIR$/tests/CMakeCommon.in" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/lib/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -397,6 +198,28 @@
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="dehancer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -462,7 +285,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570548624093</updated>
-      <workItem from="1570548625263" duration="3219000" />
+      <workItem from="1570548625263" duration="3936000" />
     </task>
     <servers />
   </component>
@@ -475,7 +298,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3219000" />
+    <option name="totallyTimeSpent" value="3936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -488,12 +311,12 @@
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Messages" weight="0.3299363" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.3299363" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3299363" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -569,13 +392,6 @@
     <entry file="file://$PROJECT_DIR$/version.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -619,17 +435,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="382">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        <state relative-caret-position="-264">
+          <caret line="3" column="48" lean-forward="true" selection-start-line="3" selection-start-column="48" selection-end-line="3" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
         </state>
       </provider>
     </entry>
