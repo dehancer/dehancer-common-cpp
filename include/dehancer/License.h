@@ -87,27 +87,27 @@ namespace dehancer{
 
         /**
          * Copy
-         * @param license
+         * @param license instance
          */
         License(const License& license);
 
         /**
          * Decode License activation key from base64 string
-         * @param base64
+         * @param base64 base64 encoded string
          * @return license or error if string can't be decoded
          */
         static expected<License,Error> Decode(const std::string& base64);
 
         /**
          * Encode the license to base64 activation key string
-         * @param license
+         * @param license instance
          * @return base64 activation key string
          */
         static std::string Encode(const License& license);
 
         /**
          * Encode license from json object
-         * @param json
+         * @param json lic serialized in json 
          * @return licens ot error
          */
         static expected<License,Error> from_json(const json& json);
