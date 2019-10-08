@@ -1,3 +1,0 @@
-repository='https://github.com/dnevera/base64cpp'
-module=''
-tag=''

@@ -1,2 +1,0 @@
-ccache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libbase64cpp.a  CMakeFiles/base64cpp.dir/__/src/base_64_cpp.cpp.o
-ccache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libbase64cpp.a

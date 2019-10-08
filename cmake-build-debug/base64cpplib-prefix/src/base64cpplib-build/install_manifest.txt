@@ -1,6 +1,0 @@
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/lib/pkgconfig/base64cpp.pc
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/lib/libbase64cpp.a
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/include/base64cpp.hpp
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/lib/cmake/base64cpp/base64cppConfig.cmake
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/lib/cmake/base64cpp/base64cppConfigVersion.cmake
-/Users/denn/Develop/Dehancer/Dehancer-Plugins/dehancer-common-cpp/cmake-build-debug/external/lib/cmake/base64cpp/base64cpp.cmake
