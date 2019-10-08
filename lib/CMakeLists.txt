@@ -4,6 +4,11 @@ FILE(GLOB PUBLIC_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/include/dehancer/*.h
         )
 
+FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
+        )
+
+
 file (GLOB COMMON_SRC ${COMMON_SRC}
         ../src/*.cpp
         ../src/*.c
@@ -39,5 +44,6 @@ configure_package_config_file(
 
 install(TARGETS ${PROJECT_LIB}   DESTINATION lib)
 install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION include/dehancer)
+install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION include/nlohmann)
 install(FILES   ${project_config} ${version_config} DESTINATION lib/cmake/${PROJECT_LIB})
 install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION lib/cmake/${PROJECT_LIB})
