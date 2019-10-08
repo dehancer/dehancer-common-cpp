@@ -1,0 +1,13 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: dehancer-common-cpp
+Description: Capy memcache layer SDK
+Version: 0.1.0
+URL: https://github.com/dehancer/ dehancer-common-cpp
+Requires.private: 
+Libs: -L${libdir} -l dehancer_common_cpp
+Libs.private: 
+CFlags: -I${includedir}
