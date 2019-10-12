@@ -615,7 +615,7 @@ namespace Exiv2 {
         for(unsigned i = 0; i < lcs.length(); i++) {
             lcs[i] = std::tolower(s[i]);
         }
-        /* handle the same values as xmp sdk */
+        /* handle the same values as mlut_xmp sdk */
         if (lcs == "false" || lcs == "f" || lcs == "0") {
             ok = true;
             return false;

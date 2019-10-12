@@ -257,7 +257,7 @@ void Params::help(std::ostream& os) const
        << _("  rm | delete   Delete image metadata from the files.\n")
        << _("  in | insert   Insert metadata from corresponding *.exv files.\n"
             "                Use option -S to change the suffix of the input files.\n")
-       << _("  ex | extract  Extract metadata to *.exv, *.xmp and thumbnail image files.\n")
+       << _("  ex | extract  Extract metadata to *.exv, *.mlut_xmp and thumbnail image files.\n")
        << _("  mv | rename   Rename files and/or set file timestamps according to the\n"
             "                Exif create timestamp. The filename format can be set with\n"
             "                -r format, timestamp options are controlled with -t and -T.\n")
@@ -329,14 +329,14 @@ void Params::help(std::ostream& os) const
        << _("             c : JPEG comment\n")
        << _("   -i tgt  Insert target(s) for the 'insert' action. Possible targets are\n"
             "           the same as those for the -d option, plus a modifier:\n"
-            "             X : Insert metadata from an XMP sidecar file <file>.xmp\n"
+            "             X : Insert metadata from an XMP sidecar file <file>.mlut_xmp\n"
             "           Only JPEG thumbnails can be inserted, they need to be named\n"
             "           <file>-thumb.jpg\n")
        << _("   -e tgt  Extract target(s) for the 'extract' action. Possible targets\n"
             "           are the same as those for the -d option, plus a target to extract\n"
             "           preview images and a modifier to generate an XMP sidecar file:\n"
             "             p[<n>[,<m> ...]] : Extract preview images.\n"
-            "             X : Extract metadata to an XMP sidecar file <file>.xmp\n")
+            "             X : Extract metadata to an XMP sidecar file <file>.mlut_xmp\n")
        << _("   -r fmt  Filename format for the 'rename' action. The format string\n"
             "           follows strftime(3). The following keywords are supported:\n")
        << _("             :basename:   - original filename without extension\n")

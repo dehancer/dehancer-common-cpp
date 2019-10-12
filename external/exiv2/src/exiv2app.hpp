@@ -69,7 +69,7 @@
 //! Command identifiers
 enum CmdId { invalidCmdId, add, set, del, reg };
 //! Metadata identifiers
-// enum MetadataId { invalidMetadataId, iptc, exif, xmp };
+// enum MetadataId { invalidMetadataId, iptc, exif, mlut_xmp };
 //! Metadata identifiers
 // mdNone=0, mdExif=1, mdIptc=2, mdComment=4, mdXmp=8
 enum MetadataId { invalidMetadataId = Exiv2::mdNone

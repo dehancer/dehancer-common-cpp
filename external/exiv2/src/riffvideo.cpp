@@ -1021,11 +1021,11 @@ namespace Exiv2 {
 
             io_->read(buf.pData_, 2);
             Exiv2::XmpTextValue tv(Exiv2::toString(Exiv2::getLong(buf.pData_, littleEndian)));
-            xmpData_.add(Exiv2::XmpKey("MLutXmp.xmp.Thumbnails/xmpGImg:width"), &tv);
+            xmpData_.add(Exiv2::XmpKey("MLutXmp.mlut_xmp.Thumbnails/xmpGImg:width"), &tv);
 
             io_->read(buf.pData_, 2);
             tv.read(Exiv2::toString(Exiv2::getLong(buf.pData_, littleEndian)));
-            xmpData_.add(Exiv2::XmpKey("MLutXmp.xmp.Thumbnails/xmpGImg:height"), &tv);
+            xmpData_.add(Exiv2::XmpKey("MLutXmp.mlut_xmp.Thumbnails/xmpGImg:height"), &tv);
 
             io_->read(buf.pData_, 4);
 
@@ -1041,7 +1041,7 @@ namespace Exiv2 {
             SXMPUtils::EncodeToBase64(rawStr, encodedStr);
 
             tv.read(Exiv2::toString(encodedStr));
-            xmpData_.add(Exiv2::XmpKey("MLutXmp.xmp.Thumbnails/xmpGImg:image"), &tv);
+            xmpData_.add(Exiv2::XmpKey("MLutXmp.mlut_xmp.Thumbnails/xmpGImg:image"), &tv);
         */
         }
         else {

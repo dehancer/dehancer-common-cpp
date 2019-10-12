@@ -107,12 +107,12 @@ namespace Exiv2 {
         { "http://purl.org/dc/elements/1.1/",             "dc",             xmpDcInfo,        N_("Dublin Core schema")                        },
         { "http://www.digikam.org/ns/1.0/",               "digiKam",        xmpDigikamInfo,   N_("digiKam Photo Management schema")           },
         { "http://www.digikam.org/ns/kipi/1.0/",          "kipi",           xmpKipiInfo,      N_("KDE Image Program Interface schema")        },
-        { "http://ns.adobe.com/xap/1.0/",                 "xmp",            xmpXmpInfo,       N_("XMP Basic schema")                          },
+        { "http://ns.adobe.com/xap/1.0/",                 "mlut_xmp",            xmpXmpInfo,       N_("XMP Basic schema")                          },
         { "http://ns.adobe.com/xap/1.0/rights/",          "xmpRights",      xmpXmpRightsInfo, N_("XMP Rights Management schema")              },
         { "http://ns.adobe.com/xap/1.0/mm/",              "xmpMM",          xmpXmpMMInfo,     N_("XMP Media Management schema")               },
         { "http://ns.adobe.com/xap/1.0/bj/",              "xmpBJ",          xmpXmpBJInfo,     N_("XMP Basic Job Ticket schema")               },
         { "http://ns.adobe.com/xap/1.0/t/pg/",            "xmpTPg",         xmpXmpTPgInfo,    N_("XMP Paged-Text schema")                     },
-        { "http://ns.adobe.com/xmp/1.0/DynamicMedia/",    "xmpDM",          xmpXmpDMInfo,     N_("XMP Dynamic Media schema")                  },
+        { "http://ns.adobe.com/mlut_xmp/1.0/DynamicMedia/",    "xmpDM",          xmpXmpDMInfo,     N_("XMP Dynamic Media schema")                  },
         { "http://ns.microsoft.com/photo/1.0/",           "MicrosoftPhoto", xmpMicrosoftInfo, N_("Microsoft Photo schema")                    },
         { "http://ns.adobe.com/lightroom/1.0/",           "lr",             xmpLrInfo,        N_("Adobe Lightroom schema")                    },
         { "http://ns.adobe.com/pdf/1.3/",                 "pdf",            xmpPdfInfo,       N_("Adobe PDF schema")                          },
@@ -127,7 +127,7 @@ namespace Exiv2 {
         { "http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/",  "Iptc4xmpCore",   xmpIptcInfo,      N_("IPTC Core schema")                          }, // the default prefix. But provide the official one too.
         { "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",  "iptcExt",        xmpIptcExtInfo,   N_("IPTC Extension schema")                     }, // NOTE: It really should be 'Iptc4xmpExt' but following
         { "http://iptc.org/std/Iptc4xmpExt/2008-02-29/",  "Iptc4xmpExt",    xmpIptcExtInfo,   N_("IPTC Extension schema")                     }, // example above, 'iptcExt' is the default, Iptc4xmpExt works too.
-        { "http://ns.useplus.org/ldf/xmp/1.0/",           "plus",           xmpPlusInfo,      N_("PLUS License Data Format schema")           },
+        { "http://ns.useplus.org/ldf/mlut_xmp/1.0/",           "plus",           xmpPlusInfo,      N_("PLUS License Data Format schema")           },
         { "http://ns.iview-multimedia.com/mediapro/1.0/", "mediapro",       xmpMediaProInfo,  N_("iView Media Pro schema")                    },
         { "http://ns.microsoft.com/expressionmedia/1.0/", "expressionmedia", xmpExpressionMediaInfo, N_("Expression Media schema")            },
         { "http://ns.microsoft.com/photo/1.2/",           "MP",             xmpMicrosoftPhotoInfo,           N_("Microsoft Photo 1.2 schema")        },
@@ -152,10 +152,10 @@ namespace Exiv2 {
         { "http://ns.adobe.com/xap/1.0/sType/ResourceRef#",   "stRef",   0, N_("ResourceRef structure")        },
         { "http://ns.adobe.com/xap/1.0/sType/Version#",       "stVer",   0, N_("Version structure")            },
         { "http://ns.adobe.com/xap/1.0/sType/Job#",           "stJob",   0, N_("Basic Job/Workflow structure") },
-        { "http://ns.adobe.com/xmp/sType/Area#",              "stArea",  0, N_("Area structure")               },
+        { "http://ns.adobe.com/mlut_xmp/sType/Area#",              "stArea",  0, N_("Area structure")               },
 
         // Qualifiers
-        { "http://ns.adobe.com/xmp/Identifier/qual/1.0/", "xmpidq", 0, N_("Qualifier for xmp:Identifier") }
+        { "http://ns.adobe.com/mlut_xmp/Identifier/qual/1.0/", "xmpidq", 0, N_("Qualifier for mlut_xmp:Identifier") }
     };
 
     extern const XmpPropertyInfo xmpDcInfo[] = {
@@ -232,7 +232,7 @@ namespace Exiv2 {
         { "Label",            N_("Label"),            "Text",                     xmpText,   xmpExternal, N_("A word or short phrase that identifies a document as a member of a user-defined "
                                                                                                              "collection. Used to organize documents in a file browser.") },
         { "MetadataDate",     N_("Metadata Date"),    "Date",                     xmpText,   xmpInternal, N_("The date and time that any metadata for this resource was last changed. It should "
-                                                                                                             "be the same as or more recent than xmp:ModifyDate.") },
+                                                                                                             "be the same as or more recent than mlut_xmp:ModifyDate.") },
         { "ModifyDate",       N_("Modify Date"),      "Date",                     xmpText,   xmpInternal, N_("The date and time the resource was last modified. Note: The value of this property "
                                                                                                              "is not necessarily the same as the file's system modification date because it is "
                                                                                                              "set before the file is saved.") },
@@ -783,12 +783,12 @@ namespace Exiv2 {
                                                                                                                                   "(no time zone in EXIF), stored in ISO 8601 format, not "
                                                                                                                                   "the original EXIF format. This property includes the "
                                                                                                                                   "value for the EXIF SubSecTime attribute. "
-                                                                                                                                  "NOTE: This property is stored in XMP as xmp:ModifyDate.") },
+                                                                                                                                  "NOTE: This property is stored in XMP as mlut_xmp:ModifyDate.") },
         { "ImageDescription",          N_("Image Description"),          "Lang Alt",                     langAlt, xmpExternal, N_("TIFF tag 270, 0x10E. Description of the image. Note: This property is stored in XMP as dc:description.") },
         { "Make",                      N_("Make"),                       "ProperName",                   xmpText, xmpInternal, N_("TIFF tag 271, 0x10F. Manufacturer of recording equipment.") },
         { "Model",                     N_("Model"),                      "ProperName",                   xmpText, xmpInternal, N_("TIFF tag 272, 0x110. Model name or number of equipment.") },
         { "Software",                  N_("Software"),                   "AgentName",                    xmpText, xmpInternal, N_("TIFF tag 305, 0x131. Software or firmware used to generate image. "
-                                                                                                                                  "Note: This property is stored in XMP as xmp:CreatorTool.") },
+                                                                                                                                  "Note: This property is stored in XMP as mlut_xmp:CreatorTool.") },
         { "Artist",                    N_("Artist"),                     "ProperName",                   xmpText, xmpExternal, N_("TIFF tag 315, 0x13B. Camera owner, photographer or image creator. "
                                                                                                                                   "Note: This property is stored in XMP as the first item in the dc:creator array.") },
         { "Copyright",                 N_("Copyright"),                  "Lang Alt",                     langAlt, xmpExternal, N_("TIFF tag 33432, 0x8298. Copyright information. "

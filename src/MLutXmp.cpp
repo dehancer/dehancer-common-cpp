@@ -43,7 +43,7 @@ namespace dehancer {
             if (!inFile.is_open()) {
                 return dehancer::make_unexpected(Error(
                         CommonError::NOT_FOUND,
-                        error_string("xmp file %s could not be opened or found", path.c_str())));
+                        error_string("mlut_xmp file %s could not be opened or found", path.c_str())));
             }
 
             inFile.seekg(0, std::ios::end);
@@ -60,7 +60,7 @@ namespace dehancer {
             if (0 != Exiv2::XmpParser::decode(xmpData, metaBuffer)) {
                 return dehancer::make_unexpected(Error(
                         CommonError::PARSE_ERROR,
-                        error_string("xmp file %s could not be parsed", path.c_str())));
+                        error_string("mlut_xmp file %s could not be parsed", path.c_str())));
             }
 
             Exiv2::XmpParser::terminate();

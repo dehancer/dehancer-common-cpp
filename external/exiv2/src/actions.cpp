@@ -1055,7 +1055,7 @@ namespace Action {
                 rc = writePreviews();
             }
             if (!rc && Params::instance().target_ & Params::ctXmpSidecar) {
-                std::string xmpPath = bStdout ? "-" : newFilePath(path_, ".xmp");
+                std::string xmpPath = bStdout ? "-" : newFilePath(path_, ".mlut_xmp");
                 if (dontOverwrite(xmpPath))
                     return 0;
                 rc = metacopy(path_, xmpPath, Exiv2::ImageType::xmp, false);
@@ -1257,13 +1257,13 @@ namespace Action {
         ) {
             std::string suffix = Params::instance().suffix_;
             if (suffix.empty()) suffix = ".exv";
-            if (Params::instance().target_ & Params::ctXmpSidecar) suffix = ".xmp";
+            if (Params::instance().target_ & Params::ctXmpSidecar) suffix = ".mlut_xmp";
             std::string exvPath = bStdin ? "-" : newFilePath(path, suffix);
             rc = metacopy(exvPath, path, Exiv2::ImageType::none, true);
         }
 
         if (0 == rc && (Params::instance().target_ & (Params::ctXmpSidecar|Params::ctXmpRaw)) ) {
-            std::string xmpPath = bStdin ? "-" : newFilePath(path,".xmp");
+            std::string xmpPath = bStdin ? "-" : newFilePath(path,".mlut_xmp");
             rc = insertXmpPacket(path,xmpPath);
         }
 

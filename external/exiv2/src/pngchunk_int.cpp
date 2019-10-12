@@ -353,7 +353,7 @@ namespace Exiv2 {
         // We look if an ImageMagick XMP raw profile exist.
 
         if (   keySize >= 20
-            && memcmp("Raw profile type xmp", key, 20) == 0
+            && memcmp("Raw profile type mlut_xmp", key, 20) == 0
             && pImage->xmpData().empty())
         {
             DataBuf xmpBuf = readRawProfile(arr,false);
@@ -384,7 +384,7 @@ namespace Exiv2 {
         // We look if an Adobe XMP string exist.
 
         if (   keySize >= 17
-            && memcmp("XML:com.adobe.xmp", key, 17) == 0
+            && memcmp("XML:com.adobe.mlut_xmp", key, 17) == 0
             && pImage->xmpData().empty())
         {
             if (arr.size_ > 0)
@@ -440,7 +440,7 @@ namespace Exiv2 {
             chunk = makeAsciiTxtChunk("Raw profile type iptc", rawProfile, true);
             break;
         case mdXmp:
-            chunk = makeUtf8TxtChunk("XML:com.adobe.xmp", metadata, false);
+            chunk = makeUtf8TxtChunk("XML:com.adobe.mlut_xmp", metadata, false);
             break;
         case mdIccProfile:
             break;

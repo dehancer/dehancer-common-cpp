@@ -16,7 +16,7 @@ TEST(XMP, XMPOpenTest) {
 
   std::cout << std::endl;
 
-  std::string file_path = "../../../tests/xmp/mlut.mlut";
+  std::string file_path = "../../../tests/mlut_xmp/mlut.mlut";
 
   std::cout << "Open test: " << file_path << std::endl;
 
@@ -38,11 +38,11 @@ TEST(XMP, XMPOpenTest) {
 
         if (value) {
           if (value->typeId() == Exiv2::TypeId::string || value->typeId() == Exiv2::TypeId::xmpText)
-            std::cout << " xmp key: " << key << " = " << value->toString() << std::endl;
+            std::cout << " mlut_xmp key: " << key << " = " << value->toString() << std::endl;
           else if (value->typeId() == Exiv2::TypeId::signedLong || value->typeId() == Exiv2::TypeId::unsignedLong)
-            std::cout << " xmp key: " << key << " = " << value->toLong() << std::endl;
+            std::cout << " mlut_xmp key: " << key << " = " << value->toLong() << std::endl;
           else {
-            std::cout << " xmp key: " << key << " type:  " << std::hex << value->typeId() << std::endl;
+            std::cout << " mlut_xmp key: " << key << " type:  " << std::hex << value->typeId() << std::endl;
           }
         }
     });
@@ -67,7 +67,7 @@ TEST(XMP, XMPOpenTest) {
 
       auto str = std::string(data.begin(), data.end());
 
-      std::cout << " xmp luts: " << xmp->get_cluts().size() << "  >> " << std::endl;
+      std::cout << " mlut_xmp luts: " << xmp->get_cluts().size() << "  >> " << std::endl;
       std::copy(data.begin(), data.end(), std::ostream_iterator<uint16_t>(std::cout, " "));
 
       std::cout << std::endl;
