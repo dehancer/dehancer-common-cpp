@@ -33,6 +33,83 @@ namespace dehancer {
 
     CameraLutXmp::~CameraLutXmp() {}
 
+    dehancer::expected<CameraLutXmp,Error> CameraLutXmp::parse(const std::string &metaBuffer,
+                                                               const Blowfish::KeyType &key, const std::string& path) {
+      Exiv2::XmpData xmpData;
+
+      if (0 != Exiv2::XmpParser::decode(xmpData, metaBuffer)) {
+        return dehancer::make_unexpected(Error(
+                CommonError::PARSE_ERROR,
+                error_string("mlut_xmp file %s could not be parsed", path.c_str())));
+      }
+
+      Exiv2::XmpParser::terminate();
+
+      Blowfish fish(key.empty() ? Blowfish::KeyType({0,0,0,0,0,0,0,0}) : key);
+
+      auto xmp = CameraLutXmp();
+      xmp.path_ = path;
+
+      for (auto md = xmpData.begin(); md != xmpData.end(); ++md) {
+
+        std::stringstream lic_matrix_prefix;
+        lic_matrix_prefix << xmp_meta_prefix << "nslicenseMatrix[";
+
+        if (has_prefix(md->key(), lic_matrix_prefix.str())) {
+          xmp.license_matrix_.push_back(static_cast<dehancer::License::Type>(md->getValue()->toLong()));
+        }
+
+
+        bool is_clut = false;
+
+        if (!key.empty()) {
+
+          for (int i = 0; i < 1; ++i) {
+
+            std::stringstream iss;
+
+            iss << xmp_clut_prefix << "clutList[" << i + 1 << "]";
+
+            if (iss.str() == md->key()) {
+
+              is_clut = true;
+
+              CLutBuffer tmp;
+              tmp.resize(md->value().count());
+
+              md->value().copy(tmp.data(), Exiv2::ByteOrder::littleEndian);
+
+              CLutBuffer out;
+              CLutBuffer buffer;
+
+              base64::decode(tmp, out);
+
+              fish.decrypt(out, buffer);
+
+              xmp.clut_ = buffer;
+
+              break;
+            }
+          }
+        }
+
+        if (is_clut) continue;
+
+        xmp.meta_[md->key()] = md->value().clone();
+      }
+
+      return xmp;
+    }
+
+    dehancer::expected<CameraLutXmp,Error> CameraLutXmp::Create(const std::string &metaBuffer) {
+      return CameraLutXmp::Create(metaBuffer,Blowfish::KeyType());
+    }
+
+    dehancer::expected<CameraLutXmp,Error> CameraLutXmp::Create(const std::string &metaBuffer,
+                                                                const Blowfish::KeyType &key) {
+      return parse(metaBuffer,key,"");
+    }
+
     dehancer::expected<CameraLutXmp,Error> CameraLutXmp::Open(const std::string &path) {
       return CameraLutXmp::Open(path,Blowfish::KeyType());
     }
@@ -43,7 +120,7 @@ namespace dehancer {
       std::ifstream inFile;
       try {
 
-        inFile.open(path.c_str(),  std::fstream::in);
+        inFile.open(path.c_str(), std::fstream::in);
 
         if (!inFile.is_open()) {
           return dehancer::make_unexpected(Error(
@@ -59,71 +136,8 @@ namespace dehancer {
                           std::istreambuf_iterator<char>());
 
         inFile.close();
+        return parse(metaBuffer, key, path);
 
-        Exiv2::XmpData xmpData;
-
-        if (0 != Exiv2::XmpParser::decode(xmpData, metaBuffer)) {
-          return dehancer::make_unexpected(Error(
-                  CommonError::PARSE_ERROR,
-                  error_string("mlut_xmp file %s could not be parsed", path.c_str())));
-        }
-
-        Exiv2::XmpParser::terminate();
-
-        Blowfish fish(key.empty() ? Blowfish::KeyType({0,0,0,0,0,0,0,0}) : key);
-
-        auto xmp = CameraLutXmp();
-        xmp.path_ = path;
-
-        for (auto md = xmpData.begin(); md != xmpData.end(); ++md) {
-
-          std::stringstream lic_matrix_prefix;
-          lic_matrix_prefix << xmp_meta_prefix << "nslicenseMatrix[";
-
-          if (has_prefix(md->key(), lic_matrix_prefix.str())) {
-            xmp.license_matrix_.push_back(static_cast<dehancer::License::Type>(md->getValue()->toLong()));
-          }
-
-
-          bool is_clut = false;
-
-          if (!key.empty()) {
-
-            for (int i = 0; i < 1; ++i) {
-
-              std::stringstream iss;
-
-              iss << xmp_clut_prefix << "clutList[" << i + 1 << "]";
-
-              if (iss.str() == md->key()) {
-
-                is_clut = true;
-
-                CLutBuffer tmp;
-                tmp.resize(md->value().count());
-
-                md->value().copy(tmp.data(), Exiv2::ByteOrder::littleEndian);
-
-                CLutBuffer out;
-                CLutBuffer buffer;
-
-                base64::decode(tmp, out);
-
-                fish.decrypt(out, buffer);
-
-                xmp.clut_ = buffer;
-
-                break;
-              }
-            }
-          }
-
-          if (is_clut) continue;
-
-          xmp.meta_[md->key()] = md->value().clone();
-        }
-
-        return xmp;
       }
       catch (std::exception &err) {
         return dehancer::make_unexpected(Error(CommonError::NOT_FOUND, err.what()));

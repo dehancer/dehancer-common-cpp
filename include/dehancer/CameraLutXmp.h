@@ -25,12 +25,16 @@ namespace dehancer {
 
     public:
 
+
+        static dehancer::expected<CameraLutXmp,Error> Create(const std::string &buffer, const Blowfish::KeyType& key);
+        static dehancer::expected<CameraLutXmp,Error> Create(const std::string &buffer);
+
         /**
-         * Open xmp-mlut-file
-         * @param path - file path
-         * @param key - pass key, by default empty means properties read only
-         * @return
-         */
+        * Open xmp-mlut-file
+        * @param path - file path
+        * @param key - pass key, by default empty means properties read only
+        * @return
+        */
         static dehancer::expected<CameraLutXmp,Error> Open(const std::string &path, const Blowfish::KeyType& key);
         static dehancer::expected<CameraLutXmp,Error> Open(const std::string &path);
 
@@ -63,5 +67,9 @@ namespace dehancer {
         std::map<std::string, Exiv2::Value::UniquePtr> meta_;
         CLutBuffer clut_;
         std::vector<dehancer::License::Type> license_matrix_;
+
+    private:
+        static dehancer::expected<CameraLutXmp,Error> parse(const std::string &metaBuffer,
+                                                     const Blowfish::KeyType &key, const std::string& path);
     };
 }
