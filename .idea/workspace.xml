@@ -18,8 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CameraLutXmp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/CameraLutXmp.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-629">
+            <state relative-caret-position="102">
               <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
             </state>
           </provider>
@@ -64,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="163" column="7" lean-forward="true" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
+            <state relative-caret-position="264">
+              <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
               <folding>
                 <element signature="e#48#82#0" expanded="true" />
               </folding>
@@ -149,9 +148,9 @@
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" />
         <option value="$PROJECT_DIR$/src/CameraLutXmp.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -307,14 +306,11 @@
       <workItem from="1570904539319" duration="4345000" />
       <workItem from="1570909391476" duration="601000" />
       <workItem from="1570910299591" duration="2000" />
-      <workItem from="1570911099841" duration="6677000" />
+      <workItem from="1570911099841" duration="6755000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 23m 50s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 25m 26s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -342,9 +338,12 @@
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 01h 03m 16s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 01h 03m 43s.xml">
+      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23450000" />
+    <option name="totallyTimeSpent" value="23528000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -590,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/CameraLutXmp.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="474">
@@ -609,11 +601,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="163" column="7" lean-forward="true" selection-start-line="163" selection-start-column="7" selection-end-line="163" selection-end-column="7" />
+        <state relative-caret-position="264">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
             <element signature="e#48#82#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
