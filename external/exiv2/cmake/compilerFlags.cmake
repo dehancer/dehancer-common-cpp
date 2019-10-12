@@ -1,4 +1,4 @@
-# These flags applies to exiv2lib, the applications, and to the xmp code
+# These flags applies to exiv2lib, the applications, and to the mlut_xmp code
 
 if ( MINGW OR UNIX OR MSYS ) # MINGW, Linux, APPLE, CYGWIN
     if (${CMAKE_CXX_COMPILER_ID} STREQUAL GNU)

@@ -225,7 +225,7 @@ namespace Exiv2 {
 
         if ( option == kpsBasic || option == kpsXMP || option == kpsIccProfile || option == kpsRecursive ) {
 
-            const std::string xmpKey  = "XML:com.adobe.xmp";
+            const std::string xmpKey  = "XML:com.adobe.mlut_xmp";
             const std::string exifKey = "Raw profile type exif";
             const std::string app1Key = "Raw profile type APP1";
             const std::string iptcKey = "Raw profile type iptc";
@@ -339,7 +339,7 @@ namespace Exiv2 {
                         bool bLF = false;
                         if ( bXMP ) {
                             while ( !data[start] && start < dataOffset) start++; // skip leading nul bytes
-                            out <<  data+start;             // output the xmp
+                            out <<  data+start;             // output the mlut_xmp
                         }
 
                         if ( bExif || bIptc ) {
@@ -675,8 +675,8 @@ namespace Exiv2 {
                 if (compare("Raw profile type exif", key, 21) ||
                     compare("Raw profile type APP1", key, 21) ||
                     compare("Raw profile type iptc", key, 21) ||
-                    compare("Raw profile type xmp",  key, 20) ||
-                    compare("XML:com.adobe.xmp",     key, 17) ||
+                    compare("Raw profile type mlut_xmp",  key, 20) ||
+                    compare("XML:com.adobe.mlut_xmp",     key, 17) ||
                     compare("icc",                   key,  3) || // see test/data/imagemagick.png
                     compare("ICC",                   key,  3) ||
                     compare("Description",           key, 11))

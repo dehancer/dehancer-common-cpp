@@ -7,5 +7,5 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/.env)
 endif()
 
 
-set (TEST xmp-open-test)
+set (TEST clut-xmp-open-test)
 include(../CMakeCommon.in)

@@ -1,4 +1,4 @@
-# These flags only applies to exiv2lib, and the applications, but not to the xmp code
+# These flags only applies to exiv2lib, and the applications, but not to the mlut_xmp code
 
 if (MINGW OR UNIX) # MINGW, Linux, APPLE, CYGWIN
     if ( EXIV2_TEAM_WARNINGS_AS_ERRORS )

@@ -449,12 +449,12 @@ IsInternalProperty ( const XMP_VarString & schema, const XMP_VarString & prop )
 	
 	} else if ( schema == kXMP_NS_XMP ) {
 	
-		if ( (prop == "xmp:BaseURL")		||
-			 (prop == "xmp:CreatorTool")	||
-			 (prop == "xmp:Format")			||
-			 (prop == "xmp:Locale")			||
-			 (prop == "xmp:MetadataDate")	||
-			 (prop == "xmp:ModifyDate") ) {
+		if ( (prop == "mlut_xmp:BaseURL")		||
+			 (prop == "mlut_xmp:CreatorTool")	||
+			 (prop == "mlut_xmp:Format")			||
+			 (prop == "mlut_xmp:Locale")			||
+			 (prop == "mlut_xmp:MetadataDate")	||
+			 (prop == "mlut_xmp:ModifyDate") ) {
 			isInternal = true;
 		}
 	

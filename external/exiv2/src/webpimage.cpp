@@ -176,7 +176,7 @@ namespace Exiv2 {
         std::string xmp(xmpPacket_);
 
         /* Verify for a VP8X Chunk First before writing in
-         case we have any exif or xmp data, also check
+         case we have any exif or mlut_xmp data, also check
          for any chunks with alpha frame/layer set */
         while ( !io_->eof() && (uint64_t) io_->tell() < filesize) {
             io_->read(chunkId.pData_, WEBP_TAG_SIZE);

@@ -5,12 +5,12 @@ class Exiv2Conan(ConanFile):
     settings = 'os', 'compiler', 'build_type', 'arch'
     generators = 'cmake'
     options = {'unitTests': [True, False],
-               'xmp': [True, False],
+               'mlut_xmp': [True, False],
                'iconv': [True, False],
                'webready': [True, False],
               }
     default_options = ('unitTests=True',
-                       'xmp=False',
+                       'mlut_xmp=False',
                        'iconv=False',
                        'webready=False',
                       )

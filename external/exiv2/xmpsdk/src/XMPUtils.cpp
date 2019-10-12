@@ -1684,7 +1684,7 @@ XMPUtils::PackageForJPEG ( const XMPMeta & origXMP,
 
 	if ( tempLen > kStdXMPLimit ) {
 
-		// Couldn't fit everything, make a copy of the input XMP and make sure there is no xmp:Thumbnails property.
+		// Couldn't fit everything, make a copy of the input XMP and make sure there is no mlut_xmp:Thumbnails property.
 
 		stdXMP.tree.options = origXMP.tree.options;
 		stdXMP.tree.name    = origXMP.tree.name;
@@ -1695,7 +1695,7 @@ XMPUtils::PackageForJPEG ( const XMPMeta & origXMP,
 			stdXMP.DeleteProperty ( kXMP_NS_XMP, "Thumbnails" );
 			stdXMP.SerializeToBuffer ( &tempStr, &tempLen, keepItSmall, 1, "", "", 0 );
 			#if Trace_PackageForJPEG
-				printf ( "  Delete xmp:Thumbnails, %d bytes left\n", tempLen );
+				printf ( "  Delete mlut_xmp:Thumbnails, %d bytes left\n", tempLen );
 			#endif
 		}
 

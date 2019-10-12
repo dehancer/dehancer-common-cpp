@@ -64,3 +64,5 @@ Build
 xcuserdata
 *.xcworkspacedata
 
+.env
+canon-c200-canon_log.clut

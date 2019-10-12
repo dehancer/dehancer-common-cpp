@@ -59,7 +59,7 @@ const unsigned DOT_EVERY = 55;
 struct Pattern {
     std::string pat;
     std::string desc;
-    pfunc funcs[4];  // order should always be exif, iptc, xmp, file
+    pfunc funcs[4];  // order should always be exif, iptc, mlut_xmp, file
 };
 
 struct PathPart {
@@ -415,7 +415,7 @@ int main(int argc, char* argv[])
                     g_run_order[i] = IPTC_SLOT;
                     break;
                 case 'x': 
-                    throw std::logic_error(std::string("xmp not implemented yet '") + 
+                    throw std::logic_error(std::string("mlut_xmp not implemented yet '") +
                         *iter + "'");
                     break;
                 case 'f': 

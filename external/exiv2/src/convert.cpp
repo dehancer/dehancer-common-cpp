@@ -328,13 +328,13 @@ namespace Exiv2 {
         { mdExif, "Exif.Image.PrimaryChromaticities",     "MLutXmp.tiff.PrimaryChromaticities",     &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.YCbCrCoefficients",         "MLutXmp.tiff.YCbCrCoefficients",         &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.ReferenceBlackWhite",       "MLutXmp.tiff.ReferenceBlackWhite",       &Converter::cnvExifValue, &Converter::cnvXmpValue },
-        { mdExif, "Exif.Image.DateTime",                  "MLutXmp.xmp.ModifyDate",                 &Converter::cnvExifDate , &Converter::cnvXmpDate  }, // MWG Guidelines
+        { mdExif, "Exif.Image.DateTime",                  "MLutXmp.mlut_xmp.ModifyDate",                 &Converter::cnvExifDate , &Converter::cnvXmpDate  }, // MWG Guidelines
         { mdExif, "Exif.Image.ImageDescription",          "MLutXmp.dc.description",                 &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.Make",                      "MLutXmp.tiff.Make",                      &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.Model",                     "MLutXmp.tiff.Model",                     &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.Software",                  "MLutXmp.tiff.Software",                  &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.Artist",                    "MLutXmp.dc.creator",                     &Converter::cnvExifValue, &Converter::cnvXmpValue },
-        { mdExif, "Exif.Image.Rating",                    "MLutXmp.xmp.Rating",                     &Converter::cnvExifValue, &Converter::cnvXmpValue },
+        { mdExif, "Exif.Image.Rating",                    "MLutXmp.mlut_xmp.Rating",                     &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Image.Copyright",                 "MLutXmp.dc.rights",                      &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Photo.ExifVersion",               "MLutXmp.exif.ExifVersion",               &Converter::cnvExifVersion, &Converter::cnvXmpVersion },
         { mdExif, "Exif.Photo.FlashpixVersion",           "MLutXmp.exif.FlashpixVersion",           &Converter::cnvExifVersion, &Converter::cnvXmpVersion },
@@ -346,7 +346,7 @@ namespace Exiv2 {
         { mdExif, "Exif.Photo.UserComment",               "MLutXmp.exif.UserComment",               &Converter::cnvExifComment, &Converter::cnvXmpComment },
         { mdExif, "Exif.Photo.RelatedSoundFile",          "MLutXmp.exif.RelatedSoundFile",          &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Photo.DateTimeOriginal",          "MLutXmp.photoshop.DateCreated",          &Converter::cnvExifDate,  &Converter::cnvXmpDate  }, // MWG Guidelines
-        { mdExif, "Exif.Photo.DateTimeDigitized",         "MLutXmp.xmp.CreateDate",                 &Converter::cnvExifDate,  &Converter::cnvXmpDate  }, // MWG Guidelines
+        { mdExif, "Exif.Photo.DateTimeDigitized",         "MLutXmp.mlut_xmp.CreateDate",                 &Converter::cnvExifDate,  &Converter::cnvXmpDate  }, // MWG Guidelines
         { mdExif, "Exif.Photo.ExposureTime",              "MLutXmp.exif.ExposureTime",              &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Photo.FNumber",                   "MLutXmp.exif.FNumber",                   &Converter::cnvExifValue, &Converter::cnvXmpValue },
         { mdExif, "Exif.Photo.ExposureProgram",           "MLutXmp.exif.ExposureProgram",           &Converter::cnvExifValue, &Converter::cnvXmpValue },
@@ -423,7 +423,7 @@ namespace Exiv2 {
         { mdIptc, "Iptc.Application2.SubLocation",        "MLutXmp.iptc.Location",                  &Converter::cnvIptcValue, &Converter::cnvXmpValueToIptc },
         { mdIptc, "Iptc.Application2.SpecialInstructions","MLutXmp.photoshop.Instructions",         &Converter::cnvIptcValue, &Converter::cnvXmpValueToIptc },
         { mdIptc, "Iptc.Application2.DateCreated",        "MLutXmp.photoshop.DateCreated",          &Converter::cnvNone, &Converter::cnvXmpValueToIptc }, // FIXME to IPTC Date and IPTC Time
-        { mdIptc, "Iptc.Application2.DigitizationDate",   "MLutXmp.xmp.CreateDate",                 &Converter::cnvNone, &Converter::cnvXmpValueToIptc }, // FIXME to IPTC Date and IPTC Time
+        { mdIptc, "Iptc.Application2.DigitizationDate",   "MLutXmp.mlut_xmp.CreateDate",                 &Converter::cnvNone, &Converter::cnvXmpValueToIptc }, // FIXME to IPTC Date and IPTC Time
         { mdIptc, "Iptc.Application2.Byline",             "MLutXmp.dc.creator",                     &Converter::cnvIptcValue, &Converter::cnvXmpValueToIptc },
         { mdIptc, "Iptc.Application2.BylineTitle",        "MLutXmp.photoshop.AuthorsPosition",      &Converter::cnvIptcValue, &Converter::cnvXmpValueToIptc },
         { mdIptc, "Iptc.Application2.City",               "MLutXmp.photoshop.City",                 &Converter::cnvIptcValue, &Converter::cnvXmpValueToIptc },
