@@ -21,6 +21,7 @@ set(CMAKE_CXX_STANDARD 17)
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
 set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
+set (EXIVEDK_DB_DIR ${CMAKE_SOURCE_DIR}/external/exiv2)
 
 #
 # Generators
@@ -32,9 +33,12 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 # Packages
 #
 find_package (PkgConfig QUIET)
-find_package(BLAS REQUIRED)
-find_package(LAPACK REQUIRED)
-find_package(Threads REQUIRED)
+find_package (BLAS REQUIRED)
+find_package (LAPACK REQUIRED)
+find_package (Threads REQUIRED)
+find_package (EXPAT REQUIRED)
+find_package (ZLIB REQUIRED)
+find_package (Iconv REQUIRED)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -105,7 +109,7 @@ include(ExternalProject)
 # External project dependencies
 #
 set(COMMON_DEPENDECIES)
-set(COMMON_LIBRARIES ${BLAS_LIBRARIES};${LAPACK_LIBRARIES};${CMAKE_THREAD_LIBS_INIT};${MKL_LIBRARIES})
+set(COMMON_LIBRARIES ${BLAS_LIBRARIES};${LAPACK_LIBRARIES};${CMAKE_THREAD_LIBS_INIT};${MKL_LIBRARIES}; ${EXPAT_LIBRARIES}; ${ZLIB_LIBRARIES}; ${Iconv_LIBRARIES}; )
 
 #
 # Google Test
@@ -163,8 +167,21 @@ ExternalProject_Add(base64cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
 
+ExternalProject_Add(
+        exiv2_lib
+        SOURCE_DIR ${EXIVEDK_DB_DIR}
+        CMAKE_ARGS
+        -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+        -DBUILD_SHARED_LIBS=Off
+        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
+        -DEXIV2_BUILD_SAMPLES=Off
+        -DEXIV2_BUILD_EXIV2_COMMAND=off
+        -DBUILD_WITH_CCACHE=ON
+        -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+)
+set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};exiv2_lib)
 
-set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
+set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;exiv2;exiv2-xmp)
 
 
 #
