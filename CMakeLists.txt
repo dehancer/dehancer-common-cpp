@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.3.0)
+project(${PROJECT_LIB} VERSION 0.3.1)
 
 #
 # Options
@@ -180,7 +180,6 @@ ExternalProject_Add(
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
 )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};exiv2_lib)
-
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;exiv2;exiv2-xmp)
 
 
