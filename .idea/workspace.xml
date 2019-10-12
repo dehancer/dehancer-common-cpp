@@ -18,35 +18,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/CameraLutXmp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlags.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlags.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlagsExiv2.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlagsExiv2.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/conanfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/conanfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/helpers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/contrib/organize/helpers.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/organize.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/contrib/organize/organize.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/actions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/actions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/convert.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/convert.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exiv2.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/exiv2.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exiv2app.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/exiv2app.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pngchunk_int.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/pngchunk_int.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pngimage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/pngimage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/preview.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/preview.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/properties.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/properties.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/riffvideo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/riffvideo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/types.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/types.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/webpimage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/webpimage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/xmp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/src/xmp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils-FileInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils-FileInfo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MLutXmp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/MLutXmp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xmp/.env" beforeDir="false" afterPath="$PROJECT_DIR$/tests/mlut_xmp/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xmp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/mlut_xmp/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xmp/mlut.mlut" beforeDir="false" afterPath="$PROJECT_DIR$/tests/mlut_xmp/mlut.mlut" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/xmp/xmp_open.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/mlut_xmp/xmp_open.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,14 +33,23 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="-522">
               <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
               <folding>
                 <element signature="e#48#82#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -163,13 +144,13 @@
         <option value="$PROJECT_DIR$/tests/xmp/.env" />
         <option value="$PROJECT_DIR$/tests/xmp/xmp_open.cpp" />
         <option value="$PROJECT_DIR$/lib/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/mlut_xmp/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" />
         <option value="$PROJECT_DIR$/src/CameraLutXmp.cpp" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -325,14 +306,11 @@
       <workItem from="1570904539319" duration="4345000" />
       <workItem from="1570909391476" duration="601000" />
       <workItem from="1570910299591" duration="2000" />
-      <workItem from="1570911099841" duration="5344000" />
+      <workItem from="1570911099841" duration="5757000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 16m 41s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 23m 02s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -360,20 +338,23 @@
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 39m 39s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 41m 09s.xml">
+      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22117000" />
+    <option name="totallyTimeSpent" value="22530000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2360515" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2360515" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.54394907" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4343949" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -534,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -627,11 +601,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="-522">
           <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
           <folding>
             <element signature="e#48#82#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
