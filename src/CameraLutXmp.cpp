@@ -180,12 +180,13 @@ namespace dehancer {
             "serial",
             "datetime",
             "nsorder",
-            "nshasPhoto",
-            "nshasVideo",
+            "nsisPhotoEnabled",
+            "nsisVideoEnabled",
             "nslicenseMatrix",
             "nsvendor",
             "nsmodel",
-            "nsformat"
+            "nsformat",
+            "nsisPublished"
     };
 
     const std::vector<std::string>& CameraLutXmp::get_key_list() const {
@@ -266,13 +267,18 @@ namespace dehancer {
       return 0;
     }
 
-    bool CameraLutXmp::get_has_photo()  const {
-      if (get_value("nshasPhoto")) return get_value("nshasPhoto")->toString() == "True";
+    bool CameraLutXmp::is_photo_enabled()  const {
+      if (get_value("nsisPhotoEnabled")) return get_value("nsisPhotoEnabled")->toString() == "True";
       return 0;
     }
 
-    bool CameraLutXmp::get_has_video()  const {
-      if (get_value("nshasVideo")) return get_value("nshasVideo")->toString() == "True";
+    bool CameraLutXmp::is_video_enabled()  const {
+      if (get_value("nsisVideoEnabled")) return get_value("nsisVideoEnabled")->toString() == "True";
+      return 0;
+    }
+
+    bool CameraLutXmp::is_published() const {
+      if (get_value("nsisPublished")) return get_value("nsisPublished")->toString() == "True";
       return 0;
     }
 }
