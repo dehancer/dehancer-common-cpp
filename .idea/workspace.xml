@@ -3,11 +3,8 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
-      <config projectName="dehancer_common_cpp" targetName="mlut-xmp-open-test" />
-      <config projectName="dehancer_common_cpp" targetName="exiv2_lib" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
       <config projectName="dehancer_common_cpp" targetName="check-license-test" />
-      <config projectName="dehancer_common_cpp" targetName="clut-xmp-open-test" />
       <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
     </generated>
   </component>
@@ -33,18 +30,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#48#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,64 +40,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/types.hpp">
+        <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="134" column="40" selection-start-line="134" selection-start-column="40" selection-end-line="134" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="183" column="22" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
-              <folding>
-                <element signature="e#48#82#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dehancer-common-cpp.pc.in">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/dehancer/CameraLutXmp.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
-              <folding>
-                <element signature="e#62#88#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="131" selection-start-line="131" selection-end-line="131" />
-              <folding>
-                <element signature="e#62#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2829">
-              <caret line="303" column="19" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="19" />
+            <state relative-caret-position="17">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -127,6 +58,16 @@
       <find>mile</find>
       <find>xmpBag</find>
       <find>xmp_meta_prefix</find>
+      <find>Building shared library:</find>
+      <find>BUILD_SHARED_LIBS</find>
+      <find>COMMON_LIBRARIES</find>
+      <find>XMP_Error</find>
+      <find>XMPFile</find>
+      <find>TXMPFiles</find>
+      <find>GetXMP</find>
+      <find>XMPFiles</find>
+      <find>exiv2-xmp</find>
+      <find>exi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -154,11 +95,14 @@
         <option value="$PROJECT_DIR$/tests/xmp/xmp_open.cpp" />
         <option value="$PROJECT_DIR$/lib/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/mlut_xmp/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" />
         <option value="$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp" />
         <option value="$PROJECT_DIR$/src/CameraLutXmp.cpp" />
+        <option value="$PROJECT_DIR$/external/exiv2/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/external/exiv2/build/CMakeCache.txt" />
+        <option value="$PROJECT_DIR$/external/exiv2/src/xmp.cpp" />
+        <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
@@ -168,11 +112,13 @@
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -199,11 +145,6 @@
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -211,22 +152,16 @@
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="cameralut_xmp" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.has.clang-format" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
@@ -248,20 +183,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Google Test.clut-xmp-open-test">
+  <component name="RunManager" selected="Google Test.check-license-test">
     <configuration name="check-license-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="check-license-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="check-license-test" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="clut-xmp-open-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="clut-xmp-open-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="clut-xmp-open-test" TEST_MODE="SUITE_TEST">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-        <option name="BeforeTestRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="mlut-xmp-open-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="mlut-xmp-open-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="mlut-xmp-open-test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -282,19 +205,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="exiv2_lib" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="exiv2_lib" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="CMake Application.base64cpplib" />
       <item itemvalue="CMake Application.dehancer_common_cpp" />
       <item itemvalue="CMake Application.ed25519cpplib" />
-      <item itemvalue="CMake Application.exiv2_lib" />
-      <item itemvalue="Google Test.clut-xmp-open-test" />
       <item itemvalue="Google Test.check-license-test" />
-      <item itemvalue="Google Test.mlut-xmp-open-test" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -315,62 +230,63 @@
       <workItem from="1570904539319" duration="4345000" />
       <workItem from="1570909391476" duration="601000" />
       <workItem from="1570910299591" duration="2000" />
-      <workItem from="1570911099841" duration="10821000" />
+      <workItem from="1570911099841" duration="21066000" />
+      <workItem from="1570985587965" duration="435000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 33m 21s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 18h 57m 48s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 33m 54s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 00m 50s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 39m 39s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 10m 38s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 00h 41m 09s.xml">
+    <history-entry file="mlut-xmp-open-test - 2019.10.13 at 19h 11m 36s.xml">
+      <configuration name="mlut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="check-license-test - 2019.10.13 at 19h 11m 53s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 12m 11s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 01h 03m 16s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 13m 09s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 01h 03m 43s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 14m 00s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 10h 59m 19s.xml">
+    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 31m 44s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 11h 00m 00s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 11h 00m 26s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 11h 02m 50s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="check-license-test - 2019.10.13 at 19h 57m 17s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27594000" />
+    <option name="totallyTimeSpent" value="38274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2360515" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23891273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3299363" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3375796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.43821657" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.37961784" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -470,13 +386,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/mlut_xmp/.env">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -484,26 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="60" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="60" />
-          <folding>
-            <element signature="e#48#77#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/CMakeCommon.in">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MLutXmp.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="233" column="1" selection-start-line="4" selection-end-line="233" selection-end-column="1" />
-          <folding>
-            <element signature="e#48#77#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -511,23 +400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="60" selection-start-line="3" selection-end-line="60" />
-          <folding>
-            <element signature="e#61#87#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -557,13 +429,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2829">
-          <caret line="303" column="19" selection-start-line="303" selection-start-column="19" selection-end-line="303" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -581,40 +446,147 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dehancer-common-cpp.pc.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="279" column="23" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/CameraLutXmp.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
           <folding>
             <element signature="e#62#88#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
+    <entry file="file://$PROJECT_DIR$/external/exiv2/cmake/printSummary.cmake">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="235">
+          <caret line="42" column="6" lean-forward="true" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-264">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/exiv2/src/xmp.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2358">
+          <caret line="535" column="5" selection-start-line="535" selection-start-column="5" selection-end-line="535" selection-end-column="5" />
           <folding>
-            <element signature="e#48#82#0" expanded="true" />
+            <element signature="e#17826#18196#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp">
+    <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPIterator.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="183" column="22" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+        <state relative-caret-position="-22" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-Parse.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#48#82#0" expanded="true" />
+            <element signature="e#948#1284#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dehancer-common-cpp.pc.in">
+    <entry file="file://$PROJECT_DIR$/external/exiv2/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/include/exiv2/xmp_exiv2.hpp" />
+    <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP.incl_cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="47" column="4" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
+          <folding>
+            <element signature="e#1808#2160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/include/TXMPMeta.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="1539" column="16" lean-forward="true" selection-start-line="1539" selection-start-column="16" selection-end-line="1539" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CMakeCommon.in">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5017" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MLutXmp.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-423">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/clut.clut">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="278" column="19" selection-start-line="278" selection-start-column="19" selection-end-line="278" selection-end-column="19" />
+          <folding>
+            <element signature="e#1272#1296#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/metadatum.hpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5007" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>

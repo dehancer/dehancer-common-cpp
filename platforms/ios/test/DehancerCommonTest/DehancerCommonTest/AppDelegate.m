@@ -19,6 +19,7 @@
         // Insert code here to initialize your application
     
     LicenseType t = LicenseTypePro;
+    NSLog(@" ... %@ ", @(t));
 }
 
 

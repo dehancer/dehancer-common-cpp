@@ -13,7 +13,12 @@
 		311338FA234D1347009C208F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 311338F8234D1347009C208F /* Main.storyboard */; };
 		311338FD234D1347009C208F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 311338FC234D1347009C208F /* main.m */; };
 		31133908234D1347009C208F /* DehancerCommonTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31133907234D1347009C208F /* DehancerCommonTestTests.m */; };
+		31CF1BB3235321240015ABCC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CF1BB2235321240015ABCC /* AppDelegate.swift */; };
+		31CF1BB5235321240015ABCC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CF1BB4235321240015ABCC /* ViewController.swift */; };
+		31CF1BB7235321250015ABCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31CF1BB6235321250015ABCC /* Assets.xcassets */; };
+		31CF1BBA235321250015ABCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31CF1BB8235321250015ABCC /* Main.storyboard */; };
 		68CD9A4B71778F94E536140F /* Pods_DehancerCommonTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06CA346897EB7AA4D85744FD /* Pods_DehancerCommonTest.framework */; };
+		FC7B82C051C529E52298F985 /* Pods_DehancerCommonSwiftTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447E50C025BF7386CAAEB694 /* Pods_DehancerCommonSwiftTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +47,17 @@
 		31133903234D1347009C208F /* DehancerCommonTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DehancerCommonTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		31133907234D1347009C208F /* DehancerCommonTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DehancerCommonTestTests.m; sourceTree = "<group>"; };
 		31133909234D1347009C208F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31CF1BB0235321240015ABCC /* DehancerCommonSwiftTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DehancerCommonSwiftTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31CF1BB2235321240015ABCC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		31CF1BB4235321240015ABCC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		31CF1BB6235321250015ABCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		31CF1BB9235321250015ABCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		31CF1BBB235321250015ABCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		31CF1BBC235321250015ABCC /* DehancerCommonSwiftTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DehancerCommonSwiftTest.entitlements; sourceTree = "<group>"; };
+		447E50C025BF7386CAAEB694 /* Pods_DehancerCommonSwiftTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DehancerCommonSwiftTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AFA89F3C793966E6C773D0 /* Pods-DehancerCommonSwiftTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehancerCommonSwiftTest.debug.xcconfig"; path = "Target Support Files/Pods-DehancerCommonSwiftTest/Pods-DehancerCommonSwiftTest.debug.xcconfig"; sourceTree = "<group>"; };
 		77FCF2A89EC36950B211D6DC /* Pods-DehancerCommonTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehancerCommonTest.release.xcconfig"; path = "Target Support Files/Pods-DehancerCommonTest/Pods-DehancerCommonTest.release.xcconfig"; sourceTree = "<group>"; };
+		7A932A0912733FADC9FE1645 /* Pods-DehancerCommonSwiftTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DehancerCommonSwiftTest.release.xcconfig"; path = "Target Support Files/Pods-DehancerCommonSwiftTest/Pods-DehancerCommonSwiftTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +76,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31CF1BAD235321240015ABCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC7B82C051C529E52298F985 /* Pods_DehancerCommonSwiftTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -69,6 +92,7 @@
 			children = (
 				311338EF234D1346009C208F /* DehancerCommonTest */,
 				31133906234D1347009C208F /* DehancerCommonTestTests */,
+				31CF1BB1235321240015ABCC /* DehancerCommonSwiftTest */,
 				311338EE234D1346009C208F /* Products */,
 				91F19557CBF1BADDFA96935C /* Pods */,
 				4A721FAEDCB8F78435A37F99 /* Frameworks */,
@@ -80,6 +104,7 @@
 			children = (
 				311338ED234D1346009C208F /* DehancerCommonTest.app */,
 				31133903234D1347009C208F /* DehancerCommonTestTests.xctest */,
+				31CF1BB0235321240015ABCC /* DehancerCommonSwiftTest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,10 +134,24 @@
 			path = DehancerCommonTestTests;
 			sourceTree = "<group>";
 		};
+		31CF1BB1235321240015ABCC /* DehancerCommonSwiftTest */ = {
+			isa = PBXGroup;
+			children = (
+				31CF1BB2235321240015ABCC /* AppDelegate.swift */,
+				31CF1BB4235321240015ABCC /* ViewController.swift */,
+				31CF1BB6235321250015ABCC /* Assets.xcassets */,
+				31CF1BB8235321250015ABCC /* Main.storyboard */,
+				31CF1BBB235321250015ABCC /* Info.plist */,
+				31CF1BBC235321250015ABCC /* DehancerCommonSwiftTest.entitlements */,
+			);
+			path = DehancerCommonSwiftTest;
+			sourceTree = "<group>";
+		};
 		4A721FAEDCB8F78435A37F99 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				06CA346897EB7AA4D85744FD /* Pods_DehancerCommonTest.framework */,
+				447E50C025BF7386CAAEB694 /* Pods_DehancerCommonSwiftTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,6 +161,8 @@
 			children = (
 				2EF1C755A61639D343E12769 /* Pods-DehancerCommonTest.debug.xcconfig */,
 				77FCF2A89EC36950B211D6DC /* Pods-DehancerCommonTest.release.xcconfig */,
+				59AFA89F3C793966E6C773D0 /* Pods-DehancerCommonSwiftTest.debug.xcconfig */,
+				7A932A0912733FADC9FE1645 /* Pods-DehancerCommonSwiftTest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,12 +207,32 @@
 			productReference = 31133903234D1347009C208F /* DehancerCommonTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		31CF1BAF235321240015ABCC /* DehancerCommonSwiftTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31CF1BBF235321250015ABCC /* Build configuration list for PBXNativeTarget "DehancerCommonSwiftTest" */;
+			buildPhases = (
+				1CE7A205CD29880AB7133F5C /* [CP] Check Pods Manifest.lock */,
+				31CF1BAC235321240015ABCC /* Sources */,
+				31CF1BAD235321240015ABCC /* Frameworks */,
+				31CF1BAE235321240015ABCC /* Resources */,
+				8CDB7053321870C978F42E35 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DehancerCommonSwiftTest;
+			productName = DehancerCommonSwiftTest;
+			productReference = 31CF1BB0235321240015ABCC /* DehancerCommonSwiftTest.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		311338E5234D1346009C208F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = Dehancer;
 				TargetAttributes = {
@@ -181,6 +242,9 @@
 					31133902234D1347009C208F = {
 						CreatedOnToolsVersion = 11.1;
 						TestTargetID = 311338EC234D1346009C208F;
+					};
+					31CF1BAF235321240015ABCC = {
+						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
@@ -199,6 +263,7 @@
 			targets = (
 				311338EC234D1346009C208F /* DehancerCommonTest */,
 				31133902234D1347009C208F /* DehancerCommonTestTests */,
+				31CF1BAF235321240015ABCC /* DehancerCommonSwiftTest */,
 			);
 		};
 /* End PBXProject section */
@@ -220,9 +285,40 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31CF1BAE235321240015ABCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31CF1BB7235321250015ABCC /* Assets.xcassets in Resources */,
+				31CF1BBA235321250015ABCC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1CE7A205CD29880AB7133F5C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DehancerCommonSwiftTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		29AB318441F3595EEE2407F4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -243,6 +339,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CDB7053321870C978F42E35 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonSwiftTest/Pods-DehancerCommonSwiftTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonSwiftTest/Pods-DehancerCommonSwiftTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DehancerCommonSwiftTest/Pods-DehancerCommonSwiftTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DEA2D92CF71ECD9CD08CDD49 /* [CP] Embed Pods Frameworks */ = {
@@ -283,6 +396,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		31CF1BAC235321240015ABCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31CF1BB5235321240015ABCC /* ViewController.swift in Sources */,
+				31CF1BB3235321240015ABCC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -298,6 +420,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				311338F9234D1347009C208F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		31CF1BB8235321250015ABCC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31CF1BB9235321250015ABCC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -496,6 +626,52 @@
 			};
 			name = Release;
 		};
+		31CF1BBD235321250015ABCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59AFA89F3C793966E6C773D0 /* Pods-DehancerCommonSwiftTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DehancerCommonSwiftTest/DehancerCommonSwiftTest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DehancerCommonSwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.DehancerCommonSwiftTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		31CF1BBE235321250015ABCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A932A0912733FADC9FE1645 /* Pods-DehancerCommonSwiftTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DehancerCommonSwiftTest/DehancerCommonSwiftTest.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = TCA85S5T49;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = DehancerCommonSwiftTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.dehancer.DehancerCommonSwiftTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -522,6 +698,15 @@
 			buildConfigurations = (
 				31133910234D1347009C208F /* Debug */,
 				31133911234D1347009C208F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31CF1BBF235321250015ABCC /* Build configuration list for PBXNativeTarget "DehancerCommonSwiftTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31CF1BBD235321250015ABCC /* Debug */,
+				31CF1BBE235321250015ABCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
