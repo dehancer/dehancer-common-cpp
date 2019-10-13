@@ -15,425 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/.clang-format" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/.gitlab-ci.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/ABOUT-NLS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/AUTHORS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/CODING_GUIDELINES.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/COPYING" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/COPYING-CMAKE-SCRIPTS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/README-CONAN.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/WORK-IN-PROGRESS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/appveyor.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/ci/install.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/ci/install_dependencies.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/ci/run.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/ci/test_build.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/Doxyfile.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/FindIconv.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/FindRegex.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/FindSSH.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlags.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/compilerFlagsExiv2.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/config.h.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/exiv2.pc.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/exiv2_uninstall.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/findDependencies.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/generateConfigFile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/generateDoc.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/mainSetup.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2008Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2008Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2008Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2008Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2010Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2010Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2010Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2010Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2012Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2012Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2012Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2012Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2013Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2013Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2013Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2013Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2015Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2015Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2015Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2015Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2017Debug32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2017Debug64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2017Release32" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/msvc_conan_profiles/msvc2017Release64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/packaging.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/cmake/printSummary.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/codecov.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/conanfile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/coverity.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/createEpsTestfiles" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/diffeps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/MD5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/MD5.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/README" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/boost.mk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/helpers.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/helpers.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/organize.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/organize/work/exiv2/contrib/organize/organize.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/vms/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/vms/Vagrantfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/vms/setup.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/contrib/vms/setup_user.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/COPYING-XMPSDK" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/ChangeLog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/README-XMP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/cmake_doc.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/cmd.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/cmdxmp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/ascending.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/blank.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/descending.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/exiv2-components.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/sortabletable.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/include/sortabletable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__CrwMapping__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__doctype__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__header2__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__index1__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__index2__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__index3__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__intro__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__maintitle__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/__makernotes__" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/crw-mapping.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/exiv2.dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/gen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/getting-started.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/gpl-license.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/iptc.awk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/iptc.xsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/makernote.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-canon.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-casio.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-exif.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-fujifilm.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-iptc.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-minolta.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-nikon.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-olympus.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-panasonic.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-pentax.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-samsung.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-sigma.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-sony.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-GPano.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-MP.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-MPRI.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-MPReg.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-MicrosoftPhoto.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-acdsee.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-aux.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-crs.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-crss.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-dc.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-dcterms.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-digiKam.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-dwc.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-exif.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-exifEX.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-expressionmedia.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-iptc.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-iptcExt.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-kipi.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-lr.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-mediapro.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-mwg-kw.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-mwg-rs.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-pdf.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-photoshop.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-plus.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-tiff.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmp.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmpBJ.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmpDM.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmpMM.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmpRights.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags-xmp-xmpTPg.html.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags.awk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/tags.xsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/xmp.awk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/doc/templates/xmp.xsl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/exiv2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/git_guidelines.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/asfvideo.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/basicio.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/bigtiffimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/bmpimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/config.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/convert.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/cr2image.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/crwimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/datasets.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/easyaccess.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/epsimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/error.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/exif.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/exiv2.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/futils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/gifimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/http.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/image.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/ini.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/iptc.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/jp2image.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/jpgimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/matroskavideo.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/metadatum.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/mrwimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/orfimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/pgfimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/pngimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/preview.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/properties.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/psdimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/quicktimevideo.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/rafimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/riffvideo.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/rw2image.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/rwlock.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/slice.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/ssh.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/tags.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/tgaimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/tiffimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/types.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/utilsvideo.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/value.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/version.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/webpimage.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/xmp_exiv2.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/include/exiv2/xmpsidecar.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/license.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/ChangeLog" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/LINGUAS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/Makevars" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/POTFILES.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/Rules-quot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/boldquot.sed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/bs.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/ca.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/de.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/en@boldquot.header" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/en@quot.header" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/es.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/exiv2.pot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/fi.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/fr.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/gl.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/insert-header.sin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/ms.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/pl.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/pt.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/quot.sed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/remove-potcdate.sin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/ru.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/sk.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/sv.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/ug.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/uk.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/po/vi.po" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/CYGWIN/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/Darwin/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/Linux/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/MinGW/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/msvc/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/releasenotes/releasenotes.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/TODO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/actions.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/actions.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/asfvideo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/basicio.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/bigtiffimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/bmpimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/canonmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/canonmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/casiomn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/casiomn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/convert.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/cr2header_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/cr2header_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/cr2image.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/crwimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/crwimage_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/crwimage_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/datasets.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/doxygen.hpp.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/easyaccess.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/enforce.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/epsimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/error.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exif.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exiv2.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exiv2.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/exiv2app.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/fff.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/fujimn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/fujimn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/futils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/getopt.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/getopt.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/gifimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/helper_functions.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/helper_functions.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/http.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/i18n.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/image.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/image_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/image_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/ini.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/iptc.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/jp2image.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/jpgimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/localtime.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/makernote_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/makernote_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/matroskavideo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/metadatum.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/minoltamn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/minoltamn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/mrwimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/nikonmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/nikonmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/olympusmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/olympusmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/orfimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/orfimage_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/orfimage_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/panasonicmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/panasonicmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pentaxmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pentaxmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pgfimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pngchunk_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pngchunk_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/pngimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/preview.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/private.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/properties.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/psdimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/quicktimevideo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/rafimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/riffvideo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/rw2image.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/rw2image_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/rw2image_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/safe_op.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/samsungmn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/samsungmn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/sigmamn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/sigmamn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/sonymn_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/sonymn_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/ssh.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tags.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tags_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tags_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tgaimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffcomposite_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffcomposite_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tifffwd_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffimage_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffimage_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffvisitor_int.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tiffvisitor_int.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/timegm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/types.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/tzfile.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/unused.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/utils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/utils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/utilsvideo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/value.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/version.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/webpimage.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/xmp.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/src/xmpsidecar.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/cmake/CheckIncludeFile.c.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/cmake/CheckIncludeFile.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/cmake/CheckIncludeFile.cxx.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/cmake/CheckIncludeFileCXX.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/cmake/CheckIncludeFiles.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/MD5.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/TXMPIterator.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/TXMPMeta.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/TXMPUtils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP.incl_cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMPSDK.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP_Const.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP_Environment.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP_Version.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/TXMPIterator.incl_cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/TXMPMeta.incl_cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/TXMPUtils.incl_cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/WXMPFiles.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/WXMPIterator.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/WXMPMeta.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/WXMPUtils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/include/client-glue/WXMP_Common.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/ExpatAdapter.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/ExpatAdapter.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/MD5.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/ParseRDF.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/UnicodeConversions.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/UnicodeConversions.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/UnicodeInlines.incl_cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/WXMPIterator.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/WXMPMeta.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/WXMPUtils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMLParserAdapter.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XML_Node.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPCore_Impl.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPCore_Impl.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPIterator.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPIterator.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-GetSet.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-Parse.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-Serialize.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils-FileInfo.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPUtils.hpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMP_BuildInfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dehancer/MLutXmp.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CameraLutXmp.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MLutXmp.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cameralut_xmp/clut.clut" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/mlut_xmp/.env" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/mlut_xmp/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/mlut_xmp/mlut.mlut" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/mlut_xmp/xmp_open.cpp" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -451,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+            <state relative-caret-position="102">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -649,14 +231,11 @@
       <workItem from="1570909391476" duration="601000" />
       <workItem from="1570910299591" duration="2000" />
       <workItem from="1570911099841" duration="21066000" />
-      <workItem from="1570985587965" duration="243000" />
+      <workItem from="1570985587965" duration="435000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 18h 31m 17s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 18h 57m 48s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -684,27 +263,30 @@
     <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 31m 44s.xml">
       <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="check-license-test - 2019.10.13 at 19h 57m 17s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38082000" />
+    <option name="totallyTimeSpent" value="38274000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23891273" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23891273" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3375796" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3375796" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info active="true" anchor="bottom" id="Messages" order="9" visible="true" weight="0.37961784" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.37961784" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -1010,8 +592,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="164" column="58" selection-start-line="164" selection-start-column="58" selection-end-line="164" selection-end-column="58" />
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
