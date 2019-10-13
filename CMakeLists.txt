@@ -21,7 +21,6 @@ set(CMAKE_CXX_STANDARD 17)
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
 set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
-set (EXIVEDK_DB_DIR ${CMAKE_SOURCE_DIR}/external/exiv2)
 
 #
 # Generators
@@ -36,9 +35,6 @@ find_package (PkgConfig QUIET)
 find_package (BLAS REQUIRED)
 find_package (LAPACK REQUIRED)
 find_package (Threads REQUIRED)
-find_package (EXPAT REQUIRED)
-find_package (ZLIB REQUIRED)
-find_package (Iconv REQUIRED)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -166,23 +162,7 @@ ExternalProject_Add(base64cpplib
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
-
-ExternalProject_Add(
-        exiv2_lib
-        SOURCE_DIR ${EXIVEDK_DB_DIR}
-        CMAKE_ARGS
-        -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-        -DBUILD_SHARED_LIBS=OFF
-        -DCMAKE_POSITION_INDEPENDENT_CODE=ON
-        -DEXIV2_BUILD_SAMPLES=OFF
-        -DEXIV2_BUILD_EXIV2_COMMAND=OFF
-        -DEXIV2_ENABLE_XMP=ON
-        -DBUILD_WITH_CCACHE=ON
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-)
-set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};exiv2_lib)
-set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;exiv2;exiv2-xmp)
-
+set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;)
 
 #
 # Details
