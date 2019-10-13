@@ -15,7 +15,7 @@ set (CMAKE_OSX_DEPLOYMENT_TARGET "10.13")
 option( EXIV2_ENABLE_NLS "" Off)
 #cmake_dependent_option(EXIV2_ENABLE_NLS "Build native language support (requires gettext)" ON "UNIX" OFF)
 
-option( BUILD_SHARED_LIBS             "Build exiv2lib as a shared library"                    ON  )
+option( BUILD_SHARED_LIBS             "Build exiv2lib as a shared library"                    OFF  )
 option( EXIV2_ENABLE_XMP              "Build with XMP metadata support"                       ON  )
 option( EXIV2_ENABLE_EXTERNAL_XMP     "Use external version of XMP"                           OFF )
 option( EXIV2_ENABLE_PNG              "Build with png support (requires libz)"                ON  )

@@ -14,3 +14,12 @@ target 'DehancerCommonTest' do
     #
     # pod 'DehancerCommonTest', :git => 'https://github.com/dehancer/dehancer-common-cpp'
 end
+
+target 'DehancerCommonSwiftTest' do
+    pod 'DehancerCommon', :path => '../../../../'
+    
+    #
+    # Uncomment in your app:
+    #
+    # pod 'DehancerCommonTest', :git => 'https://github.com/dehancer/dehancer-common-cpp'
+end
