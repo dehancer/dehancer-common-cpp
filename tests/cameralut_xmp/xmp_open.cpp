@@ -33,11 +33,11 @@ TEST(XMP, XMPOpenTest) {
     for (auto lic: xmp->get_license_matrix())
       std::cout << "License, matrix: " << static_cast<int>(lic) << std::endl;
 
-    std::cout << " has photo " << xmp->get_has_photo() << std::endl;
-    std::cout << " has video " << xmp->get_has_video() << std::endl;
-    std::cout << "    vendor " << xmp->get_vendor() << std::endl;
-    std::cout << "     model " << xmp->get_model() << std::endl;
-    std::cout << "    format " << xmp->get_format() << std::endl;
+    std::cout << "           vendor " << xmp->get_vendor() << std::endl;
+    std::cout << "            model " << xmp->get_model() << std::endl;
+    std::cout << "           format " << xmp->get_format() << std::endl;
+    std::cout << " is photo enabled " << xmp->is_photo_enabled() << std::endl;
+    std::cout << " is video enabled " << xmp->is_video_enabled() << std::endl;
 
     auto list = xmp->get_key_list();
     std::cout << std::endl;
