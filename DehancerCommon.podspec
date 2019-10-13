@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.public_header_files = "platforms/ios/dehancer-common/Classes/*.{h,hpp}"
 
   s.frameworks = "Foundation"
-  s.libraries  = 'c++', 'ed25519cpp', 'base64cpp', 'exiv2', 'exiv2-xmp', 'expat', 'z', 'iconv'
+  s.libraries  = 'c++', 'ed25519cpp', 'base64cpp'
 
   s.requires_arc = true
   s.compiler_flags = '-Wno-format', '-x objective-c++', '-DNDEBUG', '-DUSE_DEC_FIXEDPOINT', '-DR128_STDC_ONLY'
