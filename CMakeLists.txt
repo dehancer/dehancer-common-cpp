@@ -32,8 +32,6 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 # Packages
 #
 find_package (PkgConfig QUIET)
-find_package (BLAS REQUIRED)
-find_package (LAPACK REQUIRED)
 find_package (Threads REQUIRED)
 
 if(NOT PKG_CONFIG_FOUND)
@@ -105,7 +103,7 @@ include(ExternalProject)
 # External project dependencies
 #
 set(COMMON_DEPENDECIES)
-set(COMMON_LIBRARIES ${BLAS_LIBRARIES};${LAPACK_LIBRARIES};${CMAKE_THREAD_LIBS_INIT};${MKL_LIBRARIES}; ${EXPAT_LIBRARIES}; ${ZLIB_LIBRARIES}; ${Iconv_LIBRARIES}; )
+set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT};)
 
 #
 # Google Test

@@ -4,8 +4,8 @@
     <generated>
       <config projectName="dehancer_common_cpp" targetName="check-license-test" />
       <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
-      <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
+      <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -14,7 +14,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="" />
+    <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +33,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="218">
+              <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -231,6 +233,7 @@
       <workItem from="1570911099841" duration="21066000" />
       <workItem from="1570985587965" duration="690000" />
       <workItem from="1571009735606" duration="3000" />
+      <workItem from="1571070818046" duration="45000" />
     </task>
     <servers />
   </component>
@@ -267,12 +270,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38532000" />
+    <option name="totallyTimeSpent" value="38577000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24248926" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24606581" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -465,15 +469,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/clut.clut">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/clut.clut" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/metadatum.hpp" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="218">
+          <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
         </state>
       </provider>
     </entry>
