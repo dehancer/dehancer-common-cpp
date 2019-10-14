@@ -5,6 +5,8 @@
 #pragma once
 
 #include <vector>
+#include <stdint.h>
+#include <cstdint>
 
 /***
  * Blowfish PKCS7

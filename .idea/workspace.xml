@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
       <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
+      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
       <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
     </generated>
@@ -15,7 +15,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/dehancer/Blowfish.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/Blowfish.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,8 +36,38 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
+            <state relative-caret-position="187">
+              <caret line="118" selection-start-line="118" selection-end-line="118" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdint.h">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include/stdint.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-301" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/dehancer/Common.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -68,6 +101,7 @@
       <find>XMPFiles</find>
       <find>exiv2-xmp</find>
       <find>exi</find>
+      <find>arm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -88,7 +122,6 @@
         <option value="$PROJECT_DIR$/DehancerCommon.podspec" />
         <option value="$PROJECT_DIR$/platforms/ios/dehancer-common/Classes/License.h" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Blowfish.cpp" />
         <option value="$PROJECT_DIR$/include/dehancer/MLutXmp.h" />
         <option value="$PROJECT_DIR$/src/MLutXmp.cpp" />
         <option value="$PROJECT_DIR$/tests/xmp/.env" />
@@ -103,6 +136,8 @@
         <option value="$PROJECT_DIR$/external/exiv2/build/CMakeCache.txt" />
         <option value="$PROJECT_DIR$/external/exiv2/src/xmp.cpp" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/Blowfish.cpp" />
+        <option value="$PROJECT_DIR$/include/dehancer/Blowfish.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
@@ -129,6 +164,11 @@
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="cmake-build-debug" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="external" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -141,6 +181,11 @@
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="dehancer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
@@ -233,20 +278,11 @@
       <workItem from="1570911099841" duration="21066000" />
       <workItem from="1570985587965" duration="690000" />
       <workItem from="1571009735606" duration="3000" />
-      <workItem from="1571070818046" duration="45000" />
+      <workItem from="1571070818046" duration="934000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 18h 57m 48s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 00m 50s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="clut-xmp-open-test - 2019.10.13 at 19h 10m 38s.xml">
-      <configuration name="clut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="mlut-xmp-open-test - 2019.10.13 at 19h 11m 36s.xml">
       <configuration name="mlut-xmp-open-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -268,9 +304,18 @@
     <history-entry file="check-license-test - 2019.10.13 at 19h 57m 17s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="check-license-test - 2019.10.14 at 19h 34m 34s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="check-license-test - 2019.10.14 at 19h 41m 48s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="check-license-test - 2019.10.14 at 19h 48m 47s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38577000" />
+    <option name="totallyTimeSpent" value="39466000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -292,7 +337,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info active="true" anchor="bottom" id="CMake" order="13" visible="true" weight="0.2433121" />
+      <window_info anchor="bottom" id="CMake" order="13" weight="0.2433121" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -378,30 +423,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/dehancer/Blowfish.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blowfish.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/mlut_xmp/.env" />
     <entry file="file://$PROJECT_DIR$/tests/mlut_xmp/xmp_open.cpp" />
     <entry file="file://$PROJECT_DIR$/include/dehancer/MLutXmp.h" />
     <entry file="file://$PROJECT_DIR$/tests/mlut_xmp/CMakeLists.txt" />
-    <entry file="file://$PROJECT_DIR$/include/dehancer/Common.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#62#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -432,13 +457,6 @@
     <entry file="file://$PROJECT_DIR$/src/CameraLutXmp.cpp" />
     <entry file="file://$PROJECT_DIR$/include/dehancer/CameraLutXmp.h" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/cmake/printSummary.cmake" />
-    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/external/exiv2/src/xmp.cpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPIterator.hpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-Parse.cpp" />
@@ -472,17 +490,56 @@
     <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/clut.clut" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/metadatum.hpp" />
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="105" column="47" selection-start-line="105" selection-start-column="47" selection-end-line="105" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Common.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include/stdint.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-301" />
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdint.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Blowfish.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#62#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blowfish.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="118" selection-start-line="118" selection-end-line="118" />
         </state>
       </provider>
     </entry>
