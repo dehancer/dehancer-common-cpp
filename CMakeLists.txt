@@ -112,7 +112,11 @@ find_package(GTest)
 if (NOT GTEST_FOUND)
     ExternalProject_Add(googletest
             GIT_REPOSITORY https://github.com/google/googletest
-            CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            CMAKE_ARGS
+            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
+            INSTALL_COMMAND make install
+            PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
     set(COMMON_DEPENDECIES googletest)
 endif ()
@@ -123,6 +127,9 @@ ExternalProject_Add(ed25519cpplib
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+        -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
+        INSTALL_COMMAND make install
+        PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};ed25519cpplib)
 
@@ -131,6 +138,9 @@ ExternalProject_Add(base64cpplib
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+        -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
+        INSTALL_COMMAND make install
+        PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;)
