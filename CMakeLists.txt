@@ -114,7 +114,6 @@ if (NOT GTEST_FOUND)
             GIT_REPOSITORY https://github.com/google/googletest
             CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
             INSTALL_COMMAND make install
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
@@ -127,7 +126,6 @@ ExternalProject_Add(ed25519cpplib
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-        -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
         -DBUILD_TESTING=OFF
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
@@ -139,7 +137,6 @@ ExternalProject_Add(base64cpplib
         CMAKE_ARGS
         -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-        -DCMAKE_BINARY_DIR=${CMAKE_BINARY_DIR}
         -DBUILD_TESTING=OFF
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
