@@ -6,8 +6,8 @@ includedir=@includedir@
 Name: dehancer-common-cpp
 Description: Capy memcache layer SDK
 Version: @PROJECT_VERSION@
-URL: https://github.com/dehancer/ dehancer-common-cpp
+URL: https://github.com/dehancer/dehancer-common-cpp
 Requires.private: @requires_private@
-Libs: -L${libdir} -l dehancer_common_cpp
+Libs: -L${libdir} -ldehancer_common_cpp
 Libs.private: @libs_private@
 CFlags: -I${includedir}

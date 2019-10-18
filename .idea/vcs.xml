@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build-dehancer/base64cpplib-prefix/src/base64cpplib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/build-dehancer/ed25519cpplib-prefix/src/ed25519cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/base64cpplib-prefix/src/base64cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/ed25519cpplib-prefix/src/ed25519cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/exiv2" vcs="Git" />
