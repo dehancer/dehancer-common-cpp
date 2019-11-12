@@ -5,6 +5,7 @@
 #pragma once
 
 #include <string>
+#include <cinttypes>
 #include "dehancer/Common.h"
 
 
@@ -13,20 +14,31 @@ namespace dehancer{
     struct License {
 
         enum class Type:int {
-            promo     = 0,
-            light     = 1,
-            standard  = 2,
-            pro       = 3,
+            promo     =  0,
+            light     =  1,
+            standard  =  2,
+            pro       =  3,
             unknown   = -1
         };
 
-        Type        type;
-        std::string email;
-        std::string name;
-        std::string maintainer;
-        time_t      issue_date;
-        time_t      expiry_date;
-        bool        offline_enabling;
+        /* license type*/
+        Type           type;
+        /* software version */
+        std::uint16_t  version;
+        /* user email */
+        std::string    email;
+        /* software name */
+        std::string    name;
+        /* license maintainer */
+        std::string    maintainer;
+        /* activation key upgraded from or empty */
+        std::string    upgraded_id;
+        /* activation issue date -1 == undefined */
+        time_t         issue_date;
+        /* expiration date -1 == undefined 0 - unlimited */
+        time_t         expiry_date;
+        /* user can activate offline */
+        bool           offline_enabling;
 
         /**
          * Sign the activation key

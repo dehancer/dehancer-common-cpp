@@ -37,7 +37,7 @@ Pod::Spec.new do |s|
   s.compiler_flags = '-Wno-format', '-x objective-c++', '-DNDEBUG', '-DUSE_DEC_FIXEDPOINT', '-DR128_STDC_ONLY'
   
   s.xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'CSA=1' , 'OTHER_CFLAGS' => '',
-                 'HEADER_SEARCH_PATHS' => '"/usr/local/include" "${PODS_ROOT}" "${PODS_TARGET_SRCROOT}"/include',
+                 'HEADER_SEARCH_PATHS' => '"/usr/local/include" "${PODS_ROOT}" "${PODS_TARGET_SRCROOT}"/include "${PODS_TARGET_SRCROOT}"/external',
                     'CLANG_CXX_LANGUAGE_STANDARD' => 'c++17',
                     'CLANG_CXX_LIBRARY' => 'libc++',
                     'LIBRARY_SEARCH_PATHS' => '"/usr/local/lib"'}

@@ -2,65 +2,64 @@
 // Created by denn nevera on 2019-08-10.
 //
 
-//#include "authority_pvk.h"
-//#include "key_file.h"
-
 #include "dehancer/License.h"
 #include "dehancer/Utils.h"
 #include "gtest/gtest.h"
-//#include "../dotenv/dotenv_utils.h"
-
+#include "ed25519.hpp"
 
 TEST(License, LicenseTest) {
 
-    dehancer::License::authority_key = ""; //__DEHANCERD_AUTHORITY_PVK__;
+  auto pr = ed25519::keys::Pair::Random();
 
-    std::cout << std::endl;
+  dehancer::License::authority_key = pr->get_private_key().encode();
+  dehancer::License::authority_public_key = pr->get_public_key().encode();
 
-    auto lic = dehancer::License();
+  std::cout << std::endl;
 
-    lic.type = dehancer::License::Type::promo;
-    lic.expiry_date = dehancer::time::now_utc() + 3600 * 2;
-    lic.issue_date = dehancer::time::now_utc();
-    lic.name = "Test license";
-    lic.maintainer = "Dehancer Ofx";
-    lic.email = "some.user@gmail.com";
+  auto lic = dehancer::License();
 
-    auto error = lic.sign();
+  lic.type = dehancer::License::Type::promo;
+  lic.expiry_date = dehancer::time::now_utc() + 3600 * 2;
+  lic.issue_date = dehancer::time::now_utc();
+  lic.name = "Test license";
+  lic.maintainer = "Dehancer Ofx";
+  lic.email = "some.user@gmail.com";
 
-    EXPECT_TRUE(!error);
+  auto error = lic.sign();
 
-    if (error) {
-        std::cout << "License error: " << error << std::endl;
-    }
+  EXPECT_TRUE(!error);
 
-    std::cout << "License: " << lic.json().dump() << std::endl;
+  if (error) {
+    std::cout << "License error: " << error << std::endl;
+  }
 
-    auto encoded = dehancer::License::Encode(lic);
+  std::cout << "License: " << lic.json().dump() << std::endl;
 
-    std::cout << "License encode: \n" << encoded << " : " << encoded.size() << std::endl;
+  auto encoded = dehancer::License::Encode(lic);
 
-    auto lic2 = dehancer::License::Decode("  "+encoded+" ");
+  std::cout << "License encode: \n" << encoded << " : " << encoded.size() << std::endl;
 
-    EXPECT_TRUE(lic2);
+  auto lic2 = dehancer::License::Decode("  "+encoded+" ");
 
-    if (!lic2) {
-        std::cerr << "License decode error: " << lic2.error().message() << std::endl;
-        return;
-    }
+  EXPECT_TRUE(lic2);
 
-    std::cout << "License2["<<lic2->is_valid()<<"]: " << lic2->json().dump() << std::endl;
+  if (!lic2) {
+    std::cerr << "License decode error: " << lic2.error().message() << std::endl;
+    return;
+  }
 
-    EXPECT_TRUE(lic2->is_valid());
+  std::cout << "License2["<<lic2->is_valid()<<"]: " << lic2->json().dump() << std::endl;
 
-    lic2->name = "Bad";
+  EXPECT_TRUE(lic2->is_valid());
 
-    std::cout << "License2["<<lic2->is_valid()<<"]: " << lic2->json().dump() << std::endl;
+  lic2->name = "Bad";
 
-    EXPECT_TRUE(!lic2->is_valid());
+  std::cout << "License2["<<lic2->is_valid()<<"]: " << lic2->json().dump() << std::endl;
 
-    auto lic3 = dehancer::License(lic);
+  EXPECT_TRUE(!lic2->is_valid());
 
-    EXPECT_TRUE(lic3.is_valid());
+  auto lic3 = dehancer::License(lic);
+
+  EXPECT_TRUE(lic3.is_valid());
 
 }
