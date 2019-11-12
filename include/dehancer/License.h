@@ -113,9 +113,10 @@ namespace dehancer{
         /**
          * Encode the license to base64 activation key string
          * @param license instance
+         * @param line_break_enabled enable line break
          * @return base64 activation key string
          */
-        static std::string Encode(const License& license);
+        static std::string Encode(const License& license, bool line_break_enabled = true);
 
         /**
          * Encode license from json object

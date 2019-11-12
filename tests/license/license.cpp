@@ -36,10 +36,12 @@ TEST(License, LicenseTest) {
   std::cout << "License: " << lic.json().dump() << std::endl;
 
   auto encoded = dehancer::License::Encode(lic);
+  auto encoded_line = dehancer::License::Encode(lic, false);
 
   std::cout << "License encode: \n" << encoded << " : " << encoded.size() << std::endl;
+  std::cout << "License encode line: \n" <<  encoded_line << " : " << encoded_line.size() << std::endl;
 
-  auto lic2 = dehancer::License::Decode("  "+encoded+" ");
+  auto lic2 = dehancer::License::Decode("  "+encoded_line+" ");
 
   EXPECT_TRUE(lic2);
 
