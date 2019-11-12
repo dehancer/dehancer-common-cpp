@@ -6,6 +6,7 @@
 #include "dehancer/Base64.h"
 #include "dehancer/Utils.h"
 #include <ed25519.hpp>
+#include <climits>
 
 namespace dehancer {
 
