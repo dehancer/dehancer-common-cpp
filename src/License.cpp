@@ -142,9 +142,9 @@ namespace dehancer {
       return Error(CommonError::OK);
     }
 
-    std::string License::Encode(const License& license) {
+    std::string License::Encode(const License& license, bool line_break_enabled) {
       std::string base64;
-      base64::encode(license.json().dump(), base64);
+      base64::encode(license.json().dump(), base64, line_break_enabled?76:INT_MAX);
       return  base64;
     }
 
