@@ -15,10 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dehancer/License.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/License.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/License.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/License.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/license/license.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/license/license.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +30,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="26">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -75,7 +72,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/license/license.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="600">
@@ -165,10 +162,10 @@
         <option value="$PROJECT_DIR$/src/Blowfish.cpp" />
         <option value="$PROJECT_DIR$/include/dehancer/Blowfish.h" />
         <option value="$PROJECT_DIR$/dehancer-common-cpp.pc.in" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/include/dehancer/License.h" />
         <option value="$PROJECT_DIR$/src/License.cpp" />
         <option value="$PROJECT_DIR$/tests/license/license.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
   </component>
@@ -325,7 +322,7 @@
       <workItem from="1571589846248" duration="646000" />
       <workItem from="1571649066506" duration="1895000" />
       <workItem from="1573551039269" duration="3305000" />
-      <workItem from="1573561319105" duration="236000" />
+      <workItem from="1573561319105" duration="272000" />
     </task>
     <servers />
   </component>
@@ -362,13 +359,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53577000" />
+    <option name="totallyTimeSpent" value="53613000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27825466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -547,13 +544,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
@@ -608,6 +598,13 @@
           <folding>
             <element signature="e#48#77#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="26">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
