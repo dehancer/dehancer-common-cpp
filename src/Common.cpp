@@ -38,7 +38,7 @@ namespace dehancer {
       vsnprintf(buffer, sizeof(buffer), format, ap);
       va_end(ap);
 
-      return "Cappy error: " + std::string(buffer);
+      return "Dehancerd error: " + std::string(buffer);
     }
 
 
