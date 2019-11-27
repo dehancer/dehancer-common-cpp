@@ -11,7 +11,6 @@
 #include <atomic>
 #include <shared_mutex>
 #include <dehancer/Common.h>
-//#include "Common.h"
 
 namespace dehancer {
 
@@ -184,8 +183,8 @@ namespace dehancer {
         *  Destructor
         */
         virtual ~Deferred() {
-          if (error_ && error_handler_) error_handler_(error_);
-          if (finalize_handler_) finalize_handler_();
+          //if (error_ && error_handler_) error_handler_(error_);
+          //if (finalize_handler_) finalize_handler_();
           reset();
         }
 

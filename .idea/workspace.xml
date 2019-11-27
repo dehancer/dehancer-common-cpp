@@ -15,7 +15,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/dehancer/Deferred.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/Deferred.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,55 +32,25 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="578">
+              <caret line="34" column="34" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="34" />
+              <folding>
+                <element signature="e#62#79#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/include/dehancer/Deferred.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="36" />
+            <state relative-caret-position="292">
+              <caret line="185" column="24" lean-forward="true" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="24" />
               <folding>
-                <element signature="e#61#78#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/License.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#48#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/base64cpp.hpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/license/license.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-              <folding>
-                <element signature="e#48#77#0" expanded="true" />
+                <element signature="e#62#83#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,18 +63,6 @@
               <caret line="108" column="34" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="34" />
               <folding>
                 <element signature="e#62#81#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="34" />
-              <folding>
-                <element signature="e#62#79#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,6 +126,7 @@
         <option value="$PROJECT_DIR$/tests/license/license.cpp" />
         <option value="$PROJECT_DIR$/src/License.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/dehancer/Deferred.h" />
       </list>
     </option>
   </component>
@@ -191,11 +152,6 @@
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -203,33 +159,6 @@
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
               <item name="dehancer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="cameralut_xmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="license" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -326,14 +255,13 @@
       <workItem from="1573566064341" duration="158000" />
       <workItem from="1573566335196" duration="9000" />
       <workItem from="1573574545636" duration="612000" />
-      <workItem from="1574192175646" duration="8000" />
+      <workItem from="1574192175646" duration="86000" />
+      <workItem from="1574690787684" duration="2995000" />
+      <workItem from="1574778375485" duration="78000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="check-license-test - 2019.10.16 at 13h 16m 13s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="check-license-test - 2019.11.12 at 12h 42m 22s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -361,15 +289,18 @@
     <history-entry file="check-license-test - 2019.11.12 at 15h 03m 16s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="check-license-test - 2019.11.25 at 17h 55m 20s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54466000" />
+    <option name="totallyTimeSpent" value="57617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3018598" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -385,7 +316,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info anchor="bottom" id="CMake" order="13" visible="true" weight="0.45095542" />
+      <window_info anchor="bottom" id="CMake" order="13" weight="0.45095542" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -548,20 +479,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
+    <entry file="file://$PROJECT_DIR$/tests/license/license.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="36" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="36" />
-          <folding>
-            <element signature="e#61#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/License.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="663">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#48#77#0" expanded="true" />
           </folding>
@@ -570,17 +491,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/base64cpp.hpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="453">
           <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/license/license.cpp">
+    <entry file="file://$PROJECT_DIR$/src/License.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        <state relative-caret-position="85">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#48#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Utils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="36" />
+          <folding>
+            <element signature="e#61#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="34" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="34" />
+          <folding>
+            <element signature="e#62#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -595,20 +543,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/dehancer/License.h">
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Deferred.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="34" />
+        <state relative-caret-position="292">
+          <caret line="185" column="24" lean-forward="true" selection-start-line="185" selection-start-column="24" selection-end-line="185" selection-end-column="24" />
           <folding>
-            <element signature="e#62#79#0" expanded="true" />
+            <element signature="e#62#83#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
