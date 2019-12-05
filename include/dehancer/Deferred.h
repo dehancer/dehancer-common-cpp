@@ -113,7 +113,7 @@ namespace dehancer {
          * @param error
          * @return the object
          */
-        const Deferred &report_error(const Error &error) {
+        const Deferred &report_error(const Error error) {
           error_ = error;
           if (error_) {
             failed_ = true;
@@ -134,7 +134,7 @@ namespace dehancer {
          * @param callback
          * @return the object
          */
-        Deferred &on_data_complete(const DataHandler &callback) {
+        Deferred &on_data_complete(const DataHandler callback) {
           data_complete_handler_ = callback;
           return *this;
         }
@@ -144,7 +144,7 @@ namespace dehancer {
          * @param callback
          * @return the object
          */
-        Deferred &on_data_start(const DataHandler &callback) {
+        Deferred &on_data_start(const DataHandler callback) {
           data_start_handler_ = callback;
           return *this;
         }
@@ -154,7 +154,7 @@ namespace dehancer {
          * @param callback
          * @return the object
          */
-        Deferred &on_progress(const ProgressHandler &callback) {
+        Deferred &on_progress(const ProgressHandler callback) {
           progress_handler_ = callback;
           return *this;
         }
@@ -164,7 +164,7 @@ namespace dehancer {
          * @param callback
          * @return the object
          */
-        Deferred &on_error(const ErrorHandler &callback) {
+        Deferred &on_error(const ErrorHandler callback) {
           error_handler_ = callback;
           return *this;
         }
@@ -174,7 +174,7 @@ namespace dehancer {
          * @param callback
          * @return the object
          */
-        Deferred &on_finalize(const FinalizeHandler &callback) {
+        Deferred &on_finalize(const FinalizeHandler callback) {
           finalize_handler_ = callback;
           return *this;
         }
@@ -183,8 +183,6 @@ namespace dehancer {
         *  Destructor
         */
         virtual ~Deferred() {
-          //if (error_ && error_handler_) error_handler_(error_);
-          //if (finalize_handler_) finalize_handler_();
           reset();
         }
 
