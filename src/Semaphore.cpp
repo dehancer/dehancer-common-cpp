@@ -2,7 +2,7 @@
 // Created by denn nevera on 2020-01-01.
 //
 
-#include "dehancer/Semaphore.hpp"
+#include "dehancer/Semaphore.h"
 
 namespace dehancer {
 
