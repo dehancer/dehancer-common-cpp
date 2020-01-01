@@ -14,12 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/include/dehancer/Semaphore.hpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Semaphore.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-    </list>
+    <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +97,7 @@
         <entry file="file://$PROJECT_DIR$/src/Semaphore.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -344,14 +339,11 @@
       <workItem from="1575635551693" duration="1524000" />
       <workItem from="1575696669224" duration="3000" />
       <workItem from="1577724544439" duration="510000" />
-      <workItem from="1577874070014" duration="663000" />
+      <workItem from="1577874070014" duration="884000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="check-license-test - 2019.11.12 at 12h 45m 07s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="check-license-test - 2019.11.12 at 12h 46m 21s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -379,20 +371,22 @@
     <history-entry file="check-license-test - 2020.01.01 at 13h 32m 02s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="check-license-test - 2020.01.01 at 13h 33m 25s.xml">
+      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61148000" />
+    <option name="totallyTimeSpent" value="61369000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32331902" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3656051" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3656051" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -646,7 +640,7 @@
     <entry file="file://$PROJECT_DIR$/src/Semaphore.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
         </state>
       </provider>
     </entry>
