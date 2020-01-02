@@ -8,13 +8,20 @@ FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
         )
 
-FILE(GLOB PUBLIC_EXIV2_INCLUDE_FILES
-        ${CMAKE_BINARY_DIR}/external/include/exiv2/*.hpp
-        ${CMAKE_BINARY_DIR}/external/include/exiv2/*.h
+FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/promisecpp/*.hpp
         )
 
-FILE(GLOB PUBLIC_EXIV2_LIB_FILES
-        ${CMAKE_BINARY_DIR}/external/lib/libexiv2*.*
+FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/promisecpp/promise/*.hpp
+        )
+
+FILE(GLOB PUBLIC_PROMISE_TASK_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/promisecpp/simple_task/*.hpp
+        )
+
+FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/sqlite/*.h
         )
 
 file (GLOB COMMON_SRC ${COMMON_SRC}
@@ -53,7 +60,9 @@ configure_package_config_file(
 install(TARGETS ${PROJECT_LIB}   DESTINATION lib)
 install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION include/dehancer)
 install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION include/nlohmann)
-install(FILES   ${PUBLIC_EXIV2_INCLUDE_FILES} DESTINATION include/exiv2)
-install(FILES   ${PUBLIC_EXIV2_LIB_FILES} DESTINATION lib)
+install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION include/promisecpp)
+install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION include/promisecpp/promise)
+install(FILES   ${PUBLIC_PROMISE_TASK_INCLUDE_FILES} DESTINATION include/promisecpp/simple_task)
+install(FILES   ${PUBLIC_SQLITE_ORM_INCLUDE_FILES} DESTINATION include/sqlite)
 install(FILES   ${project_config} ${version_config} DESTINATION lib/cmake/${PROJECT_LIB})
 install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION lib/cmake/${PROJECT_LIB})
