@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.5.0)
+project(${PROJECT_LIB} VERSION 0.5.1)
 
 #
 # Options
@@ -36,7 +36,7 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 #
 find_package (PkgConfig QUIET)
 find_package (Threads REQUIRED)
-find_package (SQLite3 REQUIRED)
+find_package (SQLite3 CONFIG)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -107,7 +107,7 @@ include(ExternalProject)
 # External project dependencies
 #
 set(COMMON_DEPENDECIES)
-set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT};SQLite3)
+set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT};sqlite3)
 
 #
 # Google Test
