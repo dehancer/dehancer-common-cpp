@@ -16,6 +16,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/FindSQLite3.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
@@ -35,7 +37,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
+            <state relative-caret-position="1105">
               <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
             </state>
           </provider>
@@ -44,8 +46,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+            <state relative-caret-position="102">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/FindSQLite3.cmake">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="146">
+              <caret line="21" column="28" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -90,6 +101,9 @@
       <find>arm</find>
       <find>PUBLIC_EXIV2_INCLUDE_FILES</find>
       <find>PUBLIC_EXIV2_INCLUD</find>
+      <find>SQl</find>
+      <find>SQLITE3_</find>
+      <find>SQLite3</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,54 +158,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="build-dehancer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="build-dehancer" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="build-dehancer" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="promisecpp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="promisecpp" type="462c0819:PsiDirectoryNode" />
-              <item name="simple_task" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
-              <item name="external" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlite" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
@@ -213,7 +186,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,20 +299,12 @@
       <workItem from="1577874070014" duration="884000" />
       <workItem from="1577875148766" duration="207000" />
       <workItem from="1577896744214" duration="1214000" />
-      <workItem from="1577956920564" duration="3568000" />
+      <workItem from="1577956920564" duration="3968000" />
+      <workItem from="1578171009021" duration="2009000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="check-license-test - 2019.11.12 at 15h 01m 17s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="check-license-test - 2019.11.12 at 15h 02m 39s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
-    <history-entry file="check-license-test - 2019.11.12 at 15h 03m 16s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
-    </history-entry>
     <history-entry file="check-license-test - 2019.11.25 at 17h 55m 20s.xml">
       <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
@@ -362,27 +326,36 @@
     <history-entry file="simple-sql-test - 2020.01.02 at 12h 56m 10s.xml">
       <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
+    <history-entry file="simple-sql-test - 2020.01.05 at 00h 09m 41s.xml">
+      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="simple-sql-test - 2020.01.05 at 00h 23m 02s.xml">
+      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
+    <history-entry file="simple-sql-test - 2020.01.05 at 00h 24m 39s.xml">
+      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66358000" />
+    <option name="totallyTimeSpent" value="68767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22317597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22603719" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3656051" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3656051" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.37579617" />
+      <window_info anchor="bottom" id="Messages" order="9" visible="true" weight="0.37579617" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -398,13 +371,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/cmake/dehancer_common_cpp.cmake">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Common.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -461,13 +427,7 @@
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPIterator.hpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta-Parse.cpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/CMakeLists.txt" />
-    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/CMakeLists.txt" />
     <entry file="file:///usr/local/include/exiv2/xmp_exiv2.hpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/include/XMP.incl_cpp" />
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/include/TXMPMeta.hpp" />
@@ -480,13 +440,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/external/exiv2/xmpsdk/src/XMPMeta.cpp" />
     <entry file="file://$PROJECT_DIR$/src/MLutXmp.cpp" />
-    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-423">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/xmp_open.cpp" />
     <entry file="file://$PROJECT_DIR$/tests/cameralut_xmp/clut.clut" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/xmp_exiv2.hpp" />
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/external/include/exiv2/metadatum.hpp" />
@@ -618,7 +572,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
+        <state relative-caret-position="1105">
           <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
         </state>
       </provider>
@@ -636,10 +590,17 @@
     <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/FindSQLite3.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="119" column="63" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+        <state relative-caret-position="102">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
         </state>
       </provider>
     </entry>
