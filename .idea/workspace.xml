@@ -3,6 +3,7 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
+      <config projectName="dehancer_common_cpp" targetName="basic-sema-test" />
       <config projectName="dehancer_common_cpp" targetName="check-license-test" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
       <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
@@ -16,10 +17,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/FindSQLite3.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/semaphore/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/semaphore/basic.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/dehancer/Semaphore.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/Semaphore.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Semaphore.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeLists.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,10 +38,13 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
+        <entry file="file://$PROJECT_DIR$/tests/sqlite/simple.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1105">
-              <caret line="65" column="77" selection-start-line="65" selection-start-column="77" selection-end-line="65" selection-end-column="77" />
+            <state relative-caret-position="301">
+              <caret line="23" column="19" selection-start-line="23" selection-end-line="24" />
+              <folding>
+                <element signature="e#49#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -53,21 +59,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/FindSQLite3.cmake">
+        <entry file="file://$PROJECT_DIR$/tests/semaphore/basic.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="21" column="28" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="28" />
+            <state relative-caret-position="612">
+              <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+              <folding>
+                <element signature="e#48#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/sqlite/simple.cpp">
+        <entry file="file://$PROJECT_DIR$/include/dehancer/Semaphore.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="271">
+              <caret line="133" column="4" lean-forward="true" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
               <folding>
-                <element signature="e#49#79#0" expanded="true" />
+                <element signature="e#62#91#0" expanded="true" />
+                <element signature="e#230#266#0" expanded="true" />
+                <element signature="e#1022#1047#0" expanded="true" />
+                <element signature="e#1944#1978#0" expanded="true" />
+                <element signature="e#2092#2126#0" expanded="true" />
+                <element signature="e#2290#2324#0" expanded="true" />
+                <element signature="e#2758#2792#0" expanded="true" />
+                <element signature="e#2805#2830#0" expanded="true" />
+                <element signature="e#3127#3161#0" expanded="true" />
+                <element signature="e#3174#3203#0" expanded="true" />
+                <element signature="e#3510#3544#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -75,10 +94,21 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CMakeLists.txt" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -104,6 +134,8 @@
       <find>SQl</find>
       <find>SQLITE3_</find>
       <find>SQLite3</find>
+      <find>size_</find>
+      <find>native_handle</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -115,7 +147,6 @@
         <option value="$PROJECT_DIR$/lib/cmake/dehancer_common_cpp.cmake" />
         <option value="$PROJECT_DIR$/src/Common.cpp" />
         <option value="$PROJECT_DIR$/src/Utils.cpp" />
-        <option value="$PROJECT_DIR$/include/dehancer/Common.h" />
         <option value="$PROJECT_DIR$/tests/CMakeCommon.in" />
         <option value="$PROJECT_DIR$/DehancerCommon.podspec" />
         <option value="$PROJECT_DIR$/platforms/ios/dehancer-common/Classes/License.h" />
@@ -139,9 +170,13 @@
         <option value="$PROJECT_DIR$/src/License.cpp" />
         <option value="$PROJECT_DIR$/include/dehancer/Deferred.h" />
         <option value="$PROJECT_DIR$/include/dehancer/License.h" />
-        <option value="$PROJECT_DIR$/src/Semaphore.cpp" />
         <option value="$PROJECT_DIR$/lib/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/src/Semaphore.cpp" />
+        <option value="$PROJECT_DIR$/tests/semaphore/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/include/dehancer/Common.h" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/tests/semaphore/basic.cpp" />
+        <option value="$PROJECT_DIR$/include/dehancer/Semaphore.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
       </list>
     </option>
@@ -169,7 +204,28 @@
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
               <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="external" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="dehancer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dehancer-common-cpp" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dehancer_common_cpp" type="b2602c69:ProjectViewProjectNode" />
@@ -219,7 +275,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Google Test.simple-sql-test">
+  <component name="RunManager" selected="Google Test.basic-sema-test">
+    <configuration name="basic-sema-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="basic-sema-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="basic-sema-test" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="check-license-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="check-license-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="check-license-test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -252,6 +314,7 @@
       <item itemvalue="CMake Application.dehancer_common_cpp" />
       <item itemvalue="CMake Application.ed25519cpplib" />
       <item itemvalue="Google Test.check-license-test" />
+      <item itemvalue="Google Test.basic-sema-test" />
       <item itemvalue="Google Test.simple-sql-test" />
     </list>
   </component>
@@ -300,62 +363,64 @@
       <workItem from="1577875148766" duration="207000" />
       <workItem from="1577896744214" duration="1214000" />
       <workItem from="1577956920564" duration="3968000" />
-      <workItem from="1578171009021" duration="2009000" />
+      <workItem from="1578171009021" duration="2659000" />
+      <workItem from="1578218413663" duration="555000" />
+      <workItem from="1578223115812" duration="3595000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="check-license-test - 2019.11.25 at 17h 55m 20s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 03m 16s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="check-license-test - 2019.12.05 at 23h 18m 43s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 03m 25s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="check-license-test - 2020.01.01 at 13h 32m 02s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 06m 20s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="check-license-test - 2020.01.01 at 13h 33m 25s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 07m 01s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="check-license-test - 2020.01.01 at 13h 40m 30s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 07m 21s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="check-license-test - 2020.01.02 at 12h 44m 20s.xml">
-      <configuration name="check-license-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 07m 52s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="simple-sql-test - 2020.01.02 at 12h 56m 10s.xml">
-      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 07m 58s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="simple-sql-test - 2020.01.05 at 00h 09m 41s.xml">
-      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 08m 08s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="simple-sql-test - 2020.01.05 at 00h 23m 02s.xml">
-      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 08m 46s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="simple-sql-test - 2020.01.05 at 00h 24m 39s.xml">
-      <configuration name="simple-sql-test" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="basic-sema-test - 2020.01.05 at 15h 09m 50s.xml">
+      <configuration name="basic-sema-test" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68767000" />
+    <option name="totallyTimeSpent" value="73567000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22603719" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23175965" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3656051" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3121019" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
-      <window_info anchor="bottom" id="Messages" order="9" visible="true" weight="0.37579617" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.4178344" />
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="12" />
@@ -371,26 +436,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Common.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Utils.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="19" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-          <folding>
-            <element signature="e#47#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/version.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/DehancerCommon.podspec">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -500,23 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Semaphore.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/dehancer/Semaphore.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
-          <folding>
-            <element signature="e#64#93#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/dehancer/Deferred.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -560,16 +588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/dehancer/Common.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="108" column="34" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="34" />
-          <folding>
-            <element signature="e#62#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -577,10 +595,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Common.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/FindSQLite3.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/sqlite/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="1" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/semaphore/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="true" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/sqlite/simple.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="301">
+          <caret line="23" column="19" selection-start-line="23" selection-end-line="24" />
           <folding>
             <element signature="e#49#79#0" expanded="true" />
           </folding>
@@ -588,12 +634,46 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/FindSQLite3.cmake">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="21" column="28" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="28" />
+        <state relative-caret-position="51">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Semaphore.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/dehancer/Semaphore.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="133" column="4" lean-forward="true" selection-start-line="133" selection-start-column="4" selection-end-line="133" selection-end-column="4" />
+          <folding>
+            <element signature="e#62#91#0" expanded="true" />
+            <element signature="e#230#266#0" expanded="true" />
+            <element signature="e#1022#1047#0" expanded="true" />
+            <element signature="e#1944#1978#0" expanded="true" />
+            <element signature="e#2092#2126#0" expanded="true" />
+            <element signature="e#2290#2324#0" expanded="true" />
+            <element signature="e#2758#2792#0" expanded="true" />
+            <element signature="e#2805#2830#0" expanded="true" />
+            <element signature="e#3127#3161#0" expanded="true" />
+            <element signature="e#3174#3203#0" expanded="true" />
+            <element signature="e#3510#3544#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/semaphore/basic.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
+          <folding>
+            <element signature="e#48#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
