@@ -86,7 +86,10 @@ namespace dehancer {
         license.type       = _json["type"];
         license.email      = _json["email"];
         license.name       = _json["name"];
-        license.host       = _json["host"];
+        if (_json.count("host")>0)
+          license.host       = _json["host"];
+        else
+          license.host = "";
         license.maintainer = _json["maintainer"];
         license.issue_date = _json["issue_date"];
         license.upgraded_id = _json["upgraded_id"];
@@ -179,7 +182,10 @@ namespace dehancer {
         lic.type         = json_data.at("type").get<Type>();
         lic.email        = json_data.at("email").get<std::string>();
         lic.name         = json_data.at("name").get<std::string>();
-        lic.host         = json_data.at("host").get<std::string>();
+        if (json_data.count("host")>0)
+          lic.host         = json_data.at("host").get<std::string>();
+        else
+          lic.host = "";
         lic.maintainer   = json_data.at("maintainer").get<std::string>();
         lic.issue_date   = json_data.at("issue_date").get<time_t>();
         lic.upgraded_id  = json_data.at("upgraded_id").get<std::string>();
