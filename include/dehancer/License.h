@@ -29,6 +29,8 @@ namespace dehancer{
         std::string    email;
         /* software name */
         std::string    name;
+        /* software host */
+        std::string    host;
         /* license maintainer */
         std::string    maintainer;
         /* activation key upgraded from or empty */

@@ -24,6 +24,7 @@ TEST(License, LicenseTest) {
   lic.name = "Test license";
   lic.maintainer = "Dehancer Ofx";
   lic.email = "some.user@gmail.com";
+  lic.host  = "Final Cut Pro";
 
   auto error = lic.sign();
 

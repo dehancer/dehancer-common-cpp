@@ -27,6 +27,8 @@ namespace dehancer {
           calculator.append(static_cast<int>(lic.type));
           calculator.append(lic.email);
           calculator.append(lic.name);
+          if (!lic.host.empty())
+            calculator.append(lic.host);
           calculator.append(lic.get_id());
           calculator.append(lic.maintainer);
           calculator.append(lic.upgraded_id);
@@ -41,6 +43,7 @@ namespace dehancer {
             type(Type::unknown),
             email(""),
             name(""),
+            host(""),
             maintainer(""),
             upgraded_id(""),
             issue_date(-1),
@@ -62,6 +65,7 @@ namespace dehancer {
       type = license.type;
       email = license.email;
       name = license.name;
+      host = license.host;
       maintainer = license.maintainer;
       upgraded_id = license.upgraded_id;
       issue_date = license.issue_date;
@@ -82,6 +86,10 @@ namespace dehancer {
         license.type       = _json["type"];
         license.email      = _json["email"];
         license.name       = _json["name"];
+        if (_json.count("host")>0)
+          license.host       = _json["host"];
+        else
+          license.host = "";
         license.maintainer = _json["maintainer"];
         license.issue_date = _json["issue_date"];
         license.upgraded_id = _json["upgraded_id"];
@@ -105,6 +113,7 @@ namespace dehancer {
               {"type", static_cast<int>(type)},
               {"email", email},
               {"name", name},
+              {"host", host},
               {"id", id_},
               {"maintainer", maintainer},
               {"issue_date", static_cast<time_t>(issue_date)},
@@ -173,6 +182,10 @@ namespace dehancer {
         lic.type         = json_data.at("type").get<Type>();
         lic.email        = json_data.at("email").get<std::string>();
         lic.name         = json_data.at("name").get<std::string>();
+        if (json_data.count("host")>0)
+          lic.host         = json_data.at("host").get<std::string>();
+        else
+          lic.host = "";
         lic.maintainer   = json_data.at("maintainer").get<std::string>();
         lic.issue_date   = json_data.at("issue_date").get<time_t>();
         lic.upgraded_id  = json_data.at("upgraded_id").get<std::string>();
