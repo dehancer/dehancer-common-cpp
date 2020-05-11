@@ -3,11 +3,11 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
+      <config projectName="dehancer_common_cpp" targetName="simple-sql-test" />
       <config projectName="dehancer_common_cpp" targetName="basic-sema-test" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
-      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
       <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
-      <config projectName="dehancer_common_cpp" targetName="simple-sql-test" />
+      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -18,7 +18,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/License.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/License.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +167,12 @@
       <workItem from="1578300884149" duration="1000" />
       <workItem from="1578402197614" duration="557000" />
       <workItem from="1578436135565" duration="49000" />
-      <workItem from="1585730966140" duration="1410000" />
+      <workItem from="1585730966140" duration="2030000" />
+      <workItem from="1586529454511" duration="858000" />
+      <workItem from="1587222094750" duration="2406000" />
+      <workItem from="1588252235135" duration="5117000" />
+      <workItem from="1588404940844" duration="598000" />
+      <workItem from="1588596943165" duration="55000" />
     </task>
     <servers />
   </component>
@@ -175,21 +180,21 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1398" height="121" key="GridCell.Tab.0.bottom" timestamp="1585741589439">
+    <state width="1398" height="157" key="GridCell.Tab.0.bottom" timestamp="1587253270866">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="121" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1585741589439" />
-    <state width="1398" height="121" key="GridCell.Tab.0.center" timestamp="1585741589438">
+    <state width="1398" height="157" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1587253270866" />
+    <state width="1398" height="157" key="GridCell.Tab.0.center" timestamp="1587253270865">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="121" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1585741589438" />
-    <state width="1398" height="121" key="GridCell.Tab.0.left" timestamp="1585741589437">
+    <state width="1398" height="157" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1587253270865" />
+    <state width="1398" height="157" key="GridCell.Tab.0.left" timestamp="1587253270864">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="121" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1585741589437" />
-    <state width="1398" height="121" key="GridCell.Tab.0.right" timestamp="1585741589438">
+    <state width="1398" height="157" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1587253270864" />
+    <state width="1398" height="157" key="GridCell.Tab.0.right" timestamp="1587253270865">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1398" height="121" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1585741589438" />
+    <state width="1398" height="157" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1587253270865" />
   </component>
 </project>
