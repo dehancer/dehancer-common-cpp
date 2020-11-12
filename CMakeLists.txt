@@ -17,6 +17,7 @@ option(BUILD_TESTING "Enable creation of  tests." OFF)
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
@@ -95,9 +96,10 @@ endif()
 
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DPRINT_DEBUG -DDEBUG_BUILD=1")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ObjC++ -fvisibility=hidden -Wno-unused-command-line-argument")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
 
-set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
 
 if (MSVC)
     add_definitions (/W4)
@@ -124,6 +126,7 @@ if (NOT GTEST_FOUND)
             GIT_REPOSITORY https://github.com/google/googletest
             CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             INSTALL_COMMAND make install
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
@@ -138,6 +141,7 @@ ExternalProject_Add(ed25519cpplib
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
@@ -150,11 +154,12 @@ ExternalProject_Add(base64cpplib
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
-set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp;)
+set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
 #
 # Details
@@ -173,6 +178,7 @@ link_directories(
 add_subdirectory(lib)
 
 if(BUILD_TESTING)
+    include(CTest)
     add_subdirectory(tests)
     enable_testing ()
 endif()

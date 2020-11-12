@@ -8,6 +8,8 @@
     <mapping directory="$PROJECT_DIR$/build-linux/ed25519cpplib-prefix/src/ed25519cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/base64cpplib-prefix/src/base64cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/build/ed25519cpplib-prefix/src/ed25519cpplib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/base64cpplib-prefix/src/base64cpplib" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/cmake-build-debug/ed25519cpplib-prefix/src/ed25519cpplib" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/external/exiv2" vcs="Git" />
   </component>
 </project>
