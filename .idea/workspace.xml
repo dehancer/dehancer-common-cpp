@@ -2,40 +2,40 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyMemoryCheck" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalTest" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalConfigure" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalBuild" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyCoverage" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalMemCheck" />
-      <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousTest" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousMemCheck" />
-      <config projectName="dehancer_common_cpp" targetName="Continuous" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousSubmit" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyStart" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousStart" />
-      <config projectName="dehancer_common_cpp" targetName="basic-sema-test" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyUpdate" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalUpdate" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousConfigure" />
       <config projectName="dehancer_common_cpp" targetName="base64cpplib" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalCoverage" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousUpdate" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyBuild" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousSubmit" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalMemCheck" />
+      <config projectName="dehancer_common_cpp" targetName="ed25519cpplib" />
       <config projectName="dehancer_common_cpp" targetName="NightlyTest" />
-      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousCoverage" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousBuild" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyUpdate" />
+      <config projectName="dehancer_common_cpp" targetName="NightlySubmit" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousMemCheck" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyMemoryCheck" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyStart" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousConfigure" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalBuild" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalCoverage" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousStart" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyMemCheck" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalUpdate" />
+      <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
       <config projectName="dehancer_common_cpp" targetName="NightlyConfigure" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalSubmit" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalStart" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousCoverage" />
       <config projectName="dehancer_common_cpp" targetName="Experimental" />
       <config projectName="dehancer_common_cpp" targetName="simple-sql-test" />
-      <config projectName="dehancer_common_cpp" targetName="NightlyMemCheck" />
-      <config projectName="dehancer_common_cpp" targetName="NightlySubmit" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousUpdate" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalTest" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousTest" />
+      <config projectName="dehancer_common_cpp" targetName="basic-sema-test" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalSubmit" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyBuild" />
+      <config projectName="dehancer_common_cpp" targetName="check-license-test" />
+      <config projectName="dehancer_common_cpp" targetName="NightlyCoverage" />
+      <config projectName="dehancer_common_cpp" targetName="Continuous" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalStart" />
       <config projectName="dehancer_common_cpp" targetName="Nightly" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalConfigure" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousBuild" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -45,11 +45,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/CMakeCommon.in" beforeDir="false" afterPath="$PROJECT_DIR$/tests/CMakeCommon.in" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +104,11 @@
     </key>
   </component>
   <component name="RunManager" selected="Google Test.basic-sema-test">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="basic-sema-test" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="basic-sema-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="dehancer_common_cpp" RUN_TARGET_NAME="basic-sema-test" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -265,11 +267,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="base64cpplib" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="dehancer_common_cpp" TARGET_NAME="base64cpplib" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -399,7 +396,8 @@
       <workItem from="1604655594438" duration="889000" />
       <workItem from="1604928666348" duration="4863000" />
       <workItem from="1605181280226" duration="1874000" />
-      <workItem from="1605183280485" duration="512000" />
+      <workItem from="1605183280485" duration="737000" />
+      <workItem from="1605184164463" duration="304000" />
     </task>
     <servers />
   </component>
@@ -407,6 +405,22 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1398" height="348" key="GridCell.Tab.0.bottom" timestamp="1605184032349">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="348" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605184032349" />
+    <state width="1398" height="348" key="GridCell.Tab.0.center" timestamp="1605184032348">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="348" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605184032348" />
+    <state width="1398" height="348" key="GridCell.Tab.0.left" timestamp="1605184032348">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="348" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605184032348" />
+    <state width="1398" height="348" key="GridCell.Tab.0.right" timestamp="1605184032349">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state width="1398" height="348" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605184032349" />
     <state x="229" y="100" width="1166" height="722" key="SettingsEditor" timestamp="1605183314161">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
