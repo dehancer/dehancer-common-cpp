@@ -22,8 +22,8 @@ add_executable(${TEST} ${TESTS_SOURCES})
 target_link_libraries(
         ${TEST}
         ${PROJECT_LIB}
-        ${TEST_LIBRARIES}
         ${COMMON_LIBRARIES}
+        ${TEST_LIBRARIES}
 )
 
 if (COMMON_DEPENDECIES)
