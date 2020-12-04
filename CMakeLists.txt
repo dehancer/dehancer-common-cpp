@@ -11,6 +11,19 @@ project(${PROJECT_LIB} VERSION 0.5.2)
 #
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 
+option(DEHACNER_TARGET_ARCH "")
+
+if (DEHACNER_TARGET_ARCH)
+    #
+    # x86_64-apple-macos10.13
+    # or
+    # arm64-apple-macos11
+    #
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -target ${DEHACNER_TARGET_ARCH}")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -target ${DEHACNER_TARGET_ARCH}")
+endif ()
+
+
 #
 # Global setttings
 #
@@ -126,7 +139,8 @@ if (NOT GTEST_FOUND)
             GIT_REPOSITORY https://github.com/google/googletest
             CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER} -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             INSTALL_COMMAND make install
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
@@ -142,6 +156,7 @@ ExternalProject_Add(ed25519cpplib
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DDEHACNER_TARGET_ARCH=${DEHACNER_TARGET_ARCH}
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
@@ -155,6 +170,7 @@ ExternalProject_Add(base64cpplib
         -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+        -DDEHACNER_TARGET_ARCH=${DEHACNER_TARGET_ARCH}
         INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
