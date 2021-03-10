@@ -81,8 +81,12 @@ namespace dehancer {
     expected<License,Error> License::from_json(const dehancer::json &_json) {
       try {
         auto license = License();
-
-        license.version    = _json["version"];
+  
+        if (_json.count("version")>0)
+          license.version    = _json["version"];
+        else
+          license.version    = 1;
+        
         license.type       = _json["type"];
         license.email      = _json["email"];
         license.name       = _json["name"];
@@ -104,6 +108,9 @@ namespace dehancer {
       }
       catch (const std::exception &e) {
         return make_unexpected(Error(CommonError::PARSE_ERROR, e.what()));
+      }
+      catch (...) {
+        return make_unexpected(Error(CommonError::NOT_SUPPORTED, "Format Error"));
       }
     }
 
