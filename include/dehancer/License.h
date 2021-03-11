@@ -52,31 +52,31 @@ namespace dehancer{
          * Activation key is valid
          * @return true or false
          */
-        bool is_valid() const;
+        [[nodiscard]] bool is_valid() const;
 
         /**
          * Check expiration date
          * @return true or false
          */
-        bool is_expired() const ;
+        [[nodiscard]] bool is_expired() const ;
 
         /**
         * Check the activation key is active
         * @return true or false
         */
-        bool is_active() const;
+        [[nodiscard]] bool is_active() const;
 
         /**
          * Get the license id
          * @return unique license id string
          */
-        const std::string& get_id() const ;
+        [[nodiscard]] const std::string& get_id() const ;
 
         /**
          * Get the cativation key signature
          * @return signature base58 string
          */
-        const std::string& get_signature() const;
+        [[nodiscard]] const std::string& get_signature() const;
 
         /**
          * Activate the key
@@ -92,7 +92,7 @@ namespace dehancer{
          * Get activation date
          * @return date in time_t
          */
-        time_t get_activation_date() const;
+        [[nodiscard]] time_t get_activation_date() const;
 
         /**
          * Create a template of licens activation key
@@ -131,7 +131,7 @@ namespace dehancer{
          * Dump as json
          * @return json object
          */
-        dehancer::json json() const;
+        [[nodiscard]] dehancer::json json() const;
 
         License& operator=(const License& right);
 
