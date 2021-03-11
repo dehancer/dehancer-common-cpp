@@ -48,6 +48,7 @@
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/License.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/License.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +417,7 @@
       <workItem from="1605184164463" duration="304000" />
       <workItem from="1607103668554" duration="383000" />
       <workItem from="1607163378239" duration="60000" />
-      <workItem from="1615418087877" duration="1348000" />
+      <workItem from="1615418087877" duration="2366000" />
     </task>
     <task id="LOCAL-00001" summary="license fixes">
       <created>1615420054145</created>
@@ -425,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615420054145</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fixes">
+      <created>1615420087216</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615420087216</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,6 +441,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="license fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="license fixes" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

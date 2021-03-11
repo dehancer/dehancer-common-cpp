@@ -1,1 +1,1 @@
-dehancer_common_cpp 0.5.8
+dehancer_common_cpp 0.5.9
