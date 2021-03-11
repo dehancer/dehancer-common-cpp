@@ -47,7 +47,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dehancer/License.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/License.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/License.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/License.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -417,7 +417,7 @@
       <workItem from="1605184164463" duration="304000" />
       <workItem from="1607103668554" duration="383000" />
       <workItem from="1607163378239" duration="60000" />
-      <workItem from="1615418087877" duration="2257000" />
+      <workItem from="1615418087877" duration="2366000" />
     </task>
     <task id="LOCAL-00001" summary="license fixes">
       <created>1615420054145</created>

@@ -80,8 +80,7 @@ namespace dehancer {
 
     expected<License,Error> License::from_json(const dehancer::json &_json) {
       try {
-        //auto license = License();
-  
+        
         License lic;
   
         if (_json.count("version")>0)
@@ -110,32 +109,6 @@ namespace dehancer {
         lic.signature_   = _json.at("signature").get<std::string>();
         lic.is_active_    = _json.at("is_active").get<bool>();
         lic.offline_enabling    = _json.at("offline_enabling").get<bool>();
-
-//        if (_json.count("version")>0)
-//          license.version    = _json["version"];
-//        else
-//          license.version    = 1;
-//
-//        license.type       = _json["type"];
-//        license.email      = _json["email"];
-//        license.name       = _json["name"];
-//        if (_json.count("host")>0)
-//          license.host       = _json["host"];
-//        else
-//          license.host = "";
-//        license.maintainer = _json["maintainer"];
-//        license.issue_date = _json["issue_date"];
-//        if (_json.count("upgraded_id")>0)
-//          license.upgraded_id = _json["upgraded_id"];
-//        else
-//          license.upgraded_id = "";
-//
-//        license.expiry_date = _json["expiry_date"];
-//        license.activation_date_ = _json["activation_date"];
-//        license.id_ = _json["id"];
-//        license.signature_ = _json["signature"];
-//        license.is_active_ = _json["is_active"];
-//        license.offline_enabling = _json["offline_enabling"];
 
         return lic;
       }
@@ -218,27 +191,6 @@ namespace dehancer {
 
         return License::from_json(json_data);
         
-//        License lic;
-//
-//        lic.version      = json_data.at("version").get<std::uint16_t>();
-//        lic.type         = json_data.at("type").get<Type>();
-//        lic.email        = json_data.at("email").get<std::string>();
-//        lic.name         = json_data.at("name").get<std::string>();
-//        if (json_data.count("host")>0)
-//          lic.host         = json_data.at("host").get<std::string>();
-//        else
-//          lic.host = "";
-//        lic.maintainer   = json_data.at("maintainer").get<std::string>();
-//        lic.issue_date   = json_data.at("issue_date").get<time_t>();
-//        lic.upgraded_id  = json_data.at("upgraded_id").get<std::string>();
-//        lic.expiry_date  = json_data.at("expiry_date").get<time_t>();
-//        lic.activation_date_  = json_data.at("activation_date").get<time_t>();
-//        lic.id_          = json_data.at("id").get<std::string>();
-//        lic.signature_   = json_data.at("signature").get<std::string>();
-//        lic.is_active_    = json_data.at("is_active").get<bool>();
-//        lic.offline_enabling    = json_data.at("offline_enabling").get<bool>();
-//
-//        return lic;
       }
       catch (std::exception& e) {
         return make_unexpected(Error(CommonError::PARSE_ERROR, "License text could not be decoded..."));
@@ -249,7 +201,7 @@ namespace dehancer {
     }
 
     bool License::is_expired() const {
-      return expiry_date ==0 ? false : (expiry_date - time::now_utc()) < 0;
+      return expiry_date == 0 ? false : (expiry_date - time::now_utc()) < 0;
     }
 
     bool License::is_valid() const {
