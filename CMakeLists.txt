@@ -58,10 +58,9 @@ if(NOT PKG_CONFIG_FOUND)
 endif()
 
 #
-# Programms
+# Programs
 #
 find_program(CCACHE_FOUND ccache)
-find_program(MAKE_EXE NAMES gmake nmake make)
 
 #
 # CCache settings
@@ -141,7 +140,6 @@ if (NOT GTEST_FOUND)
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-            INSTALL_COMMAND make install
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
     set(COMMON_DEPENDECIES googletest)
@@ -157,7 +155,6 @@ ExternalProject_Add(ed25519cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};ed25519cpplib)
@@ -171,7 +168,6 @@ ExternalProject_Add(base64cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
