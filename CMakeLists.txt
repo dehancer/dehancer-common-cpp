@@ -50,7 +50,7 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 #
 find_package (PkgConfig QUIET)
 find_package (Threads REQUIRED)
-find_package (SQLite3 CONFIG)
+find_package (SQLite3)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -111,9 +111,6 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
 
-#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
-#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
-
 if (MSVC)
     add_definitions (/W4)
 elseif (CMAKE_COMPILER_IS_GNUCXX)
@@ -127,11 +124,14 @@ include(ExternalProject)
 #
 # External project dependencies
 #
-set(COMMON_DEPENDECIES)
+set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
+    include_directories(
+            ${SQLite3_INCLUDE_DIRS}
+    )
 endif ()
 
 #
@@ -147,7 +147,7 @@ if (NOT GTEST_FOUND)
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
-    set(COMMON_DEPENDECIES googletest)
+    set(COMMON_DEPENDENCIES googletest)
 endif ()
 
 
@@ -162,7 +162,7 @@ ExternalProject_Add(ed25519cpplib
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
-set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};ed25519cpplib)
+set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
 
 ExternalProject_Add(base64cpplib
         GIT_REPOSITORY https://github.com/dnevera/base64cpp
@@ -175,7 +175,7 @@ ExternalProject_Add(base64cpplib
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
-set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
+set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
 #

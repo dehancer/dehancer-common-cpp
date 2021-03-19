@@ -31,8 +31,8 @@ file (GLOB COMMON_SRC ${COMMON_SRC}
 
 add_library(${PROJECT_NAME} ${COMMON_SRC})
 
-if (COMMON_DEPENDECIES)
-    add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDECIES})
+if (COMMON_DEPENDENCIES)
+    add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()
 
 

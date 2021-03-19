@@ -26,10 +26,10 @@ target_link_libraries(
         ${TEST_LIBRARIES}
 )
 
-if (COMMON_DEPENDECIES)
+if (COMMON_DEPENDENCIES)
     add_dependencies(
             ${TEST}
-            ${COMMON_DEPENDECIES}
+            ${COMMON_DEPENDENCIES}
     )
 endif ()
 
