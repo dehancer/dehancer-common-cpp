@@ -45,13 +45,13 @@ namespace dehancer {
          * Get the error value
          * @return code
          */
-        const int value() const;
+        int value() const;
 
         /***
          * Get the error message string
          * @return error message
          */
-        const std::string message() const;
+        std::string message() const;
 
         /***
          * Error is negative or error can be skipped
@@ -106,7 +106,7 @@ namespace dehancer {
     * @param ...
     * @return
     */
-    const std::string error_string(const char *format, ...);
+    std::string error_string(const char *format, ...);
 
     static inline void _throw_abort(const char *file, int line, const std::string &msg) {
         std::cerr << "Capy logic error: assert failed:\t" << msg << "\n"
