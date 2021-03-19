@@ -14,11 +14,11 @@ namespace dehancer {
     {
     }
 
-    const int Error::value() const {
+    int Error::value() const {
       return code_.value();
     }
 
-    const std::string Error::message() const {
+    std::string Error::message() const {
       if (!exception_message_.empty()){
         return exception_message_;
       }
@@ -29,7 +29,7 @@ namespace dehancer {
       return (code_.value() != static_cast<int>(dehancer::CommonError::OK));
     }
 
-    const std::string error_string(const char* format, ...)
+    std::string error_string(const char* format, ...)
     {
       char buffer[1024] = {};
       va_list ap = {};
