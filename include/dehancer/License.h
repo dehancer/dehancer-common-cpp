@@ -24,7 +24,7 @@ namespace dehancer{
         /* license type*/
         Type           type;
         /* software version */
-        std::uint16_t  version;
+        std::uint16_t  version{};
         /* user email */
         std::string    email;
         /* software name */
@@ -36,11 +36,11 @@ namespace dehancer{
         /* activation key upgraded from or empty */
         std::string    upgraded_id;
         /* activation issue date -1 == undefined */
-        time_t         issue_date;
+        time_t         issue_date{};
         /* expiration date -1 == undefined 0 - unlimited */
-        time_t         expiry_date;
+        time_t         expiry_date{};
         /* user can activate offline */
-        bool           offline_enabling;
+        bool           offline_enabling{};
 
         /**
          * Sign the activation key
@@ -138,8 +138,8 @@ namespace dehancer{
     private:
         std::string id_;
         std::string signature_;
-        time_t      activation_date_;
-        bool        is_active_;
+        time_t      activation_date_{};
+        bool        is_active_{};
 
     public:
         static std::string authority_key;
