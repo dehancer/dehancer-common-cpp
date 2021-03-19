@@ -13,11 +13,11 @@
 #include <sstream>
 #include <string>
 #include <ctime>
-#include <filesystem>
 
 static constexpr const size_t PATH_MAX_STRING_SIZE=256;
 
 #include "dehancer/Utils.h"
+
 
 namespace dehancer {
 
@@ -39,8 +39,10 @@ namespace dehancer {
             struct tm ctime{};
 
             memset(&ctime, 0, sizeof(struct tm));
+          #if WIN32
+          #else
             strptime(timestr.c_str(), "%FT%T%z", &ctime);
-
+          #endif
             struct tm tm_data{};
 
             long ts = mktime(&ctime) - timezone;
@@ -63,13 +65,19 @@ namespace dehancer {
         std::time_t get_iso8601_time(const std::string &dateTime)
         {
             std::tm dt = convert_iso8601(dateTime);
-            return timegm(&dt);
+          #if WIN32
+          #else
+          return timegm(&dt);
+          #endif
         }
 
         std::time_t get_epoch_time(const std::string &dateTime)
         {
             std::tm dt = get_time(dateTime, false);
-            return timegm(&dt);
+          #if WIN32
+          #else
+          return timegm(&dt);
+          #endif
         }
 
         std::string utc_to_time_string(std::time_t t)
@@ -169,7 +177,11 @@ namespace dehancer {
                     /* test path */
                     if (stat(tmp, &sb) != 0) {
                         /* path does not exist - create directory */
-                        if (mkdir(tmp, mode) < 0) {
+                      #if WIN32
+                        if (mkdir(tmp) < 0) {
+                      #else
+                          if (mkdir(tmp, mode) < 0) {
+                            #endif
                             return -1;
                         }
                     } else if (!S_ISDIR(sb.st_mode)) {
@@ -182,7 +194,11 @@ namespace dehancer {
             /* test path */
             if (stat(tmp, &sb) != 0) {
                 /* path does not exist - create directory */
-                if (mkdir(tmp, mode) < 0) {
+              #if WIN32
+              if (mkdir(tmp) < 0) {
+              #else
+              if (mkdir(tmp, mode) < 0) {
+              #endif
                     return -1;
                 }
             } else if (!S_ISDIR(sb.st_mode)) {
