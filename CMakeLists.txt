@@ -150,6 +150,17 @@ if (NOT GTEST_FOUND)
     set(COMMON_DEPENDECIES googletest)
 endif ()
 
+if(WIN32)
+    ExternalProject_Add(sqlite3lib
+            GIT_REPOSITORY https://github.com/azadkuh/sqlite-amalgamation
+            CMAKE_ARGS
+            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
+            )
+    set(COMMON_DEPENDECIES sqlite3lib)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+endif ()
 
 ExternalProject_Add(ed25519cpplib
         GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
