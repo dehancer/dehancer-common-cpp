@@ -6,16 +6,16 @@
       <config projectName="dehancer_common_cpp" targetName="NightlyMemoryCheck" />
       <config projectName="dehancer_common_cpp" targetName="ExperimentalTest" />
       <config projectName="dehancer_common_cpp" targetName="ExperimentalConfigure" />
-      <config projectName="dehancer_common_cpp" targetName="ExperimentalBuild" />
       <config projectName="dehancer_common_cpp" targetName="NightlyCoverage" />
+      <config projectName="dehancer_common_cpp" targetName="ExperimentalBuild" />
       <config projectName="dehancer_common_cpp" targetName="googletest" />
       <config projectName="dehancer_common_cpp" targetName="ExperimentalMemCheck" />
       <config projectName="dehancer_common_cpp" targetName="dehancer_common_cpp" />
       <config projectName="dehancer_common_cpp" targetName="ContinuousTest" />
       <config projectName="dehancer_common_cpp" targetName="ContinuousMemCheck" />
       <config projectName="dehancer_common_cpp" targetName="Continuous" />
-      <config projectName="dehancer_common_cpp" targetName="ContinuousSubmit" />
       <config projectName="dehancer_common_cpp" targetName="NightlyStart" />
+      <config projectName="dehancer_common_cpp" targetName="ContinuousSubmit" />
       <config projectName="dehancer_common_cpp" targetName="ContinuousStart" />
       <config projectName="dehancer_common_cpp" targetName="basic-sema-test" />
       <config projectName="dehancer_common_cpp" targetName="NightlyUpdate" />
@@ -47,8 +47,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7d2c81a0-8b5b-45bd-b0da-1d0888479f47" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/dehancer/Common.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/dehancer/Common.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/Common.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,20 +89,21 @@
     <property name="cf.advertisement.text.has.clang-format" value="true" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="ctest.advertisement.all.test.configuration.is.created" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/CMakeLists.txt" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/external/obfy" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/external/obfy" />
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/include/dehancer" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunManager" selected="Google Test.check-license-test">
@@ -157,14 +156,19 @@
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.base64cpplib" />
-      <item itemvalue="CMake Application.dehancer_common_cpp" />
       <item itemvalue="CMake Application.ed25519cpplib" />
       <item itemvalue="CMake Application.googletest" />
+      <item itemvalue="CMake Application.dehancer_common_cpp" />
       <item itemvalue="CTest Application.All CTest" />
-      <item itemvalue="Google Test.basic-sema-test" />
       <item itemvalue="Google Test.check-license-test" />
+      <item itemvalue="Google Test.basic-sema-test" />
       <item itemvalue="Google Test.simple-sql-test" />
     </list>
   </component>
@@ -247,6 +251,7 @@
       <workItem from="1615418087877" duration="2366000" />
       <workItem from="1615722577958" duration="802000" />
       <workItem from="1616066320477" duration="3268000" />
+      <workItem from="1616151467072" duration="2204000" />
     </task>
     <task id="LOCAL-00001" summary="license fixes">
       <created>1615420054145</created>
@@ -267,6 +272,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="license fixes" />
