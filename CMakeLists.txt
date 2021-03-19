@@ -128,7 +128,11 @@ include(ExternalProject)
 # External project dependencies
 #
 set(COMMON_DEPENDECIES)
-set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT};sqlite3)
+set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+
+if (SQLite3_FOUND)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+endif ()
 
 #
 # Google Test
@@ -141,8 +145,6 @@ if (NOT GTEST_FOUND)
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
-            INSTALL_COMMAND make install
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
     set(COMMON_DEPENDECIES googletest)
@@ -158,7 +160,6 @@ ExternalProject_Add(ed25519cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};ed25519cpplib)
@@ -172,7 +173,6 @@ ExternalProject_Add(base64cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        INSTALL_COMMAND make install
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
 set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)

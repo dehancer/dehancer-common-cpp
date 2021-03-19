@@ -2,20 +2,22 @@
 // Created by lotus mile on 31/10/2018.
 //
 
-#include <stdarg.h>
+#include <cstdarg>
 #include <fstream>
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-#include <string.h>
+#include <cstring>
 #include <cctype>
 #include <iomanip>
 #include <sstream>
 #include <string>
+#include <ctime>
 
 static constexpr const size_t PATH_MAX_STRING_SIZE=256;
 
 #include "dehancer/Utils.h"
+
 
 namespace dehancer {
 
@@ -34,12 +36,14 @@ namespace dehancer {
 
             tzset();
 
-            struct tm ctime;
+            struct tm ctime{};
 
             memset(&ctime, 0, sizeof(struct tm));
+          #if WIN32
+          #else
             strptime(timestr.c_str(), "%FT%T%z", &ctime);
-
-            struct tm tm_data;
+          #endif
+            struct tm tm_data{};
 
             long ts = mktime(&ctime) - timezone;
             localtime_r(&ts, &tm_data);
@@ -51,7 +55,7 @@ namespace dehancer {
 
             static const std::string dateTimeFormat{ "%Y-%h-%d %H:%M:%S %Z" };
             std::istringstream ss{ dateTime };
-            std::tm dt;
+            std::tm dt{};
             ss >> std::get_time(&dt, dateTimeFormat.c_str());
             if (adjust_year)
                 dt.tm_year += 1900;
@@ -61,13 +65,19 @@ namespace dehancer {
         std::time_t get_iso8601_time(const std::string &dateTime)
         {
             std::tm dt = convert_iso8601(dateTime);
-            return timegm(&dt);
+          #if WIN32
+          #else
+          return timegm(&dt);
+          #endif
         }
 
         std::time_t get_epoch_time(const std::string &dateTime)
         {
             std::tm dt = get_time(dateTime, false);
-            return timegm(&dt);
+          #if WIN32
+          #else
+          return timegm(&dt);
+          #endif
         }
 
         std::string utc_to_time_string(std::time_t t)
@@ -136,8 +146,8 @@ namespace dehancer {
         /* recursive mkdir */
         int mkdir_p(const char *dir, const mode_t mode) {
             char tmp[PATH_MAX_STRING_SIZE];
-            char *p = NULL;
-            struct stat sb;
+            char *p = nullptr;
+            struct stat sb{};
             size_t len;
 
             /* copy path */
@@ -167,7 +177,11 @@ namespace dehancer {
                     /* test path */
                     if (stat(tmp, &sb) != 0) {
                         /* path does not exist - create directory */
-                        if (mkdir(tmp, mode) < 0) {
+                      #if WIN32
+                        if (mkdir(tmp) < 0) {
+                      #else
+                          if (mkdir(tmp, mode) < 0) {
+                            #endif
                             return -1;
                         }
                     } else if (!S_ISDIR(sb.st_mode)) {
@@ -180,7 +194,11 @@ namespace dehancer {
             /* test path */
             if (stat(tmp, &sb) != 0) {
                 /* path does not exist - create directory */
-                if (mkdir(tmp, mode) < 0) {
+              #if WIN32
+              if (mkdir(tmp) < 0) {
+              #else
+              if (mkdir(tmp, mode) < 0) {
+              #endif
                     return -1;
                 }
             } else if (!S_ISDIR(sb.st_mode)) {
@@ -197,9 +215,7 @@ namespace dehancer {
             escaped.fill('0');
             escaped << std::hex;
 
-            for (std::string::const_iterator i = value.begin(), n = value.end(); i != n; ++i) {
-                std::string::value_type c = (*i);
-
+            for (char c : value) {
                 // Keep alphanumeric and other accepted characters intact
                 if (std::isalnum(c) || c == '-' || c == '_' || c == '.' || c == '~') {
                     escaped << c;
