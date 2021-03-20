@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.6.1)
+project(${PROJECT_LIB} VERSION 0.6.2)
 
 #
 # Options
@@ -50,7 +50,7 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 #
 find_package (PkgConfig QUIET)
 find_package (Threads REQUIRED)
-find_package (SQLite3)
+find_package (SQLite3 CONFIG)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -111,6 +111,9 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
 
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
+
 if (MSVC)
     add_definitions (/W4)
 elseif (CMAKE_COMPILER_IS_GNUCXX)
@@ -128,10 +131,7 @@ set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
-    include_directories(
-            ${SQLite3_INCLUDE_DIRS}
-    )
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
 endif ()
 
 #
@@ -147,9 +147,21 @@ if (NOT GTEST_FOUND)
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
-    set(COMMON_DEPENDENCIES googletest)
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
 endif ()
 
+if(NOT SQLite3_FOUND)
+    ExternalProject_Add(sqlite3lib
+            GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
+            CMAKE_ARGS
+            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
+            PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
+            )
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};sqlite3lib)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+endif ()
 
 ExternalProject_Add(ed25519cpplib
         GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
