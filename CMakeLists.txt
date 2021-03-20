@@ -50,7 +50,7 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 #
 find_package (PkgConfig QUIET)
 find_package (Threads REQUIRED)
-find_package (SQLite3 CONFIG)
+find_package (SQLite3)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -111,9 +111,6 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
 
-#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
-#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
-
 if (MSVC)
     add_definitions (/W4)
 elseif (CMAKE_COMPILER_IS_GNUCXX)
@@ -131,7 +128,10 @@ set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
+    include_directories(
+            ${SQLite3_INCLUDE_DIRS}
+    )
 endif ()
 
 #

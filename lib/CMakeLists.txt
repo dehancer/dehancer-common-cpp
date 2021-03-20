@@ -8,6 +8,11 @@ FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
         )
 
+
+FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/external/obfy/*.h
+        )
+
 FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/promisecpp/*.hpp
         )
@@ -60,6 +65,7 @@ configure_package_config_file(
 install(TARGETS ${PROJECT_LIB}   DESTINATION lib)
 install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION include/dehancer)
 install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION include/nlohmann)
+install(FILES   ${PUBLIC_OBFY_INCLUDE_FILES} DESTINATION include/dehancer/obfy)
 install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION include/promisecpp)
 install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION include/promisecpp/promise)
 install(FILES   ${PUBLIC_PROMISE_TASK_INCLUDE_FILES} DESTINATION include/promisecpp/simple_task)
