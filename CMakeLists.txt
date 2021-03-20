@@ -127,7 +127,7 @@ include(ExternalProject)
 #
 # External project dependencies
 #
-set(COMMON_DEPENDECIES)
+set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
@@ -147,18 +147,18 @@ if (NOT GTEST_FOUND)
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
-    set(COMMON_DEPENDECIES googletest)
+    set(COMMON_DEPENDENCIES googletest)
 endif ()
 
-if(WIN32)
+if(NOT SQLite3_FOUND)
     ExternalProject_Add(sqlite3lib
-            GIT_REPOSITORY https://github.com/azadkuh/sqlite-amalgamation
+            GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
             PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
             )
-    set(COMMON_DEPENDECIES sqlite3lib)
+    set(COMMON_DEPENDENCIES sqlite3lib)
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
 endif ()
 
@@ -173,7 +173,7 @@ ExternalProject_Add(ed25519cpplib
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
         )
-set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};ed25519cpplib)
+set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
 
 ExternalProject_Add(base64cpplib
         GIT_REPOSITORY https://github.com/dnevera/base64cpp
@@ -186,7 +186,7 @@ ExternalProject_Add(base64cpplib
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
         )
-set(COMMON_DEPENDECIES ${COMMON_DEPENDECIES};base64cpplib)
+set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
 #
