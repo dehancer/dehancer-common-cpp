@@ -8,6 +8,7 @@ Windows
 
     pacman -S mingw-w64-x86_64-toolchain
     pacman -S mingw-w64-x86_64-clang
+    pacman -S mingw-w64-x86_64-cmake
     pacman -S libcurl
     pacman -S zlib-devel
     pacman -S libcurl-devel
