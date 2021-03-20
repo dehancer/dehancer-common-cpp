@@ -147,7 +147,7 @@ if (NOT GTEST_FOUND)
             -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
             PREFIX=${CMAKE_BINARY_DIR}/googletest
             )
-    set(COMMON_DEPENDENCIES googletest)
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
 endif ()
 
 if(NOT SQLite3_FOUND)
@@ -159,7 +159,7 @@ if(NOT SQLite3_FOUND)
             -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
             PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
             )
-    set(COMMON_DEPENDENCIES sqlite3lib)
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};sqlite3lib)
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
 endif ()
 
