@@ -156,6 +156,7 @@ if(NOT SQLite3_FOUND)
             CMAKE_ARGS
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
             PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
             )
     set(COMMON_DEPENDENCIES sqlite3lib)
