@@ -11,10 +11,15 @@ project(${PROJECT_LIB} VERSION 0.6.3)
 #
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
-option(DEHANCER_COMMON_DIR  "")
 
+option(DEHANCER_COMMON_DIR  "")
 if (NOT DEHANCER_COMMON_DIR)
     set(DEHANCER_COMMON_DIR ${CMAKE_BINARY_DIR}/tmp)
+endif ()
+
+option(EXTERNAL_INSTALL_LOCATION  "")
+if (NOT EXTERNAL_INSTALL_LOCATION)
+    set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
 endif ()
 
 if (DEHANCER_TARGET_ARCH)
@@ -54,7 +59,7 @@ configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/versi
 #
 find_package (PkgConfig QUIET)
 find_package (Threads REQUIRED)
-find_package (SQLite3 CONFIG)
+find_package (SQLite3)
 
 if(NOT PKG_CONFIG_FOUND)
     message(FATAL_ERROR "pkg-config not found!" )
@@ -135,6 +140,7 @@ set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
+    message("SQLITE FOUND...")
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
 endif ()
 
@@ -180,6 +186,7 @@ ExternalProject_Add(ed25519cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
+        -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
         PREFIX ${DEHANCER_COMMON_DIR}
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
@@ -193,6 +200,8 @@ ExternalProject_Add(base64cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
+        -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
+        -DEXTERNAL_INSTALL_LOCATION=${EXTERNAL_INSTALL_LOCATION}
         PREFIX ${DEHANCER_COMMON_DIR}
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
@@ -202,14 +211,14 @@ set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 # Details
 #
 include_directories(
-        ${CMAKE_BINARY_DIR}/external/include
+        ${EXTERNAL_INSTALL_LOCATION}/include
         ${CMAKE_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/external
         ${SQLITE3_INCLUDE_DIRS}
 )
 
 link_directories(
-        ${CMAKE_BINARY_DIR}/external/lib
+        ${EXTERNAL_INSTALL_LOCATION}/lib
 )
 
 add_subdirectory(lib)
