@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.6.2)
+project(${PROJECT_LIB} VERSION 0.6.3)
 
 #
 # Options
@@ -137,17 +137,20 @@ endif ()
 #
 # Google Test
 #
-find_package(GTest)
-if (NOT GTEST_FOUND)
-    ExternalProject_Add(googletest
-            GIT_REPOSITORY https://github.com/google/googletest
-            CMAKE_ARGS
-            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-            PREFIX=${CMAKE_BINARY_DIR}/googletest
-            )
-    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
+if (BUIL_TESTING)
+    find_package(GTest)
+    if (NOT GTEST_FOUND)
+        ExternalProject_Add(googletest
+                GIT_REPOSITORY https://github.com/google/googletest
+                CMAKE_ARGS
+                -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+                -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+                -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+                -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+                PREFIX ${CMAKE_BINARY_DIR}/tmp
+                )
+        set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
+    endif ()
 endif ()
 
 if(NOT SQLite3_FOUND)
@@ -157,7 +160,8 @@ if(NOT SQLite3_FOUND)
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
             -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
-            PREFIX=${CMAKE_BINARY_DIR}/sqlite3lib
+            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+            PREFIX ${CMAKE_BINARY_DIR}/tmp
             )
     set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};sqlite3lib)
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
@@ -172,7 +176,7 @@ ExternalProject_Add(ed25519cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        PREFIX=${CMAKE_BINARY_DIR}/ed25519cpplib
+        PREFIX ${CMAKE_BINARY_DIR}/tmp
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
 
@@ -185,7 +189,7 @@ ExternalProject_Add(base64cpplib
         -DBUILD_TESTING=OFF
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        PREFIX=${CMAKE_BINARY_DIR}/base64cpplib
+        PREFIX ${CMAKE_BINARY_DIR}/tmp
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
