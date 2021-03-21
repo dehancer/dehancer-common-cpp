@@ -39,7 +39,11 @@ endif ()
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
+if (WIN32)
+else()
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
+endif ()
+
 set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 
@@ -147,7 +151,7 @@ endif ()
 #
 # Google Test
 #
-if (BUIL_TESTING)
+if (BUILD_TESTING)
     find_package(GTest)
     if (NOT GTEST_FOUND)
         ExternalProject_Add(googletest
