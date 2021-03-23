@@ -49,10 +49,12 @@ namespace dehancer {
           #if WIN32
             std::istringstream ss(timestr);
             ss >> std::get_time(&ctime, "%Y-%m-%dT%T%z");
-
-            time_t ts = mktime(&ctime) - timezone;
+            
+            time_t ts = mktime(&ctime) ; // ??? - timezone пропал!;
+            
             localtime_s(&tm_data, &ts);
-          #else
+          
+            #else
             strptime(timestr.c_str(), "%FT%T%z", &ctime);
 
             long ts = mktime(&ctime) - timezone;
