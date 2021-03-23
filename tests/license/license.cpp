@@ -34,7 +34,7 @@ TEST(License, LicenseTest) {
     std::cout << "License error: " << error << std::endl;
   }
 
-  std::cout << "License: " << lic.json().dump() << std::endl;
+  std::cout << "License: " << lic.json().dump(4) << std::endl;
 
   auto encoded = dehancer::License::Encode(lic);
   auto encoded_line = dehancer::License::Encode(lic, false);

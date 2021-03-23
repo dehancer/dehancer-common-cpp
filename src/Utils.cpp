@@ -47,8 +47,13 @@ namespace dehancer {
           
           memset(&ctime, 0, sizeof(struct tm));
           #if WIN32
+            std::istringstream ss(timestr);
+            ss >> std::get_time(&ctime, "%Y-%m-%dT%T%z");
+
+            time_t ts = mktime(&ctime) - timezone;
+            localtime_s(&tm_data, &ts);
           #else
-          strptime(timestr.c_str(), "%FT%T%z", &ctime);
+            strptime(timestr.c_str(), "%FT%T%z", &ctime);
 
             long ts = mktime(&ctime) - timezone;
             localtime_r(&ts, &tm_data);
@@ -71,7 +76,9 @@ namespace dehancer {
         std::time_t get_iso8601_time(const std::string &dateTime)
         {
           std::tm dt = convert_iso8601(dateTime);
+
           #if WIN32
+          return _mkgmtime(&dt);
           #else
           return timegm(&dt);
           #endif
@@ -80,7 +87,9 @@ namespace dehancer {
         std::time_t get_epoch_time(const std::string &dateTime)
         {
           std::tm dt = get_time(dateTime, false);
+
           #if WIN32
+          return _mkgmtime(&dt);
           #else
           return timegm(&dt);
           #endif
