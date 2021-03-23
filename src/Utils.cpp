@@ -4,7 +4,6 @@
 
 #include <cstdarg>
 #include <fstream>
-#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <cstring>
@@ -13,6 +12,13 @@
 #include <sstream>
 #include <string>
 #include <ctime>
+
+#if WIN32
+#include <direct.h>
+#define S_ISDIR(x) (x==_S_IFDIR)
+#else
+#include <unistd.h>
+#endif
 
 static constexpr const size_t PATH_MAX_STRING_SIZE=256;
 

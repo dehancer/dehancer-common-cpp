@@ -19,7 +19,8 @@
 namespace dehancer {
 
     int random(int min, int max);
-
+    
+    
     namespace time {
         /**
         *  Converts UTC time string to a time_t value.
@@ -52,13 +53,17 @@ namespace dehancer {
     //
 
     namespace file {
+        #if WIN32
+        using mode_t=unsigned int;
+        #endif
+    
         std::string last_component(std::string const &pathname);
 
         std::string deleting_extension(std::string const &filename);
 
         bool copy_file(const char *source, const char *destination);
-
-        int mkdir_p(const char *dir, const mode_t mode);
+        
+        int mkdir_p(const char *dir, mode_t mode);
     }
 
     namespace url {

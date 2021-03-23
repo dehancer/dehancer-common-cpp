@@ -553,8 +553,8 @@ private:
     using error_type = E;
 
     // no-op construction
-    storage_t() {}
-    ~storage_t() {}
+    storage_t() = default;
+    ~storage_t() = default;
 
     void construct_error( error_type const & e )
     {

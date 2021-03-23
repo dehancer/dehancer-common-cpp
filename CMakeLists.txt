@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.6.3)
+project(${PROJECT_LIB} VERSION 0.7.0)
 
 #
 # Options
@@ -40,6 +40,8 @@ set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
 
 if (WIN32)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
+    add_definitions(/DWIN32=1)
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
 endif ()
@@ -116,7 +118,7 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
 
 elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 
-    message( FATAL_ERROR "The project does not support MSVC compiler" )
+    #message( FATAL_ERROR "The project does not support MSVC compiler" )
 
 endif()
 
@@ -127,10 +129,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-
 #set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
 #set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
 
-if (MSVC)
-    add_definitions (/W4)
-elseif (CMAKE_COMPILER_IS_GNUCXX)
-endif ()
 
 #
 # Package manager
@@ -171,10 +169,12 @@ if(NOT SQLite3_FOUND)
     ExternalProject_Add(sqlite3lib
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             CMAKE_ARGS
+            -DCMAKE_BUILD_TYPE=Release
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
             -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
             PREFIX ${DEHANCER_COMMON_DIR}
             )
     set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};sqlite3lib)
@@ -191,6 +191,7 @@ ExternalProject_Add(ed25519cpplib
         -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
+        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
         PREFIX ${DEHANCER_COMMON_DIR}
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
@@ -206,6 +207,7 @@ ExternalProject_Add(base64cpplib
         -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
         -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
         -DEXTERNAL_INSTALL_LOCATION=${EXTERNAL_INSTALL_LOCATION}
+        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
         PREFIX ${DEHANCER_COMMON_DIR}
         )
 set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
