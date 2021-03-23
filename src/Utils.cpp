@@ -4,7 +4,6 @@
 
 #include <cstdarg>
 #include <fstream>
-#include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <cstring>
@@ -13,6 +12,13 @@
 #include <sstream>
 #include <string>
 #include <ctime>
+
+#if WIN32
+#include <direct.h>
+#define S_ISDIR(x) (x==_S_IFDIR)
+#else
+#include <unistd.h>
+#endif
 
 static constexpr const size_t PATH_MAX_STRING_SIZE=256;
 
@@ -41,8 +47,15 @@ namespace dehancer {
           
           memset(&ctime, 0, sizeof(struct tm));
           #if WIN32
-          #else
-          strptime(timestr.c_str(), "%FT%T%z", &ctime);
+            std::istringstream ss(timestr);
+            ss >> std::get_time(&ctime, "%Y-%m-%dT%T%z");
+            
+            time_t ts = mktime(&ctime) ; // ??? - timezone пропал!;
+            
+            localtime_s(&tm_data, &ts);
+          
+            #else
+            strptime(timestr.c_str(), "%FT%T%z", &ctime);
 
             long ts = mktime(&ctime) - timezone;
             localtime_r(&ts, &tm_data);
@@ -65,7 +78,9 @@ namespace dehancer {
         std::time_t get_iso8601_time(const std::string &dateTime)
         {
           std::tm dt = convert_iso8601(dateTime);
+
           #if WIN32
+          return _mkgmtime(&dt);
           #else
           return timegm(&dt);
           #endif
@@ -74,7 +89,9 @@ namespace dehancer {
         std::time_t get_epoch_time(const std::string &dateTime)
         {
           std::tm dt = get_time(dateTime, false);
+
           #if WIN32
+          return _mkgmtime(&dt);
           #else
           return timegm(&dt);
           #endif

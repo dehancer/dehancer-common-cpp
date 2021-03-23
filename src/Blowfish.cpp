@@ -5,6 +5,7 @@
 #include "dehancer/Blowfish.h"
 #include <iostream>
 #include <functional>
+#include <algorithm>
 
 inline static std::uint32_t vector_to_uint32(const Blowfish::DataType &input, int start){
   return (input[start+0] << 24) | (input[start+1] << 16) | (input[start+2] << 8) | (input[start+3]);
@@ -30,7 +31,7 @@ Blowfish::Blowfish(const Blowfish::KeyType key):
         P_(Blowfish::origP_),
         S_(Blowfish::origS_)
 {
-  for (int i = 0; i < block_size_; ++i) {
+  for (size_t i = 0; i < block_size_; ++i) {
     iv_.push_back(0);
   }
   expandKey(key_);
@@ -44,7 +45,7 @@ void Blowfish::encrypt(const Blowfish::DataType &input, Blowfish::DataType &outp
 
   if (padding == 0) {
     // If the original data is a multiple of N bytes, then an extra block of bytes with value N is added.
-    for(int i=0; i<block_size_; ++i) {
+    for(size_t i=0; i<block_size_; ++i) {
       withPadding.push_back(std::uint8_t(block_size_));
     }
   } else {
@@ -136,12 +137,12 @@ void Blowfish::expandKey(const Blowfish::KeyType &key) {
 
   int j = 0;
 
-  for(int i=0; i<(N_ + 2); ++i)
+  for(size_t i=0; i<(N_ + 2); ++i)
   {
 
     std::uint32_t data = 0x0;
 
-    for (int k=0; k<4; ++k)
+    for (size_t k=0; k<4; ++k)
     {
       data = (data << 8) | std::uint32_t(key[j]);
       j += 1;
@@ -156,7 +157,7 @@ void Blowfish::expandKey(const Blowfish::KeyType &key) {
   std::uint32_t datal = 0;
   std::uint32_t datar = 0;
 
-  for (int i=0; i< N_+2; i+=2)
+  for (size_t i=0; i< N_+2; i+=2)
   {
     encryptBlowfishBlock(datal, datar);
     P_[i] = datal;
@@ -177,7 +178,7 @@ void Blowfish::encryptBlowfishBlock(std::uint32_t &l, std::uint32_t &r) {
   auto Xl = l;
   auto Xr = r;
 
-  for(int i =0;  i <N_; ++i) {
+  for(size_t i =0;  i <N_; ++i) {
     Xl ^= P_[i];
     Xr ^= __F__(Xl);
 
