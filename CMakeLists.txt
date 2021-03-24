@@ -42,6 +42,10 @@ set(CMAKE_CXX_STANDARD 17)
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
     add_definitions(/MT /DWIN32=1 /D_ITERATOR_DEBUG_LEVEL=0)
+    string(TOLOWER  ${CMAKE_BUILD_TYPE} BUILD_TYPE)
+    if (${BUILD_TYPE} STREQUAL "debug")
+        add_definitions(/MTd)
+    endif()
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
@@ -144,6 +148,9 @@ if (SQLite3_FOUND)
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
 endif ()
 
+string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
+string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
+
 #
 # Google Test
 #
@@ -153,11 +160,13 @@ if (BUILD_TESTING)
         ExternalProject_Add(googletest
                 GIT_REPOSITORY https://github.com/google/googletest
                 CMAKE_ARGS
-                -DCMAKE_BUILD_TYPE=Release
+                -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                 -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
                 -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
                 -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
                 -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
+                -DCMAKE_C_FLAGS=${C_FLAGS}
+                -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
                 PREFIX ${DEHANCER_COMMON_DIR}
                 )
         set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
@@ -168,12 +177,13 @@ if(NOT SQLite3_FOUND)
     ExternalProject_Add(sqlite3lib
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             CMAKE_ARGS
-            -DCMAKE_BUILD_TYPE=Release
+            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
             -DBUILD_SHELL=ON
             -DBUILD_SHELL_STATIC=ON
             -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
             -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-            -DCMAKE_C_FLAGS=${CMAKE_C_FLAGS} /MT /MTd
+            -DCMAKE_C_FLAGS=${C_FLAGS}
+            -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
             -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
             PREFIX ${DEHANCER_COMMON_DIR}
