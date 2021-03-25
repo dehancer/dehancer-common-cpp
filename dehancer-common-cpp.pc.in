@@ -8,6 +8,6 @@ Description: Capy memcache layer SDK
 Version: @PROJECT_VERSION@
 URL: https://github.com/dehancer/dehancer-common-cpp
 Requires.private: @requires_private@
-Libs: -L${libdir} -ldehancer_common_cpp
+Libs: -L${libdir} -ldehancer_common_cpp -led25519cpp -lbase64cpp
 Libs.private: @libs_private@
 CFlags: -I${includedir}
