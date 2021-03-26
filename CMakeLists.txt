@@ -145,7 +145,10 @@ set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 if (SQLite3_FOUND)
     message("SQLITE FOUND...")
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
+    include_directories(
+            ${SQLite3_INCLUDE_DIRS}
+    )
 endif ()
 
 string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
