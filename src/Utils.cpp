@@ -173,7 +173,7 @@ namespace dehancer {
             #if WIN32
             char sep = '\\';
             #else
-            char sep = '\\';
+            char sep = '/';
             #endif
             char *p = nullptr;
             struct stat sb{};
@@ -208,6 +208,10 @@ namespace dehancer {
             {
                 if (*p == sep)
                 {
+                    #if WIN32
+                    /* In Windows skip drive letter */
+                    if(*(p-1) == ':') continue;
+                    #endif
                     *p = 0;
                     /* test path */
                     if (stat(tmp, &sb) != 0)
