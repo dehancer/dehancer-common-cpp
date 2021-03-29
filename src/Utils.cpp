@@ -15,7 +15,7 @@
 
 #if WIN32
 #include <direct.h>
-#define S_ISDIR(x) (x==_S_IFDIR)
+#define S_ISDIR(x) ((x&_S_IFDIR)==_S_IFDIR)
 #else
 #include <unistd.h>
 #endif
