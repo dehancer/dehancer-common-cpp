@@ -47,7 +47,7 @@ The log file is written to using printf style functions, rather than via c++ ios
 #include <string>
 #include <iostream>
 
-#include "dehancer/gpu/Log.h"
+#include "dehancer/Log.h"
 
 namespace dehancer {
     namespace log {
