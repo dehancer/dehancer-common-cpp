@@ -86,6 +86,14 @@ install(DIRECTORY
         )
 
 install(DIRECTORY
+        ${EXTERNAL_LOCATION}/sqlite
+        DESTINATION ${CMAKE_INSTALL_PREFIX}
+        FILES_MATCHING
+        PATTERN *.h
+        PATTERN *.hpp
+        )
+
+install(DIRECTORY
         ${EXTERNAL_INSTALL_LOCATION}/lib
         DESTINATION ${CMAKE_INSTALL_PREFIX}
         FILES_MATCHING
