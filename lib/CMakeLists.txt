@@ -87,7 +87,7 @@ install(DIRECTORY
 
 install(DIRECTORY
         ${EXTERNAL_LOCATION}/sqlite
-        DESTINATION ${CMAKE_INSTALL_PREFIX}
+        DESTINATION ${CMAKE_INSTALL_PREFIX}/include
         FILES_MATCHING
         PATTERN *.h
         PATTERN *.hpp
