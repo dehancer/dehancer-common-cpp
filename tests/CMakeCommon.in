@@ -31,6 +31,7 @@ target_link_libraries(
         ${PROJECT_LIB}
         ${COMMON_LIBRARIES}
         ${TEST_LIBRARIES}
+        ${CMAKE_DL_LIBS}
 )
 
 if (COMMON_DEPENDENCIES)
