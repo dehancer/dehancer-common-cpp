@@ -162,6 +162,8 @@ if (BUILD_TESTING)
     if (NOT GTEST_FOUND)
         ExternalProject_Add(googletest
                 GIT_REPOSITORY https://github.com/google/googletest
+                GIT_PROGRESS YES
+                GIT_SHALLOW YES
                 CMAKE_ARGS
                 -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                 -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
@@ -179,6 +181,8 @@ endif ()
 if(NOT SQLite3_FOUND)
     ExternalProject_Add(sqlite3lib
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
+            GIT_PROGRESS YES
+            GIT_SHALLOW YES
             CMAKE_ARGS
             -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
             -DBUILD_SHELL=ON
@@ -202,6 +206,8 @@ endif ()
 
 ExternalProject_Add(ed25519cpplib
         GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
+        GIT_PROGRESS YES
+        GIT_SHALLOW YES
         CMAKE_ARGS
         -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
         -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
@@ -221,6 +227,8 @@ set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
 
 ExternalProject_Add(base64cpplib
         GIT_REPOSITORY https://github.com/dnevera/base64cpp
+        GIT_PROGRESS YES
+        GIT_SHALLOW YES
         CMAKE_ARGS
         -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
         -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
