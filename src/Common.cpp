@@ -38,9 +38,20 @@ namespace dehancer {
       vsnprintf(buffer, sizeof(buffer), format, ap);
       va_end(ap);
 
-      return "Dehancerd error: " + std::string(buffer);
+      return "Dehancer error: " + std::string(buffer);
     }
-
+    
+    std::string message_string(const char* format, ...)
+    {
+      char buffer[1024] = {};
+      va_list ap = {};
+      
+      va_start(ap, format);
+      vsnprintf(buffer, sizeof(buffer), format, ap);
+      va_end(ap);
+      
+      return std::string(buffer);
+    }
 
     using namespace std;
 
