@@ -48,6 +48,7 @@ The log file is written to using printf style functions, rather than via c++ ios
 #include <iostream>
 
 #include "dehancer/Log.h"
+#include "dehancer/Utils.h"
 
 namespace dehancer {
     namespace log {
@@ -84,12 +85,12 @@ namespace dehancer {
         {
 #ifdef PRINT_DEBUG
           if (use_console) {
-                gLogFP = stderr;
-            }
-            else if(!gLogFP) {
-                gLogFP = fopen(gLogFileName.c_str(), "w");
-                return gLogFP != nullptr;
-            }
+            gLogFP = stderr;
+          }
+          else if(!gLogFP) {
+            gLogFP = fopen(gLogFileName.c_str(), "a+");
+            return gLogFP != nullptr;
+          }
 #endif
           return gLogFP != nullptr;
         }
@@ -130,14 +131,19 @@ namespace dehancer {
         {
 #if PRINT_DEBUG
           if(open()) {
-                doIndent();
-                va_list args;
-                va_start(args, format);
-                vfprintf(gLogFP, format, args);
-                fputc('\n', gLogFP);
-                fflush(gLogFP);
-                va_end(args);
-            }
+            doIndent();
+            fputs("[", gLogFP);
+            fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
+            fputs("] ", gLogFP);
+            fputs("INFO: ", gLogFP);
+            
+            va_list args;
+            va_start(args, format);
+            vfprintf(gLogFP, format, args);
+            fputc('\n', gLogFP);
+            fflush(gLogFP);
+            va_end(args);
+          }
 #endif
         }
         
@@ -146,13 +152,18 @@ namespace dehancer {
         {
 #if PRINT_DEBUG
           if(open()) {
-                doIndent();
-                va_list args;
-                va_start(args, format);
-                vfprintf(gLogFP, format, args);
-                fflush(gLogFP);
-                va_end(args);
-            }
+            doIndent();
+            fputs("[", gLogFP);
+            fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
+            fputs("] ", gLogFP);
+            fputs("INFO: ", gLogFP);
+            
+            va_list args;
+            va_start(args, format);
+            vfprintf(gLogFP, format, args);
+            fflush(gLogFP);
+            va_end(args);
+          }
 #endif
         }
         
@@ -161,17 +172,20 @@ namespace dehancer {
         {
 #if PRINT_DEBUG
           if(condition && open()) {
-                doIndent();
-                fputs("WARNING : ", gLogFP);
-
-                va_list args;
-                va_start(args, format);
-                vfprintf(gLogFP, format, args);
-                fputc('\n', gLogFP);
-                va_end(args);
-
-                fflush(gLogFP);
-            }
+            doIndent();
+            fputs("[", gLogFP);
+            fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
+            fputs("] ", gLogFP);
+            fputs("WARNING: ", gLogFP);
+  
+            va_list args;
+            va_start(args, format);
+            vfprintf(gLogFP, format, args);
+            fputc('\n', gLogFP);
+            va_end(args);
+            
+            fflush(gLogFP);
+          }
 #endif
         }
         
@@ -180,17 +194,20 @@ namespace dehancer {
         {
 #      ifdef PRINT_DEBUG
           if(condition && open()) {
-                doIndent();
-                fputs("ERROR : ", gLogFP);
-
-                va_list args;
-                va_start(args, format);
-                vfprintf(gLogFP, format, args);
-                fputc('\n', gLogFP);
-                va_end(args);
-
-                fflush(gLogFP);
-            }
+            doIndent();
+            fputs("[", gLogFP);
+            fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
+            fputs("] ", gLogFP);
+            fputs("ERROR : ", gLogFP);
+            
+            va_list args;
+            va_start(args, format);
+            vfprintf(gLogFP, format, args);
+            fputc('\n', gLogFP);
+            va_end(args);
+            
+            fflush(gLogFP);
+          }
 #endif
         }
     };
