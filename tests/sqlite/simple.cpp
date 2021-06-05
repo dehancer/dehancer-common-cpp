@@ -6,6 +6,7 @@
 #include "sqlite/sqlite_orm.h"
 #include "gtest/gtest.h"
 #include <list>
+#include "dehancer/Log.h"
 
 struct User{
     int id;
@@ -70,12 +71,14 @@ TEST(SQLITE, SimpleTest) {
       user->firstName += "#0";
       storage.update(*user);
     }
+    dehancer::log::print("sqlite wrote %i objects", insertedId);
   }
   catch(std::system_error& e) {
     std::cerr << "System Error: " << e.what() << std::endl;
-
+    dehancer::log::error(true, "sqlite error: %s", e.what());
   }
   catch (std::exception& e) {
     std::cerr << "Error: " << e.what() << std::endl;
+    dehancer::log::error(true, "sqlite error: %s", e.what());
   }
 }
