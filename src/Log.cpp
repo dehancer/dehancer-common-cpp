@@ -62,14 +62,14 @@ namespace dehancer {
         /** @brief the global logfile name */
         
         static std::string gLogFileName(
-                std::getenv(kLogFileEnvVar) ?
-                std::getenv(kLogFileEnvVar)
+                std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
                 #if WIN32
-                : std::getenv("TEMP") ? std::string(std::getenv("TEMP")) + "\\DehancerPluginLog.txt"
-                #endif
-                :
+                std::getenv("TEMP") ? std::string(std::getenv("TEMP")) + "\\DehancerPluginLog.txt" : "\\tmp\\DehancerPluginLog.txt"
+                #else
                 "/tmp/DehancerPluginLog.txt"
+                #endif
         );
+        
         /** @brief global indent level, not MP sane */
         static int gIndent = 0;
         
