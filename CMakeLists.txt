@@ -12,8 +12,6 @@ project(${PROJECT_LIB} VERSION 0.7.3)
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
-option(DEHANCER_DEBUG OFF)
-option(USE_UNICODE OFF)
 
 option(DEHANCER_COMMON_DIR  "")
 if (NOT DEHANCER_COMMON_DIR)
@@ -44,30 +42,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
-
     add_definitions(/MT /DWIN32=1 /D_ITERATOR_DEBUG_LEVEL=0)
-
-    if (DEHANCER_DEBUG)
-        string(REPLACE "/O2" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/O2" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        string(REPLACE "/Ob2" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/Ob2" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        string(REPLACE "/DNDEBUG" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG=1 -DZ7=1")
-        add_definitions(/DEBUG /Z7)
-    endif ()
-
-    if (USE_UNICODE)
-        add_definitions(/D_UNICODE /DUNICODE) # /utf-8)
-    endif ()
-
-
     string(TOLOWER  ${CMAKE_BUILD_TYPE} BUILD_TYPE)
     if (${BUILD_TYPE} STREQUAL "debug")
         add_definitions(/MTd)
     endif()
-
 else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -Wno-unused-command-line-argument")
@@ -150,6 +129,8 @@ endif()
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl, -fvisibility=hidden")
+#set(CMAKE_LINK_LIBRARY_FILE_FLAG "${CMAKE_LINK_LIBRARY_FILE_FLAG} -Wl")
 
 #
 # Package manager

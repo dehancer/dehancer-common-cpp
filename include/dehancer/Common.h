@@ -107,10 +107,12 @@ namespace dehancer {
     * @return
     */
     std::string error_string(const char *format, ...);
+    
+    std::string message_string(const char *format, ...);
 
     static inline void _throw_abort(const char *file, int line, const std::string &msg) {
-        std::cerr << "Capy logic error: assert failed:\t" << msg << "\n"
-                  << "Capy logic error: source:\t\t" << file << ", line " << line << "\n";
+        std::cerr << "Dehancer logic error: assert failed:\t" << msg << "\n"
+                  << "Dehancer logic error: source:\t\t" << file << ", line " << line << "\n";
         abort();
     }
 
