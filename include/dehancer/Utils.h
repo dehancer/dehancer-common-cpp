@@ -4,14 +4,13 @@
 
 #pragma once
 
-#include <time.h>
-#include <time.h>
+#include <ctime>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <optional>
-#include <stdarg.h>
+#include <cstdarg>
 #include <chrono>
 
 #include "Common.h"
