@@ -30,7 +30,14 @@ Windows MVSC
     /c/vcpkg/vcpkg install gtest
 
     # cmake integration
+    -G
+    "Ninja"
+    -DBUILD_TESTING=ON
+    -DPRINT_DEBUG=ON
     -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
+    -DCMAKE_INSTALL_PREFIX=C:/Users/dennn/AppData/Temp/dehancer
+    -DDEHANCER_DEBUG=ON
+    -DUSE_UNICODE=ON
 
 Testing 
 =======

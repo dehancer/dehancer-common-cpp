@@ -4,6 +4,10 @@ FILE(GLOB PUBLIC_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/include/dehancer/*.h
         )
 
+FILE(GLOB PUBLIC_WINDOWS_INCLUDE_FILES
+        ${CMAKE_SOURCE_DIR}/include/dehancer/windows/utf8/*.h
+        )
+
 FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
         )
@@ -30,11 +34,20 @@ FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
         )
 
 file (GLOB COMMON_SRC ${COMMON_SRC}
-        ../src/*.cpp
-        ../src/*.c
+        ${CMAKE_SOURCE_DIR}/src/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/*.c
         )
 
-add_library(${PROJECT_NAME} ${COMMON_SRC})
+if(WIN32)
+    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
+            ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.cpp
+            ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.c
+            )
+else()
+    set (EXT_COMMON_SRC)
+endif()
+
+add_library(${PROJECT_NAME} ${COMMON_SRC} ${EXT_COMMON_SRC})
 
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
@@ -69,6 +82,7 @@ if (NOT CMAKE_INSTALL_INCLUDEDIR)
 endif ()
 
 install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer)
+install(FILES   ${PUBLIC_WINDOWS_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/windows/utf8)
 install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/nlohmann)
 install(FILES   ${PUBLIC_OBFY_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/obfy)
 install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp)
