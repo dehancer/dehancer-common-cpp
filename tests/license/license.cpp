@@ -4,6 +4,7 @@
 
 #include "dehancer/License.h"
 #include "dehancer/Utils.h"
+#include "dehancer/Log.h"
 #include "gtest/gtest.h"
 #include "ed25519.hpp"
 
@@ -29,13 +30,17 @@ TEST(License, LicenseTest) {
   auto error = lic.sign();
 
   EXPECT_TRUE(!error);
-
+  
+  dehancer::log::error(error, "License error: %s", error.message().c_str());
+  
   if (error) {
     std::cout << "License error: " << error << std::endl;
   }
 
   std::cout << "License: " << lic.json().dump(4) << std::endl;
-
+  
+  dehancer::log::print("License: %s", lic.json().dump().c_str());
+  
   auto encoded = dehancer::License::Encode(lic);
   auto encoded_line = dehancer::License::Encode(lic, false);
 
