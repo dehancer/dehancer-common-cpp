@@ -50,6 +50,10 @@ The log file is written to using printf style functions, rather than via c++ ios
 #include "dehancer/Log.h"
 #include "dehancer/Utils.h"
 
+#if WIN32
+#include "dehancer/windows/utf8/utf8.h"
+#endif
+
 namespace dehancer {
     namespace log {
         
@@ -58,14 +62,18 @@ namespace dehancer {
         bool use_console = false;
         
         /// environment variable for the log file
-#define kLogFileEnvVar "PLUGIN_LOGFILE"
+#define kLogFileEnvVar "DEHANCER_LOGFILE"
         
         /** @brief the global logfile name */
         
         static std::string gLogFileName(
-                std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
                 #if WIN32
-                std::getenv("TEMP") ? std::string(std::getenv("TEMP")) + "\\DehancerPluginLog.txt" : "\\tmp\\DehancerPluginLog.txt"
+                !utf8::getenv(kLogFileEnvVar).empty() ? utf8::getenv(kLogFileEnvVar) :
+                #else
+                std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
+                #endif
+                #if WIN32
+                utf8::getenv("TEMP").empty() ?  "\\tmp\\DehancerPluginLog.txt" : std::string(utf8::getenv("TEMP")) + "\\DehancerPluginLog.txt"
                 #else
                 "/tmp/DehancerPluginLog.txt"
                 #endif
@@ -88,7 +96,11 @@ namespace dehancer {
             gLogFP = stderr;
           }
           else if(!gLogFP) {
+            #if WIN32
+            gLogFP = utf8::fopen(gLogFileName, "a+");
+            #else
             gLogFP = fopen(gLogFileName.c_str(), "a+");
+            #endif
             return gLogFP != nullptr;
           }
 #endif
