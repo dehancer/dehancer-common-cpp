@@ -4,11 +4,12 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.7.3)
+project(${PROJECT_LIB} VERSION 0.7.4)
 
 #
 # Options
 #
+option(PRINT_DEBUG OFF)
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
