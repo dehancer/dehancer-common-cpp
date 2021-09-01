@@ -26,7 +26,7 @@ TEST(SQLITE, SimpleTest) {
   using namespace sqlite_orm;
 
   try {
-    auto storage = make_storage("./db.sqlite",
+    auto storage = make_storage("./test.db",
                                 make_table("users",
                                            make_column("id", &User::id, autoincrement(), primary_key()),
                                            make_column("first_name", &User::firstName),
