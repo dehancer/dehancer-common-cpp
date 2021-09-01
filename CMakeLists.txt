@@ -9,6 +9,7 @@ project(${PROJECT_LIB} VERSION 0.7.3)
 #
 # Options
 #
+option(PRINT_DEBUG OFF)
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
