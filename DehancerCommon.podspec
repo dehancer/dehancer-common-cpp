@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "DehancerCommon"
-  s.version      = "0.2.1"
+  s.version      = "0.7.4"
   s.summary      = "Dehancer Common SDK"
   s.description  = "Dehancer Common SDK"
 
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.platform     = :osx
 
-  s.ios.deployment_target = "11.0"
-  s.osx.deployment_target = "10.12"
+  s.ios.deployment_target = "14.0"
+  s.osx.deployment_target = "10.14"
  
   s.swift_version = "4.2"
 
