@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.7.4)
+project(${PROJECT_LIB} VERSION 0.7.5)
 
 #
 # Options
@@ -184,6 +184,7 @@ if (BUILD_TESTING)
                 GIT_REPOSITORY https://github.com/google/googletest
                 GIT_PROGRESS YES
                 GIT_SHALLOW YES
+                GIT_TAG release-1.11.0
                 CMAKE_ARGS
                 -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                 -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
