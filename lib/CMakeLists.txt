@@ -128,4 +128,6 @@ install(DIRECTORY
 install(FILES   ${project_config} ${version_config} DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
 install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
 
+message("PROJECT_LIB: ${PROJECT_LIB}")
+
 install(TARGETS ${PROJECT_LIB}   DESTINATION ${CMAKE_INSTALL_LIBDIR})
