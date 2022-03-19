@@ -6,10 +6,13 @@ Build ios
     # https://blog.tomtasche.at/2019/05/how-to-include-cmake-project-in-xcode.html
 
     git clone https://github.com/dehancer/ios-cmake
-    cmake -G Xcode -DCMAKE_TOOLCHAIN_FILE=~/Develop/Dehancer/Dehancer-Plugins/ios-cmake/ios.toolchain.cmake\
-    -DPLATFORM=OS64COMBINED -DBUILD_TESTING=OFF -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios
-    cmake --build . --config Debug
-    cmake --install . --config Debug
+    cmake -G Xcode \
+    -DCMAKE_TOOLCHAIN_FILE=~/Develop/Dehancer/Dehancer-Plugins/ios-cmake/ios.toolchain.cmake \
+    -DENABLE_BITCODE=ON \
+    -DPLATFORM=OS64COMBINED \
+    -DBUILD_TESTING=OFF \
+    -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios
+    cmake --build . --config Release && cmake --install . --config Release
 
 Windows GCC
 =======
