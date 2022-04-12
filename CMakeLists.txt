@@ -164,6 +164,7 @@ if (BUILD_TESTING)
                 GIT_REPOSITORY https://github.com/google/googletest
                 GIT_PROGRESS YES
                 GIT_SHALLOW YES
+                GIT_TAG release-1.11.0
                 CMAKE_ARGS
                 -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                 -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
@@ -260,6 +261,7 @@ include_directories(
 
 link_directories(
         ${EXTERNAL_INSTALL_LOCATION}/lib
+        ${EXTERNAL_INSTALL_LOCATION}/lib64
 )
 
 add_subdirectory(lib)
