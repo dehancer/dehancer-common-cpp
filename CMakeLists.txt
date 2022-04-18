@@ -212,6 +212,7 @@ if(NOT SQLite3_FOUND)
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             GIT_PROGRESS YES
             GIT_SHALLOW YES
+            GIT_TAG dehancer-imp-1.0
             CMAKE_ARGS
             -DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}
             -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
