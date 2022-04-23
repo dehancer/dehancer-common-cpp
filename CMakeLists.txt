@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.7.5)
+project(${PROJECT_LIB} VERSION 0.7.6)
 
 #
 # Options
@@ -42,6 +42,11 @@ endif ()
 #
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
+
+if (NOT CMAKE_INSTALL_LIBDIR)
+    set(CMAKE_INSTALL_LIBDIR lib)
+endif ()
+
 
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
@@ -169,6 +174,7 @@ if (SQLite3_FOUND)
     include_directories(
             ${SQLite3_INCLUDE_DIRS}
     )
+    add_definitions("-DUSE_SYSTEM_SQLITE3=1")
 endif ()
 
 string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
@@ -186,6 +192,9 @@ if (BUILD_TESTING)
                 GIT_SHALLOW YES
                 GIT_TAG release-1.11.0
                 CMAKE_ARGS
+                -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
+                -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
+                -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
                 -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
                 -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
                 -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
@@ -204,7 +213,12 @@ if(NOT SQLite3_FOUND)
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             GIT_PROGRESS YES
             GIT_SHALLOW YES
+            GIT_TAG dehancer-imp-1.0
             CMAKE_ARGS
+            -DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}
+            -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
+            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
             -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
             -DBUILD_SHELL=ON
             -DBUILD_SHELL_STATIC=ON
@@ -225,49 +239,83 @@ if(NOT SQLite3_FOUND)
     endif()
 endif ()
 
-ExternalProject_Add(ed25519cpplib
-        GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
-        GIT_PROGRESS YES
-        GIT_SHALLOW YES
-        CMAKE_ARGS
-        -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-        -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-        -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-        -DBUILD_TESTING=OFF
-        -DCMAKE_C_FLAGS=${C_FLAGS}
-        -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
-        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-        -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
-        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-        -DVCPKG_TARGET_TRIPLET=x64-windows-static
-        PREFIX ${DEHANCER_COMMON_DIR}
-        )
-set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
+pkg_search_module(ed25519cpplib ed25519cpp)
+if (ed25519cpplib_FOUND)
 
-ExternalProject_Add(base64cpplib
-        GIT_REPOSITORY https://github.com/dnevera/base64cpp
-        GIT_PROGRESS YES
-        GIT_SHALLOW YES
-        CMAKE_ARGS
-        -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-        -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-        -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-        -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-        -DBUILD_TESTING=OFF
-        -DCMAKE_C_FLAGS=${C_FLAGS}
-        -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
-        -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-        -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-        -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
-        -DEXTERNAL_INSTALL_LOCATION=${EXTERNAL_INSTALL_LOCATION}
-        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-        -DVCPKG_TARGET_TRIPLET=x64-windows-static
-        PREFIX ${DEHANCER_COMMON_DIR}
-        )
-set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
-set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
+    message(STATUS "ed25519cpplib: ${ed25519cpplib_LIBRARIES}, ${ed25519cpplib_LIBRARY_DIRS} ${ed25519cpplib_INCLUDE_DIRS}")
+    include_directories(
+            ${ed25519cpplib_INCLUDE_DIRS}
+    )
+    link_directories(
+            ${ed25519cpplib_LIBRARY_DIRS}
+    )
+    set(COMMON_LIBRARIES ${ed25519cpplib_LIBRARIES};${COMMON_LIBRARIES})
+
+else()
+    ExternalProject_Add(ed25519cpplib
+            GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
+            GIT_PROGRESS YES
+            GIT_SHALLOW YES
+            CMAKE_ARGS
+            -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
+            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+            -DBUILD_TESTING=OFF
+            -DCMAKE_C_FLAGS=${C_FLAGS}
+            -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
+            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
+            -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
+            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+            -DVCPKG_TARGET_TRIPLET=x64-windows-static
+            PREFIX ${DEHANCER_COMMON_DIR}
+            )
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
+endif()
+
+pkg_search_module(base64cpplib base64cpp)
+if (base64cpplib_FOUND)
+
+    message(STATUS "base64cpplib: ${base64cpplib_LIBRARIES}, ${base64cpplib_LIBRARY_DIRS} ${base64cpplib_INCLUDE_DIRS}")
+    include_directories(
+            ${base64cpplib_INCLUDE_DIRS}
+    )
+    link_directories(
+            ${base64cpplib_LIBRARY_DIRS}
+    )
+    set(COMMON_LIBRARIES ${base64cpplib_LIBRARIES};${COMMON_LIBRARIES})
+
+else()
+    ExternalProject_Add(base64cpplib
+            GIT_REPOSITORY https://github.com/dnevera/base64cpp
+            GIT_PROGRESS YES
+            GIT_SHALLOW YES
+            CMAKE_ARGS
+            -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
+            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
+            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
+            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
+            -DBUILD_TESTING=OFF
+            -DCMAKE_C_FLAGS=${C_FLAGS}
+            -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
+            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
+            -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
+            -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
+            -DEXTERNAL_INSTALL_LOCATION=${EXTERNAL_INSTALL_LOCATION}
+            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+            -DVCPKG_TARGET_TRIPLET=x64-windows-static
+            PREFIX ${DEHANCER_COMMON_DIR}
+            )
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
+    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
+endif ()
 
 #
 # Details
@@ -281,6 +329,7 @@ include_directories(
 
 link_directories(
         ${EXTERNAL_INSTALL_LOCATION}/lib
+        ${EXTERNAL_INSTALL_LOCATION}/lib64
 )
 
 add_subdirectory(lib)

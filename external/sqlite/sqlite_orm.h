@@ -23,6 +23,9 @@ __pragma(push_macro("min"))
 
 #include <system_error>  // std::error_code, std::system_error
 #include <string>  //  std::string
+#if not defined(USE_SYSTEM_SQLITE3)
+#include <sqlite3_config.h>
+#endif
 #include <sqlite3.h>
 #include <stdexcept>
 #include <sstream>  //  std::ostringstream

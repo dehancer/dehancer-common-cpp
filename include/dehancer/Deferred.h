@@ -13,7 +13,7 @@
 #include <dehancer/Common.h>
 
 namespace dehancer {
-
+    
     /***
      * Deferred handlers object
      * @tparam Types
@@ -21,45 +21,50 @@ namespace dehancer {
     template<class ... Types>
     class Deferred {
     public:
-
+        
         using VoidHandler      = std::function<void()>;
-
+        
         /***
          * Data handler prototype
          */
         using DataHandler      = std::function<void(Types... parameters)>;
-
+        
         using ProgressHandler      = std::function<void(size_t total, size_t progress, size_t count, size_t index)>;
-
+        
         /***
          * Success handler prototype
          */
         using SuccessHandler   = VoidHandler;
-
+        
         /***
          * Finalize handler prototype
          */
         using FinalizeHandler  = VoidHandler;
-
+        
+        /***
+          * Cancel handler prototype
+          */
+        using CancelHandler = VoidHandler;
+        
         /***
          * Create Deferred object with error state
          * @param error - error state
          */
         Deferred(const Error &error = Error(CommonError::OK)):
                 error_(error) {}
-
+        
         /***
          * Copy constructor
          * @param that
          */
         Deferred(const Deferred &that) = delete;
-
+        
         /***
          * Replacer
          * @param that
          */
         Deferred(Deferred &&that) = delete;
-
+        
         /***
          *
          * Check a statee of the deferred object
@@ -68,11 +73,11 @@ namespace dehancer {
         operator bool() const {
           return !failed_;
         }
-
+        
         /**
          * @todo: prepare stack-like reporting
          */
-
+        
         /***
          * Report data if they received
          * @param parameters
@@ -82,7 +87,7 @@ namespace dehancer {
           if (data_complete_handler_) data_complete_handler_(parameters...);
           return *this;
         }
-
+        
         /***
          * Report data if they start receiving
          * @param parameters
@@ -92,12 +97,12 @@ namespace dehancer {
           if (data_start_handler_) data_start_handler_(parameters...);
           return *this;
         }
-
+        
         const Deferred &report_progress(size_t total, size_t progress, size_t count, size_t index) {
           if (progress_handler_) progress_handler_(total,progress,count,index);
           return *this;
         }
-
+        
         /***
          * Reports success if data receiving has done succesfuly
          * @return the object
@@ -107,7 +112,7 @@ namespace dehancer {
           if (success_handler_) success_handler_();
           return *this;
         }
-
+        
         /***
          * Report error if some error occured
          * @param error
@@ -122,13 +127,18 @@ namespace dehancer {
           }
           return *this;
         }
-
+        
         const Deferred &report_finalize() {
           if (finalize_handler_) finalize_handler_();
           reset();
           return *this;
         }
-
+        
+        const Deferred &report_cancel() {
+          if (cancel_handler_) cancel_handler_();
+          return *this;
+        }
+        
         /***
          * Deferred call on data complete event
          * @param callback
@@ -138,7 +148,7 @@ namespace dehancer {
           data_complete_handler_ = callback;
           return *this;
         }
-
+        
         /***
          * Deferred call on data start event
          * @param callback
@@ -148,7 +158,7 @@ namespace dehancer {
           data_start_handler_ = callback;
           return *this;
         }
-
+        
         /***
          * Deferred call on every progress event
          * @param callback
@@ -158,7 +168,7 @@ namespace dehancer {
           progress_handler_ = callback;
           return *this;
         }
-
+        
         /***
          * Error handler on error event
          * @param callback
@@ -168,7 +178,7 @@ namespace dehancer {
           error_handler_ = callback;
           return *this;
         }
-
+        
         /***
          * it calls in any case at the end
          * @param callback
@@ -178,14 +188,29 @@ namespace dehancer {
           finalize_handler_ = callback;
           return *this;
         }
-
+        
+        /**
+         * it calls in any case when cancel is called
+         * @param callback
+         * @return the object
+         */
+        Deferred &on_cancel(const CancelHandler callback) {
+          cancel_handler_ = callback;
+          return *this;
+        }
+    
+        Deferred &on_success(const SuccessHandler callback) {
+          success_handler_ = callback;
+          return *this;
+        }
+        
         /**
         *  Destructor
         */
         virtual ~Deferred() {
           reset();
         }
-
+    
     protected:
         DataHandler     data_complete_handler_     = nullptr;
         DataHandler     data_start_handler_        = nullptr;
@@ -193,17 +218,19 @@ namespace dehancer {
         SuccessHandler  success_handler_  = nullptr;
         ErrorHandler    error_handler_    = nullptr;
         FinalizeHandler finalize_handler_ = nullptr;
-
+        CancelHandler   cancel_handler_ = nullptr;
+    
     private:
         Error error_;
         bool failed_;
-
+        
         void reset(){
           data_start_handler_ = nullptr;
           data_complete_handler_ = nullptr;
           progress_handler_ = nullptr;
           success_handler_ = nullptr;
           error_handler_ = nullptr;
+          cancel_handler_ = nullptr;
           finalize_handler_ = nullptr;
         }
     };
