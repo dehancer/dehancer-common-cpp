@@ -19,11 +19,10 @@ __pragma(push_macro("min"))
 // Enables use of std::optional in SQLITE_ORM.
 #define SQLITE_ORM_OPTIONAL_SUPPORTED
 #endif
-#pragma once
 
 #include <system_error>  // std::error_code, std::system_error
 #include <string>  //  std::string
-#if not defined(USE_SYSTEM_SQLITE3)
+#if defined(USE_SQLITE3_CONFIG)
 #include <sqlite3_config.h>
 #endif
 #include <sqlite3.h>
