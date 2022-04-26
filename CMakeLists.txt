@@ -103,7 +103,7 @@ if(NOT PKG_CONFIG_FOUND)
 endif()
 
 #
-# Programms
+# Programs
 #
 find_program(CCACHE_FOUND ccache)
 find_program(MAKE_EXE NAMES gmake nmake make)
