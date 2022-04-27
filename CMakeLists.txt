@@ -103,7 +103,7 @@ if(NOT PKG_CONFIG_FOUND)
 endif()
 
 #
-# Programms
+# Programs
 #
 find_program(CCACHE_FOUND ccache)
 find_program(MAKE_EXE NAMES gmake nmake make)
@@ -174,7 +174,8 @@ if (SQLite3_FOUND)
     include_directories(
             ${SQLite3_INCLUDE_DIRS}
     )
-    add_definitions("-DUSE_SYSTEM_SQLITE3=1")
+else()
+    add_definitions("-DUSE_SQLITE3_CONFIG=1")
 endif ()
 
 string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
