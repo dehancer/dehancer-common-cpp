@@ -257,6 +257,7 @@ else()
             GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
             GIT_PROGRESS YES
             GIT_SHALLOW YES
+            GIT_TAG 1.3.8
             CMAKE_ARGS
             -DCMAKE_NO_VERBOSE=${CMAKE_NO_VERBOSE}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
@@ -293,6 +294,7 @@ else()
             GIT_REPOSITORY https://github.com/dnevera/base64cpp
             GIT_PROGRESS YES
             GIT_SHALLOW YES
+            GIT_TAG 1.1.8
             CMAKE_ARGS
             -DCMAKE_NO_VERBOSE=${CMAKE_NO_VERBOSE}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
