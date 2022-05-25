@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.9.0)
+project(${PROJECT_LIB} VERSION 0.9.1)
 
 #
 # Options
