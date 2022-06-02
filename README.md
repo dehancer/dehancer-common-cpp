@@ -11,7 +11,7 @@ Build ios
     -DENABLE_BITCODE=ON \
     -DPLATFORM=OS64COMBINED \
     -DBUILD_TESTING=OFF \
-    -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios
+    -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios ..
     cmake --build . --config Release && cmake --install . --config Release
 
 Windows GCC
