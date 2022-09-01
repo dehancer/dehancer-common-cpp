@@ -54,9 +54,9 @@ The log file is written to using printf style functions, rather than via c++ ios
 #include "dehancer/windows/utf8/utf8.h"
 #endif
 
-#if IOS_SYSTEM
+//#if IOS_SYSTEM
 #import <Foundation/Foundation.h>
-#endif
+//#endif
 
 namespace dehancer {
     namespace log {
