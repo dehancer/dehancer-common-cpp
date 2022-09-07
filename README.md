@@ -11,7 +11,7 @@ Build ios
     -DENABLE_BITCODE=ON \
     -DPLATFORM=OS64COMBINED \
     -DBUILD_TESTING=OFF \
-    -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios
+    -DCMAKE_INSTALL_PREFIX=~/Develop/local/ios ..
     cmake --build . --config Release && cmake --install . --config Release
 
 Windows GCC
@@ -37,11 +37,24 @@ Windows MVSC
     # GitBash
 
     cd C:
-    git clone https://github.com/microsoft/vcpkg
-    cd /c/vcpkg/
-    ./bootstrap-vcpkg.sh
-    /c/vcpkg/vcpkg integrate install
-    /c/vcpkg/vcpkg install gtest
+    git clone https://github.com/Microsoft/vcpkg.git
+    cd vcpkg
+    ./bootstrap-vcpkg.bat
+    ./vcpkg integrate install
+    ./vcpkg.exe install openssl:x64-windows-static
+    ./vcpkg.exe install qt5-base:x64-windows-static --keep-going
+    ./vcpkg.exe install qt5-charts:x64-windows-static --keep-going
+    ./vcpkg.exe install qt5-charts:x64-windows-static --keep-going
+    ./vcpkg.exe install curl:x64-windows-static --keep-going
+    ./vcpkg.exe install expat:x64-windows-static --keep-going
+    ./vcpkg.exe install iconv:x64-windows-static --keep-going
+    ./vcpkg.exe install dlfcn-win32:x64-windows-static --keep-going
+    ./vcpkg.exe install libiconv:x64-windows-static --keep-going
+    ./vcpkg.exe install opencv:x64-windows-static --keep-going
+    ./vcpkg.exe install gtest:x64-windows-static --keep-going
+    ./vcpkg.exe install openblas:x64-windows-static --keep-going
+    ./vcpkg.exe install lapack:x64-windows-static --keep-going
+
 
     # cmake integration
     -G
@@ -49,7 +62,7 @@ Windows MVSC
     -DBUILD_TESTING=ON
     -DPRINT_DEBUG=ON
     -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake
-    -DCMAKE_INSTALL_PREFIX=C:/Users/dennn/AppData/Temp/dehancer
+    -DCMAKE_INSTALL_PREFIX=<local instalation>
     -DDEHANCER_DEBUG=ON
     -DUSE_UNICODE=ON
 

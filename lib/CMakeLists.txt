@@ -42,10 +42,20 @@ if(WIN32)
     file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
             ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.cpp
             ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.c
+            ${CMAKE_SOURCE_DIR}/src/platforms/common/*.cpp
+            )
+elseif(IOS)
+    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
+            ${CMAKE_SOURCE_DIR}/src/platforms/ios/*.mm
             )
 else()
-    set (EXT_COMMON_SRC)
+    #set (EXT_COMMON_SRC)
+    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
+            ${CMAKE_SOURCE_DIR}/src/platforms/common/*.cpp
+            )
 endif()
+
+message("EXT_COMMON_SRC: ${EXT_COMMON_SRC}")
 
 add_library(${PROJECT_NAME} ${COMMON_SRC} ${EXT_COMMON_SRC})
 
