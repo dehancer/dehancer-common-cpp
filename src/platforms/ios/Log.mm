@@ -40,49 +40,19 @@ The log file is written to using printf style functions, rather than via c++ ios
 
 */
 
-#include <cassert>
 #include <cstdio>
 #include <cstdarg>
-#include <cstdlib>
 #include <string>
-#include <iostream>
-
 #include "dehancer/Log.h"
 #include "dehancer/Utils.h"
 
-#if WIN32
-#include "dehancer/windows/utf8/utf8.h"
-#endif
-
-//#if IOS_SYSTEM
 #import <Foundation/Foundation.h>
-//#endif
 
 namespace dehancer {
     namespace log {
         
         /** @brief log file */
         static FILE *gLogFP = stdout;
-        //bool use_console = false;
-        
-        /// environment variable for the log file
-//#define kLogFileEnvVar "DEHANCER_LOGFILE"
-        
-        /** @brief the global logfile name */
-        
-        //static std::string gLogFileName;
-//                return std::string("");
-//                #if WIN32
-//                !utf8::getenv(kLogFileEnvVar).empty() ? utf8::getenv(kLogFileEnvVar) :
-//                #else
-//                std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
-//                #endif
-//                #if WIN32
-//                utf8::getenv("TEMP").empty() ?  "\\tmp\\DehancerPluginLog.txt" : std::string(utf8::getenv("TEMP")) + "\\DehancerPluginLog.txt"
-//                #else
-//                "/tmp/DehancerPluginLog.txt"
-//                #endif
-        //);
         
         /** @brief global indent level, not MP sane */
         static int gIndent = 0;
@@ -97,31 +67,15 @@ namespace dehancer {
         bool open()
         {
 #ifdef PRINT_DEBUG
-//          if (use_console) {
-//            gLogFP = stderr;
-//          }
-//          else if(!gLogFP) {
-//            #if WIN32
-//            gLogFP = utf8::fopen(gLogFileName, "a+");
-//            #else
-//            gLogFP = fopen(gLogFileName.c_str(), "a+");
-//            #endif
-//            return gLogFP != nullptr;
-//          }
           return true;
 #else
           return false;
 #endif
-          //return gLogFP != nullptr;
         }
         
         /** @brief Closes the log file. */
         void close()
         {
-          //if(gLogFP) {
-           // fclose(gLogFP);
-          //}
-          //gLogFP = 0;
         }
         
         /** @brief Indent it, not MP sane at the moment */
@@ -150,8 +104,6 @@ namespace dehancer {
           
           fprintf (gLogFP, "%s\n", [string UTF8String]);
           
-          //[string release];
-          
         } // LogIt
         
         
@@ -160,7 +112,6 @@ namespace dehancer {
         {
           if(open()) {
             for(int i = 0; i < gIndent; i++) {
-              //fputs("    ", gLogFP);
               LogIt(@"    ");
             }
           }
