@@ -15,6 +15,7 @@ option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
 option(DEHANCER_DEBUG OFF)
 option(USE_UNICODE OFF)
+option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
 option(DEHANCER_COMMON_DIR  "")
 if (NOT DEHANCER_COMMON_DIR)
@@ -77,6 +78,10 @@ else()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=default -Wno-unused-command-line-argument")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
+endif ()
+
+if(DEHANCER_CONTROLLED_SINGLETON)
+    add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
 endif ()
 
 # googletes, etc
