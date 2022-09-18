@@ -80,7 +80,7 @@ namespace dehancer {
      * @tparam T
      */
     template<typename T>
-    class Singleton {
+    class SimpleSingleton {
     public:
         static T &Instance() {
             static T instance;
@@ -88,16 +88,56 @@ namespace dehancer {
         }
 
     protected:
-        Singleton() {}
-
-        ~Singleton() {}
+        SimpleSingleton() = default;
+        ~SimpleSingleton() = default;
 
     public:
-        Singleton(Singleton const &) = delete;
-
-        Singleton &operator=(Singleton const &) = delete;
+        SimpleSingleton(SimpleSingleton const &) = delete;
+        SimpleSingleton &operator=(SimpleSingleton const &) = delete;
     };
-
+    
+    template<typename T>
+    class ControlledSingleton {
+    public:
+        static T& Instance() {
+          if (!instance)
+          {
+            instance = new T();
+          }
+          return *instance;
+        }
+        static void CreateInstance() {
+          if (!instance)
+          {
+            instance = new T();
+          }
+        }
+        
+        static void DestroyInstance() {
+          if (instance)
+          {
+            delete instance;
+            instance = nullptr;
+          }
+        }
+        static T* instance;
+    
+    protected:
+        ControlledSingleton() = default;
+        ~ControlledSingleton() = default;
+    
+    public:
+        ControlledSingleton(ControlledSingleton const &) = delete;
+        
+        ControlledSingleton &operator=(ControlledSingleton const &) = delete;
+    };
+    
+    #if defined(DEHANCER_CONTROLLED_SINGLETON)
+    template<class T>using Singleton=ControlledSingleton<T>;
+    #else
+    template<class T>using Singleton=SimpleSingleton<T>;
+    #endif
+    
     /***
     *
     * Formated error string
