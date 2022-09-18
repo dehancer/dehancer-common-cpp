@@ -98,7 +98,9 @@ namespace dehancer {
     
     template<typename T>
     class ControlledSingleton {
+        static T* instance;
     public:
+        
         static T& Instance() {
           if (!instance)
           {
@@ -106,6 +108,7 @@ namespace dehancer {
           }
           return *instance;
         }
+        
         static void CreateInstance() {
           if (!instance)
           {
@@ -120,7 +123,6 @@ namespace dehancer {
             instance = nullptr;
           }
         }
-        static T* instance;
     
     protected:
         ControlledSingleton() = default;
@@ -128,7 +130,6 @@ namespace dehancer {
     
     public:
         ControlledSingleton(ControlledSingleton const &) = delete;
-        
         ControlledSingleton &operator=(ControlledSingleton const &) = delete;
     };
     
