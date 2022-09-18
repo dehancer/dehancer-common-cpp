@@ -104,12 +104,12 @@ namespace dehancer {
         using InstanceType = T;
         
         static InstanceType& Instance() {
-          static T* instance = nullptr;
+          static InstanceType* instance = nullptr;
           static std::once_flag flag;
           std::call_once(flag, [&]{
               if (!instance)
               {
-                instance = new T();
+                instance = new InstanceType();
               }
           });
           return *instance;
