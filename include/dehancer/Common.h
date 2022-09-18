@@ -39,7 +39,7 @@ namespace dehancer {
          * @param code error condition code
          * @param message exception string
          */
-        Error(std::error_condition code, const std::string &message = "");
+        explicit Error(const std::error_condition code, const std::string &message = "");
         
         /***
          * Get the error value
