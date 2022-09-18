@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <optional>
+#include <thread>
 
 #include "Expected.h"
 #include "nlohmann/json.h"
@@ -98,30 +99,31 @@ namespace dehancer {
     
     template<typename T>
     class ControlledSingleton {
-        static T* instance;
     public:
+    
+        using InstanceType = T;
         
-        static T& Instance() {
-          if (!instance)
-          {
-            instance = new T();
-          }
+        static InstanceType& Instance() {
+          static T* instance = nullptr;
+          static std::once_flag flag;
+          std::call_once(flag, [&]{
+              if (!instance)
+              {
+                instance = new T();
+              }
+          });
           return *instance;
         }
-        
-        static void CreateInstance() {
-          if (!instance)
-          {
-            instance = new T();
-          }
+    
+        static
+        void CreateInstance() {
+          InstanceType& p = Instance();
         }
-        
-        static void DestroyInstance() {
-          if (instance)
-          {
-            delete instance;
-            instance = nullptr;
-          }
+    
+        static
+        void DestroyInstance() {
+          InstanceType& p = Instance();
+          delete &p;
         }
     
     protected:
