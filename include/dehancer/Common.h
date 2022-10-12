@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <optional>
+#include <thread>
 
 #include "Expected.h"
 #include "nlohmann/json.h"
@@ -80,7 +81,7 @@ namespace dehancer {
      * @tparam T
      */
     template<typename T>
-    class Singleton {
+    class SimpleSingleton {
     public:
         static T &Instance() {
             static T instance;
@@ -88,16 +89,58 @@ namespace dehancer {
         }
 
     protected:
-        Singleton() {}
-
-        ~Singleton() {}
+        SimpleSingleton() = default;
+        ~SimpleSingleton() = default;
 
     public:
-        Singleton(Singleton const &) = delete;
-
-        Singleton &operator=(Singleton const &) = delete;
+        SimpleSingleton(SimpleSingleton const &) = delete;
+        SimpleSingleton &operator=(SimpleSingleton const &) = delete;
     };
-
+    
+    template<typename T>
+    class ControlledSingleton {
+    public:
+    
+        using InstanceType = T;
+        
+        static InstanceType& Instance() {
+          static InstanceType* instance = nullptr;
+          static std::once_flag flag;
+          std::call_once(flag, [&]{
+              if (!instance)
+              {
+                instance = new InstanceType();
+              }
+          });
+          return *instance;
+        }
+    
+        static
+        void CreateInstance() {
+          InstanceType& p = Instance();
+        }
+    
+        static
+        void DestroyInstance() {
+          InstanceType& p = Instance();
+          delete &p;
+        }
+    
+    protected:
+        ControlledSingleton() = default;
+        ~ControlledSingleton() = default;
+    
+    public:
+        ControlledSingleton(ControlledSingleton const &) = delete;
+        ControlledSingleton &operator=(ControlledSingleton const &) = delete;
+    };
+    
+    #if defined(DEHANCER_CONTROLLED_SINGLETON)
+    template<class T>using Singleton=ControlledSingleton<T>;
+    #else
+    template<class T>using Singleton=SimpleSingleton<T>;
+    #endif
+    
     /***
     *
     * Formated error string
