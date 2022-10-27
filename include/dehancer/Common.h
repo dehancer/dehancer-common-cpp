@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <optional>
-#include <thread>s
+#include <thread>
 #include <mutex>
 
 #include "Expected.h"
