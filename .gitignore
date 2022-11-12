@@ -47,6 +47,7 @@ build-*
 cmake-build-*
 .idea
 .idea/*
+!.idea/cmake.xml
 Index
 Build
 Pods
