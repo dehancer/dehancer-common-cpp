@@ -93,11 +93,11 @@ namespace dehancer {
         {
 #ifdef PRINT_DEBUG
           if (use_console) {
-            gLogFP = stderr;
+            gLogFP = stdout;
           }
           else if(!gLogFP) {
             #if WIN32
-            gLogFP = utf8::fopen(gLogFileName, "a+");
+            gLogFP = utf8::fopen(gLogFileName, "ab");
             #else
             gLogFP = fopen(gLogFileName.c_str(), "a+");
             #endif
