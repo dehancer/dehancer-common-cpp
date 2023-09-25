@@ -33,7 +33,7 @@
 //
 
 // support multithread
-// #define PM_MULTITHREAD
+#define PM_MULTITHREAD
 
 // macro for debug
 // #define PM_DEBUG
