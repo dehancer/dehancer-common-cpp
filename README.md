@@ -35,6 +35,8 @@ Windows MVSC
     # Visual Studio, English Language Pack!
     # https://vcpkg.info/
     # GitBash
+    # Pkgconfig
+    # Vim
 
     cd C:
     git clone https://github.com/Microsoft/vcpkg.git
@@ -44,10 +46,8 @@ Windows MVSC
     ./vcpkg.exe install openssl:x64-windows-static
     ./vcpkg.exe install qt5-base:x64-windows-static --keep-going
     ./vcpkg.exe install qt5-charts:x64-windows-static --keep-going
-    ./vcpkg.exe install qt5-charts:x64-windows-static --keep-going
     ./vcpkg.exe install curl:x64-windows-static --keep-going
     ./vcpkg.exe install expat:x64-windows-static --keep-going
-    ./vcpkg.exe install iconv:x64-windows-static --keep-going
     ./vcpkg.exe install dlfcn-win32:x64-windows-static --keep-going
     ./vcpkg.exe install libiconv:x64-windows-static --keep-going
     ./vcpkg.exe install opencv:x64-windows-static --keep-going
@@ -55,6 +55,19 @@ Windows MVSC
     ./vcpkg.exe install openblas:x64-windows-static --keep-going
     ./vcpkg.exe install lapack:x64-windows-static --keep-going
 
+    # Pkgconfig:
+    0. create a DIRectory, add it to PATH
+    1. go to http://ftp.gnome.org/pub/gnome/binaries/win32/dependencies/
+    2. download the file pkg-config_0.26-1_win32.zip
+    3. extract the file bin/pkg-config.exe to DIR
+    4. download the file gettext-runtime_0.18.1.1-2_win32.zip
+    5. extract the file bin/intl.dll to DIR
+    6. go to http://ftp.gnome.org/pub/gnome/binaries/win32/glib/2.28
+    7. download the file glib_2.28.8-1_win32.zip
+    8. extract the file bin/libglib-2.0-0.dll to DIR
+
+    # Vim:
+    Install Vim to C:\Vim, add C:\Vim\vim82 to PATH
 
     # cmake integration
     -G
@@ -65,6 +78,11 @@ Windows MVSC
     -DCMAKE_INSTALL_PREFIX=<local instalation>
     -DDEHANCER_DEBUG=ON
     -DUSE_UNICODE=ON
+
+    # CLion toolchain
+    1. Select Visual Studio toolchain
+    2. Select correct Architecture
+    3. Select clang compiler foc c and c++: C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\Llvm\x64\bin\clang-cl.exe 
 
 Testing 
 =======
