@@ -301,7 +301,8 @@ else()
             GIT_REPOSITORY https://github.com/dnevera/base64cpp
             GIT_PROGRESS YES
             GIT_SHALLOW YES
-            GIT_TAG develop
+            GIT_TAG 1.1.9   
+#            GIT_TAG develop
             CMAKE_ARGS
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
             -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
