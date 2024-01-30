@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.10.0)
+project(${PROJECT_LIB} VERSION 0.13.0)
 
 #
 # Options
@@ -267,7 +267,6 @@ else()
             GIT_SHALLOW YES
             GIT_TAG 1.3.8
             CMAKE_ARGS
-            -DCMAKE_NO_VERBOSE=${CMAKE_NO_VERBOSE}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
             -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
             -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
@@ -302,9 +301,8 @@ else()
             GIT_REPOSITORY https://github.com/dnevera/base64cpp
             GIT_PROGRESS YES
             GIT_SHALLOW YES
-            GIT_TAG 1.1.8
+            GIT_TAG develop
             CMAKE_ARGS
-            -DCMAKE_NO_VERBOSE=${CMAKE_NO_VERBOSE}
             -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
             -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
             -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}

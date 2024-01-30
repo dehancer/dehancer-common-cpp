@@ -40,20 +40,20 @@ namespace dehancer {
     }
     
     License::License():
-            version(1),
-            type(Type::unknown),
-            email(""),
-            name(""),
-            host(""),
-            maintainer(""),
-            upgraded_id(""),
-            issue_date(-1),
-            expiry_date(-1),
-            activation_date_(-1),
-            id_(ed25519::Seed().encode()),
-            signature_(""),
-            is_active_(false),
-            offline_enabling(false)
+      type(Type::unknown),
+      version(1),
+      email(""),
+      name(""),
+      host(""),
+      maintainer(""),
+      upgraded_id(""),
+      issue_date(-1),
+      expiry_date(-1),
+      offline_enabling(false),
+      id_(ed25519::Seed().encode()),
+      signature_(""),
+      activation_date_(-1),
+      is_active_(false)
     {}
     
     License::License(const dehancer::License &license)

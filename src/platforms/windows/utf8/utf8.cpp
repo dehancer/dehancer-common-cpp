@@ -103,16 +103,16 @@ namespace utf8 {
           str.push_back((char) *p);
         else if (*p < 0x7ff) {
           str.push_back((char) (0xC0 | *p >> 6));
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p & 0x3f));
         } else if (*p < 0xFFFF) {
           str.push_back((char) (0xE0 | *p >> 12));
-          str.push_back(0x80 | *p >> 6 & 0x3f);
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p >> 6 & 0x3f));
+          str.push_back(0x80 | (*p & 0x3f));
         } else {
           str.push_back((char) (0xF0 | *p >> 18));
-          str.push_back(0x80 | *p >> 12 & 0x3f);
-          str.push_back(0x80 | *p >> 6 & 0x3f);
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p >> 12 & 0x3f));
+          str.push_back(0x80 | (*p >> 6 & 0x3f));
+          str.push_back(0x80 | (*p & 0x3f));
         }
       }
       return str;
@@ -135,16 +135,16 @@ namespace utf8 {
           str.push_back((char) *p);
         else if (*p < 0x7ff) {
           str.push_back((char) (0xC0 | *p >> 6));
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p & 0x3f));
         } else if (*p < 0xFFFF) {
           str.push_back((char) (0xE0 | *p >> 12));
-          str.push_back(0x80 | *p >> 6 & 0x3f);
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p >> 6 & 0x3f));
+          str.push_back(0x80 | (*p & 0x3f));
         } else {
           str.push_back((char) (0xF0 | *p >> 18));
-          str.push_back(0x80 | *p >> 12 & 0x3f);
-          str.push_back(0x80 | *p >> 6 & 0x3f);
-          str.push_back(0x80 | *p & 0x3f);
+          str.push_back(0x80 | (*p >> 12 & 0x3f));
+          str.push_back(0x80 | (*p >> 6 & 0x3f));
+          str.push_back(0x80 | (*p & 0x3f));
         }
       }
       return str;
