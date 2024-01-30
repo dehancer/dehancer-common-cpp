@@ -13,7 +13,7 @@ struct User {
     int id{};
     std::string firstName;
     std::string lastName;
-    int birthDate{};
+    time_t birthDate{};
     std::unique_ptr<std::string> imageUrl;
     int typeId{};
 };
@@ -51,13 +51,13 @@ TEST(SQLITE, SimpleTest) {
     
     storage.sync_schema();
     
-    User user{-1, "Jonh", "Doe", (int)time(0), std::make_unique<std::string>("url_to_heaven"), 3 };
+    User user{-1, "Jonh", "Doe", std::time(0), std::make_unique<std::string>("url_to_heaven"), 3 };
     
     auto insertedId = storage.insert(user);
     std::cout << "insertedId = " << insertedId << std::endl;      //  insertedId = 8
     user.id = insertedId;
     
-    User secondUser{-1, "Alice", "Inwonder", (int)time(0), {} , 2};
+    User secondUser{-1, "Alice", "Inwonder", std::time(0), {} , 2};
     insertedId = storage.insert(secondUser);
     secondUser.id = insertedId;
     
