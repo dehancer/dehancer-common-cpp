@@ -15,10 +15,10 @@ namespace dehancer{
      * Base semaphore operations
      */
 
-    template <typename Mutex, typename Condition>
+    template <typename Mutex, typename Condition, typename Thread>
     class basic_semaphore {
     public:
-        using native_handle_type = typename Condition::native_handle_type;
+        using native_handle_type = typename Thread::native_handle_type;
 
         /**
          * Create semaphore with counter size
@@ -76,29 +76,27 @@ namespace dehancer{
         int       count_;
     };
 
-    using Semaphore = basic_semaphore<std::mutex, std::condition_variable>;
-
-    template <typename Mutex, typename CondVar>
-    basic_semaphore<Mutex, CondVar>::basic_semaphore(int count)
+    template <typename Mutex, typename CondVar, typename Thread>
+    basic_semaphore<Mutex, CondVar, Thread>::basic_semaphore(int count)
             : count_{count}
     {}
 
-    template <typename Mutex, typename CondVar>
-    void basic_semaphore<Mutex, CondVar>::signal() {
+    template <typename Mutex, typename CondVar,typename Thread>
+    void basic_semaphore<Mutex, CondVar, Thread>::signal() {
       std::lock_guard<Mutex> lock{mutex_};
       ++count_;
       condition_.notify_one();
     }
 
-    template <typename Mutex, typename CondVar>
-    void basic_semaphore<Mutex, CondVar>::wait() {
+    template <typename Mutex, typename CondVar, typename Thread>
+    void basic_semaphore<Mutex, CondVar, Thread>::wait() {
       std::unique_lock<Mutex> lock{mutex_};
       condition_.wait(lock, [&]{ return count_ > 0; });
       --count_;
     }
 
-    template <typename Mutex, typename CondVar>
-    bool basic_semaphore<Mutex, CondVar>::try_wait() {
+    template <typename Mutex, typename CondVar, typename Thread>
+    bool basic_semaphore<Mutex, CondVar, Thread>::try_wait() {
       std::lock_guard<Mutex> lock{mutex_};
 
       if (count_ > 0) {
@@ -109,9 +107,9 @@ namespace dehancer{
       return false;
     }
 
-    template <typename Mutex, typename CondVar>
+    template <typename Mutex, typename CondVar, typename Thread>
     template<class Rep, class Period>
-    bool basic_semaphore<Mutex, CondVar>::wait_for(const std::chrono::duration<Rep, Period>& d) {
+    bool basic_semaphore<Mutex, CondVar, Thread>::wait_for(const std::chrono::duration<Rep, Period>& d) {
       std::unique_lock<Mutex> lock{mutex_};
       auto finished = condition_.wait_for(lock, d, [&]{ return count_ > 0; });
 
@@ -120,9 +118,9 @@ namespace dehancer{
       return finished;
     }
 
-    template <typename Mutex, typename CondVar>
+    template <typename Mutex, typename CondVar, typename Thread>
     template<class Clock, class Duration>
-    bool basic_semaphore<Mutex, CondVar>::wait_until(const std::chrono::time_point<Clock, Duration>& t) {
+    bool basic_semaphore<Mutex, CondVar, Thread>::wait_until(const std::chrono::time_point<Clock, Duration>& t) {
       std::unique_lock<Mutex> lock{mutex_};
       auto finished = condition_.wait_until(lock, t, [&]{ return count_ > 0; });
 
@@ -131,10 +129,12 @@ namespace dehancer{
       return finished;
     }
 
-    template <typename Mutex, typename CondVar>
-    typename basic_semaphore<Mutex, CondVar>::native_handle_type basic_semaphore<Mutex, CondVar>::native_handle() {
+    template <typename Mutex, typename CondVar, typename Thread>
+    typename basic_semaphore<Mutex, CondVar, Thread>::native_handle_type basic_semaphore<Mutex, CondVar, Thread>::native_handle() {
       return condition_.native_handle();
     }
+
+    using Semaphore = basic_semaphore<std::mutex, std::condition_variable, std::thread>;
 }
 
 
