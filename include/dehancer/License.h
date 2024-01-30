@@ -22,7 +22,7 @@ namespace dehancer{
         };
 
         /* license type*/
-        Type           type;
+        Type           type = Type::unknown;
         /* software version */
         std::uint16_t  version{};
         /* user email */
