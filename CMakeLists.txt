@@ -17,15 +17,10 @@ option(DEHANCER_DEBUG OFF)
 option(USE_UNICODE OFF)
 option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
-option(DEHANCER_COMMON_DIR  "")
-if (NOT DEHANCER_COMMON_DIR)
-    set(DEHANCER_COMMON_DIR ${CMAKE_BINARY_DIR}/tmp)
-endif ()
-
-option(EXTERNAL_INSTALL_LOCATION  "")
-if (NOT EXTERNAL_INSTALL_LOCATION)
-    set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-endif ()
+#option(EXTERNAL_INSTALL_LOCATION  "")
+#if (NOT EXTERNAL_INSTALL_LOCATION)
+#    set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
+#endif ()
 
 if (DEHANCER_TARGET_ARCH)
     #
@@ -44,9 +39,9 @@ endif ()
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
 
-if (NOT CMAKE_INSTALL_LIBDIR)
-    set(CMAKE_INSTALL_LIBDIR lib)
-endif ()
+#if (NOT CMAKE_INSTALL_LIBDIR)
+#    set(CMAKE_INSTALL_LIBDIR lib)
+#endif ()
 
 
 if (WIN32)
@@ -86,8 +81,8 @@ endif ()
 
 # googletes, etc
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
-set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
+#set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
+#set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
 
 if(DEHANCER_CONTROLLED_SINGLETON)
     add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
@@ -114,16 +109,16 @@ endif()
 #
 # Programs
 #
-find_program(CCACHE_FOUND ccache)
-find_program(MAKE_EXE NAMES gmake nmake make)
+#find_program(CCACHE_FOUND ccache)
+#find_program(MAKE_EXE NAMES gmake nmake make)
 
 #
 # CCache settings
 #
-if(CCACHE_FOUND)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
-endif(CCACHE_FOUND)
+#if(CCACHE_FOUND)
+#    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+#    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+#endif(CCACHE_FOUND)
 
 
 #
