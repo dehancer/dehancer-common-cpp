@@ -273,9 +273,8 @@ set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 # Details
 #
 include_directories(
-        ${CMAKE_SOURCE_DIR}/include
         ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/external
+        ${CMAKE_CURRENT_SOURCE_DIR}/external
         ${SQLITE3_INCLUDE_DIRS}
 )
 
