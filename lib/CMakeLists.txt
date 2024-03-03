@@ -12,7 +12,6 @@ FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
         )
 
-
 FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/obfy/*.h
         )
@@ -33,9 +32,15 @@ FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
         ${CMAKE_SOURCE_DIR}/external/sqlite/*.h
         )
 
+set(sqlite3_src)
+if (sqlite3_POPULATED)
+    set(sqlite3_src ${sqlite3_SOURCE_DIR}/sqlite3.c)
+endif ()
+
 file (GLOB COMMON_SRC ${COMMON_SRC}
         ${CMAKE_SOURCE_DIR}/src/*.cpp
         ${CMAKE_SOURCE_DIR}/src/*.c
+        ${sqlite3_src}
         )
 
 if(WIN32)
@@ -57,7 +62,10 @@ endif()
 
 message("EXT_COMMON_SRC: ${EXT_COMMON_SRC}")
 
-add_library(${PROJECT_NAME} ${COMMON_SRC} ${EXT_COMMON_SRC})
+add_library(${PROJECT_NAME}
+        ${COMMON_SRC}
+        ${EXT_COMMON_SRC}
+)
 
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
@@ -121,9 +129,7 @@ install(DIRECTORY
         ${EXTERNAL_INSTALL_LOCATION}/lib
         DESTINATION ${CMAKE_INSTALL_PREFIX}
         FILES_MATCHING
-        PATTERN *ed25519*.*
-        PATTERN *base64*.*
-        PATTERN *sqlite3*.*
+#        PATTERN *sqlite3*.*
         PATTERN *gtest* EXCLUDE
         PATTERN *gmock* EXCLUDE
         )
