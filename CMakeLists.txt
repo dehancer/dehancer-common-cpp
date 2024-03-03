@@ -168,13 +168,15 @@ endif ()
 #
 # Package manager
 #
-include(ExternalProject)
+#include(ExternalProject)
 
 #
 # External project dependencies
 #
 set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+
+include(FetchContent)
 
 if (SQLite3_FOUND)
     message("SQLITE FOUND...")
@@ -203,8 +205,6 @@ endif ()
 
 string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
 string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
-
-include(FetchContent)
 
 
 #
@@ -274,6 +274,7 @@ set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 #
 include_directories(
         ${CMAKE_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
         ${CMAKE_SOURCE_DIR}/external
         ${SQLITE3_INCLUDE_DIRS}
 )
