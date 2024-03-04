@@ -71,6 +71,13 @@ if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()
 
+include (GNUInstallDirs)
+
+target_include_directories (${PROJECT_NAME}
+        PUBLIC
+        "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>" # these dirs are only used when building inside the build tree
+        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>" # these dirs are only used when linking against a prebuilt version of your package
+)
 
 set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
