@@ -181,10 +181,6 @@ FetchContent_Declare(
         OVERRIDE_FIND_PACKAGE
 )
 
-FetchContent_MakeAvailable(ed25519cpp)
-
-include_directories(${ed25519cpp_SOURCE_DIR}/include)
-
 FetchContent_Declare(
         base64cpp
         GIT_REPOSITORY https://github.com/dnevera/base64cpp
@@ -193,9 +189,12 @@ FetchContent_Declare(
         BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
 )
 
-FetchContent_MakeAvailable(base64cpp)
+FetchContent_MakeAvailable(ed25519cpp base64cpp)
 
-include_directories(${base64cpp_SOURCE_DIR}/include)
+include_directories(
+        ${base64cpp_SOURCE_DIR}/include
+        ${ed25519cpp_SOURCE_DIR}/include
+)
 
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
