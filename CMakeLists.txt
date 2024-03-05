@@ -17,31 +17,12 @@ option(DEHANCER_DEBUG OFF)
 option(USE_UNICODE OFF)
 option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
-#option(EXTERNAL_INSTALL_LOCATION  "")
-#if (NOT EXTERNAL_INSTALL_LOCATION)
-#    set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-#endif ()
-
-if (DEHANCER_TARGET_ARCH)
-    #
-    # x86_64-apple-macos10.13
-    # or
-    # arm64-apple-macos11
-    #
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -target ${DEHANCER_TARGET_ARCH}")
-#    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -target ${DEHANCER_TARGET_ARCH}")
-endif ()
-
 
 #
-# Global setttings
+# Global settings
 #
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
-
-#if (NOT CMAKE_INSTALL_LIBDIR)
-#    set(CMAKE_INSTALL_LIBDIR lib)
-#endif ()
 
 
 if (WIN32)
@@ -79,10 +60,8 @@ if(DEHANCER_CONTROLLED_SINGLETON)
     add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
 endif ()
 
-# googletes, etc
+# googletest, etc
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
-#set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-#set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
 
 if(DEHANCER_CONTROLLED_SINGLETON)
     add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
@@ -109,16 +88,15 @@ endif()
 #
 # Programs
 #
-#find_program(CCACHE_FOUND ccache)
-#find_program(MAKE_EXE NAMES gmake nmake make)
+find_program(CCACHE_FOUND ccache)
 
 #
 # CCache settings
 #
-#if(CCACHE_FOUND)
-#    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-#    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
-#endif(CCACHE_FOUND)
+if(CCACHE_FOUND)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
+    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+endif(CCACHE_FOUND)
 
 
 #
@@ -127,46 +105,41 @@ endif()
 
 message(STATUS "CMAKE_CXX_COMPILER_ID: " ${CMAKE_CXX_COMPILER_ID})
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-
-    message(STATUS "Using Clang" )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wc++17-extensions")
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-
-    message(STATUS "Using gcc" )
-
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -W -Wall -Wextra -Wno-ignored-qualifiers -Wvariadic-macros -pthread -static-libgcc -static-libstdc++")
-    set(CMAKE_CXX_FLAGS "-fvisibility=default -Wno-pedantic")
-    set(CMAKE_LINK_DEPENDS_NO_SHARED TRUE)
-
-    add_compile_options(-lpthread)
-
-    if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DX86_LINUX")
-    endif()
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-
-    message( FATAL_ERROR "The project does not support Intel compiler" )
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-
-    #message( FATAL_ERROR "The project does not support MSVC compiler" )
-
-endif()
+#if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+#
+#    message(STATUS "Using Clang" )
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wc++17-extensions")
+#
+#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+#
+#    message(STATUS "Using gcc" )
+#
+#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -W -Wall -Wextra -Wno-ignored-qualifiers -Wvariadic-macros -pthread -static-libgcc -static-libstdc++")
+#    set(CMAKE_CXX_FLAGS "-fvisibility=default -Wno-pedantic")
+#    set(CMAKE_LINK_DEPENDS_NO_SHARED TRUE)
+#
+#    add_compile_options(-lpthread)
+#
+#    if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
+#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DX86_LINUX")
+#    endif()
+#
+#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
+#
+#    message( FATAL_ERROR "The project does not support Intel compiler" )
+#
+#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+#
+#    #message( FATAL_ERROR "The project does not support MSVC compiler" )
+#
+#endif()
 
 if(PRINT_DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 endif ()
 
 #
-# Package manager
-#
-#include(ExternalProject)
-
-#
-# External project dependencies
+# Project dependencies
 #
 set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
@@ -271,7 +244,7 @@ include_directories(
         ${SQLITE3_INCLUDE_DIRS}
 )
 
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib-common-cpp)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 if(BUILD_TESTING)
     include(CTest)
