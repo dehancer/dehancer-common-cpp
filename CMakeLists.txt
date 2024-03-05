@@ -98,42 +98,6 @@ if(CCACHE_FOUND)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
 endif(CCACHE_FOUND)
 
-
-#
-# Compiler settings
-#
-
-message(STATUS "CMAKE_CXX_COMPILER_ID: " ${CMAKE_CXX_COMPILER_ID})
-
-#if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-#
-#    message(STATUS "Using Clang" )
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wc++17-extensions")
-#
-#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-#
-#    message(STATUS "Using gcc" )
-#
-#    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -W -Wall -Wextra -Wno-ignored-qualifiers -Wvariadic-macros -pthread -static-libgcc -static-libstdc++")
-#    set(CMAKE_CXX_FLAGS "-fvisibility=default -Wno-pedantic")
-#    set(CMAKE_LINK_DEPENDS_NO_SHARED TRUE)
-#
-#    add_compile_options(-lpthread)
-#
-#    if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
-#        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DX86_LINUX")
-#    endif()
-#
-#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-#
-#    message( FATAL_ERROR "The project does not support Intel compiler" )
-#
-#elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-#
-#    #message( FATAL_ERROR "The project does not support MSVC compiler" )
-#
-#endif()
-
 if(PRINT_DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 endif ()

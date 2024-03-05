@@ -7,7 +7,7 @@
 #include "dehancer/Utils.h"
 #include <ed25519.hpp>
 #include <climits>
-#include "obfy/instr.h"
+#include "dehancer/obfy/instr.h"
 
 namespace dehancer {
     

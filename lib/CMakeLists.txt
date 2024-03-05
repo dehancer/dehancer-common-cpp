@@ -13,7 +13,7 @@ FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
         )
 
 FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/obfy/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/dehancer/obfy/*.h
         )
 
 FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
@@ -70,14 +70,6 @@ add_library(${PROJECT_NAME}
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()
-
-#include (GNUInstallDirs)
-
-#target_include_directories (${PROJECT_NAME}
-#        PUBLIC
-#        "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>" # these dirs are only used when building inside the build tree
-#        "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>" # these dirs are only used when linking against a prebuilt version of your package
-#)
 
 set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
