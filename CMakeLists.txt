@@ -122,28 +122,26 @@ else()
     add_definitions("-DUSE_SQLITE3_CONFIG=1")
 
     FetchContent_Declare(
-            SQLite3
-            GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
+            sqlite3
+            GIT_REPOSITORY git@github.com:dehancer/sqlite-amalgamation.git
             GIT_TAG      dehancer-imp-1.0
             GIT_PROGRESS TRUE
-            SOURCE_DIR "${CMAKE_BINARY_DIR}/SQLite3-src"
-#            BINARY_DIR "${CMAKE_BINARY_DIR}/SQLite3-build"
-#            OVERRIDE_FIND_PACKAGE
+            SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
+            BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
     )
 
-#    FetchContent_MakeAvailable(SQLite3)
-    FetchContent_GetProperties(SQLite3)
+    FetchContent_GetProperties(sqlite)
 
-    if (NOT SQLite3_POPULATED)
-        FetchContent_Populate(SQLite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR})
+    if (NOT sqlite3_POPULATED)
+        FetchContent_Populate(sqlite3)
+        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
     endif()
 
-#    find_package(SQLite3 REQUIRED)
-
     include_directories(
-            ${SQLite3_SOURCE_DIR}
+            ${sqlite3_SOURCE_DIR}
     )
+
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};SQLite3)
 
 endif ()
 
@@ -187,7 +185,7 @@ endif ()
 
 FetchContent_Declare(
         ed25519cpp
-        GIT_REPOSITORY https://github.com/dehancer/ed25519cpp
+        GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
         GIT_TAG      develop
         GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
@@ -196,7 +194,7 @@ FetchContent_Declare(
 
 FetchContent_Declare(
         base64cpp
-        GIT_REPOSITORY https://github.com/dehancer/base64cpp
+        GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
         GIT_TAG      develop
         GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
