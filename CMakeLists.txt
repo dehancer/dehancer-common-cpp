@@ -127,7 +127,7 @@ else()
             GIT_TAG      dehancer-imp-1.0
             GIT_PROGRESS TRUE
             SOURCE_DIR "${CMAKE_BINARY_DIR}/SQLite3-src"
-            BINARY_DIR "${CMAKE_BINARY_DIR}/SQLite3-build"
+#            BINARY_DIR "${CMAKE_BINARY_DIR}/SQLite3-build"
 #            OVERRIDE_FIND_PACKAGE
     )
 
@@ -136,7 +136,7 @@ else()
 
     if (NOT SQLite3_POPULATED)
         FetchContent_Populate(SQLite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR} ${SQLite3_BINARY_DIR})
+        add_subdirectory(${sqlite3_SOURCE_DIR})
     endif()
 
 #    find_package(SQLite3 REQUIRED)
