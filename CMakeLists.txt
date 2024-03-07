@@ -130,12 +130,14 @@ else()
             BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
     )
 
-    FetchContent_GetProperties(sqlite)
+#    FetchContent_GetProperties(sqlite)
+#
+#    if (NOT sqlite3_POPULATED)
+#        FetchContent_Populate(sqlite3)
+#        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
+#    endif()
 
-    if (NOT sqlite3_POPULATED)
-        FetchContent_Populate(sqlite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
-    endif()
+    FetchContent_MakeAvailable(sqlite3)
 
     include_directories(
             ${sqlite3_SOURCE_DIR}
