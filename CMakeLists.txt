@@ -122,21 +122,27 @@ else()
     add_definitions("-DUSE_SQLITE3_CONFIG=1")
 
     FetchContent_Declare(
-            sqlite3
+            SQLite3
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             GIT_TAG      dehancer-imp-1.0
             GIT_PROGRESS TRUE
-            SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
-            BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
+            SOURCE_DIR "${CMAKE_BINARY_DIR}/SQLite3-src"
+            BINARY_DIR "${CMAKE_BINARY_DIR}/SQLite3-build"
+#            OVERRIDE_FIND_PACKAGE
     )
 
-    if (NOT sqlite3_POPULATED)
-        FetchContent_Populate(sqlite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
+#    FetchContent_MakeAvailable(SQLite3)
+    FetchContent_GetProperties(SQLite3)
+
+    if (NOT SQLite3_POPULATED)
+        FetchContent_Populate(SQLite3)
+        add_subdirectory(${sqlite3_SOURCE_DIR} ${SQLite3_BINARY_DIR})
     endif()
 
+#    find_package(SQLite3 REQUIRED)
+
     include_directories(
-            ${sqlite3_SOURCE_DIR}
+            ${SQLite3_SOURCE_DIR}
     )
 
 endif ()
