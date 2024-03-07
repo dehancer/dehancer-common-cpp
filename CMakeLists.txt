@@ -143,6 +143,8 @@ else()
             ${sqlite3_SOURCE_DIR}
     )
 
+    set(SQLite3_INCLUDE_DIRS ${sqlite3_SOURCE_DIR} CACHE INTERNAL "SQLite3_INCLUDE_DIRS")
+
     set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};SQLite3)
 
 endif ()
