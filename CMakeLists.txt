@@ -110,6 +110,8 @@ set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
 
 include(FetchContent)
 
+set(FETCHCONTENT_QUIET FALSE)
+
 if (SQLite3_FOUND)
     message("SQLITE FOUND...")
     set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
@@ -123,15 +125,19 @@ else()
             sqlite3
             GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
             GIT_TAG      dehancer-imp-1.0
+            GIT_PROGRESS TRUE
             SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
             BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
-            OVERRIDE_FIND_PACKAGE
     )
 
     if (NOT sqlite3_POPULATED)
         FetchContent_Populate(sqlite3)
+        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
     endif()
 
+    include_directories(
+            ${sqlite3_SOURCE_DIR}
+    )
 
 endif ()
 
@@ -157,6 +163,7 @@ if (BUILD_TESTING)
                 googletest
                 GIT_REPOSITORY https://github.com/google/googletest.git
                 GIT_TAG      v1.14.0
+                GIT_PROGRESS TRUE
                 SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
         )
 
@@ -174,17 +181,18 @@ endif ()
 
 FetchContent_Declare(
         ed25519cpp
-        GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
+        GIT_REPOSITORY https://github.com/dehancer/ed25519cpp
         GIT_TAG      develop
+        GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
-        OVERRIDE_FIND_PACKAGE
 )
 
 FetchContent_Declare(
         base64cpp
-        GIT_REPOSITORY https://github.com/dnevera/base64cpp
+        GIT_REPOSITORY https://github.com/dehancer/base64cpp
         GIT_TAG      develop
+        GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
 )
