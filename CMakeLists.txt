@@ -185,11 +185,18 @@ if (BUILD_TESTING)
 
 endif ()
 
+set(GIT_TAG_ed25519cpp "develop")
+set(GIT_TAG_base64cpp "develop")
+
+if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+    set(GIT_TAG_ed25519cpp "1.4.0")
+    set(GIT_TAG_base64cpp "1.2.0")
+endif ()
 
 FetchContent_Declare(
         ed25519cpp
         GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
-        GIT_TAG      develop
+        GIT_TAG      ${GIT_TAG_ed25519cpp}
         GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
@@ -198,7 +205,7 @@ FetchContent_Declare(
 FetchContent_Declare(
         base64cpp
         GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
-        GIT_TAG      develop
+        GIT_TAG      ${GIT_TAG_base64cpp}
         GIT_PROGRESS TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
