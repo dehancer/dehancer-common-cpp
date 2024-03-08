@@ -1,68 +1,75 @@
 include(CMakePackageConfigHelpers)
 
 FILE(GLOB PUBLIC_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/include/dehancer/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include/dehancer/*.h
         )
 
 FILE(GLOB PUBLIC_WINDOWS_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/include/dehancer/windows/utf8/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../include/dehancer/windows/utf8/*.h
         )
 
 FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/nlohmann/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/nlohmann/*.h
         )
 
-
 FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/obfy/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/dehancer/obfy/*.h
         )
 
 FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/promisecpp/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/*.hpp
         )
 
 FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/promisecpp/promise/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/promise/*.hpp
         )
 
 FILE(GLOB PUBLIC_PROMISE_TASK_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/promisecpp/simple_task/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/simple_task/*.hpp
         )
 
 FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
-        ${CMAKE_SOURCE_DIR}/external/sqlite/*.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/sqlite/*.h
         )
 
+set(sqlite3_src)
+if (sqlite3_POPULATED)
+    set(sqlite3_src ${sqlite3_SOURCE_DIR}/sqlite3.c)
+endif ()
+
 file (GLOB COMMON_SRC ${COMMON_SRC}
-        ${CMAKE_SOURCE_DIR}/src/*.cpp
-        ${CMAKE_SOURCE_DIR}/src/*.c
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.c
+        ${sqlite3_src}
         )
 
 if(WIN32)
     file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.cpp
-            ${CMAKE_SOURCE_DIR}/src/platforms/windows/utf8/*.c
-            ${CMAKE_SOURCE_DIR}/src/platforms/common/*.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/windows/utf8/*.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/windows/utf8/*.c
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/common/*.cpp
             )
 elseif(IOS)
     file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_SOURCE_DIR}/src/platforms/ios/*.mm
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/ios/*.mm
             )
 else()
     #set (EXT_COMMON_SRC)
     file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_SOURCE_DIR}/src/platforms/common/*.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/common/*.cpp
             )
 endif()
 
 message("EXT_COMMON_SRC: ${EXT_COMMON_SRC}")
 
-add_library(${PROJECT_NAME} ${COMMON_SRC} ${EXT_COMMON_SRC})
+add_library(${PROJECT_NAME}
+        ${COMMON_SRC}
+        ${EXT_COMMON_SRC}
+)
 
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()
-
 
 set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
 set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
@@ -121,9 +128,7 @@ install(DIRECTORY
         ${EXTERNAL_INSTALL_LOCATION}/lib
         DESTINATION ${CMAKE_INSTALL_PREFIX}
         FILES_MATCHING
-        PATTERN *ed25519*.*
-        PATTERN *base64*.*
-        PATTERN *sqlite3*.*
+#        PATTERN *sqlite3*.*
         PATTERN *gtest* EXCLUDE
         PATTERN *gmock* EXCLUDE
         )
