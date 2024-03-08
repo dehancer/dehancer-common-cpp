@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.12)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.13.0)
+project(${PROJECT_LIB} VERSION 0.14.0)
 
 #
 # Options
@@ -17,36 +17,12 @@ option(DEHANCER_DEBUG OFF)
 option(USE_UNICODE OFF)
 option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
-option(DEHANCER_COMMON_DIR  "")
-if (NOT DEHANCER_COMMON_DIR)
-    set(DEHANCER_COMMON_DIR ${CMAKE_BINARY_DIR}/tmp)
-endif ()
-
-option(EXTERNAL_INSTALL_LOCATION  "")
-if (NOT EXTERNAL_INSTALL_LOCATION)
-    set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-endif ()
-
-if (DEHANCER_TARGET_ARCH)
-    #
-    # x86_64-apple-macos10.13
-    # or
-    # arm64-apple-macos11
-    #
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -target ${DEHANCER_TARGET_ARCH}")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -target ${DEHANCER_TARGET_ARCH}")
-endif ()
-
 
 #
-# Global setttings
+# Global settings
 #
 set(VERSION_FILE "version.txt")
 set(CMAKE_CXX_STANDARD 17)
-
-if (NOT CMAKE_INSTALL_LIBDIR)
-    set(CMAKE_INSTALL_LIBDIR lib)
-endif ()
 
 
 if (WIN32)
@@ -84,10 +60,8 @@ if(DEHANCER_CONTROLLED_SINGLETON)
     add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
 endif ()
 
-# googletes, etc
+# googletest, etc
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
-set (EXTERNAL_INSTALL_LOCATION ${CMAKE_BINARY_DIR}/external)
-set (EXTERNAL_INCLUDE_DIR ${EXTERNAL_INSTALL_LOCATION}/include)
 
 if(DEHANCER_CONTROLLED_SINGLETON)
     add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
@@ -115,7 +89,6 @@ endif()
 # Programs
 #
 find_program(CCACHE_FOUND ccache)
-find_program(MAKE_EXE NAMES gmake nmake make)
 
 #
 # CCache settings
@@ -125,56 +98,19 @@ if(CCACHE_FOUND)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
 endif(CCACHE_FOUND)
 
-
-#
-# Compiler settings
-#
-
-message(STATUS "CMAKE_CXX_COMPILER_ID: " ${CMAKE_CXX_COMPILER_ID})
-
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
-
-    message(STATUS "Using Clang" )
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wc++17-extensions")
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-
-    message(STATUS "Using gcc" )
-
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -W -Wall -Wextra -Wno-ignored-qualifiers -Wvariadic-macros -pthread -static-libgcc -static-libstdc++")
-    set(CMAKE_CXX_FLAGS "-fvisibility=default -Wno-pedantic")
-    set(CMAKE_LINK_DEPENDS_NO_SHARED TRUE)
-
-    add_compile_options(-lpthread)
-
-    if (${CMAKE_SYSTEM_NAME} STREQUAL Linux)
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DX86_LINUX")
-    endif()
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Intel")
-
-    message( FATAL_ERROR "The project does not support Intel compiler" )
-
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-
-    #message( FATAL_ERROR "The project does not support MSVC compiler" )
-
-endif()
-
 if(PRINT_DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
 endif ()
 
 #
-# Package manager
-#
-include(ExternalProject)
-
-#
-# External project dependencies
+# Project dependencies
 #
 set(COMMON_DEPENDENCIES)
 set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+
+include(FetchContent)
+
+set(FETCHCONTENT_QUIET FALSE)
 
 if (SQLite3_FOUND)
     message("SQLITE FOUND...")
@@ -184,162 +120,109 @@ if (SQLite3_FOUND)
     )
 else()
     add_definitions("-DUSE_SQLITE3_CONFIG=1")
+
+    FetchContent_Declare(
+            sqlite3
+            GIT_REPOSITORY git@github.com:dehancer/sqlite-amalgamation.git
+            GIT_TAG      dehancer-imp-1.0
+            GIT_PROGRESS TRUE
+            SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
+            BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
+    )
+
+    FetchContent_GetProperties(sqlite3)
+
+    if(NOT sqlite3_POPULATED)
+        FetchContent_Populate(sqlite3)
+        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
+        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
+    endif()
+
+    include_directories(
+            ${sqlite3_SOURCE_DIR}
+    )
+
+    set(SQLite3_INCLUDE_DIR ${sqlite3_SOURCE_DIR} CACHE INTERNAL "SQLite3_INCLUDE_DIR")
+    set(SQLite3_LIB_DIR ${sqlite3_BINARY_DIR} CACHE INTERNAL "SQLite3_LIB_DIR")
+    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};SQLite3)
+
 endif ()
 
 string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
 string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
 
+
 #
 # Google Test
 #
 if (BUILD_TESTING)
+
     find_package(GTest)
-    if (NOT GTEST_FOUND)
-        ExternalProject_Add(googletest
-                GIT_REPOSITORY https://github.com/google/googletest
-                GIT_PROGRESS YES
-                GIT_SHALLOW YES
-                GIT_TAG release-1.11.0
-                CMAKE_ARGS
-                -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
-                -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
-                -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-                -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-                -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-                -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-                -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-                -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
-                -DCMAKE_C_FLAGS=${C_FLAGS}
-                -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
-                PREFIX ${DEHANCER_COMMON_DIR}
-                )
-        set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};googletest)
+
+    if (NOT GTest_FOUND)
+
+        string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
+        string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
+
+        set(CMAKE_OSX_ARCHITECTURES "${CMAKE_OSX_ARCHITECTURES}" CACHE STRING "" FORCE)
+
+        FetchContent_Declare(
+                googletest
+                GIT_REPOSITORY https://github.com/google/googletest.git
+                GIT_TAG      v1.14.0
+                GIT_PROGRESS TRUE
+                SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
+        )
+
+        FetchContent_GetProperties(googletest)
+
+        if(NOT googletest_POPULATED)
+            FetchContent_Populate(googletest)
+            add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
+        endif()
+
     endif ()
+
 endif ()
 
-if(NOT SQLite3_FOUND)
-    ExternalProject_Add(sqlite3lib
-            GIT_REPOSITORY https://github.com/dehancer/sqlite-amalgamation
-            GIT_PROGRESS YES
-            GIT_SHALLOW YES
-            GIT_TAG dehancer-imp-1.0
-            CMAKE_ARGS
-            -DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}
-            -DCMAKE_OSX_ARCHITECTURES=${DCMAKE_OSX_ARCHITECTURES}
-            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
-            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-            -DBUILD_SHELL=ON
-            -DBUILD_SHELL_STATIC=ON
-            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-            -DCMAKE_C_FLAGS=${C_FLAGS}
-            -DCMAKE_CXX_FLAGS=${CXX_FLAGS}
-            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
-            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-            PREFIX ${DEHANCER_COMMON_DIR}
-            )
-    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};sqlite3lib)
-    string(TOLOWER  ${CMAKE_BUILD_TYPE} BUILD_TYPE)
-    if (${BUILD_TYPE} STREQUAL "debug")
-        set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3d)
-    else()
-        set(COMMON_LIBRARIES ${COMMON_LIBRARIES};sqlite3)
-    endif()
-endif ()
 
-pkg_search_module(ed25519cpplib ed25519cpp)
-if (ed25519cpplib_FOUND)
+FetchContent_Declare(
+        ed25519cpp
+        GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
+        GIT_TAG      develop
+        GIT_PROGRESS TRUE
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
+)
 
-    message(STATUS "ed25519cpplib: ${ed25519cpplib_LIBRARIES}, ${ed25519cpplib_LIBRARY_DIRS} ${ed25519cpplib_INCLUDE_DIRS}")
-    include_directories(
-            ${ed25519cpplib_INCLUDE_DIRS}
-    )
-    link_directories(
-            ${ed25519cpplib_LIBRARY_DIRS}
-    )
-    set(COMMON_LIBRARIES ${ed25519cpplib_LIBRARIES};${COMMON_LIBRARIES})
+FetchContent_Declare(
+        base64cpp
+        GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
+        GIT_TAG      develop
+        GIT_PROGRESS TRUE
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
+)
 
-else()
-    ExternalProject_Add(ed25519cpplib
-            GIT_REPOSITORY https://github.com/dnevera/ed25519cpp
-            GIT_PROGRESS YES
-            GIT_SHALLOW YES
-            GIT_TAG 1.3.8
-            CMAKE_ARGS
-            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
-            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
-            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-            -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DBUILD_TESTING=OFF
-            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-            -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
-            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-            -DVCPKG_TARGET_TRIPLET=x64-windows-static
-            PREFIX ${DEHANCER_COMMON_DIR}
-            )
-    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};ed25519cpplib)
-endif()
+FetchContent_MakeAvailable(ed25519cpp base64cpp)
 
-pkg_search_module(base64cpplib base64cpp)
-if (base64cpplib_FOUND)
+include_directories(
+        ${base64cpp_SOURCE_DIR}/include
+        ${ed25519cpp_SOURCE_DIR}/include
+)
 
-    message(STATUS "base64cpplib: ${base64cpplib_LIBRARIES}, ${base64cpplib_LIBRARY_DIRS} ${base64cpplib_INCLUDE_DIRS}")
-    include_directories(
-            ${base64cpplib_INCLUDE_DIRS}
-    )
-    link_directories(
-            ${base64cpplib_LIBRARY_DIRS}
-    )
-    set(COMMON_LIBRARIES ${base64cpplib_LIBRARIES};${COMMON_LIBRARIES})
-
-else()
-    ExternalProject_Add(base64cpplib
-            GIT_REPOSITORY https://github.com/dnevera/base64cpp
-            GIT_PROGRESS YES
-            GIT_SHALLOW YES
-            GIT_TAG 1.1.9   
-#            GIT_TAG develop
-            CMAKE_ARGS
-            -DCMAKE_OSX_ARCHITECTURES=${CMAKE_OSX_ARCHITECTURES}
-            -DCMAKE_OSX_SYSROOT=${CMAKE_OSX_SYSROOT}
-            -DCMAKE_OSX_DEPLOYMENT_TARGET=${CMAKE_OSX_DEPLOYMENT_TARGET}
-            -DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}
-            -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}
-            -DCMAKE_INSTALL_PREFIX=${EXTERNAL_INSTALL_LOCATION}
-            -DBUILD_TESTING=OFF
-            -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE}
-            -DDEHANCER_TARGET_ARCH=${DEHANCER_TARGET_ARCH}
-            -DDEHANCER_COMMON_DIR=${DEHANCER_COMMON_DIR}
-            -DEXTERNAL_INSTALL_LOCATION=${EXTERNAL_INSTALL_LOCATION}
-            -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
-            -DVCPKG_TARGET_TRIPLET=${VCPKG_TARGET_TRIPLET}
-            LOG_BUILD FALSE
-            PREFIX ${DEHANCER_COMMON_DIR}
-            )
-    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};base64cpplib)
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
-endif ()
+set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
 #
 # Details
 #
 include_directories(
-        ${EXTERNAL_INSTALL_LOCATION}/include
-        ${CMAKE_SOURCE_DIR}/include
-        ${CMAKE_SOURCE_DIR}/external
+        ${CMAKE_CURRENT_SOURCE_DIR}/include
+        ${CMAKE_CURRENT_SOURCE_DIR}/external
         ${SQLITE3_INCLUDE_DIRS}
 )
 
-link_directories(
-        ${EXTERNAL_INSTALL_LOCATION}/lib
-        ${EXTERNAL_INSTALL_LOCATION}/lib64
-)
-
-add_subdirectory(lib)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
 
 if(BUILD_TESTING)
     include(CTest)
@@ -361,7 +244,7 @@ set(exec_prefix "\${prefix}")
 set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
 set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
 
-configure_file(${CMAKE_SOURCE_DIR}/dehancer-common-cpp.pc.in ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc @ONLY)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dehancer-common-cpp.pc.in ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc @ONLY)
 
 install(FILES
         ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc
