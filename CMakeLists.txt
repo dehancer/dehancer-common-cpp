@@ -126,6 +126,7 @@ else()
             GIT_REPOSITORY git@github.com:dehancer/sqlite-amalgamation.git
             GIT_TAG      dehancer-imp-1.0
             GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
             SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
             BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
     )
@@ -171,6 +172,7 @@ if (BUILD_TESTING)
                 GIT_REPOSITORY https://github.com/google/googletest.git
                 GIT_TAG      v1.14.0
                 GIT_PROGRESS TRUE
+                GIT_SHALLOW TRUE
                 SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
         )
 
@@ -198,6 +200,7 @@ FetchContent_Declare(
         GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
         GIT_TAG      ${GIT_TAG_ed25519cpp}
         GIT_PROGRESS TRUE
+        GIT_SHALLOW TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
 )
@@ -207,6 +210,7 @@ FetchContent_Declare(
         GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
         GIT_TAG      ${GIT_TAG_base64cpp}
         GIT_PROGRESS TRUE
+        GIT_SHALLOW TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
         BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
 )
