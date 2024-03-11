@@ -6,14 +6,24 @@ cmake_minimum_required(VERSION 3.12)
 set(PROJECT_LIB dehancer_common_cpp)
 project(${PROJECT_LIB} VERSION 0.14.0)
 
+option(DEHANCER_DEBUG OFF)
+
+set(GIT_TAG_ed25519cpp "develop")
+set(GIT_TAG_base64cpp "develop")
+
+if(NOT DEHANCER_DEBUG)
+    set(GIT_TAG_ed25519cpp "1.4.0")
+    set(GIT_TAG_base64cpp "1.2.0")
+endif ()
+
 #
 # Options
 #
+option(GTest_ROOT "Google Test SDK" "")
 option(PRINT_DEBUG OFF)
 option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
-option(DEHANCER_DEBUG OFF)
 option(USE_UNICODE OFF)
 option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
@@ -185,14 +195,6 @@ if (BUILD_TESTING)
 
     endif ()
 
-endif ()
-
-set(GIT_TAG_ed25519cpp "develop")
-set(GIT_TAG_base64cpp "develop")
-
-if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(GIT_TAG_ed25519cpp "1.4.0")
-    set(GIT_TAG_base64cpp "1.2.0")
 endif ()
 
 FetchContent_Declare(
