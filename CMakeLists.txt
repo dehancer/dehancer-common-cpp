@@ -12,8 +12,8 @@ set(GIT_TAG_ed25519cpp "develop")
 set(GIT_TAG_base64cpp "develop")
 
 if(NOT DEHANCER_DEBUG)
-    set(GIT_TAG_ed25519cpp "1.4.0")
-    set(GIT_TAG_base64cpp "1.2.0")
+    set(GIT_TAG_ed25519cpp "master")
+    set(GIT_TAG_base64cpp "master")
 endif ()
 
 #
