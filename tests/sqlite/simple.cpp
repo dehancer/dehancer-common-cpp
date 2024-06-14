@@ -5,9 +5,10 @@
 
 #include "sqlite/sqlite_orm.h"
 #include "gtest/gtest.h"
-#include <list>
 #include "dehancer/Log.h"
 #include "dehancer/Common.h"
+
+#include <list>
 
 struct User {
     int id{};

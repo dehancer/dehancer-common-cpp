@@ -5,6 +5,7 @@ cmake_minimum_required(VERSION 3.22)
 #
 set(PROJECT_LIB dehancer_common_cpp)
 project(${PROJECT_LIB} VERSION 0.14.1)
+set(CMAKE_CXX_STANDARD 23)
 
 option(DEHANCER_DEBUG OFF)
 
@@ -32,8 +33,6 @@ option(DEHANCER_CONTROLLED_SINGLETON OFF)
 # Global settings
 #
 set(VERSION_FILE "version.txt")
-set(CMAKE_CXX_STANDARD 17)
-
 
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")

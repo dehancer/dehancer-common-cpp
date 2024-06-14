@@ -1,5 +1,4 @@
 set(TEST_LIBRARIES)
-set (CMAKE_CXX_STANDARD 17)
 
 if (GTEST_FOUND)
     include_directories(${GTEST_INCLUDE_DIRS})
