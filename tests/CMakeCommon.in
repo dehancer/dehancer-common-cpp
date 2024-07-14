@@ -28,13 +28,6 @@ target_link_libraries(
         ${CMAKE_DL_LIBS}
 )
 
-if (COMMON_DEPENDENCIES)
-    add_dependencies(
-            ${TEST}
-            ${COMMON_DEPENDENCIES}
-    )
-endif ()
-
 add_test(test ${TEST})
 enable_testing()
 
