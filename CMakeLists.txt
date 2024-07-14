@@ -4,8 +4,8 @@ cmake_minimum_required(VERSION 3.22)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.14.2)
-set(CMAKE_CXX_STANDARD 23)
+project(${PROJECT_LIB} VERSION 0.15.0)
+set(CMAKE_CXX_STANDARD 17)
 
 option(DEHANCER_DEBUG OFF)
 
