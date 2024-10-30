@@ -42,7 +42,7 @@ namespace dehancer {
             return make_unexpected(Error(CommonError::PARSE_ERROR, e.what()));
         }
         catch (...) {
-            return make_unexpected(Error(CommonError::PARSE_ERROR, "License text could not be decoded..."));
+            return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
         }
     }
 
@@ -51,7 +51,7 @@ namespace dehancer {
                 {"subscriptionId",  static_cast<std::string>(subscription_id)},
                 {"seatsCount",      static_cast<uint16_t>(seats_count)},
                 {"activatedCount",  static_cast<uint16_t>(activated_count)},
-                {"is_current",      static_cast<std::bool>(is_current)},
+                {"isCurrent",      static_cast<std::bool>(is_current)},
         };
 
         return data;
