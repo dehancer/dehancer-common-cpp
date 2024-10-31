@@ -17,8 +17,9 @@
 namespace dehancer {
 
     int random(int min, int max);
-    
-    
+
+    std::string_view trim(std::string_view s);
+
     namespace time {
         /**
         *  Converts UTC time string to a time_t value.

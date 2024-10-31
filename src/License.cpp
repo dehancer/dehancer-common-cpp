@@ -14,14 +14,6 @@ namespace dehancer {
     std::string License::authority_key;
     std::string License::authority_public_key;
 
-    std::string_view trim(std::string_view s)
-    {
-      s.remove_prefix(std::min(s.find_first_not_of(" \t\r\v\n"), s.size()));
-      s.remove_suffix((s.size() - 1) - std::min(s.find_last_not_of(" \t\r\v\n"), s.size() - 1));
-
-      return s;
-    }
-
     static inline auto make_digest(const License& lic) {
       return ed25519::Digest([lic](auto &calculator){
           calculator.append(static_cast<std::uint16_t>(lic.version));
