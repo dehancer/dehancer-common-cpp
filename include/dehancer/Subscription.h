@@ -21,6 +21,8 @@ namespace dehancer {
 
         Subscription(const Subscription &subscription);
 
+        Error sign();
+
         static expected <Subscription, Error> Decode(const std::string &base64);
 
         static std::string Encode(const Subscription &subscription, bool line_break_enabled = true);
@@ -34,6 +36,7 @@ namespace dehancer {
     public:
         static std::string authority_key;
         static std::string authority_public_key;
-
+    private:
+        std::string signature_;
     };
 }

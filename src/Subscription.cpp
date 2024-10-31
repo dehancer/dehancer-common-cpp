@@ -7,6 +7,7 @@
 #include "dehancer/Utils.h"
 #include <ed25519.hpp>
 #include <climits>
+#include "dehancer/obfy/instr.h"
 
 namespace dehancer {
 
@@ -26,8 +27,8 @@ namespace dehancer {
             : subscription_id(""),
               seats_count(0),
               activated_count(0),
-              is_current(false) {
-
+              is_current(false),
+              signature_("") {
     }
 
     Subscription::Subscription(const dehancer::Subscription &s) {
@@ -39,6 +40,7 @@ namespace dehancer {
         seats_count = s.seats_count;
         activated_count = s.activated_count;
         is_current = s.is_current;
+        signature_ = s.signature_;
         return *this;
     }
 
@@ -70,6 +72,32 @@ namespace dehancer {
         };
 
         return data;
+    }
+
+    Error Subscription::sign() {
+        OBF_BEGIN
+
+        if (!signature_.empty())
+            return Error(CommonError::PERMISSIONS_ERROR, "License has already been signed...");
+
+        if (authority_key.empty())
+            return Error(CommonError::PERMISSIONS_ERROR, "License could not be signed on client ... ");
+
+        auto digest = make_digest(*this);
+
+        auto pair = ed25519::keys::Pair::FromPrivateKey(authority_key);
+
+        auto signature = pair->sign(digest);
+
+        if (!signature) {
+            return Error(CommonError::SECURITY_ISSUE, "Subscription could not be signed...");
+        }
+
+        signature_ = signature->encode();
+
+        RETURN( Error(CommonError::OK));
+
+        OBF_END
     }
 
     std::string Subscription::Encode(const Subscription &subscription, bool line_break_enabled) {
