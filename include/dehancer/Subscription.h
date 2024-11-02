@@ -21,6 +21,8 @@ namespace dehancer {
 
         Subscription(const Subscription &subscription);
 
+        Subscription &operator=(const Subscription &right);
+
         Error sign();
 
         static expected <Subscription, Error> Decode(const std::string &base64);
@@ -31,7 +33,7 @@ namespace dehancer {
 
         [[nodiscard]] dehancer::json json() const;
 
-        Subscription &operator=(const Subscription &right);
+        [[nodiscard]] bool is_valid() const;
 
     public:
         static std::string authority_key;

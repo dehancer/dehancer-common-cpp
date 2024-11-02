@@ -134,4 +134,23 @@ namespace dehancer {
             return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
         }
     }
+
+    bool Subscription::is_valid() const {
+        OBF_BEGIN
+
+            auto digest = make_digest(*this);
+
+            auto pk =  ed25519::keys::Public::Decode(authority_public_key);
+
+            if (!pk) return false;
+
+            auto signature = ed25519::Signature::Decode(signature_);
+
+            if (!signature) return false;
+
+            RETURN(signature->verify(digest, *pk));
+
+        OBF_END
+    }
+
 }
