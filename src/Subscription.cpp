@@ -52,7 +52,7 @@ namespace dehancer {
             s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
             s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
             s.is_current = _json.at("isCurrent").get<bool>();
-
+            s.signature_ = _json.at("signature").get<std::string>();
             return s;
         }
         catch (const std::exception &e) {
@@ -69,6 +69,7 @@ namespace dehancer {
                 {"seatsCount",     static_cast<uint16_t>(seats_count)},
                 {"activatedCount", static_cast<uint16_t>(activated_count)},
                 {"isCurrent",      static_cast<bool>(is_current)},
+                {"signature",      static_cast<std::string>(signature_)}
         };
 
         return data;

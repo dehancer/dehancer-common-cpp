@@ -57,6 +57,8 @@ TEST(License, LicenseTest) {
 
     EXPECT_TRUE(subs2->is_valid());
 
+    subs2->is_current = !subs2->is_current;
+    
     std::cout << "Subscription2["<<subs2->is_valid()<<"]: " << subs2->json().dump() << std::endl;
 
     EXPECT_TRUE(!subs2->is_valid());
