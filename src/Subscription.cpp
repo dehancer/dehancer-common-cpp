@@ -52,7 +52,9 @@ namespace dehancer {
             s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
             s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
             s.is_current = _json.at("isCurrent").get<bool>();
-            s.signature_ = _json.at("signature").get<std::string>();
+            if(_json.count("signature")>0) {
+                s.signature_ = _json.at("signature").get<std::string>();
+            }
             return s;
         }
         catch (const std::exception &e) {
