@@ -12,6 +12,7 @@ namespace dehancer {
 
     struct Subscription {
 
+        std::string title;
         std::string subscription_id;
         std::uint16_t seats_count{};
         std::uint16_t activated_count{};

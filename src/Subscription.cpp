@@ -24,7 +24,8 @@ namespace dehancer {
     }
 
     Subscription::Subscription()
-            : subscription_id(""),
+            : title(""),
+              subscription_id(""),
               seats_count(0),
               activated_count(0),
               is_current(false),
@@ -36,6 +37,7 @@ namespace dehancer {
     }
 
     Subscription &Subscription::operator=(const dehancer::Subscription &s) {
+        title = s.title;
         subscription_id = s.subscription_id;
         seats_count = s.seats_count;
         activated_count = s.activated_count;
@@ -47,7 +49,7 @@ namespace dehancer {
     expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
         try {
             Subscription s;
-
+            s.title = _json.at("title").get<std::string>();
             s.subscription_id = _json.at("subscriptionId").get<std::string>();
             s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
             s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
@@ -67,6 +69,7 @@ namespace dehancer {
 
     dehancer::json Subscription::json() const {
         dehancer::json data = {
+                {"title",          static_cast<std::string>(title)},
                 {"subscriptionId", static_cast<std::string>(subscription_id)},
                 {"seatsCount",     static_cast<uint16_t>(seats_count)},
                 {"activatedCount", static_cast<uint16_t>(activated_count)},
