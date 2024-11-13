@@ -6,6 +6,7 @@
 
 #include <string>
 #include <cinttypes>
+#include <chrono>
 #include "dehancer/Common.h"
 
 namespace dehancer {
@@ -16,6 +17,8 @@ namespace dehancer {
         std::string subscription_id;
         std::uint16_t seats_count{};
         std::uint16_t activated_count{};
+        std::time_t expires_at{};
+
         bool is_current{};
 
         Subscription();

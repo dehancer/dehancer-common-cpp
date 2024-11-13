@@ -19,6 +19,7 @@ namespace dehancer {
             calculator.append(subscription.subscription_id);
             calculator.append(static_cast<uint16_t>(subscription.seats_count));
             calculator.append(static_cast<uint16_t>(subscription.activated_count));
+            //calculator.append(static_cast<long>(subscription.expires_at));
             calculator.append(static_cast<bool>(subscription.is_current));
         });
     }
@@ -29,6 +30,7 @@ namespace dehancer {
               seats_count(0),
               activated_count(0),
               is_current(false),
+              expires_at(0),
               signature_("") {
     }
 
@@ -41,6 +43,7 @@ namespace dehancer {
         subscription_id = s.subscription_id;
         seats_count = s.seats_count;
         activated_count = s.activated_count;
+        expires_at = s.expires_at;
         is_current = s.is_current;
         signature_ = s.signature_;
         return *this;
@@ -53,6 +56,7 @@ namespace dehancer {
             s.subscription_id = _json.at("subscriptionId").get<std::string>();
             s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
             s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
+            s.expires_at = _json.at("expiresAt").get<std::time_t>();
             s.is_current = _json.at("isCurrent").get<bool>();
             if(_json.count("signature")>0) {
                 s.signature_ = _json.at("signature").get<std::string>();
@@ -73,6 +77,7 @@ namespace dehancer {
                 {"subscriptionId", static_cast<std::string>(subscription_id)},
                 {"seatsCount",     static_cast<uint16_t>(seats_count)},
                 {"activatedCount", static_cast<uint16_t>(activated_count)},
+                {"expiresAt",  static_cast<std::time_t>(expires_at)},
                 {"isCurrent",      static_cast<bool>(is_current)},
                 {"signature",      static_cast<std::string>(signature_)}
         };
