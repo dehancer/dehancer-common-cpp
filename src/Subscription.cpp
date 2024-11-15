@@ -164,4 +164,8 @@ namespace dehancer {
         OBF_END
     }
 
+    const std::string& Subscription::get_signature() const {return signature_;}
+
+
+
 }

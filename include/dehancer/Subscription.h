@@ -39,6 +39,8 @@ namespace dehancer {
 
         [[nodiscard]] bool is_valid() const;
 
+        [[nodiscard]] const std::string& get_signature() const;
+
     public:
         static std::string authority_key;
         static std::string authority_public_key;
