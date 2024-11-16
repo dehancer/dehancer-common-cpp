@@ -199,6 +199,11 @@ namespace dehancer {
                 RPC_ERROR = 500,
 
         /***
+         * Rest auth error (typically bad or outdated auth token
+         */
+                REST_AUTH_ERROR = 600,
+
+        /***
          * unknown error
          */
                 UNKNOWN,
