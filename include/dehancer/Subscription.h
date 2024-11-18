@@ -18,6 +18,10 @@ namespace dehancer {
         std::uint16_t seats_count{};
         std::uint16_t activated_count{};
         std::time_t expires_at{};
+        bool cancel_at_period_end;
+        std::string provider_id;
+        std::string plan_id;
+        std::string product_id;
 
         bool is_current{};
 
