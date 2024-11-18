@@ -22,7 +22,8 @@ namespace dehancer {
             calculator.append(subscription.provider_id);
             calculator.append(static_cast<uint16_t>(subscription.seats_count));
             calculator.append(static_cast<uint16_t>(subscription.activated_count));
-            //calculator.append(static_cast<long>(subscription.expires_at));
+            calculator.append(std::to_string(subscription.expires_at));
+            calculator.append(static_cast<uint16_t>(subscription.offline_days));
             calculator.append(static_cast<bool>(subscription.is_current));
             calculator.append(static_cast<bool>(subscription.cancel_at_period_end));
         });
@@ -33,6 +34,8 @@ namespace dehancer {
               activated_count(0),
               is_current(false),
               expires_at(0),
+              last_checked(0),
+              offline_days(0),
               cancel_at_period_end(true) {
     }
 
@@ -65,10 +68,14 @@ namespace dehancer {
                 s.subscription_id = _json.at("subscriptionId").get<std::string>();
             if(_json.count("seatsCount") > 0)
                 s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
+            if(_json.count("offlineDays") > 0)
+                s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
             if(_json.count("activatedCount") > 0)
                 s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
             if(_json.count("expiresAt") > 0)
                 s.expires_at = _json.at("expiresAt").get<std::time_t>();
+            if(_json.count("lastChecked") > 0)
+                s.last_checked = _json.at("lastChecked").get<std::time_t>();
             if(_json.count("isCurrent") > 0)
                 s.is_current = _json.at("isCurrent").get<bool>();
             if(_json.count("providerId") > 0)
@@ -104,6 +111,8 @@ namespace dehancer {
                 {"seatsCount",     static_cast<uint16_t>(seats_count)},
                 {"activatedCount", static_cast<uint16_t>(activated_count)},
                 {"expiresAt",  static_cast<std::time_t>(expires_at)},
+                {"lastChecked",  static_cast<std::time_t>(last_checked)},
+                {"offlineDays",  static_cast<uint16_t>(offline_days)},
                 {"cancelAtPeriodEnd",  static_cast<bool>(cancel_at_period_end)},
                 {"isCurrent",      static_cast<bool>(is_current)},
                 {"signature",      static_cast<std::string>(signature_)}
