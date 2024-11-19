@@ -68,10 +68,10 @@ namespace dehancer {
                 s.subscription_id = _json.at("subscriptionId").get<std::string>();
             if(_json.count("seatsCount") > 0)
                 s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
-            if(_json.count("offlineDays") > 0)
-                s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
             if(_json.count("activatedCount") > 0)
                 s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
+            if(_json.count("offlineDays") > 0)
+                s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
             if(_json.count("expiresAt") > 0)
                 s.expires_at = _json.at("expiresAt").get<std::time_t>();
             if(_json.count("lastChecked") > 0)
