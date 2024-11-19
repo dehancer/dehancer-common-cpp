@@ -17,9 +17,6 @@ namespace dehancer {
     static inline auto make_digest(const Subscription& subscription) {
         return ed25519::Digest([subscription](auto &calculator){
             calculator.append(subscription.subscription_id);
-            calculator.append(subscription.provider_id);
-            calculator.append(subscription.plan_id);
-            calculator.append(subscription.provider_id);
             calculator.append(static_cast<uint16_t>(subscription.seats_count));
             calculator.append(static_cast<uint16_t>(subscription.activated_count));
             calculator.append(std::to_string(subscription.expires_at));
@@ -52,9 +49,6 @@ namespace dehancer {
         is_current = s.is_current;
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
-        provider_id = s.provider_id;
-        product_id = s.product_id;
-        plan_id = s.plan_id;
         return *this;
     }
 
@@ -74,18 +68,13 @@ namespace dehancer {
                 s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
             if(_json.count("expiresAt") > 0)
                 s.expires_at = _json.at("expiresAt").get<std::time_t>();
-            if(_json.count("lastChecked") > 0)
-                s.last_checked = _json.at("lastChecked").get<std::time_t>();
             if(_json.count("isCurrent") > 0)
                 s.is_current = _json.at("isCurrent").get<bool>();
-            if(_json.count("providerId") > 0)
-                s.provider_id = _json.at("providerId").get<std::string>();
-            if(_json.count("productId") > 0)
-                s.product_id = _json.at("productId").get<std::string>();
-            if(_json.count("planId") > 0)
-                s.plan_id = _json.at("planId").get<std::string>();
             if(_json.count("cancelAtPeriodEnd") > 0)
                 s.cancel_at_period_end = _json.at("cancelAtPeriodEnd").get<bool>();
+
+            if(_json.count("lastChecked") > 0)
+                s.last_checked = _json.at("lastChecked").get<std::time_t>();
 
             if(_json.count("signature")>0) {
                 s.signature_ = _json.at("signature").get<std::string>();
@@ -103,10 +92,6 @@ namespace dehancer {
     dehancer::json Subscription::json() const {
         dehancer::json data = {
                 {"title",          static_cast<std::string>(title)},
-                {"subscriptionId", static_cast<std::string>(subscription_id)},
-                {"productId", static_cast<std::string>(product_id)},
-                {"planId", static_cast<std::string>(plan_id)},
-                {"providerId", static_cast<std::string>(provider_id)},
                 {"subscriptionId", static_cast<std::string>(subscription_id)},
                 {"seatsCount",     static_cast<uint16_t>(seats_count)},
                 {"activatedCount", static_cast<uint16_t>(activated_count)},

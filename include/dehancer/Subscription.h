@@ -21,9 +21,6 @@ namespace dehancer {
         std::time_t last_checked{};
         std::uint16_t offline_days;
         bool cancel_at_period_end;
-        std::string provider_id;
-        std::string plan_id;
-        std::string product_id;
 
         bool is_current{};
 
