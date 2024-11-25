@@ -27,6 +27,14 @@ static constexpr const size_t PATH_MAX_STRING_SIZE = 256;
 
 namespace dehancer {
 
+    std::string_view trim(std::string_view s)
+    {
+        s.remove_prefix(std::min(s.find_first_not_of(" \t\r\v\n"), s.size()));
+        s.remove_suffix((s.size() - 1) - std::min(s.find_last_not_of(" \t\r\v\n"), s.size() - 1));
+
+        return s;
+    }
+
     int random(int min, int max)
     {
         static bool first = true;
