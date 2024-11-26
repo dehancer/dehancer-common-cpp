@@ -46,6 +46,7 @@ namespace dehancer {
         seats_count = s.seats_count;
         activated_count = s.activated_count;
         expires_at = s.expires_at;
+        last_checked = s.last_checked;
         is_current = s.is_current;
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
