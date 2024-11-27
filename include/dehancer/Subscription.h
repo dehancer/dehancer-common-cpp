@@ -42,6 +42,8 @@ namespace dehancer {
 
         [[nodiscard]] bool is_valid() const;
 
+        [[nodiscard]] bool is_offline_exceeded() const;
+
         [[nodiscard]] const std::string& get_signature() const;
 
     public:

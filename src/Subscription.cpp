@@ -187,6 +187,16 @@ namespace dehancer {
         OBF_END
     }
 
+    bool Subscription::is_offline_exceeded() const {
+        if(offline_days == 0) {
+            return false;
+        }
+
+        const auto days_from_last_check = (std::chrono::seconds(std::time(nullptr)).count()
+                                           - last_checked) / 86400;
+        return days_from_last_check > offline_days;
+    }
+
     const std::string& Subscription::get_signature() const {return signature_;}
 
 
