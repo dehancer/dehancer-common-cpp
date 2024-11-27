@@ -50,6 +50,7 @@ namespace dehancer {
         is_current = s.is_current;
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
+        offline_days = s.offline_days;
         return *this;
     }
 
