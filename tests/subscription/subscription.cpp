@@ -54,7 +54,7 @@ TEST(License, LicenseTest) {
     std::cout << "Subscription2["<<subs2->is_valid()<<"]: " << subs2->json().dump() << std::endl;
 
     subs2->update_pk(pr->get_public_key().encode());
-    
+
     EXPECT_TRUE(subs2->is_valid());
 
     subs2->is_current = !subs2->is_current;

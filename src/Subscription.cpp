@@ -48,6 +48,7 @@ namespace dehancer {
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
         offline_days = s.offline_days;
+        pk_ = s.pk_;
         return *this;
     }
 
