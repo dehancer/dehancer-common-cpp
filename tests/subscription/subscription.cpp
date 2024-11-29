@@ -15,7 +15,7 @@ TEST(License, LicenseTest) {
 
     std::cout << std::endl;
 
-    auto subs = dehancer::Subscription(pr->get_public_key().encode());
+    auto subs = dehancer::Subscription();
 
     subs.subscription_id = "qwerty";
     subs.seats_count = 3;
@@ -42,7 +42,9 @@ TEST(License, LicenseTest) {
     std::cout << "Subscription encode: \n" << encoded << " : " << encoded.size() << std::endl;
     std::cout << "Subscription encode line: \n" <<  encoded_line << " : " << encoded_line.size() << std::endl;
 
-    auto subs2 = dehancer::Subscription::Decode("  "+encoded_line+" ", pr->get_public_key().encode());
+    auto subs2 = dehancer::Subscription::Decode("  "+encoded_line+" ", [&pr](auto s)  {
+        return pr->get_public_key().encode();
+    });
 
     EXPECT_TRUE(subs2);
 

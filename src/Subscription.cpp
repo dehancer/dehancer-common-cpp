@@ -23,15 +23,14 @@ namespace dehancer {
         });
     }
 
-    Subscription::Subscription(const std::string& pk)
+    Subscription::Subscription()
             : seats_count(0),
               activated_count(0),
               is_current(false),
               expires_at(0),
               last_checked(0),
               offline_days(0),
-              cancel_at_period_end(true),
-              pk_(pk) {
+              cancel_at_period_end(true) {
     }
 
     Subscription::Subscription(const dehancer::Subscription &s) {
@@ -52,9 +51,14 @@ namespace dehancer {
         return *this;
     }
 
-    expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json, const std::string& pk) {
+    void Subscription::update_pk(const std::string& pk) {
+        pk_ = pk;
+    }
+
+    expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json
+                                                           , const std::function<std::string(const dehancer::Subscription&)>& fnGetPk) {
         try {
-            Subscription s(pk);
+            Subscription s;
 
             if(_json.count("title") > 0)
                 s.title = _json.at("title").get<std::string>();
@@ -79,6 +83,9 @@ namespace dehancer {
             if(_json.count("signature")>0) {
                 s.signature_ = _json.at("signature").get<std::string>();
             }
+
+            auto pk = fnGetPk(s);
+            s.update_pk(pk);
 
             return s;
         }
@@ -139,7 +146,8 @@ namespace dehancer {
         return base64;
     }
 
-    expected <Subscription, Error> Subscription::Decode(const std::string &base64_in, const std::string& pk) {
+    expected <Subscription, Error> Subscription::Decode(const std::string &base64_in
+            , const std::function<std::string(const dehancer::Subscription&)>& fnGetPk) {
 
         try {
 
@@ -157,7 +165,7 @@ namespace dehancer {
 
             dehancer::json json_data = json::parse(buffer);
 
-            return Subscription::from_json(json_data, pk);
+            return Subscription::from_json(json_data, fnGetPk);
 
         }
         catch (std::exception &e) {

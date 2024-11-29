@@ -26,21 +26,21 @@ namespace dehancer {
 
         bool is_current{};
 
-        Subscription() = delete;
-
-        Subscription(const std::string& pk);
+        Subscription();
 
         Subscription(const Subscription &subscription);
 
         Subscription &operator=(const Subscription &right);
 
-        Error sign(const std::string& pvk);
+        Error sign(const std::string &pvk);
 
-        static expected <Subscription, Error> Decode(const std::string &base64, const std::string& pk);
+        static expected<Subscription, Error>
+        Decode(const std::string &base64, const std::function<std::string(const dehancer::Subscription &)> &);
 
         static std::string Encode(const Subscription &subscription, bool line_break_enabled = true);
 
-        static expected <Subscription, Error> from_json(const json &json, const std::string& pk);
+        static expected<Subscription, Error>
+        from_json(const json &json, const std::function<std::string(const dehancer::Subscription &)> &fnGetPk);
 
         [[nodiscard]] dehancer::json json() const;
 
@@ -48,7 +48,9 @@ namespace dehancer {
 
         [[nodiscard]] bool is_offline_exceeded() const;
 
-        [[nodiscard]] const std::string& get_signature() const;
+        [[nodiscard]] const std::string &get_signature() const;
+
+        void update_pk(const std::string&);
 
     private:
         std::string pk_;
