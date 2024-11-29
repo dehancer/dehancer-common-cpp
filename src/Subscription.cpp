@@ -11,9 +11,6 @@
 
 namespace dehancer {
 
-    std::string Subscription::authority_key;
-    std::string Subscription::authority_public_key;
-
     static inline auto make_digest(const Subscription& subscription) {
         return ed25519::Digest([subscription](auto &calculator){
             calculator.append(subscription.subscription_id);
@@ -26,14 +23,15 @@ namespace dehancer {
         });
     }
 
-    Subscription::Subscription()
+    Subscription::Subscription(const std::string& pk)
             : seats_count(0),
               activated_count(0),
               is_current(false),
               expires_at(0),
               last_checked(0),
               offline_days(0),
-              cancel_at_period_end(true) {
+              cancel_at_period_end(true),
+              pk_(pk) {
     }
 
     Subscription::Subscription(const dehancer::Subscription &s) {
@@ -54,9 +52,9 @@ namespace dehancer {
         return *this;
     }
 
-    expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
+    expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json, const std::string& pk) {
         try {
-            Subscription s;
+            Subscription s(pk);
 
             if(_json.count("title") > 0)
                 s.title = _json.at("title").get<std::string>();
@@ -81,6 +79,7 @@ namespace dehancer {
             if(_json.count("signature")>0) {
                 s.signature_ = _json.at("signature").get<std::string>();
             }
+
             return s;
         }
         catch (const std::exception &e) {
@@ -108,18 +107,18 @@ namespace dehancer {
         return data;
     }
 
-    Error Subscription::sign() {
+    Error Subscription::sign(const std::string& pvk) {
         OBF_BEGIN
 
         if (!signature_.empty())
             return Error(CommonError::PERMISSIONS_ERROR, "License has already been signed...");
 
-        if (authority_key.empty())
+        if (pvk.empty())
             return Error(CommonError::PERMISSIONS_ERROR, "License could not be signed on client ... ");
 
         auto digest = make_digest(*this);
 
-        auto pair = ed25519::keys::Pair::FromPrivateKey(authority_key);
+        auto pair = ed25519::keys::Pair::FromPrivateKey(pvk);
 
         auto signature = pair->sign(digest);
 
@@ -140,7 +139,7 @@ namespace dehancer {
         return base64;
     }
 
-    expected <Subscription, Error> Subscription::Decode(const std::string &base64_in) {
+    expected <Subscription, Error> Subscription::Decode(const std::string &base64_in, const std::string& pk) {
 
         try {
 
@@ -158,7 +157,7 @@ namespace dehancer {
 
             dehancer::json json_data = json::parse(buffer);
 
-            return Subscription::from_json(json_data);
+            return Subscription::from_json(json_data, pk);
 
         }
         catch (std::exception &e) {
@@ -174,7 +173,7 @@ namespace dehancer {
 
             auto digest = make_digest(*this);
 
-            auto pk =  ed25519::keys::Public::Decode(authority_public_key);
+            auto pk =  ed25519::keys::Public::Decode(pk_);
 
             if (!pk) return false;
 
