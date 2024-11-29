@@ -42,9 +42,7 @@ TEST(License, LicenseTest) {
     std::cout << "Subscription encode: \n" << encoded << " : " << encoded.size() << std::endl;
     std::cout << "Subscription encode line: \n" <<  encoded_line << " : " << encoded_line.size() << std::endl;
 
-    auto subs2 = dehancer::Subscription::Decode("  "+encoded_line+" ", [&pr](auto s)  {
-        return pr->get_public_key().encode();
-    });
+    auto subs2 = dehancer::Subscription::Decode("  "+encoded_line+" ");
 
     EXPECT_TRUE(subs2);
 
@@ -55,6 +53,8 @@ TEST(License, LicenseTest) {
 
     std::cout << "Subscription2["<<subs2->is_valid()<<"]: " << subs2->json().dump() << std::endl;
 
+    subs2->update_pk(pr->get_public_key().encode());
+    
     EXPECT_TRUE(subs2->is_valid());
 
     subs2->is_current = !subs2->is_current;

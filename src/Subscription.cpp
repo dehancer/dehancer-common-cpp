@@ -11,8 +11,8 @@
 
 namespace dehancer {
 
-    static inline auto make_digest(const Subscription& subscription) {
-        return ed25519::Digest([subscription](auto &calculator){
+    static inline auto make_digest(const Subscription &subscription) {
+        return ed25519::Digest([subscription](auto &calculator) {
             calculator.append(subscription.subscription_id);
             calculator.append(static_cast<uint16_t>(subscription.seats_count));
             calculator.append(static_cast<uint16_t>(subscription.activated_count));
@@ -51,42 +51,37 @@ namespace dehancer {
         return *this;
     }
 
-    void Subscription::update_pk(const std::string& pk) {
+    void Subscription::update_pk(const std::string &pk) {
         pk_ = pk;
     }
 
-    expected <Subscription, Error> Subscription::from_json(const dehancer::json &_json
-                                                           , const std::function<std::string(const dehancer::Subscription&)>& fnGetPk) {
+    expected<Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
         try {
             Subscription s;
 
-            if(_json.count("title") > 0)
+            if (_json.count("title") > 0)
                 s.title = _json.at("title").get<std::string>();
-            if(_json.count("subscriptionId") > 0)
+            if (_json.count("subscriptionId") > 0)
                 s.subscription_id = _json.at("subscriptionId").get<std::string>();
-            if(_json.count("seatsCount") > 0)
+            if (_json.count("seatsCount") > 0)
                 s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
-            if(_json.count("activatedCount") > 0)
+            if (_json.count("activatedCount") > 0)
                 s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
-            if(_json.count("offlineDays") > 0)
+            if (_json.count("offlineDays") > 0)
                 s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
-            if(_json.count("expiresAt") > 0)
+            if (_json.count("expiresAt") > 0)
                 s.expires_at = _json.at("expiresAt").get<std::time_t>();
-            if(_json.count("isCurrent") > 0)
+            if (_json.count("isCurrent") > 0)
                 s.is_current = _json.at("isCurrent").get<bool>();
-            if(_json.count("cancelAtPeriodEnd") > 0)
+            if (_json.count("cancelAtPeriodEnd") > 0)
                 s.cancel_at_period_end = _json.at("cancelAtPeriodEnd").get<bool>();
 
-            if(_json.count("lastChecked") > 0)
+            if (_json.count("lastChecked") > 0)
                 s.last_checked = _json.at("lastChecked").get<std::time_t>();
 
-            if(_json.count("signature")>0) {
+            if (_json.count("signature") > 0) {
                 s.signature_ = _json.at("signature").get<std::string>();
             }
-
-            auto pk = fnGetPk(s);
-            s.update_pk(pk);
-
             return s;
         }
         catch (const std::exception &e) {
@@ -99,43 +94,43 @@ namespace dehancer {
 
     dehancer::json Subscription::json() const {
         dehancer::json data = {
-                {"title",          static_cast<std::string>(title)},
-                {"subscriptionId", static_cast<std::string>(subscription_id)},
-                {"seatsCount",     static_cast<uint16_t>(seats_count)},
-                {"activatedCount", static_cast<uint16_t>(activated_count)},
-                {"expiresAt",  static_cast<std::time_t>(expires_at)},
-                {"lastChecked",  static_cast<std::time_t>(last_checked)},
-                {"offlineDays",  static_cast<uint16_t>(offline_days)},
-                {"cancelAtPeriodEnd",  static_cast<bool>(cancel_at_period_end)},
-                {"isCurrent",      static_cast<bool>(is_current)},
-                {"signature",      static_cast<std::string>(signature_)}
+                {"title",             static_cast<std::string>(title)},
+                {"subscriptionId",    static_cast<std::string>(subscription_id)},
+                {"seatsCount",        static_cast<uint16_t>(seats_count)},
+                {"activatedCount",    static_cast<uint16_t>(activated_count)},
+                {"expiresAt",         static_cast<std::time_t>(expires_at)},
+                {"lastChecked",       static_cast<std::time_t>(last_checked)},
+                {"offlineDays",       static_cast<uint16_t>(offline_days)},
+                {"cancelAtPeriodEnd", static_cast<bool>(cancel_at_period_end)},
+                {"isCurrent",         static_cast<bool>(is_current)},
+                {"signature",         static_cast<std::string>(signature_)}
         };
 
         return data;
     }
 
-    Error Subscription::sign(const std::string& pvk) {
+    Error Subscription::sign(const std::string &pvk) {
         OBF_BEGIN
 
-        if (!signature_.empty())
-            return Error(CommonError::PERMISSIONS_ERROR, "License has already been signed...");
+            if (!signature_.empty())
+                return Error(CommonError::PERMISSIONS_ERROR, "License has already been signed...");
 
-        if (pvk.empty())
-            return Error(CommonError::PERMISSIONS_ERROR, "License could not be signed on client ... ");
+            if (pvk.empty())
+                return Error(CommonError::PERMISSIONS_ERROR, "License could not be signed on client ... ");
 
-        auto digest = make_digest(*this);
+            auto digest = make_digest(*this);
 
-        auto pair = ed25519::keys::Pair::FromPrivateKey(pvk);
+            auto pair = ed25519::keys::Pair::FromPrivateKey(pvk);
 
-        auto signature = pair->sign(digest);
+            auto signature = pair->sign(digest);
 
-        if (!signature) {
-            return Error(CommonError::SECURITY_ISSUE, "Subscription could not be signed...");
-        }
+            if (!signature) {
+                return Error(CommonError::SECURITY_ISSUE, "Subscription could not be signed...");
+            }
 
-        signature_ = signature->encode();
+            signature_ = signature->encode();
 
-        RETURN( Error(CommonError::OK));
+            RETURN(Error(CommonError::OK));
 
         OBF_END
     }
@@ -146,8 +141,7 @@ namespace dehancer {
         return base64;
     }
 
-    expected <Subscription, Error> Subscription::Decode(const std::string &base64_in
-            , const std::function<std::string(const dehancer::Subscription&)>& fnGetPk) {
+    expected<Subscription, Error> Subscription::Decode(const std::string &base64_in) {
 
         try {
 
@@ -165,7 +159,7 @@ namespace dehancer {
 
             dehancer::json json_data = json::parse(buffer);
 
-            return Subscription::from_json(json_data, fnGetPk);
+            return Subscription::from_json(json_data);
 
         }
         catch (std::exception &e) {
@@ -181,7 +175,7 @@ namespace dehancer {
 
             auto digest = make_digest(*this);
 
-            auto pk =  ed25519::keys::Public::Decode(pk_);
+            auto pk = ed25519::keys::Public::Decode(pk_);
 
             if (!pk) return false;
 
@@ -195,7 +189,7 @@ namespace dehancer {
     }
 
     bool Subscription::is_offline_exceeded() const {
-        if(offline_days == 0) {
+        if (offline_days == 0) {
             return false;
         }
 
@@ -204,8 +198,7 @@ namespace dehancer {
         return days_from_last_check > offline_days;
     }
 
-    const std::string& Subscription::get_signature() const {return signature_;}
-
+    const std::string &Subscription::get_signature() const { return signature_; }
 
 
 }

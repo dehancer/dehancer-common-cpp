@@ -7,8 +7,6 @@
 #include <string>
 #include <cinttypes>
 #include <chrono>
-#include <functional>
-#include <utility>
 #include "dehancer/Common.h"
 
 namespace dehancer {
@@ -34,13 +32,11 @@ namespace dehancer {
 
         Error sign(const std::string &pvk);
 
-        static expected<Subscription, Error>
-        Decode(const std::string &base64, const std::function<std::string(const dehancer::Subscription &)> &);
+        static expected<Subscription, Error> Decode(const std::string &base64);
 
         static std::string Encode(const Subscription &subscription, bool line_break_enabled = true);
 
-        static expected<Subscription, Error>
-        from_json(const json &json, const std::function<std::string(const dehancer::Subscription &)> &fnGetPk);
+        static expected<Subscription, Error> from_json(const json &json);
 
         [[nodiscard]] dehancer::json json() const;
 
@@ -50,7 +46,7 @@ namespace dehancer {
 
         [[nodiscard]] const std::string &get_signature() const;
 
-        void update_pk(const std::string&);
+        void update_pk(const std::string &);
 
     private:
         std::string pk_;
