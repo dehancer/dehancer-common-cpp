@@ -15,6 +15,7 @@
       "toolset": "ClangCL"
     },
 
+
     {
       "name": "ninja",
       "hidden": true,
@@ -62,7 +63,7 @@
 
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
-          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_TYPE}/dehancer"
+          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_SUBDIR}/dehancer"
         },
 
         "CMAKE_SHARED_LINKER_FLAGS": "/MANIFEST:NO",
@@ -109,7 +110,7 @@
 
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
-          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_TYPE}/dehancer"
+          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_SUBDIR}/dehancer"
         },
 
         "CMAKE_OSX_ARCHITECTURES": {
@@ -149,7 +150,7 @@
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
-          "value": "$env{HOME}/Develop/local/ios-$env{BUILD_TYPE}/dehancer"
+          "value": "$env{HOME}/Develop/local/ios-$env{BUILD_SUBDIR}/dehancer"
         },
 
         "PLATFORM": {
@@ -221,7 +222,7 @@
 
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
-          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_TYPE}/dehancer"
+          "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_SUBDIR}/dehancer"
         },
 
         "BUILD_SHARED_LIBS": {
@@ -239,7 +240,7 @@
       "hidden": true,
 
       "environment": {
-        "BUILD_TYPE": "debug"
+        "BUILD_SUBDIR": "debug$env{DEHANCER_INSTALL_SINGLETON_DIR}"
       },
 
       "cacheVariables": {
@@ -284,7 +285,7 @@
       "hidden": true,
 
       "environment": {
-        "BUILD_TYPE": "release"
+        "BUILD_DIR": "release$env{DEHANCER_INSTALL_SINGLETON_DIR}"
       },
 
       "cacheVariables": {
