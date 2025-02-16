@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 #include "ed25519.hpp"
 
-TEST(License, LicenseTest) {
+TEST(Subscription, SubscriptionTest) {
 
     auto pr = ed25519::keys::Pair::Random();
 
