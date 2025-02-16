@@ -63,8 +63,10 @@ TEST(License, LicenseTest) {
 
     EXPECT_TRUE(!subs2->is_valid());
 
-    auto lic3 = dehancer::Subscription(subs);
+    auto subs3 = dehancer::Subscription(subs);
 
-    EXPECT_TRUE(lic3.is_valid());
+    subs3.update_pk(pr->get_public_key().encode());
+
+    EXPECT_TRUE(subs3.is_valid());
 
 }
