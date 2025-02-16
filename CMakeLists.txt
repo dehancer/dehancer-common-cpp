@@ -138,13 +138,14 @@ else()
             BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
     )
 
-    FetchContent_GetProperties(sqlite3)
-
-    if(NOT sqlite3_POPULATED)
-        FetchContent_Populate(sqlite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
-        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
-    endif()
+    FetchContent_MakeAvailable(sqlite3)
+#    FetchContent_GetProperties(sqlite3)
+#
+#    if(NOT sqlite3_POPULATED)
+#        FetchContent_Populate(sqlite3)
+#        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
+#        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
+#    endif()
 
     include_directories(
             ${sqlite3_SOURCE_DIR}
@@ -183,12 +184,13 @@ if (BUILD_TESTING)
                 SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
         )
 
-        FetchContent_GetProperties(googletest)
-
-        if(NOT googletest_POPULATED)
-            FetchContent_Populate(googletest)
-            add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
-        endif()
+        FetchContent_MakeAvailable(googletest)
+#        FetchContent_GetProperties(googletest)
+#
+#        if(NOT googletest_POPULATED)
+#            FetchContent_Populate(googletest)
+#            add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
+#        endif()
 
     endif ()
 
