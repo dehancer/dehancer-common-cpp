@@ -80,7 +80,6 @@ endif()
 # Generators
 #
 file (WRITE "${VERSION_FILE}" "${PROJECT_NAME} ${PROJECT_VERSION}")
-configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/version.h)
 
 #
 # Packages
