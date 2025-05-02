@@ -95,17 +95,16 @@ if(NOT PKG_CONFIG_FOUND)
 endif()
 
 #
-# Programs
-#
-find_program(CCACHE_FOUND ccache)
-
-#
 # CCache settings
 #
-if(CCACHE_FOUND)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
-endif(CCACHE_FOUND)
+find_program(CCACHE_FOUND ccache)
+if (CCACHE_FOUND)
+    message("Ccache found: ${CCACHE_FOUND}")
+    set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+else()
+    message("Ccache NOT found")
+endif (CCACHE_FOUND)
 
 if(PRINT_DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
