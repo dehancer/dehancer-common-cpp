@@ -143,7 +143,7 @@ namespace dehancer {
         * @tparam T
         */
     template<typename T>
-    class SharedSingleton {
+    class Singleton {
     public:
         static T &Instance() {
             // static T instance;
@@ -154,64 +154,63 @@ namespace dehancer {
             return *static_cast<T *>(instance);
         }
 
-        SharedSingleton(SharedSingleton const &) = delete;
+        Singleton(Singleton const &) = delete;
 
-        SharedSingleton &operator=(SharedSingleton const &) = delete;
+        Singleton &operator=(Singleton const &) = delete;
 
     protected:
-        SharedSingleton() = default;
-        ~SharedSingleton() = default;
+        Singleton() = default;
+        ~Singleton() = default;
 
         static void *get_static_instance() {
             static T t;
-            return reinterpret_cast<void *>(&reinterpret_cast<char &>(t));
+            return &reinterpret_cast<char &>(t);
         }
     };
 
-    template<typename T>
-    class ControlledSingleton {
-    public:
-        using InstanceType = T;
+    // template<typename T>
+    // class ControlledSingleton {
+    // public:
+    //     using InstanceType = T;
+    //
+    //     static InstanceType &Instance() {
+    //         static InstanceType *instance = nullptr;
+    //         static std::once_flag flag;
+    //         std::call_once(flag, [&] {
+    //             if (!instance) {
+    //                 instance = new InstanceType();
+    //             }
+    //         });
+    //         return *instance;
+    //     }
+    //
+    //     static
+    //     void CreateInstance() {
+    //         InstanceType &p = Instance();
+    //     }
+    //
+    //     static
+    //     void DestroyInstance() {
+    //         InstanceType &p = Instance();
+    //         delete &p;
+    //     }
+    //
+    // protected:
+    //     ControlledSingleton() = default;
+    //
+    //     ~ControlledSingleton() = default;
+    //
+    // public:
+    //     ControlledSingleton(ControlledSingleton const &) = delete;
+    //
+    //     ControlledSingleton &operator=(ControlledSingleton const &) = delete;
+    // };
 
-        static InstanceType &Instance() {
-            static InstanceType *instance = nullptr;
-            static std::once_flag flag;
-            std::call_once(flag, [&] {
-                if (!instance) {
-                    instance = new InstanceType();
-                }
-            });
-            return *instance;
-        }
-
-        static
-        void CreateInstance() {
-            InstanceType &p = Instance();
-        }
-
-        static
-        void DestroyInstance() {
-            InstanceType &p = Instance();
-            delete &p;
-        }
-
-    protected:
-        ControlledSingleton() = default;
-
-        ~ControlledSingleton() = default;
-
-    public:
-        ControlledSingleton(ControlledSingleton const &) = delete;
-
-        ControlledSingleton &operator=(ControlledSingleton const &) = delete;
-    };
-
-#if defined(DEHANCER_CONTROLLED_SINGLETON)
-    template<class T>using Singleton=ControlledSingleton<T>;
-#else
-    template<class T>
-    using Singleton = SharedSingleton<T>;
-#endif
+// #if defined(DEHANCER_CONTROLLED_SINGLETON)
+    // template<class T>using Singleton=ControlledSingleton<T>;
+// #else
+    // template<class T> using Singleton = SharedSingleton<T>;
+// #endif
 
     /***
     *
