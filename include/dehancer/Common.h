@@ -146,8 +146,6 @@ namespace dehancer {
     class Singleton {
     public:
         static T &Instance() {
-            // static T instance;
-            // return instance;
             static void *instance = nullptr;
             if (instance == nullptr)
                 get_shared_instance(typeid(T), &get_static_instance, instance);
