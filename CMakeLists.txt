@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.22)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.17.0)
+project(${PROJECT_LIB} VERSION 0.18.0)
 set(CMAKE_CXX_STANDARD 17)
 
 option(DEHANCER_DEBUG OFF)
@@ -95,17 +95,16 @@ if(NOT PKG_CONFIG_FOUND)
 endif()
 
 #
-# Programs
-#
-find_program(CCACHE_FOUND ccache)
-
-#
 # CCache settings
 #
-if(CCACHE_FOUND)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-    set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
-endif(CCACHE_FOUND)
+find_program(CCACHE_FOUND ccache)
+if (CCACHE_FOUND)
+    message("Ccache found: ${CCACHE_FOUND}")
+    set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+else()
+    message("Ccache NOT found")
+endif (CCACHE_FOUND)
 
 if(PRINT_DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
@@ -138,14 +137,15 @@ else()
             BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
     )
 
-#    FetchContent_MakeAvailable(sqlite3)
-    FetchContent_GetProperties(sqlite3)
+    FetchContent_MakeAvailable(sqlite3)
+    set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
+#    FetchContent_GetProperties(sqlite3)
 
-    if(NOT sqlite3_POPULATED)
-        FetchContent_Populate(sqlite3)
-        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
-        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
-    endif()
+#    if(NOT sqlite3_POPULATED)
+#        FetchContent_Populate(sqlite3)
+#        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
+#        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
+#    endif()
 
     include_directories(
             ${sqlite3_SOURCE_DIR}
@@ -246,7 +246,10 @@ endif()
 #
 if (NOT CMAKE_INSTALL_LIBDIR)
     set(CMAKE_INSTALL_LIBDIR  lib)
+elseif (LINUX)
+    set(CMAKE_INSTALL_LIBDIR  lib)
 endif ()
+
 if (NOT CMAKE_INSTALL_INCLUDEDIR)
     set(CMAKE_INSTALL_INCLUDEDIR  include)
 endif ()

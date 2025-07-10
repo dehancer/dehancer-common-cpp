@@ -92,6 +92,8 @@ configure_package_config_file(
 
 if (NOT CMAKE_INSTALL_LIBDIR)
     set(CMAKE_INSTALL_LIBDIR lib)
+elseif (LINUX)
+    set(CMAKE_INSTALL_LIBDIR  lib)
 endif ()
 
 if (NOT CMAKE_INSTALL_INCLUDEDIR)
@@ -124,14 +126,14 @@ install(DIRECTORY
         PATTERN *.hpp
         )
 
-install(DIRECTORY
-        ${EXTERNAL_INSTALL_LOCATION}/lib
-        DESTINATION ${CMAKE_INSTALL_PREFIX}
-        FILES_MATCHING
-#        PATTERN *sqlite3*.*
-        PATTERN *gtest* EXCLUDE
-        PATTERN *gmock* EXCLUDE
-        )
+#install(DIRECTORY
+#        ${EXTERNAL_INSTALL_LOCATION}/lib
+#        DESTINATION ${CMAKE_INSTALL_PREFIX}
+#        FILES_MATCHING
+#        PATTERN *sqlite3-build/*sqlite3*.*
+#        PATTERN *gtest* EXCLUDE
+#        PATTERN *gmock* EXCLUDE
+#        )
 
 install(DIRECTORY
         ${EXTERNAL_INSTALL_LOCATION}/cmake
