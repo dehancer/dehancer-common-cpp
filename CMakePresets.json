@@ -285,7 +285,7 @@
       "hidden": true,
 
       "environment": {
-        "BUILD_DIR": "release$env{DEHANCER_INSTALL_SINGLETON_DIR}"
+        "BUILD_SUBDIR": "release$env{DEHANCER_INSTALL_SINGLETON_DIR}"
       },
 
       "cacheVariables": {
