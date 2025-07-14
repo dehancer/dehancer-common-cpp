@@ -105,7 +105,7 @@ namespace dehancer {
                 {"offlineDays",       static_cast<uint16_t>(offline_days)},
                 {"cancelAtPeriodEnd", static_cast<bool>(cancel_at_period_end)},
                 {"isCurrent",         static_cast<bool>(is_current)},
-                {"email",             email)
+                {"email",             email},
                 {"signature",         signature_}
         };
 
