@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 #include <cstdarg>
+#include <typeindex>
 
 namespace dehancer {
     namespace singleton {
@@ -16,14 +17,14 @@ namespace dehancer {
     }
 
     // Global mutex
-    static std::mutex &get_single_to_mutex() {
+    static inline std::mutex &get_single_to_mutex() {
         // s_singleTonMutex is not 100% safety for multithread
         // but if there's any singleton object used before thread, it's safe enough.
         static std::mutex s_singleTonMutex;
         return s_singleTonMutex;
     }
 
-    static singleton::SingleTonHolder *get_single_ton_type(const std::type_index &typeIndex) {
+    static inline singleton::SingleTonHolder *get_single_ton_type(const std::type_index &typeIndex) {
         static std::unordered_map<std::type_index, singleton::SingleTonHolder> s_singleObjects;
 
         // Check the old value
