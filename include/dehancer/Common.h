@@ -20,7 +20,7 @@
 #define INC_SINGLETON_API_H_
 
 #if defined(_WIN32) || defined(__CYGWIN__)
-#  if defined(singleton_EXPORTS) // add by CMake
+#  if defined(DEHANCER_SINGLETON_EXPORTS) // add by CMake
 #    ifdef __GNUC__
 #      define  SINGLETON_API __attribute__(dllexport)
 #    else
