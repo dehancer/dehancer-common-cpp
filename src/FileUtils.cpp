@@ -46,7 +46,7 @@ namespace dehancer::platform {
     }
     
     dehancer::Error create_directories(const std::string& dir) {
-      if (file::mkdir_p(dir.c_str(), 0700) != 0) {
+      if (file::mkdir_p(dir.c_str(), 0755) != 0) {
         return Error(CommonError::PERMISSIONS_ERROR, error_string("Directory %s could not be found or user has no certain permissions", dir.c_str()));
       }
       return Error(CommonError::OK);
