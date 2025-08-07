@@ -59,39 +59,22 @@ namespace dehancer {
     }
 
     expected<Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
-        try {
-            Subscription s;
+        Subscription s;
 
-            if (_json.count("title") > 0)
-                s.title = _json.at("title").get<std::string>();
-            if (_json.count("subscriptionId") > 0)
-                s.subscription_id = _json.at("subscriptionId").get<std::string>();
-            if (_json.count("seatsCount") > 0)
-                s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
-            if (_json.count("activatedCount") > 0)
-                s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
-            if (_json.count("offlineDays") > 0)
-                s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
-            if (_json.count("expiresAt") > 0)
-                s.expires_at = _json.at("expiresAt").get<std::time_t>();
-            if (_json.count("isCurrent") > 0)
-                s.is_current = _json.at("isCurrent").get<bool>();
-            if (_json.count("cancelAtPeriodEnd") > 0)
-                s.cancel_at_period_end = _json.at("cancelAtPeriodEnd").get<bool>();
-            if (_json.count("lastChecked") > 0)
-                s.last_checked = _json.at("lastChecked").get<std::time_t>();
-            if (_json.count("signature") > 0)
-                s.signature_ = _json.at("signature").get<std::string>();
-            if (_json.count("email") > 0)
-                s.email = _json.at("email").get<std::string>();
-            return s;
-        }
-        catch (const std::exception &e) {
-            return make_unexpected(Error(CommonError::PARSE_ERROR, e.what()));
-        }
-        catch (...) {
-            return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
-        }
+        s.title = _json["title"].get<std::string>();
+        s.subscription_id = _json["subscriptionId"].get<std::string>();
+        s.seats_count = _json["seatsCount"].get<std::uint16_t>();
+        s.activated_count = _json["activatedCount"].get<std::uint16_t>();
+        s.offline_days = _json["offlineDays"].get<std::uint16_t>();
+        s.expires_at = _json["expiresAt"].get<std::time_t>();
+        s.is_current = _json["isCurrent"].get<bool>();
+        s.cancel_at_period_end = _json["cancelAtPeriodEnd"].get<bool>();
+        s.last_checked = _json["lastChecked"].get<std::time_t>();
+
+        // FIXME what is signature?
+        // s.signature_ = _json["signature"].get<std::string>();
+
+        return s;
     }
 
     dehancer::json Subscription::json() const {
