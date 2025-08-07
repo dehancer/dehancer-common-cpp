@@ -71,9 +71,17 @@ namespace dehancer {
         s.cancel_at_period_end = _json["cancelAtPeriodEnd"].get<bool>();
 
         // fields below are not part of the server side response, but stored in the container
-        s.last_checked = _json["lastChecked"].get<std::time_t>();
-        s.email = _json["email"].get<std::string>();
-        s.signature_ = _json["signature"].get<std::string>();
+        if (_json.contains("lastChecked")) {
+            s.last_checked = _json["lastChecked"].get<std::time_t>();
+        }
+
+        if (_json.contains("email")) {
+            s.email = _json["email"].get<std::string>();
+        }
+
+        if (_json.contains("signature")) {
+            s.signature_ = _json["signature"].get<std::string>();
+        }
 
         return s;
     }
