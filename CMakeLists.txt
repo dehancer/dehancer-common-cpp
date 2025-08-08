@@ -8,11 +8,12 @@ project(${PROJECT_LIB} VERSION 0.18.0)
 set(CMAKE_CXX_STANDARD 17)
 
 option(DEHANCER_DEBUG OFF)
+option(DEHANCER_PIN_DEPENDENCIES OFF)
 
 set(GIT_TAG_ed25519cpp "develop")
 set(GIT_TAG_base64cpp "develop")
 
-if(NOT DEHANCER_DEBUG)
+if(DEHANCER_PIN_DEPENDENCIES)
     set(GIT_TAG_ed25519cpp "1.4.0")
     set(GIT_TAG_base64cpp "1.2.0")
 endif ()
