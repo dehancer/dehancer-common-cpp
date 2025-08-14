@@ -14,7 +14,7 @@ set(GIT_TAG_ed25519cpp "develop")
 set(GIT_TAG_base64cpp "develop")
 
 if(DEHANCER_PIN_DEPENDENCIES)
-    set(GIT_TAG_ed25519cpp "1.4.0")
+    set(GIT_TAG_ed25519cpp "1.4.1")
     set(GIT_TAG_base64cpp "1.2.0")
 endif ()
 
