@@ -20,6 +20,7 @@ namespace dehancer {
             calculator.append(static_cast<uint16_t>(subscription.offline_days));
             calculator.append(static_cast<bool>(subscription.is_current));
             calculator.append(static_cast<bool>(subscription.cancel_at_period_end));
+            calculator.append(subscription.email);
         });
     }
 
@@ -49,6 +50,7 @@ namespace dehancer {
         cancel_at_period_end = s.cancel_at_period_end;
         offline_days = s.offline_days;
         pk_ = s.pk_;
+        email = s.email;
         return *this;
     }
 
@@ -57,46 +59,37 @@ namespace dehancer {
     }
 
     expected<Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
-        try {
-            Subscription s;
+        Subscription s;
 
-            if (_json.count("title") > 0)
-                s.title = _json.at("title").get<std::string>();
-            if (_json.count("subscriptionId") > 0)
-                s.subscription_id = _json.at("subscriptionId").get<std::string>();
-            if (_json.count("seatsCount") > 0)
-                s.seats_count = _json.at("seatsCount").get<std::uint16_t>();
-            if (_json.count("activatedCount") > 0)
-                s.activated_count = _json.at("activatedCount").get<std::uint16_t>();
-            if (_json.count("offlineDays") > 0)
-                s.offline_days = _json.at("offlineDays").get<std::uint16_t>();
-            if (_json.count("expiresAt") > 0)
-                s.expires_at = _json.at("expiresAt").get<std::time_t>();
-            if (_json.count("isCurrent") > 0)
-                s.is_current = _json.at("isCurrent").get<bool>();
-            if (_json.count("cancelAtPeriodEnd") > 0)
-                s.cancel_at_period_end = _json.at("cancelAtPeriodEnd").get<bool>();
+        s.title = _json["title"].get<std::string>();
+        s.subscription_id = _json["subscriptionId"].get<std::string>();
+        s.seats_count = _json["seatsCount"].get<std::uint16_t>();
+        s.activated_count = _json["activatedCount"].get<std::uint16_t>();
+        s.offline_days = _json["offlineDays"].get<std::uint16_t>();
+        s.expires_at = _json["expiresAt"].get<std::time_t>();
+        s.is_current = _json["isCurrent"].get<bool>();
+        s.cancel_at_period_end = _json["cancelAtPeriodEnd"].get<bool>();
 
-            if (_json.count("lastChecked") > 0)
-                s.last_checked = _json.at("lastChecked").get<std::time_t>();
+        // fields below are not part of the server side response, but stored in the container
+        if (_json.contains("lastChecked")) {
+            s.last_checked = _json["lastChecked"].get<std::time_t>();
+        }
 
-            if (_json.count("signature") > 0) {
-                s.signature_ = _json.at("signature").get<std::string>();
-            }
-            return s;
+        if (_json.contains("email")) {
+            s.email = _json["email"].get<std::string>();
         }
-        catch (const std::exception &e) {
-            return make_unexpected(Error(CommonError::PARSE_ERROR, e.what()));
+
+        if (_json.contains("signature")) {
+            s.signature_ = _json["signature"].get<std::string>();
         }
-        catch (...) {
-            return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
-        }
+
+        return s;
     }
 
     dehancer::json Subscription::json() const {
         dehancer::json data = {
-                {"title",             static_cast<std::string>(title)},
-                {"subscriptionId",    static_cast<std::string>(subscription_id)},
+                {"title",             title},
+                {"subscriptionId",    subscription_id},
                 {"seatsCount",        static_cast<uint16_t>(seats_count)},
                 {"activatedCount",    static_cast<uint16_t>(activated_count)},
                 {"expiresAt",         static_cast<std::time_t>(expires_at)},
@@ -104,7 +97,8 @@ namespace dehancer {
                 {"offlineDays",       static_cast<uint16_t>(offline_days)},
                 {"cancelAtPeriodEnd", static_cast<bool>(cancel_at_period_end)},
                 {"isCurrent",         static_cast<bool>(is_current)},
-                {"signature",         static_cast<std::string>(signature_)}
+                {"email",             email},
+                {"signature",         signature_}
         };
 
         return data;
