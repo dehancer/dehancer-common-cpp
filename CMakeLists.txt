@@ -11,11 +11,15 @@ option(DEHANCER_DEBUG OFF)
 option(DEHANCER_PIN_DEPENDENCIES OFF)
 
 set(GIT_TAG_ed25519cpp "develop")
-set(GIT_TAG_base64cpp "develop")
+
+# v7 always tracks v7
+set(GIT_TAG_base64cpp "v7")
+# set(GIT_TAG_base64cpp "develop")
 
 if(DEHANCER_PIN_DEPENDENCIES)
     set(GIT_TAG_ed25519cpp "1.4.1")
-    set(GIT_TAG_base64cpp "1.2.0")
+    # v7 always tracks v7
+    # set(GIT_TAG_base64cpp "1.2.0")
 endif ()
 
 #
