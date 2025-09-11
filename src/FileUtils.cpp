@@ -2,6 +2,16 @@
 // Created by денис on 26.06.2021.
 //
 
+#if WIN32
+
+#include "dehancer/windows/utf8/utf8.h"
+#include <windows.h>
+#include <intrin.h>
+#include <iphlpapi.h>
+#include <fileapi.h>
+
+#endif
+
 #include "dehancer/FileUtils.h"
 
 #if WIN32
@@ -9,7 +19,21 @@
 #endif
 
 namespace dehancer::platform {
-    
+#if WIN32
+
+  using ofstream = utf8::ofstream;
+  using ifstream = utf8::ifstream;
+  using fstream  = utf8::fstream;
+
+#else
+
+  using ofstream = std::ofstream;
+  using ifstream = std::ifstream;
+  using fstream  = std::fstream;
+
+#endif
+
+
     #if WIN32
     
     Error access(const std::string& path, int mode) {

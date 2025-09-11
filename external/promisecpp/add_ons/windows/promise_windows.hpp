@@ -45,7 +45,10 @@
 #include "promise-cpp/promise.hpp"
 #include <chrono>
 #include <map>
+#define NOMINMAX
 #include <windows.h>
+#undef small
+
 
 namespace promise {
 
