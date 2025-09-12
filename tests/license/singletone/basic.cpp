@@ -35,8 +35,8 @@ TEST(Semaphore, CountTest) {
   for (auto i = 0; i < count; ++i) {
     auto th = std::thread([count,&semaphore](){
 
-        for (auto j = 0; j < count; ++j) {
-          std::cout << "signal["<<std::this_thread::get_id()<<"]: " << j << std::endl;
+        for (int i = 0; i < count; ++i) {
+          std::cout << "signal["<<std::this_thread::get_id()<<"]: " << i << std::endl;
           std::this_thread::sleep_for(std::chrono::milliseconds(300));
           semaphore.signal();
         }

@@ -279,7 +279,9 @@ namespace nonstd {
 
 #if nsel_CONFIG_NO_EXCEPTIONS
 # if nsel_CONFIG_NO_EXCEPTIONS_SEH
+#define NOMINMAX
 #  include <windows.h>   // for ExceptionCodes
+#undef small
 # else
 // already included: <cassert>
 # endif

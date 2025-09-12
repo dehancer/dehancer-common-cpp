@@ -29,6 +29,8 @@ option(VCPKG_TARGET_TRIPLET "")
 option(USE_UNICODE OFF)
 option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
+file(TO_CMAKE_PATH "${CMAKE_INSTALL_PREFIX}" CMAKE_INSTALL_PREFIX)
+
 
 #
 # Global settings
@@ -37,6 +39,8 @@ set(VERSION_FILE "version.txt")
 
 if (WIN32)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
+
+    add_definitions(-DDEHANCER_SINGLETON_EXPORTS)
 
     if (DEHANCER_DEBUG)
         string(REPLACE "/O2" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
