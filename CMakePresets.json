@@ -66,6 +66,10 @@
           "value": "$env{HOME}/Develop/local/${hostSystemName}/$env{BUILD_SUBDIR}/dehancer"
         },
 
+        "DEHANCER_SINGLETON_EXPORTS": {
+          "type": "BOOL",
+          "value": "ON"
+        },
         "CMAKE_SHARED_LINKER_FLAGS": "/MANIFEST:NO",
         "CMAKE_EXE_LINKER_FLAGS": "/MANIFEST:NO",
         "CMAKE_C_COMPILER": "$env{MSVC_BIN_DIR}/clang-cl.exe",

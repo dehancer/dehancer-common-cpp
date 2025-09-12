@@ -8,6 +8,7 @@
 #include <vector>
 #include <fstream>
 
+
 namespace utf8 {
 
 /// \addtogroup basecvt
@@ -539,6 +540,21 @@ namespace utf8 {
 #include "dehancer/windows/utf8/winutf8.h"
 #include "dehancer/windows/utf8/ini.h"
 
+namespace dehancer::platform {
+#if WIN32
+
+  using ofstream = utf8::ofstream;
+  using ifstream = utf8::ifstream;
+  using fstream  = utf8::fstream;
+
+#else
+
+  using ofstream = std::ofstream;
+  using ifstream = std::ifstream;
+  using fstream  = std::fstream;
+
+#endif
+}
 
 //#pragma comment (lib, "utf8")
 

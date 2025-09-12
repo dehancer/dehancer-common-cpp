@@ -19,19 +19,19 @@
 #endif
 
 namespace dehancer::platform {
-#if WIN32
+// #if WIN32
 
-  using ofstream = utf8::ofstream;
-  using ifstream = utf8::ifstream;
-  using fstream  = utf8::fstream;
+  // using ofstream = utf8::ofstream;
+  // using ifstream = utf8::ifstream;
+  // using fstream  = utf8::fstream;
 
-#else
+// #else
 
-  using ofstream = std::ofstream;
-  using ifstream = std::ifstream;
-  using fstream  = std::fstream;
+  // using ofstream = std::ofstream;
+  // using ifstream = std::ifstream;
+  // using fstream  = std::fstream;
 
-#endif
+// #endif
 
 
     #if WIN32
