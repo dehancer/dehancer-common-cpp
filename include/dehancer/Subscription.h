@@ -21,6 +21,7 @@ namespace dehancer {
         std::time_t last_checked{};
         std::uint16_t offline_days;
         bool cancel_at_period_end;
+        std::string email;
 
         bool is_current{};
 

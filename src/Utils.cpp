@@ -231,6 +231,12 @@ namespace dehancer {
                         if (mkdir(tmp, mode) < 0)
                         #endif
                         {
+                            // For some shocking reason, this piece of code from 2005 stopped properly creating directories.
+                            // This error is reproducible in 100% of cases on macOS, despite the fact that the directory is created.
+                            if (errno == EEXIST) {
+                                return 0;
+                            }
+
                             return -1;
                         }
                     } else if (!S_ISDIR(sb.st_mode))
