@@ -32,8 +32,8 @@
 
 namespace dehancer::platform {
     
-    dehancer::Error access(const std::string& path, int mode);
-    dehancer::Error create_directories(const std::string& dir);
+    Error access(const std::string& path, int mode);
+    Error create_directories(const std::string& dir);
     FILE* fopen(const std::string& path, const std::string& mode);
 
 }
