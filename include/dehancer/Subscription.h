@@ -19,8 +19,9 @@ namespace dehancer {
         std::uint16_t activated_count{};
         std::time_t expires_at{};
         std::time_t last_checked{};
-        std::uint16_t offline_days;
-        bool cancel_at_period_end;
+        std::uint16_t offline_days{};
+        bool cancel_at_period_end{};
+        bool activate_by_machine_uid{};
         std::string email;
 
         bool is_current{};

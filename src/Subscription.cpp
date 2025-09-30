@@ -31,7 +31,8 @@ namespace dehancer {
               expires_at(0),
               last_checked(0),
               offline_days(0),
-              cancel_at_period_end(true) {
+              cancel_at_period_end(true),
+              activate_by_machine_uid(true) {
     }
 
     Subscription::Subscription(const dehancer::Subscription &s) {
@@ -69,6 +70,11 @@ namespace dehancer {
         s.expires_at = _json["expiresAt"].get<std::time_t>();
         s.is_current = _json["isCurrent"].get<bool>();
         s.cancel_at_period_end = _json["cancelAtPeriodEnd"].get<bool>();
+
+        // optional fields
+        if (_json.contains("activateByMachineUid")) {
+            s.activate_by_machine_uid = _json["activateByMachineUid"].get<bool>();
+        }
 
         // fields below are not part of the server side response, but stored in the container
         if (_json.contains("lastChecked")) {
