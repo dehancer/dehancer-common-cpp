@@ -102,6 +102,7 @@ namespace dehancer {
                 {"lastChecked",       static_cast<std::time_t>(last_checked)},
                 {"offlineDays",       static_cast<uint16_t>(offline_days)},
                 {"cancelAtPeriodEnd", static_cast<bool>(cancel_at_period_end)},
+                {"activateByMachineUid", static_cast<bool>(activate_by_machine_uid)},
                 {"isCurrent",         static_cast<bool>(is_current)},
                 {"email",             email},
                 {"signature",         signature_}
