@@ -49,6 +49,7 @@ namespace dehancer {
         is_current = s.is_current;
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
+        activate_by_machine_uid = s.activate_by_machine_uid;
         offline_days = s.offline_days;
         pk_ = s.pk_;
         email = s.email;
