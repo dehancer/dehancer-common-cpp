@@ -157,6 +157,7 @@ install(DIRECTORY
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cereal
         FILES_MATCHING
         PATTERN *.hpp
+        PATTERN *.h
 )
 
 install(FILES   ${project_config} ${version_config} DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
