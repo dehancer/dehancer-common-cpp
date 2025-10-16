@@ -16,13 +16,13 @@ FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/dehancer/obfy/*.h
         )
 
-FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/*.hpp
-        )
+#FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
+#        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/*.hpp
+#        )
 
-FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/promise/*.hpp
-        )
+#FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
+#        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/promise/*.hpp
+#        )
 
 FILE(GLOB PUBLIC_PROMISE_TASK_INCLUDE_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/simple_task/*.hpp
@@ -104,8 +104,8 @@ install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/
 install(FILES   ${PUBLIC_WINDOWS_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/windows/utf8)
 install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/nlohmann)
 install(FILES   ${PUBLIC_OBFY_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/obfy)
-install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp)
-install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/promise)
+#install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp)
+#install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/promise)
 install(FILES   ${PUBLIC_PROMISE_TASK_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/simple_task)
 
 install(DIRECTORY
@@ -119,6 +119,16 @@ install(DIRECTORY
         )
 
 install(DIRECTORY
+        ${EXTERNAL_INSTALL_LOCATION}/include
+        DESTINATION ${CMAKE_INSTALL_PREFIX}
+        FILES_MATCHING
+        PATTERN *.h
+        PATTERN *.hpp
+        PATTERN gtest* EXCLUDE
+        PATTERN gmock* EXCLUDE
+)
+
+install(DIRECTORY
         ${EXTERNAL_LOCATION}/sqlite
         DESTINATION ${CMAKE_INSTALL_PREFIX}/include
         FILES_MATCHING
@@ -126,21 +136,28 @@ install(DIRECTORY
         PATTERN *.hpp
         )
 
-#install(DIRECTORY
-#        ${EXTERNAL_INSTALL_LOCATION}/lib
-#        DESTINATION ${CMAKE_INSTALL_PREFIX}
-#        FILES_MATCHING
-#        PATTERN *sqlite3-build/*sqlite3*.*
-#        PATTERN *gtest* EXCLUDE
-#        PATTERN *gmock* EXCLUDE
-#        )
+install(DIRECTORY
+        ${EXTERNAL_INSTALL_LOCATION}/lib
+        DESTINATION ${CMAKE_INSTALL_PREFIX}
+        FILES_MATCHING
+        PATTERN *sqlite3-build/*sqlite3*.*
+        PATTERN *gtest* EXCLUDE
+        PATTERN *gmock* EXCLUDE
+        )
 
 install(DIRECTORY
-        ${EXTERNAL_INSTALL_LOCATION}/cmake
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ${CMAKE_SOURCE_DIR}/external/promisecpp/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp
         FILES_MATCHING
-        PATTERN SQLite3*
+        PATTERN *.hpp
         )
+
+install(DIRECTORY
+        ${CMAKE_SOURCE_DIR}/external/cereal/include/cereal/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/cereal
+        FILES_MATCHING
+        PATTERN *.hpp
+)
 
 install(FILES   ${project_config} ${version_config} DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
 install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
