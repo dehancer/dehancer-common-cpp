@@ -160,6 +160,21 @@ install(DIRECTORY
         PATTERN *.h
 )
 
+install(DIRECTORY
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rpp/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rpp
+        FILES_MATCHING
+        PATTERN *.hpp
+        PATTERN *.h
+)
+install(DIRECTORY
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rppqt/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rppqt
+        FILES_MATCHING
+        PATTERN *.hpp
+        PATTERN *.h
+)
+
 install(FILES   ${project_config} ${version_config} DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
 install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
 
