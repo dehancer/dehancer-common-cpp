@@ -161,15 +161,29 @@ install(DIRECTORY
 )
 
 install(DIRECTORY
-        ${CMAKE_SOURCE_DIR}/external/rpp/include/rpp/
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rpp/rpp/
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rpp
         FILES_MATCHING
         PATTERN *.hpp
         PATTERN *.h
 )
 install(DIRECTORY
-        ${CMAKE_SOURCE_DIR}/external/rpp/include/rppqt/
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rppqt/rppqt/
         DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rppqt
+        FILES_MATCHING
+        PATTERN *.hpp
+        PATTERN *.h
+)
+install(DIRECTORY
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rppgrpc/rppgrpc/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rppgrpc
+        FILES_MATCHING
+        PATTERN *.hpp
+        PATTERN *.h
+)
+install(DIRECTORY
+        ${CMAKE_SOURCE_DIR}/external/rpp/include/rppasio/rppasio/
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/rppasio
         FILES_MATCHING
         PATTERN *.hpp
         PATTERN *.h
