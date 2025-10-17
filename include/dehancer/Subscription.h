@@ -22,6 +22,7 @@ namespace dehancer {
         std::uint16_t offline_days{};
         bool cancel_at_period_end{};
         bool activate_by_machine_uid{};
+        bool is_video_allowed{};
         std::string email;
 
         bool is_current{};

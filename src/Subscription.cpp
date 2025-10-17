@@ -32,7 +32,8 @@ namespace dehancer {
               last_checked(0),
               offline_days(0),
               cancel_at_period_end(true),
-              activate_by_machine_uid(true) {
+              activate_by_machine_uid(true),
+              is_video_allowed(true) {
     }
 
     Subscription::Subscription(const dehancer::Subscription &s) {
@@ -50,6 +51,7 @@ namespace dehancer {
         signature_ = s.signature_;
         cancel_at_period_end = s.cancel_at_period_end;
         activate_by_machine_uid = s.activate_by_machine_uid;
+        is_video_allowed = s.is_video_allowed;
         offline_days = s.offline_days;
         pk_ = s.pk_;
         email = s.email;
@@ -75,6 +77,10 @@ namespace dehancer {
         // optional fields
         if (_json.contains("activateByMachineUid")) {
             s.activate_by_machine_uid = _json["activateByMachineUid"].get<bool>();
+        }
+
+        if (_json.contains("isVideoAllowed")) {
+            s.is_video_allowed = _json["isVideoAllowed"].get<bool>();
         }
 
         // fields below are not part of the server side response, but stored in the container
@@ -104,6 +110,7 @@ namespace dehancer {
                 {"offlineDays",       static_cast<uint16_t>(offline_days)},
                 {"cancelAtPeriodEnd", static_cast<bool>(cancel_at_period_end)},
                 {"activateByMachineUid", static_cast<bool>(activate_by_machine_uid)},
+                {"isVideoAllowed",     static_cast<bool>(is_video_allowed)},
                 {"isCurrent",         static_cast<bool>(is_current)},
                 {"email",             email},
                 {"signature",         signature_}
