@@ -31,17 +31,12 @@ public:
 
 TEST(SQLITE, SimpleTest) {
   using namespace sqlite_orm;
-  
-  #if defined(DEHANCER_CONTROLLED_SINGLETON)
-  OneUserCache::CreateInstance();
-  #endif
   OneUserCache::Instance().id = 0;
   
   try {
     auto storage = make_storage("./test.db",
                                 make_table("users",
-                                           make_column("id", &User::id, autoincrement(), primary_key()),
-                                           make_column("first_name", &User::firstName),
+                                           make_column("id", &User::id, autoincrement(), primary_key()),                                           make_column("first_name", &User::firstName),
                                            make_column("last_name", &User::lastName),
                                            make_column("birth_date", &User::birthDate),
                                            make_column("image_url", &User::imageUrl),
@@ -87,14 +82,10 @@ TEST(SQLITE, SimpleTest) {
     
     dehancer::log::print(" OneUserCache::Instance().id  = %i",  OneUserCache::Instance().id );
     
-    #if defined(DEHANCER_CONTROLLED_SINGLETON)
-    OneUserCache::DestroyInstance();
-    #endif
   }
   catch(std::system_error& e) {
     std::cerr << "System Error: " << e.what() << std::endl;
-    dehancer::log::error(true, "sqlite error: %s", e.what());
-  }
+    dehancer::log::error(true, "sqlite error: %s", e.what());  }
   catch (std::exception& e) {
     std::cerr << "Error: " << e.what() << std::endl;
     dehancer::log::error(true, "sqlite error: %s", e.what());

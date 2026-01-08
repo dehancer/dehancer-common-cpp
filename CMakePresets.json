@@ -81,11 +81,6 @@
           "value": "OFF"
         },
 
-        "DEHANCER_CONTROLLED_SINGLETON": {
-          "type": "BOOL",
-          "value": "OFF"
-        },
-
         "USE_UNICODE" : {
           "type": "BOOL",
           "value": "ON"
@@ -240,7 +235,7 @@
       "hidden": true,
 
       "environment": {
-        "BUILD_SUBDIR": "debug$env{DEHANCER_INSTALL_SINGLETON_DIR}"
+        "BUILD_SUBDIR": "debug"
       },
 
       "cacheVariables": {
@@ -285,7 +280,7 @@
       "hidden": true,
 
       "environment": {
-        "BUILD_SUBDIR": "release$env{DEHANCER_INSTALL_SINGLETON_DIR}"
+        "BUILD_SUBDIR": "release"
       },
 
       "cacheVariables": {

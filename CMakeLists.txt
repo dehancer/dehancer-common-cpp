@@ -31,7 +31,6 @@ option(BUILD_TESTING "Enable creation of  tests." OFF)
 option(DEHANCER_TARGET_ARCH "")
 option(VCPKG_TARGET_TRIPLET "")
 option(USE_UNICODE OFF)
-option(DEHANCER_CONTROLLED_SINGLETON OFF)
 
 
 #
@@ -70,16 +69,8 @@ else()
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 endif ()
 
-if(DEHANCER_CONTROLLED_SINGLETON)
-    add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
-endif ()
-
 # googletest, etc
 set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
-
-if(DEHANCER_CONTROLLED_SINGLETON)
-    add_definitions(-DDEHANCER_CONTROLLED_SINGLETON=1)
-endif()
 
 #
 # Generators

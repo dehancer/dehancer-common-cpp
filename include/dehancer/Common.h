@@ -97,51 +97,9 @@ namespace dehancer {
         SimpleSingleton(SimpleSingleton const &) = delete;
         SimpleSingleton &operator=(SimpleSingleton const &) = delete;
     };
-    
-    template<typename T>
-    class ControlledSingleton {
-    public:
-    
-        using InstanceType = T;
-        
-        static InstanceType& Instance() {
-          static InstanceType* instance = nullptr;
-          static std::once_flag flag;
-          std::call_once(flag, [&]{
-              if (!instance)
-              {
-                instance = new InstanceType();
-              }
-          });
-          return *instance;
-        }
-    
-        static
-        void CreateInstance() {
-          InstanceType& p = Instance();
-        }
-    
-        static
-        void DestroyInstance() {
-          InstanceType& p = Instance();
-          delete &p;
-        }
-    
-    protected:
-        ControlledSingleton() = default;
-        ~ControlledSingleton() = default;
-    
-    public:
-        ControlledSingleton(ControlledSingleton const &) = delete;
-        ControlledSingleton &operator=(ControlledSingleton const &) = delete;
-    };
-    
-    #if defined(DEHANCER_CONTROLLED_SINGLETON)
-    template<class T>using Singleton=ControlledSingleton<T>;
-    #else
+
     template<class T>using Singleton=SimpleSingleton<T>;
-    #endif
-    
+
     /***
     *
     * Formated error string
@@ -151,7 +109,7 @@ namespace dehancer {
     * @return
     */
     std::string error_string(const char *format, ...);
-    
+
     std::string message_string(const char *format, ...);
 
     static inline void _throw_abort(const char *file, int line, const std::string &msg) {
