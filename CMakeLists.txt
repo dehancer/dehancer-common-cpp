@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.22)
 # Project
 #
 set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.20.0)
+project(${PROJECT_LIB} VERSION 0.20.1)
 set(CMAKE_CXX_STANDARD 17)
 
 option(DEHANCER_DEBUG OFF)
@@ -17,7 +17,7 @@ set(GIT_TAG_base64cpp "v7")
 # set(GIT_TAG_base64cpp "develop")
 
 if(DEHANCER_PIN_DEPENDENCIES)
-    set(GIT_TAG_ed25519cpp "1.4.1")
+    set(GIT_TAG_ed25519cpp "1.4.2")
     # v7 always tracks v7
     # set(GIT_TAG_base64cpp "1.2.0")
 endif ()
