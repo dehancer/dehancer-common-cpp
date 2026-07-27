@@ -16,18 +16,6 @@ FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/dehancer/obfy/*.h
         )
 
-FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/*.hpp
-        )
-
-FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/promise/*.hpp
-        )
-
-FILE(GLOB PUBLIC_PROMISE_TASK_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/simple_task/*.hpp
-        )
-
 FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/sqlite/*.h
         )
@@ -67,6 +55,11 @@ add_library(${PROJECT_NAME}
         ${EXT_COMMON_SRC}
 )
 
+target_link_libraries(${PROJECT_NAME}
+        PUBLIC
+        dehancer::promise_legacy
+)
+
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()
@@ -104,9 +97,6 @@ install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/
 install(FILES   ${PUBLIC_WINDOWS_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/windows/utf8)
 install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/nlohmann)
 install(FILES   ${PUBLIC_OBFY_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/obfy)
-install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp)
-install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/promise)
-install(FILES   ${PUBLIC_PROMISE_TASK_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/simple_task)
 
 install(DIRECTORY
         ${EXTERNAL_INSTALL_LOCATION}/include

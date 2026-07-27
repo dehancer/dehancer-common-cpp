@@ -212,7 +212,17 @@ FetchContent_Declare(
         BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
 )
 
-FetchContent_MakeAvailable(ed25519cpp base64cpp)
+FetchContent_Declare(
+        dehancer_promise
+        GIT_REPOSITORY git@github.com:dehancer/dehancer-promise.git
+        GIT_TAG      v1.0.0
+        GIT_PROGRESS TRUE
+        GIT_SHALLOW TRUE
+        SOURCE_DIR ${CMAKE_BINARY_DIR}/dehancer-promise-src
+        BINARY_DIR ${CMAKE_BINARY_DIR}/dehancer-promise-build
+)
+
+FetchContent_MakeAvailable(ed25519cpp base64cpp dehancer_promise)
 
 include_directories(
         ${base64cpp_SOURCE_DIR}/include
