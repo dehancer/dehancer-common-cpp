@@ -55,11 +55,6 @@ add_library(${PROJECT_NAME}
         ${EXT_COMMON_SRC}
 )
 
-target_link_libraries(${PROJECT_NAME}
-        PUBLIC
-        dehancer::promise_legacy
-)
-
 if (COMMON_DEPENDENCIES)
     add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
 endif()

@@ -215,7 +215,7 @@ FetchContent_Declare(
 FetchContent_Declare(
         dehancer_promise
         GIT_REPOSITORY git@github.com:dehancer/dehancer-promise.git
-        GIT_TAG      v1.0.0
+        GIT_TAG      main
         GIT_PROGRESS TRUE
         GIT_SHALLOW TRUE
         SOURCE_DIR ${CMAKE_BINARY_DIR}/dehancer-promise-src
