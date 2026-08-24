@@ -192,32 +192,51 @@ if (BUILD_TESTING)
 
 endif ()
 
-FetchContent_Declare(
-        ed25519cpp
-        GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
-        GIT_TAG      ${GIT_TAG_ed25519cpp}
-        GIT_PROGRESS TRUE
-        GIT_SHALLOW TRUE
-        SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
-        BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
-)
+find_path(BASE64CPP_INCLUDE_DIR NAMES base64cpp.hpp)
+find_library(BASE64CPP_LIBRARY NAMES base64cpp)
 
-FetchContent_Declare(
-        base64cpp
-        GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
-        GIT_TAG      ${GIT_TAG_base64cpp}
-        GIT_PROGRESS TRUE
-        GIT_SHALLOW TRUE
-        SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
-        BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
-)
+if (BASE64CPP_INCLUDE_DIR AND BASE64CPP_LIBRARY)
+    add_library(base64cpp STATIC IMPORTED)
+    set_target_properties(base64cpp PROPERTIES
+            IMPORTED_LOCATION "${BASE64CPP_LIBRARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${BASE64CPP_INCLUDE_DIR}"
+    )
+else ()
+    FetchContent_Declare(
+            base64cpp
+            GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
+            GIT_TAG      ${GIT_TAG_base64cpp}
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+            SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
+            BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
+    )
 
-FetchContent_MakeAvailable(ed25519cpp base64cpp)
+    FetchContent_MakeAvailable(base64cpp)
+endif ()
 
-include_directories(
-        ${base64cpp_SOURCE_DIR}/include
-        ${ed25519cpp_SOURCE_DIR}/include
-)
+find_path(ED25519CPP_INCLUDE_DIR NAMES ed25519.hpp)
+find_library(ED25519CPP_LIBRARY NAMES ed25519cpp)
+
+if (ED25519CPP_INCLUDE_DIR AND ED25519CPP_LIBRARY)
+    add_library(ed25519cpp STATIC IMPORTED)
+    set_target_properties(ed25519cpp PROPERTIES
+            IMPORTED_LOCATION "${ED25519CPP_LIBRARY}"
+            INTERFACE_INCLUDE_DIRECTORIES "${ED25519CPP_INCLUDE_DIR}"
+    )
+else ()
+    FetchContent_Declare(
+            ed25519cpp
+            GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
+            GIT_TAG      ${GIT_TAG_ed25519cpp}
+            GIT_PROGRESS TRUE
+            GIT_SHALLOW TRUE
+            SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
+            BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
+    )
+
+    FetchContent_MakeAvailable(ed25519cpp)
+endif ()
 
 set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
 
