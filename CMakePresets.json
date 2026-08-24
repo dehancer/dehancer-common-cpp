@@ -214,6 +214,14 @@
       },
 
       "cacheVariables": {
+        "CMAKE_CXX_COMPILER": {
+          "type": "STRING",
+          "value": "/usr/bin/clang++"
+        },
+        "CMAKE_C_COMPILER": {
+          "type": "STRING",
+          "value": "/usr/bin/clang"
+        },
 
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
