@@ -49,7 +49,6 @@
 
       "name": "windows",
       "hidden": true,
-      "binaryDir": "${sourceDir}/build-${presetName}",
       "toolchainFile": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
       "warnings": {
         "unusedCli": false
@@ -95,8 +94,6 @@
 
       "hidden": true,
 
-      "binaryDir": "${sourceDir}/build-${presetName}",
-
       "warnings": {
         "unusedCli": false
       },
@@ -135,8 +132,6 @@
       "name": "ios",
 
       "hidden": true,
-
-      "binaryDir": "${sourceDir}/build-${presetName}",
 
       "warnings": {
         "unusedCli": false
@@ -199,8 +194,6 @@
       "name": "linux",
 
       "hidden": true,
-
-      "binaryDir": "${sourceDir}/build-${presetName}",
 
       "vendor": {
         "jetbrains.com/clion": {
