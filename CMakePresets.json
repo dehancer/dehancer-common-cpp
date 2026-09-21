@@ -123,26 +123,6 @@
         "BUILD_SHARED_LIBS": {
           "type": "STRING",
           "value": "OFF"
-        },
-        "EXIV2_BUILD_SAMPLES": {
-          "type": "STRING",
-          "value": "OFF"
-        },
-        "EXIV2_BUILD_EXIV2_COMMAND": {
-          "type": "STRING",
-          "value": "OFF"
-        },
-        "EXIV2_ENABLE_XMP": {
-          "type": "STRING",
-          "value": "ON"
-        },
-        "EXIV2_ENABLE_DYNAMIC_RUNTIME": {
-          "type": "STRING",
-          "value": "OFF"
-        },
-        "CURL_ROOT_PATH": {
-          "type": "STRING",
-          "value": "$env{HOME}/Develop/local/ios"
         }
       }
     },

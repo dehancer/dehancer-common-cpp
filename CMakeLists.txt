@@ -30,8 +30,6 @@ add_subdirectory(lib)
 if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTING)
     find_package(GTest CONFIG REQUIRED)
     enable_testing()
-    set(PROJECT_LIB ${PROJECT_NAME})
-    set(GTEST_BOTH_LIBRARIES GTest::gtest GTest::gtest_main)
     add_subdirectory(tests)
 endif()
 

@@ -9,6 +9,5 @@ Version: @PROJECT_VERSION@
 URL: https://github.com/dehancer/dehancer-common-cpp
 Requires: base64cpp
 Requires.private: ed25519cpp sqlite3
-Libs: -L${libdir} -ldehancer_common_cpp -led25519cpp
-Libs.private: @libs_private@
+Libs: -L${libdir} -ldehancer_common_cpp
 CFlags: -I${includedir}

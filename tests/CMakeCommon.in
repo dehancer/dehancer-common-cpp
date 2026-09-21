@@ -1,17 +1,3 @@
-set(TEST_LIBRARIES)
-
-if (GTEST_FOUND)
-    include_directories(${GTEST_INCLUDE_DIRS})
-    set(TEST_LIBRARIES ${GTEST_BOTH_LIBRARIES})
-else()
-    message("Googletest ${TEST} RELEASE MODE: ${CMAKE_BUILD_TYPE}")
-    set(TEST_LIBRARIES gtest;gtest_main)
-endif()
-
-include_directories(
-        ./
-)
-
 file(GLOB TESTS_SOURCES ${TESTS_SOURCES}
         ./*.cpp
         ./*.mm
@@ -19,15 +5,9 @@ file(GLOB TESTS_SOURCES ${TESTS_SOURCES}
 
 add_executable(${TEST} ${TESTS_SOURCES})
 
-target_link_libraries(
-        ${TEST}
-        ${PROJECT_LIB}
-        ${COMMON_LIBRARIES}
-        ${SQLite3_LIB}
-        ${TEST_LIBRARIES}
-        ${CMAKE_DL_LIBS}
+target_link_libraries(${TEST} PRIVATE
+        dehancer_common_cpp::dehancer_common_cpp
+        GTest::gtest_main
 )
 
-add_test(test ${TEST})
-enable_testing()
-
+add_test(NAME ${TEST} COMMAND ${TEST})
