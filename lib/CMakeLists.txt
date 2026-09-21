@@ -1,11 +1,25 @@
-file(GLOB sources CONFIGURE_DEPENDS ../src/*.cpp)
+set(sources
+    ../src/Blowfish.cpp
+    ../src/Common.cpp
+    ../src/FileUtils.cpp
+    ../src/License.cpp
+    ../src/Subscription.cpp
+    ../src/Utils.cpp
+)
 if(WIN32)
-    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/windows/utf8/*.cpp ../src/platforms/common/*.cpp)
+    set(platform_sources
+        ../src/platforms/windows/utf8/buffer.cpp
+        ../src/platforms/windows/utf8/casecvt.cpp
+        ../src/platforms/windows/utf8/ini.cpp
+        ../src/platforms/windows/utf8/utf8.cpp
+        ../src/platforms/windows/utf8/win.cpp
+        ../src/platforms/common/Log.cpp
+    )
 elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     enable_language(OBJCXX)
-    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/ios/*.mm)
+    set(platform_sources ../src/platforms/ios/Log.mm)
 else()
-    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/common/*.cpp)
+    set(platform_sources ../src/platforms/common/Log.cpp)
 endif()
 add_library(dehancer_common_cpp ${sources} ${platform_sources})
 add_library(dehancer_common_cpp::dehancer_common_cpp ALIAS dehancer_common_cpp)
@@ -40,7 +54,8 @@ install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/dehancer_common_cpp")
 configure_package_config_file(cmake/Config.cmake.in
     "${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfig.cmake"
-    INSTALL_DESTINATION "${config_install_dir}")
+    INSTALL_DESTINATION "${config_install_dir}"
+    NO_SET_AND_CHECK_MACRO)
 write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfigVersion.cmake"
     COMPATIBILITY SameMajorVersion)
 install(TARGETS dehancer_common_cpp EXPORT dehancer_common_cppTargets
