@@ -7,18 +7,7 @@
   },
   "configurePresets": [
     {
-      "name": "vs17",
-      "hidden": true,
-      "generator": "Visual Studio 17 2022",
-      "toolset": "ClangCL"
-    },
-    {
       "name": "ninja",
-      "hidden": true,
-      "generator": "Ninja Multi-Config"
-    },
-    {
-      "name": "unix",
       "hidden": true,
       "generator": "Ninja Multi-Config"
     },
@@ -39,9 +28,6 @@
       "name": "windows",
       "hidden": true,
       "toolchainFile": "C:/vcpkg/scripts/buildsystems/vcpkg.cmake",
-      "warnings": {
-        "unusedCli": false
-      },
       "environment": {
         "HOME": "$env{USERPROFILE}"
       },
@@ -70,9 +56,6 @@
     {
       "name": "macos",
       "hidden": true,
-      "warnings": {
-        "unusedCli": false
-      },
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
@@ -100,9 +83,6 @@
     {
       "name": "ios",
       "hidden": true,
-      "warnings": {
-        "unusedCli": false
-      },
       "cacheVariables": {
         "CMAKE_INSTALL_PREFIX": {
           "type": "STRING",
@@ -134,9 +114,6 @@
           "toolchain": "Docker-rockylinux-qt6",
           "toolset": "ClangCL"
         }
-      },
-      "warnings": {
-        "unusedCli": false
       },
       "cacheVariables": {
         "CMAKE_CXX_COMPILER": {
@@ -183,14 +160,6 @@
       }
     },
     {
-      "name": "windows_debug",
-      "hidden": true,
-      "cacheVariables": {},
-      "inherits": [
-        "debug"
-      ]
-    },
-    {
       "name": "release",
       "hidden": true,
       "environment": {
@@ -212,18 +181,10 @@
       }
     },
     {
-      "name": "windows_release",
-      "hidden": true,
-      "cacheVariables": {},
-      "inherits": [
-        "release"
-      ]
-    },
-    {
       "name": "windows-debug",
       "displayName": "Dehancer userlib windows debug build, x86_64",
       "inherits": [
-        "windows_debug",
+        "debug",
         "msvc2022",
         "ninja",
         "windows"
@@ -233,7 +194,7 @@
       "name": "windows-release",
       "displayName": "Dehancer userlib windows release build, x86_64",
       "inherits": [
-        "windows_release",
+        "release",
         "msvc2022",
         "ninja",
         "windows"
@@ -259,7 +220,7 @@
       "name": "linux-debug",
       "displayName": "Dehancer userlib build, x86_64",
       "inherits": [
-        "unix",
+        "ninja",
         "debug",
         "linux"
       ]
@@ -268,7 +229,7 @@
       "name": "linux-release",
       "displayName": "Dehancer userlib build, x86_64",
       "inherits": [
-        "unix",
+        "ninja",
         "release",
         "linux"
       ]
