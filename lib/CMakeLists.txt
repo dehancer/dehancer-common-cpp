@@ -1,152 +1,53 @@
-include(CMakePackageConfigHelpers)
-
-FILE(GLOB PUBLIC_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../include/dehancer/*.h
-        )
-
-FILE(GLOB PUBLIC_WINDOWS_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../include/dehancer/windows/utf8/*.h
-        )
-
-FILE(GLOB PUBLIC_JSON_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/nlohmann/*.h
-        )
-
-FILE(GLOB PUBLIC_OBFY_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/dehancer/obfy/*.h
-        )
-
-FILE(GLOB PUBLIC_PROMISE_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/*.hpp
-        )
-
-FILE(GLOB PUBLIC_PROMISE_DETAIL_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/promise/*.hpp
-        )
-
-FILE(GLOB PUBLIC_PROMISE_TASK_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/promisecpp/simple_task/*.hpp
-        )
-
-FILE(GLOB PUBLIC_SQLITE_ORM_INCLUDE_FILES
-        ${CMAKE_CURRENT_SOURCE_DIR}/../external/sqlite/*.h
-        )
-
-set(sqlite3_src)
-if (sqlite3_POPULATED)
-    set(sqlite3_src ${sqlite3_SOURCE_DIR}/sqlite3.c)
-endif ()
-
-file (GLOB COMMON_SRC ${COMMON_SRC}
-        ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/../src/*.c
-        ${sqlite3_src}
-        )
-
+file(GLOB sources CONFIGURE_DEPENDS ../src/*.cpp ../src/*.c)
 if(WIN32)
-    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/windows/utf8/*.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/windows/utf8/*.c
-            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/common/*.cpp
-            )
-elseif(IOS)
-    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/ios/*.mm
-            )
+    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/windows/utf8/*.cpp ../src/platforms/windows/utf8/*.c ../src/platforms/common/*.cpp)
+elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    enable_language(OBJCXX)
+    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/ios/*.mm)
 else()
-    #set (EXT_COMMON_SRC)
-    file (GLOB EXT_COMMON_SRC ${EXT_COMMON_SRC}
-            ${CMAKE_CURRENT_SOURCE_DIR}/../src/platforms/common/*.cpp
-            )
+    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/common/*.cpp)
 endif()
-
-message("EXT_COMMON_SRC: ${EXT_COMMON_SRC}")
-
-add_library(${PROJECT_NAME}
-        ${COMMON_SRC}
-        ${EXT_COMMON_SRC}
+add_library(dehancer_common_cpp ${sources} ${platform_sources})
+add_library(dehancer_common_cpp::dehancer_common_cpp ALIAS dehancer_common_cpp)
+target_compile_features(dehancer_common_cpp PUBLIC cxx_std_17)
+set_target_properties(dehancer_common_cpp PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(dehancer_common_cpp PUBLIC
+    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
+    "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
-
-target_link_libraries(${PROJECT_NAME} PUBLIC ${COMMON_LIBRARIES})
-
-if (COMMON_DEPENDENCIES)
-    add_dependencies(${PROJECT_NAME} ${COMMON_DEPENDENCIES})
+target_compile_definitions(dehancer_common_cpp PRIVATE
+    $<$<BOOL:${PRINT_DEBUG}>:PRINT_DEBUG=1>
+    $<$<BOOL:${DEHANCER_DEBUG}>:DEBUG=1;DEBUG_BUILD=1>)
+if(MSVC AND DEHANCER_DEBUG)
+    target_compile_options(dehancer_common_cpp PRIVATE /Od /Ob0 /Z7 /UNDEBUG)
 endif()
+if(WIN32)
+    target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1
+        $<$<BOOL:${USE_UNICODE}>:UNICODE;_UNICODE>)
+endif()
+target_include_directories(dehancer_common_cpp PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external>")
+target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads
+    PRIVATE ed25519cpp::ed25519cpp)
+if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+    target_link_libraries(dehancer_common_cpp PRIVATE "-framework Foundation")
+endif()
+install(DIRECTORY ../external/nlohmann ../external/promisecpp ../external/sqlite
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+install(DIRECTORY ../external/dehancer/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer
+    FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 
-set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
-set(generated_dir "${CMAKE_CURRENT_BINARY_DIR}/generated")
-
-# Configuration
-set(version_config "${generated_dir}/${PROJECT_NAME}ConfigVersion.cmake")
-set(project_config "${generated_dir}/${PROJECT_NAME}Config.cmake")
-set(TARGETS_EXPORT_NAME "${PROJECT_NAME}")
-set(namespace "${PROJECT_NAME}::")
-
-write_basic_package_version_file(
-        "${version_config}" COMPATIBILITY SameMajorVersion
-)
-
-configure_package_config_file(
-        "cmake/Config.cmake.in"
-        "${project_config}"
-        INSTALL_DESTINATION "${config_install_dir}"
-)
-
-if (NOT CMAKE_INSTALL_LIBDIR)
-    set(CMAKE_INSTALL_LIBDIR lib)
-elseif (LINUX)
-    set(CMAKE_INSTALL_LIBDIR  lib)
-endif ()
-
-if (NOT CMAKE_INSTALL_INCLUDEDIR)
-    set(CMAKE_INSTALL_INCLUDEDIR include)
-endif ()
-
-install(FILES   ${PUBLIC_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer)
-install(FILES   ${PUBLIC_WINDOWS_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/windows/utf8)
-install(FILES   ${PUBLIC_JSON_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/nlohmann)
-install(FILES   ${PUBLIC_OBFY_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer/obfy)
-install(FILES   ${PUBLIC_PROMISE_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp)
-install(FILES   ${PUBLIC_PROMISE_DETAIL_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/promise)
-install(FILES   ${PUBLIC_PROMISE_TASK_INCLUDE_FILES} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/promisecpp/simple_task)
-
-install(DIRECTORY
-        ${EXTERNAL_INSTALL_LOCATION}/include
-        DESTINATION ${CMAKE_INSTALL_PREFIX}
-        FILES_MATCHING
-        PATTERN *.h
-        PATTERN *.hpp
-        PATTERN gtest* EXCLUDE
-        PATTERN gmock* EXCLUDE
-        )
-
-install(DIRECTORY
-        ${EXTERNAL_LOCATION}/sqlite
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/include
-        FILES_MATCHING
-        PATTERN *.h
-        PATTERN *.hpp
-        )
-
-#install(DIRECTORY
-#        ${EXTERNAL_INSTALL_LOCATION}/lib
-#        DESTINATION ${CMAKE_INSTALL_PREFIX}
-#        FILES_MATCHING
-#        PATTERN *sqlite3-build/*sqlite3*.*
-#        PATTERN *gtest* EXCLUDE
-#        PATTERN *gmock* EXCLUDE
-#        )
-
-install(DIRECTORY
-        ${EXTERNAL_INSTALL_LOCATION}/cmake
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        FILES_MATCHING
-        PATTERN SQLite3*
-        )
-
-install(FILES   ${project_config} ${version_config} DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
-install(FILES cmake/${PROJECT_LIB}.cmake DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_LIB})
-
-message("PROJECT_LIB: ${PROJECT_LIB}")
-
-install(TARGETS ${PROJECT_LIB}   DESTINATION ${CMAKE_INSTALL_LIBDIR})
+install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+set(config_install_dir "${CMAKE_INSTALL_LIBDIR}/cmake/dehancer_common_cpp")
+configure_package_config_file(cmake/Config.cmake.in
+    "${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfig.cmake"
+    INSTALL_DESTINATION "${config_install_dir}")
+write_basic_package_version_file("${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfigVersion.cmake"
+    COMPATIBILITY SameMajorVersion)
+install(TARGETS dehancer_common_cpp EXPORT dehancer_common_cppTargets
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(EXPORT dehancer_common_cppTargets NAMESPACE dehancer_common_cpp:: DESTINATION "${config_install_dir}")
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfig.cmake"
+    "${CMAKE_CURRENT_BINARY_DIR}/dehancer_common_cppConfigVersion.cmake" DESTINATION "${config_install_dir}")

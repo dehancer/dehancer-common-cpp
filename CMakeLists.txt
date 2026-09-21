@@ -1,282 +1,57 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 4.2)
+project(dehancer_common_cpp VERSION 0.21.0 LANGUAGES C CXX)
 
-#
-# Project
-#
-set(PROJECT_LIB dehancer_common_cpp)
-project(${PROJECT_LIB} VERSION 0.20.1)
-set(CMAKE_CXX_STANDARD 17)
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
+option(CREATE_PKG_CONFIG "Generate and install pkg-config metadata" OFF)
+option(BUILD_TESTING "Build tests" OFF)
+option(DEHANCER_DEBUG "Enable release diagnostics" OFF)
+option(PRINT_DEBUG "Enable logging" OFF)
+option(USE_UNICODE "Use Unicode Windows APIs" OFF)
 
-option(DEHANCER_DEBUG OFF)
-option(DEHANCER_PIN_DEPENDENCIES OFF)
-
-set(GIT_TAG_ed25519cpp "develop")
-
-# v7 always tracks v7
-set(GIT_TAG_base64cpp "v7")
-# set(GIT_TAG_base64cpp "develop")
-
-if(DEHANCER_PIN_DEPENDENCIES)
-    set(GIT_TAG_ed25519cpp "1.4.2")
-    # v7 always tracks v7
-    # set(GIT_TAG_base64cpp "1.2.0")
-endif ()
-
-#
-# Options
-#
-option(GTest_ROOT "Google Test SDK" "")
-option(PRINT_DEBUG OFF)
-option(BUILD_TESTING "Enable creation of  tests." OFF)
-option(DEHANCER_TARGET_ARCH "")
-option(VCPKG_TARGET_TRIPLET "")
-option(USE_UNICODE OFF)
-
-
-#
-# Global settings
-#
-set(VERSION_FILE "version.txt")
-
-if (WIN32)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -EHsc -Wno-deprecated-declarations")
-
-    if (DEHANCER_DEBUG)
-        string(REPLACE "/O2" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/O2" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        string(REPLACE "/Ob2" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/Ob2" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        string(REPLACE "/DNDEBUG" "" CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE}")
-        string(REPLACE "/DNDEBUG" "" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DDEBUG=1 -DZ7=1")
-        add_definitions(/DEBUG /Z7)
-    endif ()
-
-    if (USE_UNICODE)
-        add_definitions(/D_UNICODE /DUNICODE)
-    endif ()
-
-    add_definitions(/MT /DWIN32=1 /D_ITERATOR_DEBUG_LEVEL=0)
-
-    string(TOLOWER  ${CMAKE_BUILD_TYPE} BUILD_TYPE)
-    if (${BUILD_TYPE} STREQUAL "debug")
-        add_definitions(/MTd)
-    endif()
-else()
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -rdynamic")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=default -Wno-unused-command-line-argument")
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
-endif ()
-
-# googletest, etc
-set (EXTERNAL_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/external)
-
-#
-# Generators
-#
-file (WRITE "${VERSION_FILE}" "${PROJECT_NAME} ${PROJECT_VERSION}")
-configure_file(include/dehancer/version.h.in ${CMAKE_BINARY_DIR}/generated/version.h)
-
-#
-# Packages
-#
-find_package (PkgConfig QUIET)
-find_package (Threads REQUIRED)
-find_package (SQLite3)
-
-if(NOT PKG_CONFIG_FOUND)
-    message(FATAL_ERROR "pkg-config not found!" )
-    message(FATAL_ERROR "sudo apt-get install pkg-config, or brew install pkg-config")
+if(NOT TARGET base64cpp::base64cpp)
+    find_package(base64cpp CONFIG REQUIRED)
 endif()
 
-#
-# CCache settings
-#
-find_program(CCACHE_FOUND ccache)
-if (CCACHE_FOUND)
-    message("Ccache found: ${CCACHE_FOUND}")
-    set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-else()
-    message("Ccache NOT found")
-endif (CCACHE_FOUND)
+if(NOT TARGET ed25519cpp::ed25519cpp)
+    find_package(ed25519cpp CONFIG REQUIRED)
+endif()
 
-if(PRINT_DEBUG)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DPRINT_DEBUG -DDEBUG_BUILD=1")
-endif ()
+if(NOT TARGET SQLite3::SQLite3)
+    find_package(SQLite3 REQUIRED)
+endif()
 
-#
-# Project dependencies
-#
-set(COMMON_DEPENDENCIES)
-set(COMMON_LIBRARIES ${CMAKE_THREAD_LIBS_INIT})
+if(NOT TARGET Threads::Threads)
+    find_package(Threads REQUIRED)
+endif()
 
-include(FetchContent)
+add_subdirectory(lib)
 
-if (SQLite3_FOUND)
-    message("SQLITE FOUND...")
-    set(COMMON_LIBRARIES ${COMMON_LIBRARIES};${SQLite3_LIBRARIES})
-    include_directories(
-            ${SQLite3_INCLUDE_DIRS}
-    )
-else()
-    add_definitions("-DUSE_SQLITE3_CONFIG=1")
-
-    FetchContent_Declare(
-            sqlite3
-            GIT_REPOSITORY git@github.com:dehancer/sqlite-amalgamation.git
-            GIT_TAG      dehancer-imp-1.0
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-            SOURCE_DIR "${CMAKE_BINARY_DIR}/sqlite3-src"
-            BINARY_DIR "${CMAKE_BINARY_DIR}/sqlite3-build"
-    )
-
-    FetchContent_MakeAvailable(sqlite3)
-    set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
-#    FetchContent_GetProperties(sqlite3)
-
-#    if(NOT sqlite3_POPULATED)
-#        FetchContent_Populate(sqlite3)
-#        add_subdirectory(${sqlite3_SOURCE_DIR} ${sqlite3_BINARY_DIR})
-#        set_target_properties(SQLite3 PROPERTIES DEBUG_POSTFIX "" )
-#    endif()
-
-    include_directories(
-            ${sqlite3_SOURCE_DIR}
-    )
-
-    set(SQLite3_INCLUDE_DIR ${sqlite3_SOURCE_DIR} CACHE INTERNAL "SQLite3_INCLUDE_DIR")
-    set(SQLite3_LIB_DIR ${sqlite3_BINARY_DIR} CACHE INTERNAL "SQLite3_LIB_DIR")
-    set(COMMON_DEPENDENCIES ${COMMON_DEPENDENCIES};SQLite3)
-
-endif ()
-
-string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
-string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
-
-
-#
-# Google Test
-#
-if (BUILD_TESTING)
-
-    find_package(GTest)
-
-    if (NOT GTest_FOUND)
-
-        string(STRIP "${CMAKE_C_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" C_FLAGS)
-        string(STRIP "${CMAKE_CXX_FLAGS} -D_ITERATOR_DEBUG_LEVEL=0" CXX_FLAGS)
-
-        set(CMAKE_OSX_ARCHITECTURES "${CMAKE_OSX_ARCHITECTURES}" CACHE STRING "" FORCE)
-
-        FetchContent_Declare(
-                googletest
-                GIT_REPOSITORY https://github.com/google/googletest.git
-                GIT_TAG      v1.14.0
-                GIT_PROGRESS TRUE
-                GIT_SHALLOW TRUE
-                SOURCE_DIR "${CMAKE_BINARY_DIR}/googletest-src"
-        )
-
-        FetchContent_MakeAvailable(googletest)
-#        FetchContent_GetProperties(googletest)
-#
-#        if(NOT googletest_POPULATED)
-#            FetchContent_Populate(googletest)
-#            add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR} EXCLUDE_FROM_ALL)
-#        endif()
-
-    endif ()
-
-endif ()
-
-find_path(BASE64CPP_INCLUDE_DIR NAMES base64cpp.hpp)
-find_library(BASE64CPP_LIBRARY NAMES base64cpp)
-
-if (BASE64CPP_INCLUDE_DIR AND BASE64CPP_LIBRARY)
-    add_library(base64cpp STATIC IMPORTED)
-    set_target_properties(base64cpp PROPERTIES
-            IMPORTED_LOCATION "${BASE64CPP_LIBRARY}"
-            INTERFACE_INCLUDE_DIRECTORIES "${BASE64CPP_INCLUDE_DIR}"
-    )
-else ()
-    FetchContent_Declare(
-            base64cpp
-            GIT_REPOSITORY git@github.com:dehancer/base64cpp.git
-            GIT_TAG      ${GIT_TAG_base64cpp}
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-            SOURCE_DIR ${CMAKE_BINARY_DIR}/base64cpp-src
-            BINARY_DIR ${CMAKE_BINARY_DIR}/base64cpp-build
-    )
-
-    FetchContent_MakeAvailable(base64cpp)
-endif ()
-
-find_path(ED25519CPP_INCLUDE_DIR NAMES ed25519.hpp)
-find_library(ED25519CPP_LIBRARY NAMES ed25519cpp)
-
-if (ED25519CPP_INCLUDE_DIR AND ED25519CPP_LIBRARY)
-    add_library(ed25519cpp STATIC IMPORTED)
-    set_target_properties(ed25519cpp PROPERTIES
-            IMPORTED_LOCATION "${ED25519CPP_LIBRARY}"
-            INTERFACE_INCLUDE_DIRECTORIES "${ED25519CPP_INCLUDE_DIR}"
-    )
-else ()
-    FetchContent_Declare(
-            ed25519cpp
-            GIT_REPOSITORY git@github.com:dehancer/ed25519cpp.git
-            GIT_TAG      ${GIT_TAG_ed25519cpp}
-            GIT_PROGRESS TRUE
-            GIT_SHALLOW TRUE
-            SOURCE_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-src
-            BINARY_DIR ${CMAKE_BINARY_DIR}/ed25519cpp-build
-    )
-
-    FetchContent_MakeAvailable(ed25519cpp)
-endif ()
-
-set(COMMON_LIBRARIES ${COMMON_LIBRARIES};ed25519cpp;base64cpp)
-
-#
-# Details
-#
-include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/external
-        ${SQLITE3_INCLUDE_DIRS}
-)
-
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/lib)
-
-if(BUILD_TESTING)
-    include(CTest)
+if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTING)
+    find_package(GTest CONFIG REQUIRED)
+    enable_testing()
+    set(PROJECT_LIB ${PROJECT_NAME})
+    set(GTEST_BOTH_LIBRARIES GTest::gtest GTest::gtest_main)
     add_subdirectory(tests)
-    enable_testing ()
 endif()
 
-# Install package
-#
-if (NOT CMAKE_INSTALL_LIBDIR)
-    set(CMAKE_INSTALL_LIBDIR  lib)
-elseif (LINUX)
-    set(CMAKE_INSTALL_LIBDIR  lib)
-endif ()
-
-if (NOT CMAKE_INSTALL_INCLUDEDIR)
-    set(CMAKE_INSTALL_INCLUDEDIR  include)
-endif ()
-
-set(prefix ${CMAKE_INSTALL_PREFIX})
-set(exec_prefix "\${prefix}")
-set(libdir "\${exec_prefix}/${CMAKE_INSTALL_LIBDIR}")
-set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
-
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/dehancer-common-cpp.pc.in ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc @ONLY)
-
-install(FILES
-        ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
-        )
+if(CREATE_PKG_CONFIG)
+    if(IS_ABSOLUTE "${CMAKE_INSTALL_LIBDIR}")
+        set(prefix "${CMAKE_INSTALL_PREFIX}")
+        set(libdir "${CMAKE_INSTALL_LIBDIR}")
+    else()
+        file(RELATIVE_PATH pc_prefix "/${CMAKE_INSTALL_LIBDIR}/pkgconfig" "/")
+        set(prefix "\${pcfiledir}/${pc_prefix}")
+        set(libdir "\${prefix}/${CMAKE_INSTALL_LIBDIR}")
+    endif()
+    set(exec_prefix "\${prefix}")
+    if(IS_ABSOLUTE "${CMAKE_INSTALL_INCLUDEDIR}")
+        set(includedir "${CMAKE_INSTALL_INCLUDEDIR}")
+    else()
+        set(includedir "\${prefix}/${CMAKE_INSTALL_INCLUDEDIR}")
+    endif()
+    configure_file(dehancer-common-cpp.pc.in
+        ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc @ONLY)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/dehancer-common-cpp.pc
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig)
+endif()

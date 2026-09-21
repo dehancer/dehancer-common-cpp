@@ -7,7 +7,8 @@ Name: dehancer-common-cpp
 Description: Dehancer common layer SDK
 Version: @PROJECT_VERSION@
 URL: https://github.com/dehancer/dehancer-common-cpp
-Requires.private: @requires_private@
-Libs: -L${libdir} -ldehancer_common_cpp -led25519cpp -lbase64cpp
+Requires: base64cpp
+Requires.private: ed25519cpp sqlite3
+Libs: -L${libdir} -ldehancer_common_cpp -led25519cpp
 Libs.private: @libs_private@
 CFlags: -I${includedir}
