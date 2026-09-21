@@ -1,6 +1,6 @@
-file(GLOB sources CONFIGURE_DEPENDS ../src/*.cpp ../src/*.c)
+file(GLOB sources CONFIGURE_DEPENDS ../src/*.cpp)
 if(WIN32)
-    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/windows/utf8/*.cpp ../src/platforms/windows/utf8/*.c ../src/platforms/common/*.cpp)
+    file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/windows/utf8/*.cpp ../src/platforms/common/*.cpp)
 elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
     enable_language(OBJCXX)
     file(GLOB platform_sources CONFIGURE_DEPENDS ../src/platforms/ios/*.mm)
@@ -13,11 +13,11 @@ target_compile_features(dehancer_common_cpp PUBLIC cxx_std_17)
 set_target_properties(dehancer_common_cpp PROPERTIES POSITION_INDEPENDENT_CODE ON)
 target_include_directories(dehancer_common_cpp PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
+    "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external>"
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 target_compile_definitions(dehancer_common_cpp PRIVATE
-    $<$<BOOL:${PRINT_DEBUG}>:PRINT_DEBUG=1>
-    $<$<BOOL:${DEHANCER_DEBUG}>:DEBUG=1;DEBUG_BUILD=1>)
+    $<$<BOOL:${PRINT_DEBUG}>:PRINT_DEBUG=1>)
 if(MSVC AND DEHANCER_DEBUG)
     target_compile_options(dehancer_common_cpp PRIVATE /Od /Ob0 /Z7 /UNDEBUG)
 endif()
@@ -25,7 +25,6 @@ if(WIN32)
     target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1
         $<$<BOOL:${USE_UNICODE}>:UNICODE;_UNICODE>)
 endif()
-target_include_directories(dehancer_common_cpp PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/external>")
 target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads
     PRIVATE ed25519cpp::ed25519cpp)
 if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
