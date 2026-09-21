@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 4.3)
 project(dehancer_common_cpp VERSION 0.21.0 LANGUAGES C CXX)
 
 include(GNUInstallDirs)
