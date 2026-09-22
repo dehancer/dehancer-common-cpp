@@ -8,11 +8,9 @@ One of: Ninja Multi-Config, Xcode, or Visual Studio build generator is recommend
 Dependencies supplied by a parent target are reused.
 
 ```sh
-cmake -S . -B build \
-  -G "Ninja Multi-Config" \
-  -DCMAKE_PREFIX_PATH="$HOME/local-dehancer"
+cmake -S . -B build -DCMAKE_INSTALL_PREFIX="$HOME/local-dehancer"
 cmake --build build --config Release --parallel $(nproc)
-cmake --install build --config Release --prefix $HOME/local-dehancer
+cmake --install build --config Release
 ```
 
 The default build produces a static library. Use `-DBUILD_SHARED_LIBS=ON` for a shared library.
