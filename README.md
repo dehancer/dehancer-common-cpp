@@ -2,8 +2,7 @@
 
 ## Build
 
-Requires CMake 4.2+, C++17, and installed dependencies: `base64cpp`, `ed25519cpp`, SQLite3 and threads.
-
+Requires CMake 4.2+ and installed dependencies: `base64cpp`, `ed25519cpp`, SQLite3 and threads.
 Dependencies supplied by a parent target are reused.
 
 ```sh
