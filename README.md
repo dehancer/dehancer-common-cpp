@@ -7,7 +7,7 @@ Requires CMake 4.2+, C++17, and installed dependencies: `base64cpp`, `ed25519cpp
 Dependencies supplied by a parent target are reused.
 
 ```sh
-cmake -S . -B build -DCMAKE_INSTALL_PREFIX="$HOME/local-dehancer"
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="$HOME/local-dehancer"
 cmake --build build --config Release --parallel $(nproc)
 cmake --install build --config Release
 ```
