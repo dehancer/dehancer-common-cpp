@@ -4,7 +4,6 @@
 
 Requires CMake 4.2+, C++17, and installed dependencies: `base64cpp`, `ed25519cpp`, SQLite3 and threads.
 
-One of: Ninja Multi-Config, Xcode, or Visual Studio build generator is recommended for builds.
 Dependencies supplied by a parent target are reused.
 
 ```sh
