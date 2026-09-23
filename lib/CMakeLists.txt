@@ -15,7 +15,8 @@ if(WIN32)
         ../src/platforms/windows/utf8/win.cpp
         ../src/platforms/common/Log.cpp
     )
-elseif(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+
+elseif(IOS)
     enable_language(OBJCXX)
     set(platform_sources ../src/platforms/ios/Log.mm)
 else()
@@ -41,7 +42,7 @@ if(WIN32)
 endif()
 target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads
     PRIVATE ed25519cpp::ed25519cpp)
-if(CMAKE_SYSTEM_NAME STREQUAL "iOS")
+if(IOS)
     target_link_libraries(dehancer_common_cpp PRIVATE "-framework Foundation")
 endif()
 install(DIRECTORY ../external/nlohmann ../external/promisecpp ../external/sqlite
