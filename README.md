@@ -35,6 +35,3 @@ FetchContent_Declare(dehancer_common_cpp
 )
 FetchContent_MakeAvailable(dehancer_common_cpp)
 ```
-
-No interproject pkg-config files or `DEHANCER_ROOT` are required. Tests are
-opt-in and are not enabled by a parent's `BUILD_TESTING` setting.
