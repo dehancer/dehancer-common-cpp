@@ -39,9 +39,9 @@ namespace dehancer {
 
         static std::string Encode(const Subscription &subscription, bool line_break_enabled = true);
 
-        static expected<Subscription, Error> from_json(const json &json);
+        static expected<Subscription, Error> from_json(const nlohmann::json &json);
 
-        [[nodiscard]] dehancer::json json() const;
+        [[nodiscard]] nlohmann::json json() const;
 
         [[nodiscard]] bool is_valid() const;
 

@@ -125,13 +125,13 @@ namespace dehancer{
          * @param json lic serialized in json 
          * @return licens ot error
          */
-        static expected<License,Error> from_json(const json& json);
+        static expected<License,Error> from_json(const nlohmann::json& json);
 
         /**
          * Dump as json
          * @return json object
          */
-        [[nodiscard]] dehancer::json json() const;
+        [[nodiscard]] nlohmann::json json() const;
 
         License& operator=(const License& right);
 
@@ -147,5 +147,3 @@ namespace dehancer{
 
     };
 }
-
-

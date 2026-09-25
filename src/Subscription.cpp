@@ -62,7 +62,7 @@ namespace dehancer {
         pk_ = pk;
     }
 
-    expected<Subscription, Error> Subscription::from_json(const dehancer::json &_json) {
+    expected<Subscription, Error> Subscription::from_json(const nlohmann::json &_json) {
         Subscription s;
 
         s.title = _json["title"].get<std::string>();
@@ -99,8 +99,8 @@ namespace dehancer {
         return s;
     }
 
-    dehancer::json Subscription::json() const {
-        dehancer::json data = {
+    nlohmann::json Subscription::json() const {
+        nlohmann::json data = {
                 {"title",             title},
                 {"subscriptionId",    subscription_id},
                 {"seatsCount",        static_cast<uint16_t>(seats_count)},
@@ -167,7 +167,7 @@ namespace dehancer {
 
             base64::decode(base64, buffer);
 
-            dehancer::json json_data = json::parse(buffer);
+            nlohmann::json json_data = nlohmann::json::parse(buffer);
 
             return Subscription::from_json(json_data);
 

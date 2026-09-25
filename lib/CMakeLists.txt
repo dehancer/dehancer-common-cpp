@@ -49,13 +49,13 @@ if(WIN32)
         $<$<BOOL:${USE_UNICODE}>:UNICODE;_UNICODE>)
 endif()
 
-target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads PRIVATE ed25519cpp::ed25519cpp)
+target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads nlohmann_json::nlohmann_json PRIVATE ed25519cpp::ed25519cpp)
 
 if(IOS)
     target_link_libraries(dehancer_common_cpp PRIVATE "-framework Foundation")
 endif()
 
-install(DIRECTORY ../external/nlohmann ../external/promisecpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
+install(DIRECTORY ../external/promisecpp DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 install(DIRECTORY ../external/dehancer/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dehancer FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 install(DIRECTORY ../include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR} FILES_MATCHING PATTERN "*.h" PATTERN "*.hpp")
 

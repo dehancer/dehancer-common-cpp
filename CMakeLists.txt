@@ -25,6 +25,10 @@ if(NOT TARGET Threads::Threads)
     find_package(Threads REQUIRED)
 endif()
 
+if(NOT TARGET nlohmann_json::nlohmann_json)
+    find_package(nlohmann_json CONFIG REQUIRED)
+endif()
+
 add_subdirectory(lib)
 
 if(PROJECT_IS_TOP_LEVEL AND BUILD_TESTING)

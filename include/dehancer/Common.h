@@ -10,7 +10,7 @@
 #include <mutex>
 
 #include "Expected.h"
-#include "nlohmann/json.h"
+#include <nlohmann/json.hpp>
 
 #define PUBLIC_ENUM(OriginalType) std::underlying_type_t<OriginalType>
 #define EXTEND_ENUM(OriginalType, LAST) static_cast<std::underlying_type_t<OriginalType>>(OriginalType::LAST)
@@ -22,8 +22,6 @@ namespace dehancer {
     /***
      * Main universal intercommunication structure
      */
-    typedef nlohmann::json json;
-
     struct Error;
 
     /***

@@ -23,8 +23,7 @@ Pod::Spec.new do |s|
 
   s.source_files  = "platforms/ios/dehancer-common/Classes/*.{h,m,mm}",
                     "src/*.cpp",
-                    "include/**/*.h",
-                    "external/nlohmann/*.h",
+                    "include/**/*.h"
   s.exclude_files = "test", "tests",
                     "wasm"
 

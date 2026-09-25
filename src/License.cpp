@@ -71,7 +71,7 @@ namespace dehancer {
       return *this;
     }
 
-    expected<License,Error> License::from_json(const dehancer::json &_json) {
+    expected<License,Error> License::from_json(const nlohmann::json &_json) {
       try {
 
         License lic;
@@ -113,8 +113,8 @@ namespace dehancer {
       }
     }
 
-    dehancer::json License::json() const {
-      dehancer::json data = {
+    nlohmann::json License::json() const {
+      nlohmann::json data = {
               {"version", static_cast<std::uint16_t>(version)},
               {"type", static_cast<int>(type)},
               {"email", email},
@@ -182,7 +182,7 @@ namespace dehancer {
 
         base64::decode(base64, buffer);
 
-        dehancer::json json_data = json::parse(buffer);
+        nlohmann::json json_data = nlohmann::json::parse(buffer);
 
         return License::from_json(json_data);
 
