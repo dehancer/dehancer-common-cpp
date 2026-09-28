@@ -45,7 +45,7 @@ target_compile_definitions(dehancer_common_cpp PRIVATE
 endif()
 
 if(WIN32)
-    target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1) # FIXME do we need WIN32?
+    target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1) # Needed for OpenFX
     target_compile_definitions(dehancer_common_cpp PRIVATE UNICODE _UNICODE)
 endif()
 
