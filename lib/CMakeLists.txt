@@ -45,8 +45,8 @@ target_compile_definitions(dehancer_common_cpp PRIVATE
 endif()
 
 if(WIN32)
-    target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1
-        $<$<BOOL:${USE_UNICODE}>:UNICODE;_UNICODE>)
+    target_compile_definitions(dehancer_common_cpp PUBLIC WIN32=1) # FIXME do we need WIN32?
+    target_compile_definitions(dehancer_common_cpp PRIVATE UNICODE _UNICODE)
 endif()
 
 target_link_libraries(dehancer_common_cpp PUBLIC base64cpp::base64cpp SQLite3::SQLite3 Threads::Threads nlohmann_json::nlohmann_json PRIVATE ed25519cpp::ed25519cpp)

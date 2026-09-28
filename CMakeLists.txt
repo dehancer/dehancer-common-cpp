@@ -7,7 +7,6 @@ option(CREATE_PKG_CONFIG "Generate and install pkg-config metadata" OFF)
 option(BUILD_TESTING "Build tests" OFF)
 option(DEHANCER_DEBUG "Enable release diagnostics" OFF)
 option(PRINT_DEBUG "Enable logging" OFF)
-option(USE_UNICODE "Use Unicode Windows APIs" OFF)
 
 if(NOT TARGET base64cpp::base64cpp)
     find_package(base64cpp CONFIG REQUIRED)
