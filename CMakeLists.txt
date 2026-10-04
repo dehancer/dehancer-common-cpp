@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.3)
-project(dehancer_common_cpp VERSION 0.21.0 LANGUAGES C CXX)
+project(dehancer_common_cpp VERSION 0.30.0 LANGUAGES C CXX)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
@@ -27,6 +27,8 @@ endif()
 if(NOT TARGET nlohmann_json::nlohmann_json)
     find_package(nlohmann_json CONFIG REQUIRED)
 endif()
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 add_subdirectory(lib)
 

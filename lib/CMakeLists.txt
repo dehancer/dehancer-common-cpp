@@ -29,7 +29,6 @@ add_library(dehancer_common_cpp ${sources} ${platform_sources})
 add_library(dehancer_common_cpp::dehancer_common_cpp ALIAS dehancer_common_cpp)
 
 target_compile_features(dehancer_common_cpp PUBLIC cxx_std_17)
-set_target_properties(dehancer_common_cpp PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 target_include_directories(dehancer_common_cpp PUBLIC
     "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>"
