@@ -8,7 +8,8 @@ cmake --build build --parallel $(nproc)
 cmake --install build --parallel $(nproc)
 ```
 
-Make sure to set proper `CMAKE_PREFIX_PATH` and `CMAKE_INSTALL_PREFIX` to discover dependencies and install.
+Make sure to set proper `CMAKE_PREFIX_PATH` and `CMAKE_INSTALL_PREFIX`
+to discover dependencies and install.
 
 Use `-DBUILD_SHARED_LIBS=ON` for a shared library; the default is static.
 
