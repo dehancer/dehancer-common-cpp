@@ -52,7 +52,7 @@ namespace dehancer {
     //
 
     namespace file {
-        #if WIN32
+        #if defined(_WIN32)
         using mode_t=unsigned int;
         #endif
     

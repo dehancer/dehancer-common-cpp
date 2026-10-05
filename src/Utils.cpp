@@ -13,7 +13,7 @@
 #include <string>
 #include <ctime>
 
-#if WIN32
+#if defined(_WIN32)
 #include <direct.h>
 #define S_ISDIR(x) ((x&_S_IFDIR)==_S_IFDIR)
 #else
@@ -56,7 +56,7 @@ namespace dehancer {
             struct tm tm_data{};
 
             memset(&ctime, 0, sizeof(struct tm));
-            #if WIN32
+            #if defined(_WIN32)
             std::istringstream ss(timestr);
             ss >> std::get_time(&ctime, "%Y-%m-%dT%T%z");
 
@@ -90,7 +90,7 @@ namespace dehancer {
         {
             std::tm dt = convert_iso8601(dateTime);
 
-            #if WIN32
+            #if defined(_WIN32)
             return _mkgmtime(&dt);
             #else
             return timegm(&dt);
@@ -101,7 +101,7 @@ namespace dehancer {
         {
             std::tm dt = get_time(dateTime, false);
 
-            #if WIN32
+            #if defined(_WIN32)
             return _mkgmtime(&dt);
             #else
             return timegm(&dt);
@@ -135,7 +135,7 @@ namespace dehancer {
         struct pathSeparator {
             bool operator()(char ch) const
             {
-                #if WIN32
+                #if defined(_WIN32)
                 return ch == '\\';
                 #else
                 return ch == '/';
@@ -178,7 +178,7 @@ namespace dehancer {
         int mkdir_p(const char *dir, const mode_t mode)
         {
             char tmp[PATH_MAX_STRING_SIZE];
-            #if WIN32
+            #if defined(_WIN32)
             char sep = '\\';
             #else
             char sep = '/';
@@ -216,7 +216,7 @@ namespace dehancer {
             {
                 if (*p == sep)
                 {
-                    #if WIN32
+                    #if defined(_WIN32)
                     /* In Windows skip drive letter */
                     if(*(p-1) == ':') continue;
                     #endif
@@ -225,7 +225,7 @@ namespace dehancer {
                     if (stat(tmp, &sb) != 0)
                     {
                         /* path does not exist - create directory */
-                        #if WIN32
+                        #if defined(_WIN32)
                         if (mkdir(tmp) < 0)
                         #else
                         if (mkdir(tmp, mode) < 0)
@@ -251,7 +251,7 @@ namespace dehancer {
             if (stat(tmp, &sb) != 0)
             {
                 /* path does not exist - create directory */
-                #if WIN32
+                #if defined(_WIN32)
                 if (mkdir(tmp) < 0)
                 #else
                 if (mkdir(tmp, mode) < 0)

@@ -4,14 +4,14 @@
 
 #include "dehancer/FileUtils.h"
 
-#if WIN32
+#if defined(_WIN32)
 #include <filesystem>
 #endif
 
 namespace dehancer::platform {
-    
-    #if WIN32
-    
+
+    #if defined(_WIN32)
+
     Error access(const std::string& path, int mode) {
       if (!utf8::access(path, mode)) {
         return Error(CommonError::PERMISSIONS_ERROR, error_string("File %s could not be found or has no certain permissions", path.c_str()));

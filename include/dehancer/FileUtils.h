@@ -4,7 +4,7 @@
 
 #pragma once
 
-#if WIN32
+#if defined(_WIN32)
 
 #include "dehancer/windows/utf8/utf8.h"
 
@@ -15,7 +15,7 @@
 #include <iostream>
 
 
-#if WIN32
+#if defined(_WIN32)
 
 #include <io.h>
 #include <cstdio>
@@ -42,23 +42,23 @@
 #endif
 
 namespace dehancer::platform {
-    
+
     dehancer::Error access(const std::string& path, int mode);
     dehancer::Error create_directories(const std::string& dir);
     FILE* fopen(const std::string& path, const std::string& mode);
-    
-    #if WIN32
-    
+
+    #if defined(_WIN32)
+
     using ofstream = utf8::ofstream;
     using ifstream = utf8::ifstream;
     using fstream  = utf8::fstream;
-    
+
     #else
-    
+
     using ofstream = std::ofstream;
     using ifstream = std::ifstream;
     using fstream  = std::fstream;
-    
+
     #endif
-    
+
 }
