@@ -1,11 +1,3 @@
-//
-//  DehancerCommonTestTests.m
-//  DehancerCommonTestTests
-//
-//  Created by denn nevera on 08/10/2019.
-//  Copyright © 2019 Dehancer. All rights reserved.
-//
-
 #import <XCTest/XCTest.h>
 
 @interface DehancerCommonTestTests : XCTestCase

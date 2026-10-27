@@ -10,14 +10,15 @@
 
 #endif
 
-#include "dehancer/Utils.h"
 #include <fstream>
 #include <iostream>
 
+#include "dehancer/Utils.h"
 
 #if defined(_WIN32)
 
 #include <io.h>
+
 #include <cstdio>
 #include <cstdlib>
 
@@ -25,10 +26,10 @@
 #define WIN32_LEAN_AND_MEAN 1
 #endif
 
-#include <windows.h>
+#include <fileapi.h>
 #include <intrin.h>
 #include <iphlpapi.h>
-#include <fileapi.h>
+#include <windows.h>
 
 #define F_OK 00
 #define R_OK 04
@@ -43,22 +44,22 @@
 
 namespace dehancer::platform {
 
-    dehancer::Error access(const std::string& path, int mode);
-    dehancer::Error create_directories(const std::string& dir);
-    FILE* fopen(const std::string& path, const std::string& mode);
+dehancer::Error access(const std::string& path, int mode);
+dehancer::Error create_directories(const std::string& dir);
+FILE* fopen(const std::string& path, const std::string& mode);
 
-    #if defined(_WIN32)
+#if defined(_WIN32)
 
-    using ofstream = utf8::ofstream;
-    using ifstream = utf8::ifstream;
-    using fstream  = utf8::fstream;
+using ofstream = utf8::ofstream;
+using ifstream = utf8::ifstream;
+using fstream = utf8::fstream;
 
-    #else
+#else
 
-    using ofstream = std::ofstream;
-    using ifstream = std::ifstream;
-    using fstream  = std::fstream;
+using ofstream = std::ofstream;
+using ifstream = std::ifstream;
+using fstream = std::fstream;
 
-    #endif
+#endif
 
-}
+}  // namespace dehancer::platform

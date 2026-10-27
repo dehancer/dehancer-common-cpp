@@ -1,4 +1,4 @@
-/// \file buffer.cpp Implementation of utf8::buffer class 
+/// \file buffer.cpp Implementation of utf8::buffer class
 
 /*
   (c) Mircea Neacsu 2014-2019. Licensed under MIT License.
@@ -10,7 +10,7 @@ using namespace std;
 
 /*!
   \class utf8::buffer
-  
+
   Many Windows API function return output strings as UTF-16 encoded strings.
   This class provides conversion operators that make it easier to go back to
   UTF-8 encoded strings.
@@ -25,7 +25,7 @@ using namespace std;
 
   string result = fname;
 ````
-  
+
   Without this class, the equivalent code would be something like:
 ````
   wstring wpath (_MAX_PATH, L'\0');
@@ -42,56 +42,45 @@ namespace utf8 {
 
 /// Constructor
 /// \param size_ buffer size in characters (not bytes)
-buffer::buffer (size_t size_)
-  : ptr (size_ ? new wchar_t[size_] : nullptr)
-  , sz (size_)
-{
-  if (sz)
-    memset (ptr, 0, sz * sizeof (wchar_t));
+buffer::buffer(size_t size_) : ptr(size_ ? new wchar_t[size_] : nullptr), sz(size_) {
+	if (sz)
+		memset(ptr, 0, sz * sizeof(wchar_t));
 }
 
 /// Destructor
-buffer::~buffer ()
-{
-  delete ptr;
+buffer::~buffer() {
+	delete ptr;
 }
 
 /// Copy constructor
-buffer::buffer (const buffer& other)
-  : ptr (other.sz ? new wchar_t[other.sz] : nullptr)
-  , sz (other.sz)
-{
-  if (ptr)
-    memcpy (ptr, other.ptr, sz * sizeof (wchar_t));
+buffer::buffer(const buffer& other)
+    : ptr(other.sz ? new wchar_t[other.sz] : nullptr), sz(other.sz) {
+	if (ptr)
+		memcpy(ptr, other.ptr, sz * sizeof(wchar_t));
 }
 
 /// Principal assignment operator
-buffer&
-buffer::operator =(const buffer& rhs)
-{
-  delete ptr;
-  sz = rhs.sz;
-  if (sz)
-    memcpy ((ptr = new wchar_t[sz]), rhs.ptr, sz * sizeof (wchar_t));
-  else
-    ptr = nullptr;
+buffer& buffer::operator=(const buffer& rhs) {
+	delete ptr;
+	sz = rhs.sz;
+	if (sz)
+		memcpy((ptr = new wchar_t[sz]), rhs.ptr, sz * sizeof(wchar_t));
+	else
+		ptr = nullptr;
 
-  return *this;
+	return *this;
 }
 
 /// String assignment operator
-buffer&
-buffer::operator =(const std::string& rhs)
-{
-  wstring wrhs (widen (rhs));
-  size_t new_size = wrhs.size () + 1;
-  if (new_size > sz)
-  {
-    delete ptr;
-    sz = new_size;
-    ptr = new wchar_t[sz];
-  }
-  memcpy (ptr, wrhs.c_str(), sz * sizeof (wchar_t));
-  return *this;
+buffer& buffer::operator=(const std::string& rhs) {
+	wstring wrhs(widen(rhs));
+	size_t new_size = wrhs.size() + 1;
+	if (new_size > sz) {
+		delete ptr;
+		sz = new_size;
+		ptr = new wchar_t[sz];
+	}
+	memcpy(ptr, wrhs.c_str(), sz * sizeof(wchar_t));
+	return *this;
 }
-}
+}  // namespace utf8

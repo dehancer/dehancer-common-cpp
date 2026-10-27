@@ -4,55 +4,55 @@
 
 #pragma once
 
-#include <string>
-#include <cinttypes>
 #include <chrono>
+#include <cinttypes>
+#include <string>
+
 #include "dehancer/Common.h"
 
 namespace dehancer {
 
-    struct Subscription {
+struct Subscription {
+	std::string title;
+	std::string subscription_id;
+	std::uint16_t seats_count{};
+	std::uint16_t activated_count{};
+	std::time_t expires_at{};
+	std::time_t last_checked{};
+	std::uint16_t offline_days{};
+	bool cancel_at_period_end{};
+	bool activate_by_machine_uid{};
+	bool is_video_allowed{};
+	std::string email;
 
-        std::string title;
-        std::string subscription_id;
-        std::uint16_t seats_count{};
-        std::uint16_t activated_count{};
-        std::time_t expires_at{};
-        std::time_t last_checked{};
-        std::uint16_t offline_days{};
-        bool cancel_at_period_end{};
-        bool activate_by_machine_uid{};
-        bool is_video_allowed{};
-        std::string email;
+	bool is_current{};
 
-        bool is_current{};
+	Subscription();
 
-        Subscription();
+	Subscription(const Subscription& subscription);
 
-        Subscription(const Subscription &subscription);
+	Subscription& operator=(const Subscription& right);
 
-        Subscription &operator=(const Subscription &right);
+	Error sign(const std::string& pvk);
 
-        Error sign(const std::string &pvk);
+	static expected<Subscription, Error> Decode(const std::string& base64);
 
-        static expected<Subscription, Error> Decode(const std::string &base64);
+	static std::string Encode(const Subscription& subscription, bool line_break_enabled = true);
 
-        static std::string Encode(const Subscription &subscription, bool line_break_enabled = true);
+	static expected<Subscription, Error> from_json(const nlohmann::json& json);
 
-        static expected<Subscription, Error> from_json(const nlohmann::json &json);
+	[[nodiscard]] nlohmann::json json() const;
 
-        [[nodiscard]] nlohmann::json json() const;
+	[[nodiscard]] bool is_valid() const;
 
-        [[nodiscard]] bool is_valid() const;
+	[[nodiscard]] bool is_offline_exceeded() const;
 
-        [[nodiscard]] bool is_offline_exceeded() const;
+	[[nodiscard]] const std::string& get_signature() const;
 
-        [[nodiscard]] const std::string &get_signature() const;
+	void update_pk(const std::string&);
 
-        void update_pk(const std::string &);
-
-    private:
-        std::string pk_;
-        std::string signature_;
-    };
-}
+private:
+	std::string pk_;
+	std::string signature_;
+};
+}  // namespace dehancer

@@ -38,40 +38,41 @@ England
 #include <string>
 
 /** @file This file contains OFX logging header code
-*/
+ */
 
-/** @brief The core 'OFX Support' namespace, used by plugin implementations. All code for these are defined in the common support libraries.
-*/
+/** @brief The core 'OFX Support' namespace, used by plugin implementations. All code for these are
+ * defined in the common support libraries.
+ */
 namespace dehancer {
 
-    /** @brief this namespace wraps up logging functionality */
-    namespace log {
+/** @brief this namespace wraps up logging functionality */
+namespace log {
 
-        extern bool use_console;
+extern bool use_console;
 
-        /** @brief Indent it, not MP sane at the moment */
-        void indent();
+/** @brief Indent it, not MP sane at the moment */
+void indent();
 
-        /** @brief Outdent it, not MP sane at the moment */
-        void outdent();
+/** @brief Outdent it, not MP sane at the moment */
+void outdent();
 
-        /** @brief Sets the name of the log file. */
-        void setFileName(const std::string &value);
+/** @brief Sets the name of the log file. */
+void setFileName(const std::string& value);
 
-        /** @brief Opens the log file, returns whether this was sucessful or not. */
-        bool open();
+/** @brief Opens the log file, returns whether this was sucessful or not. */
+bool open();
 
-        /** @brief Closes the log file. */
-        void close();
+/** @brief Closes the log file. */
+void close();
 
-        /** @brief Prints to the log file. */
-        void print(const char *format, ...);
-        void printl(const char *format, ...);
+/** @brief Prints to the log file. */
+void print(const char* format, ...);
+void printl(const char* format, ...);
 
-        /** @brief Prints to the log file only if the condition is true and prepends a warning notice. */
-        void warning(bool condition, const char *format, ...);
+/** @brief Prints to the log file only if the condition is true and prepends a warning notice. */
+void warning(bool condition, const char* format, ...);
 
-        /** @brief Prints to the log file only if the condition is true and prepends an error notice. */
-        void error(bool condition, const char *format, ...);
-    };
-};
+/** @brief Prints to the log file only if the condition is true and prepends an error notice. */
+void error(bool condition, const char* format, ...);
+};  // namespace log
+};  // namespace dehancer

@@ -4,70 +4,69 @@
 
 #pragma once
 
+#include <chrono>
+#include <cstdarg>
 #include <ctime>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <optional>
-#include <cstdarg>
-#include <chrono>
+#include <sstream>
 
 #include "Common.h"
 
 namespace dehancer {
 
-    int random(int min, int max);
+int random(int min, int max);
 
-    std::string_view trim(std::string_view s);
+std::string_view trim(std::string_view s);
 
-    namespace time {
-        /**
-        *  Converts UTC time string to a time_t value.
-        *  return tm struct
-        *  */
-        std::time_t get_epoch_time(const std::string &dateTime);
+namespace time {
+/**
+ *  Converts UTC time string to a time_t value.
+ *  return tm struct
+ *  */
+std::time_t get_epoch_time(const std::string& dateTime);
 
-        /**
-         *  Converts UTC time string to a tm struct.
-         *  return tm struct, tm_year = tm_year+1900
-         *  */
-        std::tm get_time(const std::string &dateTime, bool adjust_year = true);
+/**
+ *  Converts UTC time string to a tm struct.
+ *  return tm struct, tm_year = tm_year+1900
+ *  */
+std::tm get_time(const std::string& dateTime, bool adjust_year = true);
 
-        std::time_t get_iso8601_time(const std::string &dateTime);
+std::time_t get_iso8601_time(const std::string& dateTime);
 
-        std::string utc_to_time_string(std::time_t t);
+std::string utc_to_time_string(std::time_t t);
 
-        std::string utc_to_date_string(std::time_t t);
+std::string utc_to_date_string(std::time_t t);
 
-        static inline std::time_t now()
-        {
-            return std::chrono::system_clock::now().time_since_epoch() / std::chrono::seconds(1);
-        }
-
-        std::time_t now_utc();
-    }
-
-    //
-    // Clang on OSX does not support <filesystem>
-    //
-
-    namespace file {
-        #if defined(_WIN32)
-        using mode_t=unsigned int;
-        #endif
-    
-        std::string last_component(std::string const &pathname);
-
-        std::string deleting_extension(std::string const &filename);
-
-        bool copy_file(const char *source, const char *destination);
-        
-        int mkdir_p(const char *dir, mode_t mode);
-    }
-
-    namespace url {
-        std::string encode(const std::string &value);
-
-        std::string decode(const std::string &text);
-    }
+static inline std::time_t now() {
+	return std::chrono::system_clock::now().time_since_epoch() / std::chrono::seconds(1);
 }
+
+std::time_t now_utc();
+}  // namespace time
+
+//
+// Clang on OSX does not support <filesystem>
+//
+
+namespace file {
+#if defined(_WIN32)
+using mode_t = unsigned int;
+#endif
+
+std::string last_component(std::string const& pathname);
+
+std::string deleting_extension(std::string const& filename);
+
+bool copy_file(const char* source, const char* destination);
+
+int mkdir_p(const char* dir, mode_t mode);
+}  // namespace file
+
+namespace url {
+std::string encode(const std::string& value);
+
+std::string decode(const std::string& text);
+}  // namespace url
+}  // namespace dehancer

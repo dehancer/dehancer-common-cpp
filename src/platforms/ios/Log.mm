@@ -31,7 +31,6 @@ The Open Effects Association Ltd
 London W1D 6PA
 England
 
-
 */
 
 /** @file This file contains the body of functions used for logging ofx problems etc...
@@ -50,19 +49,19 @@ The log file is written to using printf style functions, rather than via c++ ios
 
 namespace dehancer {
     namespace log {
-        
+
         /** @brief log file */
         static FILE *gLogFP = stdout;
-        
+
         /** @brief global indent level, not MP sane */
         static int gIndent = 0;
-        
+
         /** @brief Sets the name of the log file. */
         void setFileName(const std::string &value)
         {
           //gLogFileName = value;
         }
-        
+
         /** @brief Opens the log file, returns whether this was sucessful or not. */
         bool open()
         {
@@ -72,41 +71,40 @@ namespace dehancer {
           return false;
 #endif
         }
-        
+
         /** @brief Closes the log file. */
         void close()
         {
         }
-        
+
         /** @brief Indent it, not MP sane at the moment */
         void indent()
         {
           ++gIndent;
         }
-        
+
         /** @brief Outdent it, not MP sane at the moment */
         void outdent()
         {
           --gIndent;
         }
-        
+
         void LogIt (NSString *format, ...)
         {
           va_list args;
-          
+
           va_start (args, format);
-          
+
           NSString *string;
-          
+
           string = [[NSString alloc] initWithFormat: format  arguments: args];
-          
+
           va_end (args);
-          
+
           fprintf (gLogFP, "%s\n", [string UTF8String]);
-          
+
         } // LogIt
-        
-        
+
         /** @brief do the indenting */
         static inline void doIndent()
         {
@@ -116,7 +114,7 @@ namespace dehancer {
             }
           }
         }
-        
+
         /** @brief Prints to the log file. */
         void print(const char *format, ...)
         {
@@ -127,7 +125,7 @@ namespace dehancer {
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
             fputs("] ", gLogFP);
             fputs("INFO: ", gLogFP);
-            
+
             va_list args;
             va_start(args, format);
             vfprintf(gLogFP, format, args);
@@ -137,7 +135,7 @@ namespace dehancer {
           }
 #endif
         }
-        
+
         /** @brief Prints to the log file. */
         void printl(const char *format, ...)
         {
@@ -148,7 +146,7 @@ namespace dehancer {
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
             fputs("] ", gLogFP);
             fputs("INFO: ", gLogFP);
-            
+
             va_list args;
             va_start(args, format);
             vfprintf(gLogFP, format, args);
@@ -157,7 +155,7 @@ namespace dehancer {
           }
 #endif
         }
-        
+
         /** @brief Prints to the log file only if the condition is true and prepends a warning notice. */
         void warning(bool condition, const char *format, ...)
         {
@@ -168,18 +166,18 @@ namespace dehancer {
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
             fputs("] ", gLogFP);
             fputs("WARNING: ", gLogFP);
-            
+
             va_list args;
             va_start(args, format);
             vfprintf(gLogFP, format, args);
             fputc('\n', gLogFP);
             va_end(args);
-            
+
             fflush(gLogFP);
           }
 #endif
         }
-        
+
         /** @brief Prints to the log file only if the condition is true and prepends an error notice. */
         void error(bool condition, const char *format, ...)
         {
@@ -190,13 +188,13 @@ namespace dehancer {
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
             fputs("] ", gLogFP);
             fputs("ERROR : ", gLogFP);
-            
+
             va_list args;
             va_start(args, format);
             vfprintf(gLogFP, format, args);
             fputc('\n', gLogFP);
             va_end(args);
-            
+
             fflush(gLogFP);
           }
 #endif

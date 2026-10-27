@@ -3,70 +3,69 @@
 //
 
 #include "dehancer/Subscription.h"
-#include "dehancer/Utils.h"
+
 #include "dehancer/Log.h"
-#include "gtest/gtest.h"
+#include "dehancer/Utils.h"
 #include "ed25519.hpp"
+#include "gtest/gtest.h"
 
 TEST(Subscription, SubscriptionTest) {
+	auto pr = ed25519::keys::Pair::Random();
 
-    auto pr = ed25519::keys::Pair::Random();
+	std::cout << std::endl;
 
+	auto subs = dehancer::Subscription();
 
-    std::cout << std::endl;
+	subs.subscription_id = "qwerty";
+	subs.seats_count = 3;
+	subs.activated_count = 1;
+	subs.is_current = false;
 
-    auto subs = dehancer::Subscription();
+	auto error = subs.sign(pr->get_private_key().encode());
 
-    subs.subscription_id = "qwerty";
-    subs.seats_count = 3;
-    subs.activated_count = 1;
-    subs.is_current = false;
+	EXPECT_TRUE(!error);
 
-    auto error = subs.sign(pr->get_private_key().encode());
+	dehancer::log::error(error, "Subscription error: %s", error.message().c_str());
 
-    EXPECT_TRUE(!error);
+	if (error) {
+		std::cout << "Subscription error: " << error << std::endl;
+	}
 
-    dehancer::log::error(error, "Subscription error: %s", error.message().c_str());
+	std::cout << "Subscription: " << subs.json().dump(4) << std::endl;
 
-    if (error) {
-        std::cout << "Subscription error: " << error << std::endl;
-    }
+	dehancer::log::print("Subscription: %s", subs.json().dump().c_str());
 
-    std::cout << "Subscription: " << subs.json().dump(4) << std::endl;
+	auto encoded = dehancer::Subscription::Encode(subs);
+	auto encoded_line = dehancer::Subscription::Encode(subs, false);
 
-    dehancer::log::print("Subscription: %s", subs.json().dump().c_str());
+	std::cout << "Subscription encode: \n" << encoded << " : " << encoded.size() << std::endl;
+	std::cout << "Subscription encode line: \n"
+	          << encoded_line << " : " << encoded_line.size() << std::endl;
 
-    auto encoded = dehancer::Subscription::Encode(subs);
-    auto encoded_line = dehancer::Subscription::Encode(subs, false);
+	auto subs2 = dehancer::Subscription::Decode("  " + encoded_line + " ");
 
-    std::cout << "Subscription encode: \n" << encoded << " : " << encoded.size() << std::endl;
-    std::cout << "Subscription encode line: \n" <<  encoded_line << " : " << encoded_line.size() << std::endl;
+	EXPECT_TRUE(subs2);
 
-    auto subs2 = dehancer::Subscription::Decode("  "+encoded_line+" ");
+	if (!subs2) {
+		std::cerr << "Subscription decode error: " << subs2.error().message() << std::endl;
+		return;
+	}
 
-    EXPECT_TRUE(subs2);
+	std::cout << "Subscription2[" << subs2->is_valid() << "]: " << subs2->json().dump() << std::endl;
 
-    if (!subs2) {
-        std::cerr << "Subscription decode error: " << subs2.error().message() << std::endl;
-        return;
-    }
+	subs2->update_pk(pr->get_public_key().encode());
 
-    std::cout << "Subscription2["<<subs2->is_valid()<<"]: " << subs2->json().dump() << std::endl;
+	EXPECT_TRUE(subs2->is_valid());
 
-    subs2->update_pk(pr->get_public_key().encode());
+	subs2->is_current = !subs2->is_current;
 
-    EXPECT_TRUE(subs2->is_valid());
+	std::cout << "Subscription2[" << subs2->is_valid() << "]: " << subs2->json().dump() << std::endl;
 
-    subs2->is_current = !subs2->is_current;
+	EXPECT_TRUE(!subs2->is_valid());
 
-    std::cout << "Subscription2["<<subs2->is_valid()<<"]: " << subs2->json().dump() << std::endl;
+	auto subs3 = dehancer::Subscription(subs);
 
-    EXPECT_TRUE(!subs2->is_valid());
+	subs3.update_pk(pr->get_public_key().encode());
 
-    auto subs3 = dehancer::Subscription(subs);
-
-    subs3.update_pk(pr->get_public_key().encode());
-
-    EXPECT_TRUE(subs3.is_valid());
-
+	EXPECT_TRUE(subs3.is_valid());
 }

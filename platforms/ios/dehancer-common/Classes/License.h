@@ -1,10 +1,3 @@
-    //
-    //  License.h
-    //  DehancerCommon
-    //
-    //  Created by denn nevera on 08/10/2019.
-    //
-
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(int, LicenseType) {

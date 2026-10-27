@@ -1,149 +1,137 @@
-//
-// Created by denn nevera on 2019-08-10.
-//
-
 #pragma once
 
-#include <string>
 #include <cinttypes>
+#include <string>
+
 #include "dehancer/Common.h"
 
+namespace dehancer {
 
-namespace dehancer{
+struct License {
+	enum class Type : int { promo = 0, light = 1, standard = 2, pro = 3, unknown = -1 };
 
-    struct License {
+	/* license type*/
+	Type type = Type::unknown;
+	/* software version */
+	std::uint16_t version{};
+	/* user email */
+	std::string email;
+	/* software name */
+	std::string name;
+	/* software host */
+	std::string host;
+	/* license maintainer */
+	std::string maintainer;
+	/* activation key upgraded from or empty */
+	std::string upgraded_id;
+	/* activation issue date -1 == undefined */
+	time_t issue_date{};
+	/* expiration date -1 == undefined 0 - unlimited */
+	time_t expiry_date{};
+	/* user can activate offline */
+	bool offline_enabling{};
 
-        enum class Type:int {
-            promo     =  0,
-            light     =  1,
-            standard  =  2,
-            pro       =  3,
-            unknown   = -1
-        };
+	/**
+	 * Sign the activation key
+	 * @return error or OK
+	 */
+	Error sign();
 
-        /* license type*/
-        Type           type = Type::unknown;
-        /* software version */
-        std::uint16_t  version{};
-        /* user email */
-        std::string    email;
-        /* software name */
-        std::string    name;
-        /* software host */
-        std::string    host;
-        /* license maintainer */
-        std::string    maintainer;
-        /* activation key upgraded from or empty */
-        std::string    upgraded_id;
-        /* activation issue date -1 == undefined */
-        time_t         issue_date{};
-        /* expiration date -1 == undefined 0 - unlimited */
-        time_t         expiry_date{};
-        /* user can activate offline */
-        bool           offline_enabling{};
+	/**
+	 * Activation key is valid
+	 * @return true or false
+	 */
+	[[nodiscard]] bool is_valid() const;
 
-        /**
-         * Sign the activation key
-         * @return error or OK
-         */
-        Error sign();
+	/**
+	 * Check expiration date
+	 * @return true or false
+	 */
+	[[nodiscard]] bool is_expired() const;
 
-        /**
-         * Activation key is valid
-         * @return true or false
-         */
-        [[nodiscard]] bool is_valid() const;
+	/**
+	 * Check the activation key is active
+	 * @return true or false
+	 */
+	[[nodiscard]] bool is_active() const;
 
-        /**
-         * Check expiration date
-         * @return true or false
-         */
-        [[nodiscard]] bool is_expired() const ;
+	/**
+	 * Get the license id
+	 * @return unique license id string
+	 */
+	[[nodiscard]] const std::string& get_id() const;
 
-        /**
-        * Check the activation key is active
-        * @return true or false
-        */
-        [[nodiscard]] bool is_active() const;
+	/**
+	 * Get the cativation key signature
+	 * @return signature base58 string
+	 */
+	[[nodiscard]] const std::string& get_signature() const;
 
-        /**
-         * Get the license id
-         * @return unique license id string
-         */
-        [[nodiscard]] const std::string& get_id() const ;
+	/**
+	 * Activate the key
+	 */
+	void activate();
 
-        /**
-         * Get the cativation key signature
-         * @return signature base58 string
-         */
-        [[nodiscard]] const std::string& get_signature() const;
+	/**
+	 * Deactivate the key
+	 */
+	void deactivate();
 
-        /**
-         * Activate the key
-         */
-        void activate();
+	/**
+	 * Get activation date
+	 * @return date in time_t
+	 */
+	[[nodiscard]] time_t get_activation_date() const;
 
-        /**
-         * Deactivate the key
-         */
-        void deactivate();
+	/**
+	 * Create a template of licens activation key
+	 */
+	License();
 
-        /**
-         * Get activation date
-         * @return date in time_t
-         */
-        [[nodiscard]] time_t get_activation_date() const;
+	/**
+	 * Copy
+	 * @param license instance
+	 */
+	License(const License& license);
 
-        /**
-         * Create a template of licens activation key
-         */
-        License();
+	/**
+	 * Decode License activation key from base64 string
+	 * @param base64 base64 encoded string
+	 * @return license or error if string can't be decoded
+	 */
+	static expected<License, Error> Decode(const std::string& base64);
 
-        /**
-         * Copy
-         * @param license instance
-         */
-        License(const License& license);
+	/**
+	 * Encode the license to base64 activation key string
+	 * @param license instance
+	 * @param line_break_enabled enable line break
+	 * @return base64 activation key string
+	 */
+	static std::string Encode(const License& license, bool line_break_enabled = true);
 
-        /**
-         * Decode License activation key from base64 string
-         * @param base64 base64 encoded string
-         * @return license or error if string can't be decoded
-         */
-        static expected<License,Error> Decode(const std::string& base64);
+	/**
+	 * Encode license from json object
+	 * @param json lic serialized in json
+	 * @return licens ot error
+	 */
+	static expected<License, Error> from_json(const nlohmann::json& json);
 
-        /**
-         * Encode the license to base64 activation key string
-         * @param license instance
-         * @param line_break_enabled enable line break
-         * @return base64 activation key string
-         */
-        static std::string Encode(const License& license, bool line_break_enabled = true);
+	/**
+	 * Dump as json
+	 * @return json object
+	 */
+	[[nodiscard]] nlohmann::json json() const;
 
-        /**
-         * Encode license from json object
-         * @param json lic serialized in json 
-         * @return licens ot error
-         */
-        static expected<License,Error> from_json(const nlohmann::json& json);
+	License& operator=(const License& right);
 
-        /**
-         * Dump as json
-         * @return json object
-         */
-        [[nodiscard]] nlohmann::json json() const;
+private:
+	std::string id_;
+	std::string signature_;
+	time_t activation_date_{};
+	bool is_active_{};
 
-        License& operator=(const License& right);
-
-    private:
-        std::string id_;
-        std::string signature_;
-        time_t      activation_date_{};
-        bool        is_active_{};
-
-    public:
-        static std::string authority_key;
-        static std::string authority_public_key;
-
-    };
-}
+public:
+	static std::string authority_key;
+	static std::string authority_public_key;
+};
+}  // namespace dehancer
