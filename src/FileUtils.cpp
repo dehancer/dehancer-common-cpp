@@ -14,9 +14,7 @@ namespace dehancer::platform {
 
 Error access(const std::string& path, int mode) {
 	if (!utf8::access(path, mode)) {
-		return Error(
-		    CommonError::PERMISSIONS_ERROR,
-		    error_string("File %s could not be found or has no certain permissions", path.c_str()));
+		return Error(CommonError::PERMISSIONS_ERROR, error_string("File %s could not be found or has no certain permissions", path.c_str()));
 	} else {
 		return Error(CommonError::OK);
 	}
@@ -39,9 +37,7 @@ FILE* fopen(const std::string& path, const std::string& mode) {
 
 Error access(const std::string& path, int mode) {
 	if (::access(path.c_str(), mode) != 0) {
-		return Error(
-		    CommonError::PERMISSIONS_ERROR,
-		    error_string("File %s could not be found or has no certain permissions", path.c_str()));
+		return Error(CommonError::PERMISSIONS_ERROR, error_string("File %s could not be found or has no certain permissions", path.c_str()));
 	} else {
 		return Error(CommonError::OK);
 	}
@@ -49,9 +45,7 @@ Error access(const std::string& path, int mode) {
 
 dehancer::Error create_directories(const std::string& dir) {
 	if (file::mkdir_p(dir.c_str(), 0755) != 0) {
-		return Error(CommonError::PERMISSIONS_ERROR,
-		             error_string("Directory %s could not be found or user has no certain permissions",
-		                          dir.c_str()));
+		return Error(CommonError::PERMISSIONS_ERROR, error_string("Directory %s could not be found or user has no certain permissions", dir.c_str()));
 	}
 	return Error(CommonError::OK);
 }

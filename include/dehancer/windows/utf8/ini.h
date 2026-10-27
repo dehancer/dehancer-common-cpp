@@ -39,16 +39,10 @@ public:
 	void File(const std::string& filename);
 
 	/// Get a string key
-	size_t GetString(char* value,
-	                 size_t len,
-	                 const std::string& key,
-	                 const std::string& section,
-	                 const std::string& defval = std::string()) const;
+	size_t GetString(char* value, size_t len, const std::string& key, const std::string& section, const std::string& defval = std::string()) const;
 
 	/// Return a string key
-	std::string GetString(const std::string& key,
-	                      const std::string& section,
-	                      const std::string& defval = std::string()) const;
+	std::string GetString(const std::string& key, const std::string& section, const std::string& defval = std::string()) const;
 
 	/// Return an integer key
 	int GetInt(const std::string& key, const std::string& section, int defval = 0) const;
@@ -57,9 +51,7 @@ public:
 	double GetDouble(const std::string& key, const std::string& section, double defval = 0.) const;
 
 	/// Return a color specification key
-	COLORREF GetColor(const std::string& key,
-	                  const std::string& section,
-	                  COLORREF defval = RGB(0, 0, 0)) const;
+	COLORREF GetColor(const std::string& key, const std::string& section, COLORREF defval = RGB(0, 0, 0)) const;
 
 	/// Return a boolean key
 	bool GetBool(const std::string& key, const std::string& section, bool defval = false) const;
@@ -95,9 +87,7 @@ public:
 	bool DeleteSection(const std::string& section);
 
 	/// Copy all keys from one section to another.
-	bool CopySection(const IniFile& from_file,
-	                 const std::string& from_sect,
-	                 const std::string& to_sect = std::string());
+	bool CopySection(const IniFile& from_file, const std::string& from_sect, const std::string& to_sect = std::string());
 
 	/// Return \b true if profile contains a non empty section with the given name
 	bool HasSection(const std::string& section);

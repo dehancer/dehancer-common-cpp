@@ -428,11 +428,7 @@ bool splitpath(const std::string& path, char* drive, char* dir, char* fname, cha
 
   Returned strings are converted to UTF-8.
 */
-bool splitpath(const std::string& path,
-               std::string& drive,
-               std::string& dir,
-               std::string& fname,
-               std::string& ext) {
+bool splitpath(const std::string& path, std::string& drive, std::string& dir, std::string& fname, std::string& ext) {
 	wstring wpath = widen(path);
 	wchar_t wdrive[_MAX_DRIVE];
 	wchar_t wdir[_MAX_DIR];
@@ -462,17 +458,9 @@ bool splitpath(const std::string& path,
   If any required syntactic element (colon after drive letter, '\' at end of
   directory path, colon before extension) is missing, it is automatically added.
 */
-bool makepath(std::string& path,
-              const std::string& drive,
-              const std::string& dir,
-              const std::string& fname,
-              const std::string& ext) {
+bool makepath(std::string& path, const std::string& drive, const std::string& dir, const std::string& fname, const std::string& ext) {
 	wchar_t wpath[_MAX_PATH];
-	if (_wmakepath_s(wpath,
-	                 widen(drive).c_str(),
-	                 widen(dir).c_str(),
-	                 widen(fname).c_str(),
-	                 widen(ext).c_str()))
+	if (_wmakepath_s(wpath, widen(drive).c_str(), widen(dir).c_str(), widen(fname).c_str(), widen(ext).c_str()))
 		return false;
 
 	path = narrow(wpath);

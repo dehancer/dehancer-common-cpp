@@ -53,8 +53,7 @@ buffer::~buffer() {
 }
 
 /// Copy constructor
-buffer::buffer(const buffer& other)
-    : ptr(other.sz ? new wchar_t[other.sz] : nullptr), sz(other.sz) {
+buffer::buffer(const buffer& other) : ptr(other.sz ? new wchar_t[other.sz] : nullptr), sz(other.sz) {
 	if (ptr)
 		memcpy(ptr, other.ptr, sz * sizeof(wchar_t));
 }

@@ -41,8 +41,7 @@ TEST(License, LicenseTest) {
 	auto encoded_line = dehancer::License::Encode(lic, false);
 
 	std::cout << "License encode: \n" << encoded << " : " << encoded.size() << std::endl;
-	std::cout << "License encode line: \n"
-	          << encoded_line << " : " << encoded_line.size() << std::endl;
+	std::cout << "License encode line: \n" << encoded_line << " : " << encoded_line.size() << std::endl;
 
 	auto lic2 = dehancer::License::Decode("  " + encoded_line + " ");
 

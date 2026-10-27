@@ -165,11 +165,9 @@ expected<Subscription, Error> Subscription::Decode(const std::string& base64_in)
 		return Subscription::from_json(json_data);
 
 	} catch (std::exception& e) {
-		return make_unexpected(
-		    Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
+		return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
 	} catch (...) {
-		return make_unexpected(
-		    Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
+		return make_unexpected(Error(CommonError::PARSE_ERROR, "Subscription text could not be decoded..."));
 	}
 }
 
@@ -198,8 +196,7 @@ bool Subscription::is_offline_exceeded() const {
 		return false;
 	}
 
-	const auto days_from_last_check =
-	    (std::chrono::seconds(std::time(nullptr)).count() - last_checked) / 86400;
+	const auto days_from_last_check = (std::chrono::seconds(std::time(nullptr)).count() - last_checked) / 86400;
 	return days_from_last_check > offline_days;
 }
 

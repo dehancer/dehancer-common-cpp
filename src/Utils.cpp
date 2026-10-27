@@ -131,8 +131,7 @@ struct pathSeparator {
 };
 
 std::string last_component(std::string const& pathname) {
-	return std::string(std::find_if(pathname.rbegin(), pathname.rend(), pathSeparator()).base(),
-	                   pathname.end());
+	return std::string(std::find_if(pathname.rbegin(), pathname.rend(), pathSeparator()).base(), pathname.end());
 }
 
 std::string deleting_extension(std::string const& filename) {

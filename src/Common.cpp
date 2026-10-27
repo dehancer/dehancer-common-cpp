@@ -6,8 +6,7 @@
 
 namespace dehancer {
 
-Error::Error(const std::error_condition code, const std::string& message)
-    : code_(code.value(), code.category()), exception_message_(message) {}
+Error::Error(const std::error_condition code, const std::string& message) : code_(code.value(), code.category()), exception_message_(message) {}
 
 int Error::value() const {
 	return code_.value();

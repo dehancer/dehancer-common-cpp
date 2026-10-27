@@ -39,9 +39,7 @@ TEST(SQLITE, SimpleTest) {
 				           make_column("birth_date", &User::birthDate),
 				           make_column("image_url", &User::imageUrl),
 				           make_column("type_id", &User::typeId)),
-		    make_table("user_types",
-				           make_column("id", &UserType::id, primary_key().autoincrement()),
-				           make_column("name", &UserType::name, default_value("name_placeholder"))));
+		    make_table("user_types", make_column("id", &UserType::id, primary_key().autoincrement()), make_column("name", &UserType::name, default_value("name_placeholder"))));
 
 		storage.sync_schema();
 
@@ -63,8 +61,7 @@ TEST(SQLITE, SimpleTest) {
 
 		std::cout << "===" << std::endl;
 
-		auto firstName =
-		    storage.get_all<User>(where(c(&User::firstName) == "Jonh" and c(&User::id) < 2));
+		auto firstName = storage.get_all<User>(where(c(&User::firstName) == "Jonh" and c(&User::id) < 2));
 
 		for (auto& user : firstName) {
 			std::cout << storage.dump(user) << std::endl;

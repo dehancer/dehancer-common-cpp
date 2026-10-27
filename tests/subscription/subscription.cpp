@@ -39,8 +39,7 @@ TEST(Subscription, SubscriptionTest) {
 	auto encoded_line = dehancer::Subscription::Encode(subs, false);
 
 	std::cout << "Subscription encode: \n" << encoded << " : " << encoded.size() << std::endl;
-	std::cout << "Subscription encode line: \n"
-	          << encoded_line << " : " << encoded_line.size() << std::endl;
+	std::cout << "Subscription encode line: \n" << encoded_line << " : " << encoded_line.size() << std::endl;
 
 	auto subs2 = dehancer::Subscription::Decode("  " + encoded_line + " ");
 

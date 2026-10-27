@@ -25,8 +25,7 @@ public:
 	 */
 	using DataHandler = std::function<void(Types... parameters)>;
 
-	using ProgressHandler =
-	    std::function<void(size_t total, size_t progress, size_t count, size_t index)>;
+	using ProgressHandler = std::function<void(size_t total, size_t progress, size_t count, size_t index)>;
 
 	/***
 	 * Success handler prototype

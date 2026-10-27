@@ -17,12 +17,7 @@ std::string LoadString(HINSTANCE hInst, UINT id);
 /// File enumeration structure used by find_first() and find_next() functions
 struct find_data {
 	find_data()  ///< Initializes the structure
-	    : handle{INVALID_HANDLE_VALUE},
-	      attributes{0},
-	      creation_time{0, 0},
-	      access_time{0, 0},
-	      write_time{0, 0},
-	      size{0} {}
+	    : handle{INVALID_HANDLE_VALUE}, attributes{0}, creation_time{0, 0}, access_time{0, 0}, write_time{0, 0}, size{0} {}
 
 	HANDLE handle;           ///< search handle
 	DWORD attributes;        ///< file attributes

@@ -337,9 +337,7 @@ HFONT IniFile::GetFont(const std::string& key, const std::string& section, HFONT
   \param section  section name
   \param defval   default value if key is missing
 */
-COLORREF IniFile::GetColor(const std::string& key,
-                           const std::string& section,
-                           COLORREF defval) const {
+COLORREF IniFile::GetColor(const std::string& key, const std::string& section, COLORREF defval) const {
 	int R = 0, G = 0, B = 0;
 	char value[80];
 
@@ -410,8 +408,7 @@ bool IniFile::GetBool(const std::string& key, const std::string& section, bool d
 
 	if (!GetString(buffer, sizeof(buffer), key, section))
 		return defval;
-	return (!_stricmp(buffer, "on") || !_stricmp(buffer, "yes") || !_stricmp(buffer, "true") ||
-	        (atoi(buffer) == 1));
+	return (!_stricmp(buffer, "on") || !_stricmp(buffer, "yes") || !_stricmp(buffer, "true") || (atoi(buffer) == 1));
 }
 
 /*!
@@ -439,9 +436,7 @@ bool IniFile::PutBool(const std::string& key, bool value, const std::string& sec
 
   \pre from_sect cannot be empty
 */
-bool IniFile::CopySection(const IniFile& from_file,
-                          const std::string& from_sect,
-                          const std::string& to_sect) {
+bool IniFile::CopySection(const IniFile& from_file, const std::string& from_sect, const std::string& to_sect) {
 	assert(!from_sect.empty());
 	char buffer[INI_BUFFERSIZE];
 
@@ -606,11 +601,7 @@ size_t IniFile::GetKeys(std::deque<std::string>& keys, const std::string& sectio
   \param defval   default value
   \return         length of returned string
 */
-size_t IniFile::GetString(char* value,
-                          size_t len,
-                          const std::string& key,
-                          const std::string& section,
-                          const std::string& defval) const {
+size_t IniFile::GetString(char* value, size_t len, const std::string& key, const std::string& section, const std::string& defval) const {
 	FILE* fp;
 	bool found = false;
 
@@ -632,9 +623,7 @@ size_t IniFile::GetString(char* value,
   \param defval   default value
   \return         key value
 */
-std::string IniFile::GetString(const std::string& key,
-                               const std::string& section,
-                               const std::string& defval) const {
+std::string IniFile::GetString(const std::string& key, const std::string& section, const std::string& defval) const {
 	FILE* fp;
 	bool found = false;
 	char buffer[INI_BUFFERSIZE];
@@ -652,9 +641,7 @@ std::string IniFile::GetString(const std::string& key,
   \param section  section name
   \return         true if successful, false otherwise
 */
-bool IniFile::PutString(const std::string& key,
-                        const std::string& value,
-                        const std::string& section) {
+bool IniFile::PutString(const std::string& key, const std::string& value, const std::string& section) {
 	return putkey(key.c_str(), value.c_str(), section.c_str(), filename.c_str());
 }
 
@@ -1005,20 +992,8 @@ static bool same_file(const std::string& f1, const std::string& f2) {
 
 	/* If both files exist, compare the unique FILE_ID_INFO for them.
 	   This takes care of symlinks, hardlinks, etc. */
-	HANDLE h1 = CreateFileW(widen(f1).c_str(),
-	                        GENERIC_READ,
-	                        FILE_SHARE_READ,
-	                        NULL,
-	                        OPEN_EXISTING,
-	                        FILE_ATTRIBUTE_NORMAL,
-	                        NULL);
-	HANDLE h2 = CreateFileW(widen(f2).c_str(),
-	                        GENERIC_READ,
-	                        FILE_SHARE_READ,
-	                        NULL,
-	                        OPEN_EXISTING,
-	                        FILE_ATTRIBUTE_NORMAL,
-	                        NULL);
+	HANDLE h1 = CreateFileW(widen(f1).c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	HANDLE h2 = CreateFileW(widen(f2).c_str(), GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (h1 == INVALID_HANDLE_VALUE || h2 == INVALID_HANDLE_VALUE) {
 		CloseHandle(h1);
 		CloseHandle(h2);

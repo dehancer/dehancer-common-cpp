@@ -105,8 +105,7 @@ bool basic_semaphore<Mutex, CondVar, Thread>::try_wait() {
 
 template <typename Mutex, typename CondVar, typename Thread>
 template <class Rep, class Period>
-bool basic_semaphore<Mutex, CondVar, Thread>::wait_for(
-    const std::chrono::duration<Rep, Period>& d) {
+bool basic_semaphore<Mutex, CondVar, Thread>::wait_for(const std::chrono::duration<Rep, Period>& d) {
 	std::unique_lock<Mutex> lock{mutex_};
 	auto finished = condition_.wait_for(lock, d, [&] {
 		return count_ > 0;
@@ -120,8 +119,7 @@ bool basic_semaphore<Mutex, CondVar, Thread>::wait_for(
 
 template <typename Mutex, typename CondVar, typename Thread>
 template <class Clock, class Duration>
-bool basic_semaphore<Mutex, CondVar, Thread>::wait_until(
-    const std::chrono::time_point<Clock, Duration>& t) {
+bool basic_semaphore<Mutex, CondVar, Thread>::wait_until(const std::chrono::time_point<Clock, Duration>& t) {
 	std::unique_lock<Mutex> lock{mutex_};
 	auto finished = condition_.wait_until(lock, t, [&] {
 		return count_ > 0;
@@ -134,8 +132,7 @@ bool basic_semaphore<Mutex, CondVar, Thread>::wait_until(
 }
 
 template <typename Mutex, typename CondVar, typename Thread>
-typename basic_semaphore<Mutex, CondVar, Thread>::native_handle_type
-basic_semaphore<Mutex, CondVar, Thread>::native_handle() {
+typename basic_semaphore<Mutex, CondVar, Thread>::native_handle_type basic_semaphore<Mutex, CondVar, Thread>::native_handle() {
 	return condition_.native_handle();
 }
 

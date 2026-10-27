@@ -9,8 +9,7 @@
 #include "Expected.h"
 
 #define PUBLIC_ENUM(OriginalType) std::underlying_type_t<OriginalType>
-#define EXTEND_ENUM(OriginalType, LAST) \
-	static_cast<std::underlying_type_t<OriginalType>>(OriginalType::LAST)
+#define EXTEND_ENUM(OriginalType, LAST) static_cast<std::underlying_type_t<OriginalType>>(OriginalType::LAST)
 
 namespace dehancer {
 
