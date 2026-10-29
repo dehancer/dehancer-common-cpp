@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.3)
-project(dehancer_common_cpp VERSION 0.30.0 LANGUAGES C CXX)
+project(dehancer_common_cpp VERSION 0.40.0 LANGUAGES C CXX)
 
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
