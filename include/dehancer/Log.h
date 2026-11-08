@@ -50,6 +50,8 @@ namespace log {
 
 extern bool use_console;
 
+bool isLogEnabled();
+
 /** @brief Indent it, not MP sane at the moment */
 void indent();
 

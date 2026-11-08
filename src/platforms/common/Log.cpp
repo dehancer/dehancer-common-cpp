@@ -48,6 +48,7 @@ The log file is written to using printf style functions, rather than via c++ ios
 #include <cstdlib>
 #include <iostream>
 #include <string>
+#include <filesystem>
 
 #include "dehancer/Utils.h"
 
@@ -61,11 +62,26 @@ namespace log {
 /** @brief log file */
 static FILE* gLogFP = nullptr;
 bool use_console = false;
+static bool isInitialized = false;
+static bool isLogEnabledCurrently = false;
 
 /// environment variable for the log file
 #define kLogFileEnvVar "DEHANCER_LOGFILE"
 
 /** @brief the global logfile name */
+static std::string gLogEnabledFlagFile(
+#if WIN32
+	!utf8::getenv(kLogFileEnvVar).empty() ? utf8::getenv(kLogFileEnvVar) :
+#else
+	std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
+#endif
+#if WIN32
+	utf8::getenv("TEMP").empty() ? "\\tmp\\enable-dehancer-log.txt"
+									 : std::string(utf8::getenv("TEMP")) + "\\enable-dehancer-log.txt"
+#else
+								"/tmp/enable-dehancer-log.txt"
+#endif
+);
 
 static std::string gLogFileName(
 #if WIN32
@@ -89,20 +105,32 @@ void setFileName(const std::string& value) {
 	gLogFileName = value;
 }
 
+bool isLogEnabled() {
+	if (isInitialized) {
+		return isLogEnabledCurrently;
+	}
+	std::error_code ec;
+	const std::filesystem::path p = std::filesystem::u8path(gLogFileName);
+	isLogEnabledCurrently = std::filesystem::is_regular_file(p, ec);
+	isInitialized = true;
+	return isLogEnabledCurrently;
+}
+
+
 /** @brief Opens the log file, returns whether this was sucessful or not. */
 bool open() {
-#ifdef PRINT_DEBUG
-	if (use_console) {
-		gLogFP = stdout;
-	} else if (!gLogFP) {
+    if (isLogEnabled()) {
+	    if (use_console) {
+	    	gLogFP = stdout;
+	    } else if (!gLogFP) {
 #if WIN32
-		gLogFP = utf8::fopen(gLogFileName, "ab");
+	    	gLogFP = utf8::fopen(gLogFileName, "ab");
 #else
-		gLogFP = fopen(gLogFileName.c_str(), "a+");
+	    	gLogFP = fopen(gLogFileName.c_str(), "a+");
 #endif
-		return gLogFP != nullptr;
-	}
-#endif
+	    	return gLogFP != nullptr;
+	    }
+    }
 	return gLogFP != nullptr;
 }
 
@@ -111,7 +139,7 @@ void close() {
 	if (gLogFP) {
 		fclose(gLogFP);
 	}
-	gLogFP = 0;
+	gLogFP = nullptr;
 }
 
 /** @brief Indent it, not MP sane at the moment */
@@ -135,8 +163,7 @@ static inline void doIndent() {
 
 /** @brief Prints to the log file. */
 void print(const char* format, ...) {
-#if PRINT_DEBUG
-	if (open()) {
+	if (isLogEnabled() && open()) {
 		doIndent();
 		fputs("[", gLogFP);
 		fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -150,13 +177,11 @@ void print(const char* format, ...) {
 		fflush(gLogFP);
 		va_end(args);
 	}
-#endif
 }
 
 /** @brief Prints to the log file. */
 void printl(const char* format, ...) {
-#if PRINT_DEBUG
-	if (open()) {
+	if (isLogEnabled() && open()) {
 		doIndent();
 		fputs("[", gLogFP);
 		fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -169,13 +194,11 @@ void printl(const char* format, ...) {
 		fflush(gLogFP);
 		va_end(args);
 	}
-#endif
 }
 
 /** @brief Prints to the log file only if the condition is true and prepends a warning notice. */
 void warning(bool condition, const char* format, ...) {
-#if PRINT_DEBUG
-	if (condition && open()) {
+	if (isLogEnabled() && condition && open()) {
 		doIndent();
 		fputs("[", gLogFP);
 		fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -190,13 +213,11 @@ void warning(bool condition, const char* format, ...) {
 
 		fflush(gLogFP);
 	}
-#endif
 }
 
 /** @brief Prints to the log file only if the condition is true and prepends an error notice. */
 void error(bool condition, const char* format, ...) {
-#ifdef PRINT_DEBUG
-	if (condition && open()) {
+	if (isLogEnabled() && condition && open()) {
 		doIndent();
 		fputs("[", gLogFP);
 		fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -211,7 +232,6 @@ void error(bool condition, const char* format, ...) {
 
 		fflush(gLogFP);
 	}
-#endif
 }
 };  // namespace log
 };  // namespace dehancer
