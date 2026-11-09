@@ -110,29 +110,11 @@ bool isLogEnabled() {
 		return isLogEnabledCurrently;
 	}
 	std::error_code ec;
-	const std::filesystem::path p = std::filesystem::u8path(gLogFileName);
+	const std::filesystem::path p = std::filesystem::u8path(gLogEnabledFlagFile);
 	isLogEnabledCurrently = std::filesystem::is_regular_file(p, ec);
 	isInitialized = true;
 	return isLogEnabledCurrently;
 }
-
-std::string dbgGetFlagFile() {
-	return gLogEnabledFlagFile;
-}
-bool dbgIsEnabled() {
-	std::error_code ec;
-	const std::filesystem::path p = std::filesystem::u8path(gLogFileName);
-	isLogEnabledCurrently = std::filesystem::is_regular_file(p, ec);
-	isInitialized = true;
-	return isLogEnabledCurrently;
-}
-std::error_code dbgGetError() {
-	std::error_code ec;
-	const std::filesystem::path p = std::filesystem::u8path(gLogFileName);
-	isLogEnabledCurrently = std::filesystem::is_regular_file(p, ec);
-	return ec;
-}
-
 
 /** @brief Opens the log file, returns whether this was sucessful or not. */
 bool open() {

@@ -53,10 +53,6 @@ extern bool use_console;
 
 bool isLogEnabled();
 
-    std::string dbgGetFlagFile();
-    bool dbgIsEnabled();
-    std::error_code dbgGetError();
-
 /** @brief Indent it, not MP sane at the moment */
 void indent();
 
