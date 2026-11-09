@@ -36,6 +36,7 @@ England
 #pragma once
 
 #include <string>
+#include <system_error>
 
 /** @file This file contains OFX logging header code
  */
@@ -51,6 +52,10 @@ namespace log {
 extern bool use_console;
 
 bool isLogEnabled();
+
+    std::string dbgGetFlagFile();
+    bool dbgIsEnabled();
+    std::error_code dbgGetError();
 
 /** @brief Indent it, not MP sane at the moment */
 void indent();
