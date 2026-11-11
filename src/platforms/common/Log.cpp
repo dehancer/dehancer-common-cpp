@@ -68,13 +68,8 @@ static bool isLogEnabledCurrently = false;
 /// environment variable for the log file
 #define kLogFileEnvVar "DEHANCER_LOGFILE"
 
-/** @brief the global logfile name */
+/** @brief the global flag file enabling logging */
 static std::string gLogEnabledFlagFile(
-#if WIN32
-	!utf8::getenv(kLogFileEnvVar).empty() ? utf8::getenv(kLogFileEnvVar) :
-#else
-	std::getenv(kLogFileEnvVar) ? std::getenv(kLogFileEnvVar) :
-#endif
 #if WIN32
 	utf8::getenv("TEMP").empty() ? "\\tmp\\enable-dehancer-log.txt"
 									 : std::string(utf8::getenv("TEMP")) + "\\enable-dehancer-log.txt"
@@ -83,6 +78,7 @@ static std::string gLogEnabledFlagFile(
 #endif
 );
 
+/** @brief the global logfile name */
 static std::string gLogFileName(
 #if WIN32
     !utf8::getenv(kLogFileEnvVar).empty() ? utf8::getenv(kLogFileEnvVar) :
