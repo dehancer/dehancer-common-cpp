@@ -62,14 +62,20 @@ namespace dehancer {
           //gLogFileName = value;
         }
 
+        bool isLogEnabled() {
+	        // till it is supported here just disable it
+	        return false;
+	    }
+
         /** @brief Opens the log file, returns whether this was sucessful or not. */
         bool open()
         {
-#ifdef PRINT_DEBUG
-          return true;
-#else
-          return false;
-#endif
+            if (isLogEnabled()) {
+                return true;
+		    }
+            else {
+                return false;
+			}
         }
 
         /** @brief Closes the log file. */
@@ -118,8 +124,7 @@ namespace dehancer {
         /** @brief Prints to the log file. */
         void print(const char *format, ...)
         {
-#if PRINT_DEBUG
-          if(open()) {
+          if(isLogEnabled() && open()) {
             doIndent();
             fputs("[", gLogFP);
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -133,14 +138,12 @@ namespace dehancer {
             fflush(gLogFP);
             va_end(args);
           }
-#endif
         }
 
         /** @brief Prints to the log file. */
         void printl(const char *format, ...)
         {
-#if PRINT_DEBUG
-          if(open()) {
+          if(isLogEnabled() && open()) {
             doIndent();
             fputs("[", gLogFP);
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -153,14 +156,12 @@ namespace dehancer {
             fflush(gLogFP);
             va_end(args);
           }
-#endif
         }
 
         /** @brief Prints to the log file only if the condition is true and prepends a warning notice. */
         void warning(bool condition, const char *format, ...)
         {
-#if PRINT_DEBUG
-          if(condition && open()) {
+          if(isLogEnabled() && condition && open()) {
             doIndent();
             fputs("[", gLogFP);
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -175,14 +176,12 @@ namespace dehancer {
 
             fflush(gLogFP);
           }
-#endif
         }
 
         /** @brief Prints to the log file only if the condition is true and prepends an error notice. */
         void error(bool condition, const char *format, ...)
         {
-#      ifdef PRINT_DEBUG
-          if(condition && open()) {
+          if(isLogEnabled() && condition && open()) {
             doIndent();
             fputs("[", gLogFP);
             fputs(time::utc_to_time_string(time::now_utc()).c_str(), gLogFP);
@@ -197,7 +196,6 @@ namespace dehancer {
 
             fflush(gLogFP);
           }
-#endif
         }
     };
 };

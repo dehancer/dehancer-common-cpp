@@ -36,6 +36,7 @@ England
 #pragma once
 
 #include <string>
+#include <system_error>
 
 /** @file This file contains OFX logging header code
  */
@@ -49,6 +50,8 @@ namespace dehancer {
 namespace log {
 
 extern bool use_console;
+
+bool isLogEnabled();
 
 /** @brief Indent it, not MP sane at the moment */
 void indent();

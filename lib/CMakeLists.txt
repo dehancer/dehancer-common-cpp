@@ -36,9 +36,6 @@ target_include_directories(dehancer_common_cpp PUBLIC
     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
 
-target_compile_definitions(dehancer_common_cpp PRIVATE
-    $<$<BOOL:${PRINT_DEBUG}>:PRINT_DEBUG=1>)
-
     if(MSVC AND DEHANCER_DEBUG)
     target_compile_options(dehancer_common_cpp PRIVATE /Od /Ob0 /Z7 /UNDEBUG)
 endif()
